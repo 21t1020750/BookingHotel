@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Đăng Nhập - VietNamBooking";
+}
+
+<section style="padding: 60px 0; background-color: #f5f7fa;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <div class="card-body" style="padding: 30px;">
+                        <h2 style="font-size: 1.75rem; font-weight: 700; color: #003087; text-align: center; margin-bottom: 20px;">
+                            Đăng Nhập
+                        </h2>
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger" style="border-radius: 8px;">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div class="form-group">
+                                <label for="emailOrPhone" style="color: #003087;">Email hoặc Số điện thoại</label>
+                                <input type="text" id="emailOrPhone" name="emailOrPhone" class="form-control" placeholder="Nhập email hoặc số điện thoại" style="border-radius: 8px;" required>
+                            </div>
+                            <div class="form-group" style="margin-top: 15px;">
+                                <label for="password" style="color: #003087;">Mật khẩu</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Nhập mật khẩu" style="border-radius: 8px;" required>
+                            </div>
+                            <div style="margin-top: 20px; text-align: center;">
+                                <button type="submit" class="btn btn-block" style="background-color: #FF6200; color: #fff; border-radius: 8px; padding: 10px;">
+                                    Đăng nhập
+                                </button>
+                            </div>
+                        </form>
+                        <div style="margin-top: 15px; text-align: center;">
+                            <p style="color: #6c757d;">
+                                Chưa có tài khoản?
+                                <a asp-controller="Account" asp-action="Register" style="color: #FF6200; font-weight: 500;">
+                                    Đăng ký ngay
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

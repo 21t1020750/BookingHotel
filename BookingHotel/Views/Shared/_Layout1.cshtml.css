@@ -1,0 +1,109 @@
+﻿/* File: _Layout1.cshtml.css */
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    color: #003087;
+    transition: color 0.3s ease;
+}
+
+    a:hover {
+        color: #0056b3;
+    }
+
+.btn-primary {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+}
+
+.border-top {
+    border-top: 1px solid #e0e0e0;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.box-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+    background-color: #003087;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+    button.accept-policy:hover {
+        background-color: #0056b3;
+    }
+
+.footer {
+    background-color: #003087;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    line-height: 60px;
+    text-align: center;
+}
+
+/* Sidebar customizations */
+.main-sidebar {
+    background-color: #001f57 !important;
+}
+
+.sidebar-menu li a {
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li.treeview > a:hover,
+.sidebar-menu li.active > a {
+    background-color: #003087 !important;
+    color: #fff !important;
+}
+
+.sidebar-menu .treeview-menu {
+    background-color: #002244 !important;
+}
+
+    .sidebar-menu .treeview-menu li a {
+        color: #fff !important;
+        font-weight: 400;
+    }
+
+    .sidebar-menu .treeview-menu li.active a {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }
+
+    .sidebar-menu .treeview-menu li a:hover {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }

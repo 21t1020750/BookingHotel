@@ -1,0 +1,176 @@
+﻿@model BookingHotel.Models.Room
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f5f7fa;
+    }
+
+    .box-primary {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .form-horizontal {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-control, select {
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .radio-inline label {
+        margin-right: 20px;
+        font-weight: 500;
+        color: #555;
+    }
+
+    .img img-bordered {
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+
+    .btn-primary, .btn-default {
+        border-radius: 8px;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: #003087;
+        border: none;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-default {
+        background-color: #e9ecef;
+        border: none;
+    }
+
+        .btn-default:hover {
+            background-color: #dee2e6;
+        }
+
+    .text-danger {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" asp-action="Edit">
+            <input type="hidden" asp-for="RoomID">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Số Phòng</label>
+                <div class="col-sm-10">
+                    <input autofocus class="form-control" asp-for="RoomNumber" required>
+                    @Html.ValidationMessageFor(m => m.RoomNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thể Loại Phòng</label>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(m => m.RoomTypeID, ViewBag.RoomTypes as SelectList, "-- Chọn danh mục --", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.RoomTypeID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Giá Phòng</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Price" type="number" required>
+                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Trạng Thái Phòng</label>
+                <div class="col-sm-10">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="StatusID" value="1" @(Model.StatusID == 1 ? "checked" : "")> Available
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="StatusID" value="2" @(Model.StatusID == 2 ? "checked" : "")> Booked
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="StatusID" value="3" @(Model.StatusID == 3 ? "checked" : "")> Cleaning
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.StatusID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Mô Tả</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Description" type="text" required>
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh Phòng</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('photoPreview').src = window.URL.createObjectURL(this.files[0])">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <img id="photoPreview" src="/images/room/@(Model.Photo ?? "nophoto.png")" class="img img-bordered" style="width:200px" alt="Ảnh phòng" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu Dữ Liệu
+                    </button>
+                    <a href="@Url.Action("Index", "Rooms")" class="btn btn-default">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function () {
+                $(this).validate();
+            });
+        });
+    </script>
+}

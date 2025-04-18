@@ -1,0 +1,460 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Đặt Phòng - VietNamBooking";
+}
+
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #003087 0%, #0056b3 100%); color: #fff; padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">
+                Đặt phòng khách sạn dễ dàng nhất Việt Nam
+            </h1>
+            <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+                Hơn 10,000 khách sạn từ bình dân đến cao cấp với giá tốt nhất
+            </p>
+            <div style="margin-top: 30px;">
+                <a asp-controller="Bookings" asp-action="Search" class="btn" style="background-color: #fff; color: #003087; border-radius: 8px; padding: 10px 20px; margin-right: 10px;">
+                    <i class="fas fa-search mr-2"></i> Tìm khách sạn
+                </a>
+                <a asp-controller="Promotions" asp-action="Index" class="btn" style="background-color: #FF6200; color: #fff; border-radius: 8px; padding: 10px 20px;">
+                    <i class="fas fa-percent mr-2"></i> Ưu đãi hôm nay
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section style="margin-top: -40px;">
+    <div class="container">
+        <div class="bg-white shadow-lg rounded-lg p-5">
+            <form asp-controller="Bookings" asp-action="Search" method="get">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label style="color: #003087;">Địa điểm</label>
+                        <div class="input-group">
+                            <input type="text" name="location" class="form-control" placeholder="Thành phố, khách sạn..." style="border-radius: 8px;">
+                            <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label style="color: #003087;">Ngày nhận phòng</label>
+                        <div class="input-group">
+                            <input type="text" name="checkInDate" class="form-control date-picker" style="border-radius: 8px;">
+                            <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label style="color: #003087;">Ngày trả phòng</label>
+                        <div class="input-group">
+                            <input type="text" name="checkOutDate" class="form-control date-picker" style="border-radius: 8px;">
+                            <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group" style="display: flex; align-items: flex-end;">
+                        <button type="submit" class="btn btn-block" style="background-color: #FF6200; color: #fff; border-radius: 8px;">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Khách Sạn Khuyến Mãi -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Khách sạn khuyến mãi</h2>
+                    <a asp-controller="Hotels" asp-action="Promotions" style="color: #FF6200; font-weight: 500;">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <p style="color: #6c757d; margin-top: 10px;">Ưu đãi đặc biệt chỉ có tại VietNamBooking</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <!-- Hotel 1 -->
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Khách sạn" style="width: 100%; height: 180px; object-fit: cover; transition: transform 0.5s;">
+                        <span style="position: absolute; top: 10px; right: 10px; background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem;">-30%</span>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Vinpearl Luxury Đà Nẵng</h3>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <i class="fas fa-map-marker-alt" style="color: #6c757d; margin-right: 5px;"></i>
+                            <span style="color: #6c757d; font-size: 0.875rem;">Đà Nẵng</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span style="color: #6c757d; font-size: 0.875rem; margin-left: 5px;">(128 đánh giá)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <div>
+                                <span style="color: #6c757d; font-size: 0.875rem; text-decoration: line-through;">3,500,000đ</span>
+                                <p style="color: #003087; font-weight: 600; margin: 0;">2,450,000đ</p>
+                            </div>
+                            <a asp-controller="Bookings" asp-action="Create" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Lưu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hotel 2 -->
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa" alt="Resort" style="width: 100%; height: 180px; object-fit: cover; transition: transform 0.5s;">
+                        <span style="position: absolute; top: 10px; right: 10px; background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem;">-25%</span>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Fusion Resort Phú Quốc</h3>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <i class="fas fa-map-marker-alt" style="color: #6c757d; margin-right: 5px;"></i>
+                            <span style="color: #6c757d; font-size: 0.875rem;">Phú Quốc</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span style="color: #6c757d; font-size: 0.875rem; margin-left: 5px;">(96 đánh giá)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <div>
+                                <span style="color: #6c757d; font-size: 0.875rem; text-decoration: line-through;">2,800,000đ</span>
+                                <p style="color: #003087; font-weight: 600; margin: 0;">2,100,000đ</p>
+                            </div>
+                            <a asp-controller="Bookings" asp-action="Create" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Lưu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hotel 3 -->
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b" alt="Boutique Hotel" style="width: 100%; height: 180px; object-fit: cover; transition: transform 0.5s;">
+                        <span style="position: absolute; top: 10px; right: 10px; background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem;">-20%</span>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">La Siesta Hội An</h3>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <i class="fas fa-map-marker-alt" style="color: #6c757d; margin-right: 5px;"></i>
+                            <span style="color: #6c757d; font-size: 0.875rem;">Hội An</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span style="color: #6c757d; font-size: 0.875rem; margin-left: 5px;">(215 đánh giá)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <div>
+                                <span style="color: #6c757d; font-size: 0.875rem; text-decoration: line-through;">1,500,000đ</span>
+                                <p style="color: #003087; font-weight: 600; margin: 0;">1,200,000đ</p>
+                            </div>
+                            <a asp-controller="Bookings" asp-action="Create" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Lưu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hotel 4 -->
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4" alt="Beach Resort" style="width: 100%; height: 180px; object-fit: cover; transition: transform 0.5s;">
+                        <span style="position: absolute; top: 10px; right: 10px; background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem;">-15%</span>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">InterContinental Nha Trang</h3>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <i class="fas fa-map-marker-alt" style="color: #6c757d; margin-right: 5px;"></i>
+                            <span style="color: #6c757d; font-size: 0.875rem;">Nha Trang</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span style="color: #6c757d; font-size: 0.875rem; margin-left: 5px;">(178 đánh giá)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <div>
+                                <span style="color: #6c757d; font-size: 0.875rem; text-decoration: line-through;">4,200,000đ</span>
+                                <p style="color: #003087; font-weight: 600; margin: 0;">3,570,000đ</p>
+                            </div>
+                            <a asp-controller="Bookings" asp-action="Create" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Lưu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Điểm đến nổi bật trong nước -->
+<section style="background-color: #f5f7fa; padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Điểm đến nổi bật trong nước</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; max-width: 600px; margin: 10px auto;">
+                Khám phá những địa điểm du lịch hấp dẫn nhất Việt Nam
+            </p>
+        </div>
+        <div class="row mt-4">
+            <!-- Destination 1 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07" alt="Sa Pa" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 15px;">
+                            <h3 style="color: #fff; font-size: 1.5rem; font-weight: 600;">Sa Pa</h3>
+                            <p style="color: #d1d5db;">Thiên đường nghỉ dưỡng miền Bắc</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #003087; font-weight: 600;">Từ 500,000đ/đêm</span>
+                            <a asp-controller="Destinations" asp-action="Details" asp-route-id="sapa" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Khám phá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Destination 2 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Phú Quốc" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 15px;">
+                            <h3 style="color: #fff; font-size: 1.5rem; font-weight: 600;">Phú Quốc</h3>
+                            <p style="color: #d1d5db;">Đảo ngọc xinh đẹp miền Nam</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #003087; font-weight: 600;">Từ 700,000đ/đêm</span>
+                            <a asp-controller="Destinations" asp-action="Details" asp-route-id="phu-quoc" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Khám phá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Destination 3 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa" alt="Đà Lạt" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 15px;">
+                            <h3 style="color: #fff; font-size: 1.5rem; font-weight: 600;">Đà Lạt</h3>
+                            <p style="color: #d1d5db;">Thành phố ngàn hoa mộng mơ</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #003087; font-weight: 600;">Từ 600,000đ/đêm</span>
+                            <a asp-controller="Destinations" asp-action="Details" asp-route-id="da-lat" class="btn btn-sm" style="background-color: #FF6200; color: #fff; border-radius: 4px;">Khám phá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lên kế hoạch dễ dàng và nhanh chóng -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Lên kế hoạch dễ dàng và nhanh chóng</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; max-width: 600px; margin: 10px auto;">
+                VietNamBooking giúp bạn lên kế hoạch du lịch hoàn hảo chỉ với vài bước đơn giản
+            </p>
+        </div>
+        <div class="row mt-4">
+            <!-- Step 1 -->
+            <div class="col-md-3 text-center">
+                <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto; font-size: 1.5rem; font-weight: 600;">1</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Chọn điểm đến</h3>
+                <p style="color: #6c757d;">Tìm kiếm và chọn địa điểm bạn muốn đến</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-3 text-center">
+                <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto; font-size: 1.5rem; font-weight: 600;">2</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Chọn khách sạn</h3>
+                <p style="color: #6c757d;">Xem đánh giá và chọn khách sạn phù hợp</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-3 text-center">
+                <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto; font-size: 1.5rem; font-weight: 600;">3</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Đặt phòng</h3>
+                <p style="color: #6c757d;">Nhập thông tin và xác nhận đặt phòng</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-3 text-center">
+                <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto; font-size: 1.5rem; font-weight: 600;">4</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Tận hưởng</h3>
+                <p style="color: #6c757d;">Nhận xác nhận và tận hưởng chuyến đi</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gợi ý khám phá -->
+<section style="background-color: #f5f7fa; padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Gợi ý khám phá</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; max-width: 600px; margin: 10px auto;">
+                Những trải nghiệm du lịch đáng nhớ dành cho bạn
+            </p>
+        </div>
+        <div class="row mt-4">
+            <!-- Experience 1 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1573270689103-d7a4e42b609a" alt="Du thuyền Hạ Long" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Du thuyền Hạ Long</h3>
+                        <p style="color: #6c757d;">Trải nghiệm đêm trên vịnh với các dịch vụ cao cấp</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <span style="color: #003087; font-weight: 600;">1,200,000đ/người</span>
+                            <a asp-controller="Experiences" asp-action="Details" asp-route-id="ha-long-cruise" style="color: #FF6200; font-weight: 500;">Chi tiết <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Experience 2 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1720522230321-6cc38b07f9d6" alt="Đèn lồng Hội An" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Đêm phố cổ Hội An</h3>
+                        <p style="color: #6c757d;">Thả đèn hoa đăng và thưởng thức ẩm thực địa phương</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <span style="color: #003087; font-weight: 600;">500,000đ/người</span>
+                            <a asp-controller="Experiences" asp-action="Details" asp-route-id="hoi-an-night" style="color: #FF6200; font-weight: 500;">Chi tiết <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Experience 3 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa" alt="Đà Lạt" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div class="card-body" style="padding: 15px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600;">Tour canyoning Đà Lạt</h3>
+                        <p style="color: #6c757d;">Trải nghiệm mạo hiểm với các hoạt động leo núi, đu dây</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <span style="color: #003087; font-weight: 600;">800,000đ/người</span>
+                            <a asp-controller="Experiences" asp-action="Details" asp-route-id="da-lat-canyoning" style="color: #FF6200; font-weight: 500;">Chi tiết <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section style="background-color: #f5f7fa; padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Tại sao chọn VietNamBooking?</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; max-width: 600px; margin: 10px auto;">
+                Chúng tôi mang đến trải nghiệm đặt phòng tốt nhất cho bạn
+            </p>
+        </div>
+        <div class="row mt-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card text-center" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; transition: transform 0.3s;">
+                    <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto;">
+                        <i class="fas fa-percentage" style="font-size: 1.25rem;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Giá tốt nhất</h3>
+                    <p style="color: #6c757d;">Chúng tôi cam kết giá tốt nhất với ưu đãi lên đến 50%</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card text-center" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; transition: transform 0.3s;">
+                    <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto;">
+                        <i class="fas fa-headset" style="font-size: 1.25rem;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Hỗ trợ 24/7</h3>
+                    <p style="color: #6c757d;">Đội ngũ hỗ trợ luôn sẵn sàng giúp đỡ bạn mọi lúc</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card text-center" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; transition: transform 0.3s;">
+                    <div style="background-color: #003087; color: #fff; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto;">
+                        <i class="fas fa-shield-alt" style="font-size: 1.25rem;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 15px;">Thanh toán an toàn</h3>
+                    <p style="color: #6c757d;">Hệ thống thanh toán đa dạng và bảo mật tuyệt đối</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #003087;">Khách hàng nói gì về chúng tôi</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; max-width: 600px; margin: 10px auto;">
+                Hơn 100,000 khách hàng hài lòng mỗi năm
+            </p>
+        </div>
+        <div class="row mt-4">
+            <!-- Testimonial 1 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px;">
+                    <div class="d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Customer" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+                        <div>
+                            <h4 style="font-size: 1.25rem; font-weight: 600;">Nguyễn Thị Hương</h4>
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #6c757d; margin-top: 10px;">
+                        "Tôi rất hài lòng với dịch vụ của VietNamBooking. Nhân viên nhiệt tình, giá cả hợp lý và khách sạn đúng như mô tả."
+                    </p>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px;">
+                    <div class="d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Customer" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+                        <div>
+                            <h4 style="font-size: 1.25rem; font-weight: 600;">Trần Văn Nam</h4>
+                            <div style="color: #ffc107;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #6c757d; margin-top: 10px;">
+                        "Đặt phòng nhanh chóng, dễ dàng. Tôi sẽ tiếp tục sử dụng VietNamBooking cho các chuyến đi sau."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts {
+        <script>
+            $(document).ready(function () {
+                $('.date-picker').datepicker({
+                    autoclose: true,
+                    format: "dd/mm/yyyy"
+                });
+            });
+        </script>
+}

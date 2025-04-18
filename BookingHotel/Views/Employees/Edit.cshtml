@@ -1,0 +1,145 @@
+﻿@model BookingHotel.Models.Employee
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f5f7fa;
+    }
+
+    .box-primary {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .form-horizontal {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .img img-bordered {
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+
+    .btn-primary, .btn-default {
+        border-radius: 8px;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: #003087;
+        border: none;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-default {
+        background-color: #e9ecef;
+        border: none;
+    }
+
+        .btn-default:hover {
+            background-color: #dee2e6;
+        }
+
+    .text-danger {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" asp-action="Edit">
+            <input type="hidden" asp-for="EmployeeID">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên Nhân Viên</label>
+                <div class="col-sm-10">
+                    <input autofocus class="form-control" asp-for="FullName" required>
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Vị Trí</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Position" type="text" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Email</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Email" type="text" required>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Số Điện Thoại</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Phone" type="text" required>
+                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ngày Nhận Việc</label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="HireDate" type="text" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh Cá Nhân</label>
+                <div class="col-sm-10">
+                    <input type="hidden" name="Photo" value="@Model.Photo" />
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('photoPreview').src = window.URL.createObjectURL(this.files[0])" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <img id="photoPreview" src="/images/Employee/@(Model.Photo ?? "nophoto.png")" class="img img-bordered" style="width:200px" alt="Ảnh nhân viên" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu Dữ Liệu
+                    </button>
+                    <a href="@Url.Action("Index", "Employees")" class="btn btn-default">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

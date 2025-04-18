@@ -1,0 +1,158 @@
+/* _content/BookingHotel/Views/Shared/_Layout1.cshtml.rz.scp.css */
+/* File: _Layout1.cshtml.css */
+a.navbar-brand[b-bxz1spotg3] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+a[b-bxz1spotg3] {
+    color: #003087;
+    transition: color 0.3s ease;
+}
+
+    a:hover[b-bxz1spotg3] {
+        color: #0056b3;
+    }
+
+.btn-primary[b-bxz1spotg3] {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary:hover[b-bxz1spotg3] {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.nav-pills .nav-link.active[b-bxz1spotg3], .nav-pills .show > .nav-link[b-bxz1spotg3] {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+}
+
+.border-top[b-bxz1spotg3] {
+    border-top: 1px solid #e0e0e0;
+}
+
+.border-bottom[b-bxz1spotg3] {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.box-shadow[b-bxz1spotg3] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.accept-policy[b-bxz1spotg3] {
+    font-size: 1rem;
+    line-height: inherit;
+    background-color: #003087;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+    button.accept-policy:hover[b-bxz1spotg3] {
+        background-color: #0056b3;
+    }
+
+.footer[b-bxz1spotg3] {
+    background-color: #003087;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    line-height: 60px;
+    text-align: center;
+}
+
+/* Sidebar customizations */
+.main-sidebar[b-bxz1spotg3] {
+    background-color: #001f57 !important;
+}
+
+.sidebar-menu li a[b-bxz1spotg3] {
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li.treeview > a:hover[b-bxz1spotg3],
+.sidebar-menu li.active > a[b-bxz1spotg3] {
+    background-color: #003087 !important;
+    color: #fff !important;
+}
+
+.sidebar-menu .treeview-menu[b-bxz1spotg3] {
+    background-color: #002244 !important;
+}
+
+    .sidebar-menu .treeview-menu li a[b-bxz1spotg3] {
+        color: #fff !important;
+        font-weight: 400;
+    }
+
+    .sidebar-menu .treeview-menu li.active a[b-bxz1spotg3] {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }
+
+    .sidebar-menu .treeview-menu li a:hover[b-bxz1spotg3] {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }
+/* _content/BookingHotel/Views/Shared/_Layout2.cshtml.rz.scp.css */
+/* _Layout2.cshtml.css */
+body[b-rtijr8ytcw] {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+}
+
+header a:hover[b-rtijr8ytcw] {
+    color: #FF6200 !important;
+}
+
+header .btn:hover[b-rtijr8ytcw] {
+    opacity: 0.9;
+}
+
+main[b-rtijr8ytcw] {
+    padding: 30px 0;
+}
+
+footer a:hover[b-rtijr8ytcw] {
+    color: #fff !important;
+}
+
+@media (max-width: 768px) {
+    header .row[b-rtijr8ytcw] {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header .col-md-3[b-rtijr8ytcw],
+    header .col-md-6[b-rtijr8ytcw] {
+        margin-bottom: 15px;
+    }
+
+    header nav ul[b-rtijr8ytcw] {
+        flex-direction: column;
+    }
+
+        header nav ul li[b-rtijr8ytcw] {
+            margin: 10px 0;
+        }
+
+    header .text-right[b-rtijr8ytcw] {
+        text-align: center;
+    }
+}

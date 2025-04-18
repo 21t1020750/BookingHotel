@@ -1,0 +1,52 @@
+﻿<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                <a href="~/">
+                    <i class="fas fa-home" style="color: #FF6200;"></i> <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Employees" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" ? "active" : "")">
+                <a href="#">
+                    <i class="fa-solid fa-database" style="color: #FF6200;"></i> <span>Dữ Liệu</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" ? "active" : "")">
+                        <a href="~/Rooms"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Phòng</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" ? "active" : "")">
+                        <a href="~/RoomTypes"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Thể Loại Phòng</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" ? "active" : "")">
+                        <a href="~/Customers"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Khách Hàng</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Employees" ? "active" : "")">
+                        <a href="~/Employees"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Nhân Viên</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" ? "active" : "")">
+                        <a href="~/Services"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Dịch Vụ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" ? "active" : "")">
+                <a href="#">
+                    <i class="fa-solid fa-cart-plus" style="color: #FF6200;"></i> <span>Quản Lý Booking</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="~/Bookings"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Danh Mục Booking</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active" : "")">
+                        <a href="~/Bookings/Create"><i class="fa fa-circle-o" style="color: #FF6200;"></i> Lập Booking</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</aside>

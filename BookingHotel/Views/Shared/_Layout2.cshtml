@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VietNamBooking - @ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/Themes/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/_Layout2.cshtml.css"> 
+    <link rel="shortcut icon" type="image/jpg" href="~/Themes/dist/img/ava.jpg" />
+</head>
+<body style="font-family: 'Roboto', sans-serif;">
+    <!-- Header -->
+    <header style="background-color: #003087; color: #fff; padding: 15px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="~/" style="color: #fff; text-decoration: none; font-size: 24px; font-weight: 600;">
+                        VietNamBooking
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <nav>
+                        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center;">
+                            <li style="margin: 0 20px;">
+                                <a href="~/" style="color: #fff; text-decoration: none; font-weight: 400;">Trang chủ</a>
+                            </li>
+                            <li style="margin: 0 20px;">
+                                <a href="~/Hotels" style="color: #fff; text-decoration: none; font-weight: 400;">Khách sạn</a>
+                            </li>
+                            <li style="margin: 0 20px;">
+                                <a href="~/Bookings/Create" style="color: #fff; text-decoration: none; font-weight: 400;">Đặt phòng</a>
+                            </li>
+                            <li style="margin: 0 20px;">
+                                <a href="~/Contact" style="color: #fff; text-decoration: none; font-weight: 400;">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-3 text-right">
+                    <a asp-controller="Account" asp-action="Login" class="btn" style="background-color: #FF6200; color: #fff; border-radius: 8px; padding: 8px 16px;">Đăng nhập</a>
+                    <a asp-controller="Account" asp-action="Register" class="btn" style="background-color: #fff; color: #003087; border-radius: 8px; padding: 8px 16px; margin-left: 10px;">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="min-height: 80vh; background-color: #f5f7fa;">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #003087; color: #fff; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <p>© 2025 VietNamBooking. All rights reserved.</p>
+            <p>
+                <a href="https://facebook.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            </p>
+            <p>Liên hệ: <a href="mailto:support@vietnambooking.com" style="color: #FF6200;">support@vietnambooking.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/themes/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/themes/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

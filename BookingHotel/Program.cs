@@ -23,11 +23,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession(option =>
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
 {
-    option.IdleTimeout = TimeSpan.FromMinutes(60);
-    option.Cookie.HttpOnly = true;
-    option.Cookie.IsEssential = true;
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
 
 var app = builder.Build();
@@ -55,5 +56,5 @@ app.UseEndpoints(endpoints =>
 
 
 
-
+app.UseSession();
 app.Run();

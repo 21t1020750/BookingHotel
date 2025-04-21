@@ -18,10 +18,10 @@
                                 @ViewBag.ErrorMessage
                             </div>
                         }
-                        <form asp-controller="Account" asp-action="Login" method="post">
+                        <form asp-controller="Home" asp-action="Login" method="post">
                             <div class="form-group">
                                 <label for="emailOrPhone" style="color: #003087;">Email hoặc Số điện thoại</label>
-                                <input type="text" id="emailOrPhone" name="emailOrPhone" class="form-control" placeholder="Nhập email hoặc số điện thoại" style="border-radius: 8px;" required>
+                                <input type="text" id="emailOrPhone" name="email" class="form-control" placeholder="Nhập email hoặc số điện thoại" style="border-radius: 8px;" required>
                             </div>
                             <div class="form-group" style="margin-top: 15px;">
                                 <label for="password" style="color: #003087;">Mật khẩu</label>
@@ -36,7 +36,7 @@
                         <div style="margin-top: 15px; text-align: center;">
                             <p style="color: #6c757d;">
                                 Chưa có tài khoản?
-                                <a asp-controller="Account" asp-action="Register" style="color: #FF6200; font-weight: 500;">
+                                <a asp-controller="Home" asp-action="Register" style="color: #FF6200; font-weight: 500;">
                                     Đăng ký ngay
                                 </a>
                             </p>

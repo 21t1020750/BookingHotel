@@ -28,8 +28,8 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/AdminDashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Bookings/Create.cshtml]
@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Home/Privacy.cshtml]

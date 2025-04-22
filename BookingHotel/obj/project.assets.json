@@ -9960,24 +9960,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phant\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ASUS-PRO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\BookingHotel.csproj",
+      "projectUniqueName": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\BookingHotel.csproj",
       "projectName": "BookingHotel",
-      "projectPath": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\BookingHotel.csproj",
-      "packagesPath": "C:\\Users\\phant\\.nuget\\packages\\",
-      "outputPath": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\obj\\",
+      "projectPath": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\BookingHotel.csproj",
+      "packagesPath": "C:\\Users\\ASUS-PRO\\.nuget\\packages\\",
+      "outputPath": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\phant\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ASUS-PRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9985,7 +9980,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9998,13 +9992,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -10052,7 +10040,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

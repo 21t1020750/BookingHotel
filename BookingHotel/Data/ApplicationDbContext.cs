@@ -19,6 +19,7 @@ namespace BookingHotel.Data
         public DbSet<BookingService> BookingServices { get; set; }
         public DbSet<BookingDetail> BookingDetails { get; set; }
         public DbSet<BookingStatus> BookingStatus { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -72,6 +73,17 @@ namespace BookingHotel.Data
                 .HasOne(r => r.BookingStatus)
                 .WithMany()
                 .HasForeignKey(r => r.BookingStatusID);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Booking)
+                .WithMany()
+                .HasForeignKey(r => r.BookingID);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Customer)
+                .WithMany()
+                .HasForeignKey(r => r.CustomerID)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

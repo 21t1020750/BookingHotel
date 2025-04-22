@@ -8,7 +8,7 @@
                         <i class="fas fa-tachometer-alt" style="color: #FF6200;"></i> <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Employees" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" ? "active" : "")">
+                <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Employees" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" || ViewContext.RouteData.Values["Controller"]?.ToString() == "Reviews" ? "active" : "")">
                     <a href="#">
                         <i class="fa-solid fa-database" style="color: #FF6200;"></i> <span>Dữ Liệu</span>
                         <span class="pull-right-container">
@@ -39,6 +39,11 @@
                         <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" ? "active" : "")">
                             <a asp-controller="Services" asp-action="Index">
                                 <i class="fa fa-circle-o" style="color: #FF6200;"></i> Dịch Vụ
+                            </a>
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Reviews" ? "active" : "")">
+                            <a asp-controller="Reviews" asp-action="Index">
+                                <i class="fa fa-circle-o" style="color: #FF6200;"></i> Đánh Giá 
                             </a>
                         </li>
                     </ul>

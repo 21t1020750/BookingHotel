@@ -1,1288 +1,1284 @@
 {
   "Files": [
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookingHotel.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BookingHotel.8lu6ne8fap.bundle.scp.css"
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookingHotel.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BookingHotel.bundle.scp.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\AdminLTE.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\AdminLTE.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\AdminLTE.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\AdminLTE.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\AdminLTE.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\AdminLTE.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\adminlte.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\adminlte.css.map",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\adminlte.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\adminlte.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\adminlte.min.css.map",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\adminlte.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-bootstrap-social.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-fullcalendar.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-select2.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-select2.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-select2.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-select2.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-select2.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-select2.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\alt\\AdminLTE-without-plugins.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\_all-skins.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\_all-skins.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\_all-skins.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\_all-skins.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\_all-skins.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\_all-skins.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-black-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-black-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-black.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-black.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-black.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-blue-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-blue-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-blue.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-blue.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-blue.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-green-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-green-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-green.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-green.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-green.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-purple-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-purple-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-purple.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-purple.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-purple.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-red-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-red-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-red.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-red.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-red.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow-light.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow-light.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-yellow-light.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow-light.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow-light.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-yellow-light.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-yellow.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\css\\skins\\skin-yellow.min.css",
       "PackagePath": "staticwebassets\\Themes\\dist\\css\\skins\\skin-yellow.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\ava.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\ava.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\ava.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\avatar.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar04.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar04.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\avatar04.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar2.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar2.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\avatar2.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar3.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar3.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\avatar3.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar5.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\avatar5.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\avatar5.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\american-express.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\american-express.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\american-express.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\cirrus.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\cirrus.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\cirrus.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\mastercard.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\mastercard.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\mastercard.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\mestro.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\mestro.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\mestro.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\paypal.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\paypal.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\paypal.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\paypal2.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\paypal2.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\paypal2.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\visa.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\credit\\visa.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\credit\\visa.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\default-50x50.gif",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\default-50x50.gif",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\default-50x50.gif"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\icons.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\icons.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\icons.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo1.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo1.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\photo1.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo2.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo2.png",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\photo2.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo3.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo3.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\photo3.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo4.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\photo4.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\photo4.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user1-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user1-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user1-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user2-160x160.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user2-160x160.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user2-160x160.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user3-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user3-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user3-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user4-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user4-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user4-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user5-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user5-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user5-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user6-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user6-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user6-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user7-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user7-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user7-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user8-128x128.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\img\\user8-128x128.jpg",
       "PackagePath": "staticwebassets\\Themes\\dist\\img\\user8-128x128.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\js\\adminlte.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\js\\adminlte.js",
       "PackagePath": "staticwebassets\\Themes\\dist\\js\\adminlte.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\js\\adminlte.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\js\\adminlte.min.js",
       "PackagePath": "staticwebassets\\Themes\\dist\\js\\adminlte.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\js\\demo.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\js\\demo.js",
       "PackagePath": "staticwebassets\\Themes\\dist\\js\\demo.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\js\\pages\\dashboard.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\js\\pages\\dashboard.js",
       "PackagePath": "staticwebassets\\Themes\\dist\\js\\pages\\dashboard.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\dist\\js\\pages\\dashboard2.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\dist\\js\\pages\\dashboard2.js",
       "PackagePath": "staticwebassets\\Themes\\dist\\js\\pages\\dashboard2.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\index.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\index.html",
       "PackagePath": "staticwebassets\\Themes\\index.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\index2.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\index2.html",
       "PackagePath": "staticwebassets\\Themes\\index2.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\buttons.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\buttons.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\buttons.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\general.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\general.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\general.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\icons.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\icons.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\icons.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\modals.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\modals.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\modals.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\sliders.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\sliders.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\sliders.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\timeline.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\UI\\timeline.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\UI\\timeline.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\calendar.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\calendar.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\calendar.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\chartjs.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\chartjs.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\charts\\chartjs.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\flot.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\flot.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\charts\\flot.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\inline.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\inline.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\charts\\inline.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\morris.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\charts\\morris.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\charts\\morris.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\404.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\404.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\404.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\500.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\500.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\500.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\blank.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\blank.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\blank.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\invoice-print.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\invoice-print.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\invoice-print.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\invoice.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\invoice.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\invoice.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\lockscreen.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\lockscreen.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\lockscreen.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\login.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\login.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\login.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\pace.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\pace.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\pace.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\profile.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\profile.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\profile.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\register.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\examples\\register.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\examples\\register.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\advanced.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\advanced.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\forms\\advanced.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\editors.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\editors.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\forms\\editors.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\general.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\forms\\general.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\forms\\general.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\boxed.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\boxed.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\layout\\boxed.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\collapsed-sidebar.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\collapsed-sidebar.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\layout\\collapsed-sidebar.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\fixed.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\fixed.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\layout\\fixed.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\top-nav.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\layout\\top-nav.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\layout\\top-nav.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\compose.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\compose.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\mailbox\\compose.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\mailbox.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\mailbox.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\mailbox\\mailbox.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\read-mail.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\mailbox\\read-mail.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\mailbox\\read-mail.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\tables\\data.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\tables\\data.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\tables\\data.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\tables\\simple.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\tables\\simple.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\tables\\simple.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\pages\\widgets.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\pages\\widgets.html",
       "PackagePath": "staticwebassets\\Themes\\pages\\widgets.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-slider\\bootstrap-slider.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-slider\\bootstrap-slider.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-slider\\bootstrap-slider.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-slider\\slider.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-slider\\slider.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-slider\\slider.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.all.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.min.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\all.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\all.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\all.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\_all.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\_all.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\_all.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\aero.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\aero.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\aero@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\aero@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\blue.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\blue.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\blue@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\blue@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\flat.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\flat.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\flat@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\flat@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\green.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\green.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\green@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\green@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\grey.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\grey.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\grey@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\grey@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\orange.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\orange.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\orange@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\orange@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\pink.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\pink.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\pink@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\pink@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\purple.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\purple.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\purple@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\purple@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\red.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\red.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\red@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\red@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\yellow.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\yellow.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\flat\\yellow@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\flat\\yellow@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\futurico\\futurico.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\futurico\\futurico.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\futurico\\futurico@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\futurico\\futurico@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\icheck.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\icheck.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\icheck.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\icheck.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\icheck.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\icheck.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\_all.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\_all.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\_all.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\aero.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\aero.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\aero.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\blue.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\blue.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\blue.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\green.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\green.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\green.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\grey.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\grey.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\grey.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\line.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\line.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\line@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\line@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\orange.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\orange.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\orange.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\pink.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\pink.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\pink.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\purple.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\purple.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\purple.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\red.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\red.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\red.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\yellow.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\line\\yellow.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\line\\yellow.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\_all.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\_all.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\_all.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\aero.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\aero.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\aero@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\aero@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\blue.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\blue.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\blue@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\blue@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\green.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\green.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\green@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\green@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\grey.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\grey.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\grey@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\grey@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\minimal.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\minimal.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\minimal@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\minimal@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\orange.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\orange.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\orange@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\orange@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\pink.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\pink.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\pink@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\pink@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\purple.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\purple.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\purple@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\purple@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\red.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\red.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\red@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\red@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\yellow.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\yellow.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\minimal\\yellow@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\minimal\\yellow@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\polaris\\polaris.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\polaris\\polaris.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\polaris\\polaris@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\polaris\\polaris@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\_all.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\_all.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\_all.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\aero.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\aero.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\aero@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\aero@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\blue.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\blue.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\blue@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\blue@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\green.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\green.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\green@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\green@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\grey.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\grey.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\grey@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\grey@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\orange.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\orange.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\orange@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\orange@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\pink.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\pink.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\pink@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\pink@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\purple.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\purple.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\purple@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\purple@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\red.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\red.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\red@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\red@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\square.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\square.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\square@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\square@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\yellow.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\yellow.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow@2x.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\iCheck\\square\\yellow@2x.png",
       "PackagePath": "staticwebassets\\Themes\\plugins\\iCheck\\square\\yellow@2x.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.date.extensions.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.date.extensions.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.date.extensions.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.extensions.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.extensions.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.extensions.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.numeric.extensions.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.numeric.extensions.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.numeric.extensions.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.phone.extensions.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.phone.extensions.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.phone.extensions.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.regex.extensions.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\jquery.inputmask.regex.extensions.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\jquery.inputmask.regex.extensions.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\phone-be.json",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\phone-be.json",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\phone-codes\\phone-be.json"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\phone-codes.json",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\phone-codes.json",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\phone-codes\\phone-codes.json"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\readme.txt",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\input-mask\\phone-codes\\readme.txt",
       "PackagePath": "staticwebassets\\Themes\\plugins\\input-mask\\phone-codes\\readme.txt"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jQueryUI\\jquery-ui.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jQueryUI\\jquery-ui.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jQueryUI\\jquery-ui.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jQueryUI\\jquery-ui.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jQueryUI\\jquery-ui.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jQueryUI\\jquery-ui.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jvectormap\\jquery-jvectormap-1.2.2.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-usa-en.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-usa-en.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jvectormap\\jquery-jvectormap-usa-en.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-world-mill-en.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\jvectormap\\jquery-jvectormap-world-mill-en.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\jvectormap\\jquery-jvectormap-world-mill-en.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\pace\\pace.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\pace\\pace.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.min.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\pace\\pace.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\pace\\pace.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\pace\\pace.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\timepicker\\bootstrap-timepicker.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\timepicker\\bootstrap-timepicker.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.css",
       "PackagePath": "staticwebassets\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.js",
       "PackagePath": "staticwebassets\\Themes\\plugins\\timepicker\\bootstrap-timepicker.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\Themes\\starter.html",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\Themes\\starter.html",
       "PackagePath": "staticwebassets\\Themes\\starter.html"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\site.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\favicon.ico",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Customer\\gg.JPG",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\gg.JPG",
       "PackagePath": "staticwebassets\\images\\Customer\\gg.JPG"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Customer\\nophoto.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\nophoto.png",
       "PackagePath": "staticwebassets\\images\\Customer\\nophoto.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Employee\\assassins-creed-VALHALLA.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Employee\\assassins-creed-VALHALLA.jpg",
       "PackagePath": "staticwebassets\\images\\Employee\\assassins-creed-VALHALLA.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Employee\\nophoto.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Employee\\nophoto.png",
       "PackagePath": "staticwebassets\\images\\Employee\\nophoto.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Room\\Untitled.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Untitled.png",
       "PackagePath": "staticwebassets\\images\\Room\\Untitled.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Room\\assassins-creed-VALHALLA.jpg",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\assassins-creed-VALHALLA.jpg",
       "PackagePath": "staticwebassets\\images\\Room\\assassins-creed-VALHALLA.jpg"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Room\\gg.JPG",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\gg.JPG",
       "PackagePath": "staticwebassets\\images\\Room\\gg.JPG"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\images\\Room\\nophoto.png",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\nophoto.png",
       "PackagePath": "staticwebassets\\images\\Room\\nophoto.png"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\site.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\Dự Án Thuc Tập\\BookingHotel\\BookingHotel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookingHotel.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookingHotel.Microsoft.AspNetCore.StaticWebAssets.props",

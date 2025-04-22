@@ -1,0 +1,185 @@
+﻿@model IEnumerable<Review>
+@{
+    ViewBag.Title = "Quản lý Booking";
+}
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f5f7fa;
+    }
+
+    .box-primary {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .form-control, .btn-flat {
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .btn-flat {
+        background-color: #003087;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+
+        .btn-flat:hover {
+            background-color: #0056b3;
+        }
+
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+        .table thead tr {
+            background-color: #003087;
+            color: #fff;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+    .pagination li a {
+        border-radius: 6px;
+        margin: 0 4px;
+        padding: 8px 14px;
+        color: #003087;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+
+    .pagination li.active a {
+        background-color: #003087;
+        color: #fff;
+        border-color: #003087;
+    }
+
+    .pagination li a:hover {
+        background-color: #e9ecef;
+    }
+
+    .text-warning {
+        color: #ffc107 !important;
+    }
+</style>
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form action="#">
+            <div class="row">
+                <div class="col-sm-2">
+                    <select class="form-control" name="category">
+                        <option value="0">-- Trạng thái --</option>
+                        <option value="1">Đơn hàng mới (chờ duyệt)</option>
+                        <option value="2">Đơn hàng đã duyệt (chờ chuyển hàng)</option>
+                        <option value="3">Đơn hàng đang được giao</option>
+                        <option value="4">Đơn hàng đã hoàn tất thành công</option>
+                        <option value="-1">Đơn hàng bị hủy</option>
+                        <option value="-2">Đơn hàng bị từ chối</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="orderTime" class="form-control daterange-picker" placeholder="Chọn khoảng thời gian" />
+                </div>
+                <div class="col-sm-8 input-group">
+                    <input type="text" name="searchValue" class="form-control" placeholder="Tìm kiếm theo tên khách hàng hoặc tên người giao hàng">
+                    <span class="input-group-btn">
+                        <button type="submit" id="search-btn" class="btn btn-flat btn-info">
+                            <i class="fa fa-search"></i> Tìm kiếm
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+        <p style="margin:10px 0 10px 0">
+            Có <strong>1,210</strong> đơn hàng trong tổng số <strong>101</strong> trang
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="bg-primary">
+                        <th>Mã Booking</th>
+                        <th>Khách hàng</th>
+                        <th>Ngày đánh giá</th>
+                        <th>Tiêu đề</th>
+                        <th>Rating</th>
+                        <th style="width:40px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var review in Model)
+                    {
+                        <tr>
+                            <td>@review.Booking.BookingID</td>
+                            <td>@review.Customer.FullName</td>
+                            <td>@review.ReviewDate</td>
+                            <td>@review.Title</td>
+                            <td class="ml-auto text-warning">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= review.Rating)
+                                    {
+                                        <i class="fa-solid fa-star"></i> <!-- sao đầy -->
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-regular fa-star"></i> <!-- sao rỗng -->
+                                    }
+                                }
+                            </td>
+                            <td>
+                                <a href="~/Reviews/Details/@review.ReviewID" class="btn btn-xs btn-primary btn-modal">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <ul class="pagination">
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="dialogModal" class="modal fade" role="dialog"></div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".btn-modal", function (e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                $.ajax({
+                    url: link,
+                    type: "GET",
+                    success: function (data) {
+                        $("#dialogModal").html(data);
+                        $("#dialogModal").modal("show");
+                    },
+                    error: function (xhr) {
+                        alert("Không thể tải nội dung. Mã lỗi: " + xhr.status);
+                    }
+                });
+            });
+        });
+    </script>
+}

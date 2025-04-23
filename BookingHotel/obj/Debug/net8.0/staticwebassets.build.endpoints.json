@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 04:26:14 GMT"
+          "Value": "Wed, 23 Apr 2025 02:03:04 GMT"
         },
         {
           "Name": "Link",
@@ -70,7 +70,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 04:26:14 GMT"
+          "Value": "Wed, 23 Apr 2025 02:03:04 GMT"
         },
         {
           "Name": "Link",
@@ -20749,6 +20749,88 @@
       ]
     },
     {
+      "Route": "css/PageCSS/SearchSection.css",
+      "AssetFile": "css/PageCSS/SearchSection.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtXdVBgKTotjn/ySRmxGaz6MYvvvCjS7IaehCixZ+ps=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NtXdVBgKTotjn/ySRmxGaz6MYvvvCjS7IaehCixZ+ps="
+        }
+      ]
+    },
+    {
+      "Route": "css/PageCSS/SearchSection.yd0xpr1xp2.css",
+      "AssetFile": "css/PageCSS/SearchSection.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtXdVBgKTotjn/ySRmxGaz6MYvvvCjS7IaehCixZ+ps=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yd0xpr1xp2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NtXdVBgKTotjn/ySRmxGaz6MYvvvCjS7IaehCixZ+ps="
+        },
+        {
+          "Name": "label",
+          "Value": "css/PageCSS/SearchSection.css"
+        }
+      ]
+    },
+    {
       "Route": "css/site.c2tiyv64ts.css",
       "AssetFile": "css/site.css",
       "Selectors": [],
@@ -21565,6 +21647,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-QtWdy9OJceL1kJfOeSefBIRAKEP/HPl30FXf7uqpWB8="
+        }
+      ]
+    },
+    {
+      "Route": "js/PageJS/SearchSection.0pmbtd1rak.js",
+      "AssetFile": "js/PageJS/SearchSection.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "421"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:22:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0pmbtd1rak"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0="
+        },
+        {
+          "Name": "label",
+          "Value": "js/PageJS/SearchSection.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/PageJS/SearchSection.js",
+      "AssetFile": "js/PageJS/SearchSection.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "421"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:22:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0="
         }
       ]
     },

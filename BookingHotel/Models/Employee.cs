@@ -10,5 +10,6 @@
         public decimal Salary { get; set; }
         public DateTime HireDate { get; set; }
         public string Photo { get; set; } = "";
+        public string Password { get; set; } = "";
     }
 }

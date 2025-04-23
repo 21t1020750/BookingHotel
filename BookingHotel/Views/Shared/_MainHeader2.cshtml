@@ -1,0 +1,72 @@
+﻿<header class="bg-[#9FDDED] text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="~/" class="flex items-center text-white no-underline">
+                <i class="fas fa-hotel text-white text-3xl md:text-4xl mr-2"></i>
+                <span class="text-2xl md:text-4xl font-bold">VietNamBooking</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:flex space-x-12 mx-auto">
+                <a href="~/" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Trang chủ</a>
+                <a href="~/Hotels" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Khách sạn</a>
+                <a href="~/Bookings/Create" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Đặt phòng</a>
+                <a href="~/Contact" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Liên hệ</a>
+
+                <!-- Desktop Buttons -->
+                <a href="~/Account/Login" class="bg-[#FF6200] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#e55b00] transition">Đăng nhập</a>
+                <a href="~/Account/Register" class="bg-white text-[#003087] px-4 py-2 rounded-lg text-lg font-medium hover:bg-gray-100 transition">Đăng ký</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <nav id="mobile-menu" class="md:hidden hidden mt-4 space-y-4 text-center">
+            <a href="~/" class="text-lg font-medium hover:text-gray-200 transition block">Trang chủ</a>
+            <a href="~/Hotels" class="text-lg font-medium hover:text-gray-200 transition block">Khách sạn</a>
+            <a href="~/Bookings/Create" class="text-lg font-medium hover:text-gray-200 transition block">Đặt phòng</a>
+            <a href="~/Contact" class="text-lg font-medium hover:text-gray-200 transition block">Liên hệ</a>
+
+            <!-- Mobile Buttons (Cũng nằm trong menu mobile) -->
+            <a href="~/Account/Login" class="bg-[#FF6200] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#e55b00] transition block">Đăng nhập</a>
+            <a href="~/Account/Register" class="bg-white text-[#003087] px-4 py-2 rounded-lg text-lg font-medium hover:bg-gray-100 transition block">Đăng ký</a>
+        </nav>
+    </div>
+</header>
+
+<!-- JS Toggle Menu and Handle Resize -->
+<script>
+    // Toggle mobile menu visibility
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');  // Toggle visibility of mobile menu
+    });
+
+    // Hide mobile menu when resizing to desktop
+    window.addEventListener('resize', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopNav = document.getElementById('desktop-nav');
+
+        if (window.innerWidth >= 768) {
+            // Hide mobile menu and ensure desktop navigation is visible
+            mobileMenu.classList.add('hidden');
+            desktopNav.classList.remove('hidden');
+        } else {
+            // Ensure mobile menu is hidden
+            desktopNav.classList.add('hidden');
+        }
+    });
+
+    // Initial check in case window is already on desktop size
+    if (window.innerWidth >= 768) {
+        document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('desktop-nav').classList.remove('hidden');
+    }
+</script>

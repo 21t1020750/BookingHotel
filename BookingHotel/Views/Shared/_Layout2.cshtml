@@ -40,45 +40,11 @@
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
     <!-- Header -->
-    <header style="background-color: #9FDDED; color: #fff; padding: 20px 0;">
-        <div class="mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-start items-center">
-                <!-- Logo -->
-                <div class="mb-6 md:mb-0">
-                    <a href="~/" class="flex items-center text-white no-underline">
-                        <i class="fas fa-hotel text-white text-4xl mr-3"></i>
-                        <span class="text-4xl font-bold text-white">VietNamBooking</span>
-                    </a>
-                </div>
-                <!-- Navigation -->
-                <nav class="absolute left-1/2 transform -translate-x-1/2">
-                    <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16 list-none">
-                        <li>
-                            <a href="~/" class="text-2xl md:text-3xl text-white font-medium hover:text-gray-200 transition duration-200 whitespace-nowrap">Trang chủ</a>
-                        </li>
-                        <li>
-                            <a href="~/Hotels" class="text-2xl md:text-3xl text-white font-medium hover:text-gray-200 transition duration-200 whitespace-nowrap">Khách sạn</a>
-                        </li>
-                        <li>
-                            <a href="~/Bookings/Create" class="text-2xl md:text-3xl text-white font-medium hover:text-gray-200 transition duration-200 whitespace-nowrap">Đặt phòng</a>
-                        </li>
-                        <li>
-                            <a href="~/Contact" class="text-2xl md:text-3xl text-white font-medium hover:text-gray-200 transition duration-200 whitespace-nowrap">Liên hệ</a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- Buttons -->
-                <div class="mt-4 md:mt-0 ml-auto flex space-x-4">
-                    <a asp-controller="Home" asp-action="Login" class="bg-[#FF6200] text-white px-6 py-3 rounded-lg text-2xl font-medium hover:bg-[#e55b00] transition duration-200 whitespace-nowrap">
-                        Đăng nhập
-                    </a>
-                    <a asp-controller="Account" asp-action="Register" class="bg-white text-[#003087] px-6 py-3 rounded-lg text-2xl font-medium hover:bg-gray-100 transition duration-200 whitespace-nowrap">
-                        Đăng ký
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    @{
+        await Html.RenderPartialAsync("_MainHeader2");
+    }
+
+
 
     <!-- Main Content -->
     <main style="min-height: 80vh; background-color: #f5f7fa;" class="flex justify-center items-center">
@@ -88,17 +54,9 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background-color: #003087; color: #fff; padding: 20px 0; text-align: center;">
-        <div class="container">
-            <p>© 2025 VietNamBooking. All rights reserved.</p>
-            <p>
-                <a href="https://facebook.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" style="color: #FF6200; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-            </p>
-            <p>Liên hệ: <a href="mailto:support@vietnambooking.com" style="color: #FF6200;">support@vietnambooking.com</a></p>
-        </div>
-    </footer>
+    @{
+        await Html.RenderPartialAsync("_MainFooter2");
+    }
 
     <!-- Scripts -->
     <script src="~/js/login.js"></script>

@@ -1013,6 +1013,10 @@
       "PackagePath": "staticwebassets\\css\\PageCSS\\SearchSection.css"
     },
     {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -1055,6 +1059,10 @@
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\PageJS\\SearchSection.js",
       "PackagePath": "staticwebassets\\js\\PageJS\\SearchSection.js"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\site.js",

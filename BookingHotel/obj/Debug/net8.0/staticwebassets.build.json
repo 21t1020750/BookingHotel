@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uEEZKniRRy/bnUfltyllWVVOc+PW4eHHbydG073ed4A=",
+  "Hash": "KowE1dhMDpLH8SOnb3kEzMOJkYpmThFJfu3B3fcBXa8=",
   "Source": "BookingHotel",
   "BasePath": "_content/BookingHotel",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookingHotel.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\login.css",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cdrckjfqdb",
+      "Integrity": "cLo+3rRdgDf94WqhPYLKahNkURLNcizvZshTNVjvdh4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\PageCSS\\SearchSection.css",
@@ -330,6 +351,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Room\\Untitled.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\login.js",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "js/login#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iajokik007",
+      "Integrity": "Vixl+9i0+++XMQBPWL+yIO3e01AZl+7vabjXoim/Sbo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\PageJS\\SearchSection.js",
@@ -7090,6 +7132,88 @@
       ]
     },
     {
+      "Route": "css/login.cdrckjfqdb.css",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3276"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cLo+3rRdgDf94WqhPYLKahNkURLNcizvZshTNVjvdh4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 04:28:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cdrckjfqdb"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cLo+3rRdgDf94WqhPYLKahNkURLNcizvZshTNVjvdh4="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3276"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cLo+3rRdgDf94WqhPYLKahNkURLNcizvZshTNVjvdh4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 04:28:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cLo+3rRdgDf94WqhPYLKahNkURLNcizvZshTNVjvdh4="
+        }
+      ]
+    },
+    {
       "Route": "css/PageCSS/SearchSection.css",
       "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\css\\PageCSS\\SearchSection.css",
       "Selectors": [],
@@ -7988,6 +8112,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-6nexZ1f5G5mXW0yonXEqkwM1ukD6HtJsWYhtC6kfU5U="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.iajokik007.js",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\login.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Vixl+9i0+++XMQBPWL+yIO3e01AZl+7vabjXoim/Sbo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 04:43:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iajokik007"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Vixl+9i0+++XMQBPWL+yIO3e01AZl+7vabjXoim/Sbo="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.js",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel2\\BookingHotel\\wwwroot\\js\\login.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Vixl+9i0+++XMQBPWL+yIO3e01AZl+7vabjXoim/Sbo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 04:43:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Vixl+9i0+++XMQBPWL+yIO3e01AZl+7vabjXoim/Sbo="
         }
       ]
     },

@@ -1,0 +1,216 @@
+﻿/* Tùy chỉnh giao diện form đăng nhập */
+.container {
+    max-width: 1200px; /* Đảm bảo khớp với max-w-6xl của Tailwind */
+}
+
+.bg-blue-600 {
+    background-color: #003087; /* Màu chủ đạo xanh */
+}
+
+.text-blue-600 {
+    color: #003087; /* Màu chủ đạo xanh */
+}
+
+.border-blue-600 {
+    border-color: #003087; /* Màu viền chủ đạo */
+}
+
+.bg-blue-500 {
+    background-color: #2563eb; /* Màu nền biểu tượng */
+}
+
+.bg-blue-700 {
+    background-color: #002661; /* Màu hover nút */
+}
+
+button.bg-blue-600:hover {
+    background-color: #002661; /* Đảm bảo hover khớp với Tailwind */
+}
+
+.focus\:ring-blue-500:focus {
+    --tw-ring-color: #2563eb; /* Đảm bảo focus ring khớp với Tailwind */
+}
+
+/* Style dự phòng nếu Tailwind CSS không hoạt động */
+.max-w-sm {
+    max-width: 384px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.p-6 {
+    padding: 1.5rem;
+}
+
+.rounded-t-lg {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.rounded-b-lg {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.space-x-4 > :not(:last-child) {
+    margin-right: 1rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.focus\:ring-blue-500:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+}
+
+.focus\:border-blue-500:focus {
+    border-color: #2563eb;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.h-4 {
+    height: 1rem;
+}
+
+.w-4 {
+    width: 1rem;
+}
+
+.bg-orange-500 {
+    background-color: #f97316;
+}
+
+.bg-orange-600 {
+    background-color: #ea580c;
+}
+
+button.bg-orange-500:hover {
+    background-color: #ea580c;
+}
+
+.focus\:ring-orange-500:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.5);
+}
+
+.focus\:ring-offset-2:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(249, 115, 22, 0.5);
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.border-red-400 {
+    border-color: #f87171;
+}
+
+.bg-red-100 {
+    background-color: #fef2f2;
+}
+
+.text-red-700 {
+    color: #b91c1c;
+}

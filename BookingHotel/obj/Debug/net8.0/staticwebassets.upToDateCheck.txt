@@ -1,3 +1,4 @@
+wwwroot\css\login.css
 wwwroot\css\PageCSS\SearchSection.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
@@ -9,6 +10,7 @@ wwwroot\images\Room\assassins-creed-VALHALLA.jpg
 wwwroot\images\Room\gg.JPG
 wwwroot\images\Room\nophoto.png
 wwwroot\images\Room\Untitled.png
+wwwroot\js\login.js
 wwwroot\js\PageJS\SearchSection.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="~/Themes/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins -->
     <link rel="stylesheet" href="~/Themes/dist/css/skins/_all-skins.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/_Layout2.cshtml.css">
+    <link rel="stylesheet" href="~/css/login.css">
     <link rel="shortcut icon" type="image/jpg" href="~/Themes/dist/img/ava.jpg" />
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -37,7 +40,7 @@
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
     <!-- Header -->
-    <header class="bg-[#9FDDED] text-white py-4">
+    <header style="background-color: #9FDDED; color: #fff; padding: 20px 0;">
         <div class="mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-start items-center">
                 <!-- Logo -->
@@ -77,9 +80,8 @@
         </div>
     </header>
 
-
     <!-- Main Content -->
-    <main style="min-height: 80vh; background-color: #f5f7fa;">
+    <main style="min-height: 80vh; background-color: #f5f7fa;" class="flex justify-center items-center">
         <div class="container">
             @RenderBody()
         </div>
@@ -99,6 +101,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="~/js/login.js"></script>
     <script src="~/themes/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/themes/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)

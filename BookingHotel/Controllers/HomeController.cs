@@ -38,7 +38,7 @@ namespace BookingHotel.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            if (email == "admin" && password == "admin")
+            if (email == "admin@gmail.com" && password == "admin")
             {
                 HttpContext.Session.SetString("UserRole", "Admin");
                 return RedirectToAction("Index", "AdminDashboard");

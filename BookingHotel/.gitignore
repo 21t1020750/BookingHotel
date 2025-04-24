@@ -1,1 +1,8 @@
-.vs/ 
+.vs/
+*.bin
+*.cache
+*.v2
+*.suo
+*.sqlite
+BookingHotel/obj/
+BookingHotel/bin/

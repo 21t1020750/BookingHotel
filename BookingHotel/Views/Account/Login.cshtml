@@ -1,142 +1,190 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "Đăng Nhập - VietNamBooking";
+
+    string tab = string.IsNullOrEmpty(Context.Request.Query["tab"].ToString()) ? "login" : Context.Request.Query["tab"].ToString();
 }
 
-<div class="container mx-auto max-w-6xl">
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-        <!-- Left side - Image -->
-        <div class="md:w-1/2 relative">
-            <!-- background-image-keyword: luxury hotel room; background-image-color: blue -->
-            <div class="h-full bg-blue-600 flex items-center justify-center">
-                <div class="text-white p-12 text-center">
-                    <h1 class="text-4xl font-bold mb-4">Khách sạn cao cấp</h1>
-                    <p class="text-xl mb-8">Trải nghiệm dịch vụ đẳng cấp với hệ thống đặt phòng tiện lợi</p>
-                    <div class="flex justify-center space-x-4">
-                        <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fas fa-wifi text-white text-xl"></i>
+<body class="bg-gray-100" alt="luxury hotel">
+    <main class="py-16">
+        <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+                <!-- Login Form -->
+                <div id="login" class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-12 @if (tab != "login") {<text>hidden</text>}" alt="login form">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-4">ĐĂNG NHẬP</h2>
+                        <p class="text-xl text-gray-600">Đăng nhập để quản lý đặt phòng và tùy chỉnh của bạn</p>
+                    </div>
+
+                    <form id="loginForm" asp-controller="Account" asp-action="Login" method="post" class="space-y-10">
+                        <div>
+                            <label for="login-email" class="block text-xl text-gray-700 font-medium mb-4">Địa Chỉ Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="email" id="login-email" name="email" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="email@domain.com" required="">
+                            </div>
                         </div>
-                        <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fas fa-utensils text-white text-xl"></i>
+
+                        <div>
+                            <label for="login-password" class="block text-xl text-gray-700 font-medium mb-4">Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="login-password" name="password" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required="">
+                            </div>
                         </div>
-                        <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fas fa-swimming-pool text-white text-xl"></i>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember-me" name="rememberMe" class="h-6 w-6 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-4 block text-lg text-gray-700">Ghi nhớ tôi</label>
+                            </div>
+                            <a href="#" class="text-lg text-blue-600 hover:text-blue-800">Quên mật khẩu?</a>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 text-white py-5 rounded-lg hover:bg-blue-700 transition font-medium text-xl" alt="login button">Đăng Nhập</button>
+
+                        <div class="text-center">
+                            <p class="text-lg text-gray-600">Chưa có tài khoản? <a href="#register" class="text-blue-600 hover:text-blue-800 font-medium" onclick="switchTab('register')">Đăng ký tại đây</a></p>
+                        </div>
+                    </form>
+
+                    <div class="mt-12">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-lg">
+                                <span class="px-4 bg-white text-gray-500" alt="Or login with">Hoặc đăng nhập với</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 grid grid-cols-2 gap-8">
+                            <button type="button" class="w-full inline-flex justify-center py-4 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-lg font-medium text-gray-700 hover:bg-gray-50 transition" alt="google login">
+                                <i class="fab fa-google text-blue-600 mr-3 text-xl"></i> Google
+                            </button>
+                            <button type="button" class="w-full inline-flex justify-center py-4 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-lg font-medium text-gray-700 hover:bg-gray-50 transition" alt="facebook login">
+                                <i class="fab fa-facebook-f text-blue-600 mr-3 text-xl"></i> Facebook
+                            </button>
                         </div>
                     </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register" class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-12 @if (tab != "register") {<text>hidden</text>}" alt="register form">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-4">ĐĂNG KÝ</h2>
+                        <p class="text-xl text-gray-600">Đăng ký để nhận ưu đãi dành riêng cho thành viên</p>
+                    </div>
+
+                    <form id="registerForm" asp-controller="Account" asp-action="Register" method="post" class="space-y-10">
+                        <div class="grid md:grid-cols-2 gap-10">
+                            <div>
+                                <label for="first-name" class="block text-xl text-gray-700 font-medium mb-4">Họ</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                                    </div>
+                                    <input type="text" id="first-name" name="firstName" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="Nguyễn" required="">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="last-name" class="block text-xl text-gray-700 font-medium mb-4">Tên</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                                    </div>
+                                    <input type="text" id="last-name" name="lastName" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="Văn A" required="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="register-email" class="block text-xl text-gray-700 font-medium mb-4">Địa Chỉ Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="email" id="register-email" name="email" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="email@domain.com" required="">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-xl text-gray-700 font-medium mb-4">Số Điện Thoại</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="+84 123 456 789" required="">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="register-password" class="block text-xl text-gray-700 font-medium mb-4">Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="register-password" name="password" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required="">
+                            </div>
+                            <p class="mt-4 text-lg text-gray-500">Ít nhất 8 ký tự, bao gồm chữ cái, số và ký hiệu</p>
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block text-xl text-gray-700 font-medium mb-4">Xác Nhận Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="confirm-password" name="confirmPassword" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required="">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="terms" name="agreeTerms" class="h-6 w-6 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required="">
+                            <label for="terms" class="ml-4 block text-lg text-gray-700">Tôi đồng ý với <a href="#" class="text-blue-600 hover:text-blue-800">Điều khoản Dịch vụ</a> và <a href="#" class="text-blue-600 hover:text-blue-800">Chính sách Bảo mật</a></label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 text-white py-5 rounded-lg hover:bg-blue-700 transition font-medium text-xl" alt="register button">Tạo Tài Khoản</button>
+
+                        <div class="text-center">
+                            <p class="text-lg text-gray-600">Đã có tài khoản? <a href="#login" class="text-blue-600 hover:text-blue-800 font-medium" onclick="switchTab('login')">Đăng nhập tại đây</a></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </main>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+@section Scripts {
+    <!-- Truyền giá trị tab vào một thuộc tính HTML -->
+    <div id="tab-data" data-tab="@tab" style="display: none;"></div>
 
-        <!-- Right side - Forms -->
-        <div class="md:w-1/2 p-8 md:p-12">
-            <!-- Tabs -->
-            <div class="flex border-b border-gray-200 mb-8">
-                <button id="loginTab" class="py-2 px-4 font-medium text-blue-600 border-b-2 border-blue-600">Đăng nhập</button>
-                <button id="registerTab" class="py-2 px-4 font-medium text-gray-500 hover:text-blue-600">Đăng ký</button>
-            </div>
+    <!-- Tham chiếu file logintab.js -->
+    <script src="~/js/PageJS/LoginTab.js"></script>
+    <script>
+        // Hiển thị tab mặc định khi trang tải
+        document.addEventListener('DOMContentLoaded', function() {
+            const tab = document.getElementById('tab-data').getAttribute('data-tab');
+            const loginTab = document.getElementById('login');
+            const registerTab = document.getElementById('register');
 
-            <!-- Login Form -->
-            <form id="loginForm" asp-controller="Account" asp-action="Login" method="post" class="space-y-6">
-                @if (ViewBag.ErrorMessage != null)
-                {
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                        @ViewBag.ErrorMessage
-                    </div>
-                }
-                <div>
-                    <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="loginEmail" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                    <p id="loginEmailError" class="text-red-500 text-xs mt-1 hidden">Vui lòng nhập email hợp lệ</p>
-                </div>
+            if (tab === 'login') {
+                loginTab.classList.remove('hidden');
+                registerTab.classList.add('hidden');
+            } else {
+                loginTab.classList.add('hidden');
+                registerTab.classList.remove('hidden');
+            }
+        });
 
-                <div>
-                    <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Mật khẩu</label>
-                    <div class="relative">
-                        <input type="password" id="loginPassword" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('loginPassword')">
-                            <i class="far fa-eye"></i>
-                        </button>
-                    </div>
-                    <p id="loginPasswordError" class="text-red-500 text-xs mt-1 hidden">Vui lòng nhập mật khẩu</p>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input id="rememberMe" type="checkbox" name="rememberMe" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                        <label for="rememberMe" class="ml-2 block text-sm text-gray-700">Ghi nhớ đăng nhập</label>
-                    </div>
-                    <a href="#" class="text-sm text-blue-600 hover:underline">Quên mật khẩu?</a>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Đăng nhập
-                </button>
-
-                <div class="text-center text-sm text-gray-500">
-                    Hoặc đăng nhập bằng
-                </div>
-
-                <div class="flex justify-center space-x-4">
-                    <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50">
-                        <i class="fab fa-google text-red-500"></i>
-                    </button>
-                    <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50">
-                        <i class="fab fa-facebook-f text-blue-600"></i>
-                    </button>
-                </div>
-            </form>
-
-            <!-- Register Form -->
-            <form id="registerForm" asp-controller="Account" asp-action="Register" method="post" class="space-y-6 hidden">
-                <div>
-                    <label for="registerName" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên</label>
-                    <input type="text" id="registerName" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                    <p id="registerNameError" class="text-red-500 text-xs mt-1 hidden">Vui lòng nhập họ tên</p>
-                </div>
-
-                <div>
-                    <label for="registerEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="registerEmail" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                    <p id="registerEmailError" class="text-red-500 text-xs mt-1 hidden">Vui lòng nhập email hợp lệ</p>
-                </div>
-
-                <div>
-                    <label for="registerPhone" class="block text-sm font-medium text-gray-700 mb-1">Số điện thoại</label>
-                    <input type="tel" id="registerPhone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                    <p id="registerPhoneError" class="text-red-500 text-xs mt-1 hidden">Vui lòng nhập số điện thoại</p>
-                </div>
-
-                <div>
-                    <label for="registerPassword" class="block text-sm font-medium text-gray-700 mb-1">Mật khẩu</label>
-                    <div class="relative">
-                        <input type="password" id="registerPassword" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('registerPassword')">
-                            <i class="far fa-eye"></i>
-                        </button>
-                    </div>
-                    <p id="registerPasswordError" class="text-red-500 text-xs mt-1 hidden">Mật khẩu phải có ít nhất 6 ký tự</p>
-                </div>
-
-                <div>
-                    <label for="registerConfirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Nhập lại mật khẩu</label>
-                    <div class="relative">
-                        <input type="password" id="registerConfirmPassword" name="confirmPassword" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('registerConfirmPassword')">
-                            <i class="far fa-eye"></i>
-                        </button>
-                    </div>
-                    <p id="registerConfirmPasswordError" class="text-red-500 text-xs mt-1 hidden">Mật khẩu không khớp</p>
-                </div>
-
-                <div class="flex items-center">
-                    <input id="agreeTerms" type="checkbox" required name="agreeTerms" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    <label for="agreeTerms" class="ml-2 block text-sm text-gray-700">Tôi đồng ý với <a href="#" class="text-blue-600 hover:underline">Điều khoản dịch vụ</a> và <a href="#" class="text-blue-600 hover:underline">Chính sách bảo mật</a></label>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Đăng ký
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+        function switchTab(tab) {
+            window.location.href = `/Account/Login?tab=${tab}`;
+        }
+    </script>
+}

@@ -1,16 +1,60 @@
 ﻿// Toggle between login and register forms
-document.getElementById('loginTab').addEventListener('click', function () {
-    this.classList.add('text-blue-600', 'border-blue-600');
-    document.getElementById('registerTab').classList.remove('text-blue-600', 'border-blue-600');
-    document.getElementById('loginForm').classList.remove('hidden');
-    document.getElementById('registerForm').classList.add('hidden');
+const loginTab = document.getElementById('loginTab');
+const registerTab = document.getElementById('registerTab');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+
+// Debug: Check if elements are found
+console.log('loginTab:', loginTab);
+console.log('registerTab:', registerTab);
+console.log('loginForm:', loginForm);
+console.log('registerForm:', registerForm);
+
+// Function to activate a tab
+function activateTab(tab) {
+    console.log('Activating tab:', tab);
+    if (tab === 'login') {
+        loginTab.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+        loginTab.classList.remove('text-gray-500');
+        registerTab.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+        registerTab.classList.add('text-gray-500');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        console.log('Login tab activated');
+    } else {
+        registerTab.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+        registerTab.classList.remove('text-gray-500');
+        loginTab.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+        loginTab.classList.add('text-gray-500');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        console.log('Register tab activated');
+    }
+}
+
+// Check URL query parameter to activate the correct tab on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tab = urlParams.get('tab');
+    console.log('Query parameter tab:', tab);
+    if (tab === 'register') {
+        activateTab('register');
+    } else {
+        activateTab('login'); // Default to login tab
+    }
 });
 
-document.getElementById('registerTab').addEventListener('click', function () {
-    this.classList.add('text-blue-600', 'border-blue-600');
-    document.getElementById('loginTab').classList.remove('text-blue-600', 'border-blue-600');
-    document.getElementById('registerForm').classList.remove('hidden');
-    document.getElementById('loginForm').classList.add('hidden');
+// Event listeners for tab clicks
+loginTab.addEventListener('click', () => {
+    activateTab('login');
+    // Update URL without reloading
+    history.pushState(null, '', '?tab=login');
+});
+
+registerTab.addEventListener('click', () => {
+    activateTab('register');
+    // Update URL without reloading
+    history.pushState(null, '', '?tab=register');
 });
 
 // Toggle password visibility
@@ -29,7 +73,7 @@ function togglePassword(id) {
 }
 
 // Client-side validation for login form
-document.getElementById('loginForm').addEventListener('submit', function (e) {
+loginForm.addEventListener('submit', function (e) {
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
@@ -54,7 +98,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 });
 
 // Client-side validation for register form
-document.getElementById('registerForm').addEventListener('submit', function (e) {
+registerForm.addEventListener('submit', function (e) {
     const name = document.getElementById('registerName').value;
     const email = document.getElementById('registerEmail').value;
     const phone = document.getElementById('registerPhone').value;

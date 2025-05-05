@@ -1,45 +1,155 @@
-﻿<header class="bg-[#9FDDED] text-white py-4">
-    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+﻿@using System.Security.Claims
+@{
+    var role = User.FindFirst(ClaimTypes.Role)?.Value;
+    var fullName = User.Identity.Name;
+    var photo = User.FindFirst("Photo")?.Value;
+}
+
+<!-- CSS Sticky & Blur -->
+<link rel="stylesheet" href="~/css/PageCSS/_MainHeader2.css" />
+<link rel="stylesheet" href="~/css/PageCSS/_Language.css" />
+
+<header class="bg-cyan-600 text-white py-5">
+    <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <a href="~/" class="flex items-center text-white no-underline">
-                <i class="fas fa-hotel text-white text-3xl md:text-4xl mr-2"></i>
-                <span class="text-2xl md:text-4xl font-bold">VietNamBooking</span>
+                <i class="fas fa-hotel text-white text-4xl md:text-4xl mr-2"></i>
+                <span class="text-4xl md:text-4xl font-bold">VietNamBooking</span>
             </a>
 
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
+            <div class="lg:hidden">
+                <button id="menu-toggle" class="text-white text-4xl focus:outline-none">
                     <span id="menu-icon">☰</span>
                 </button>
             </div>
 
             <!-- Desktop Navigation -->
             <nav id="desktop-nav" class="hidden md:flex md:items-center md:space-x-12 flex-1 justify-center">
-                <a href="~/" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Trang chủ</a>
-                <a href="~/Hotels" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Khách sạn</a>
-                <a href="~/Bookings/Create" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Đặt phòng</a>
-                <a href="~/Contact" class="text-lg md:text-2xl font-medium hover:text-gray-200 transition">Liên hệ</a>
-                <!-- Nút Đăng nhập/Đăng ký cho Desktop -->
-                <div class="flex space-x-4">
-                    <a href="~/Account/Login" class="bg-[#FF6200] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#e55b00] transition">Đăng nhập</a>
-                    <a href="~/Account/Register" class="bg-white text-[#003087] px-4 py-2 rounded-lg text-lg font-medium hover:bg-gray-100 transition">Đăng ký</a>
+                <div class="group nav-link active">
+                    <a href="~/" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Trang chủ</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                </div>
+                <div class="group nav-link">
+                    <a href="~/Rooms" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Phòng</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                </div>
+                <div class="group nav-link">
+                    <a href="~/Dining" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Ẩm thực</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                </div>
+                <div class="group nav-link">
+                    <a href="~/Facilities" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Tiện ích</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                </div>
+                <div class="group nav-link">
+                    <a href="~/Offers" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Ưu đãi</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                </div>
+                <div class="group nav-link">
+                    <a href="~/Contact" class="text-3xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Liên hệ</a>
+                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
                 </div>
             </nav>
+
+            <div id="desktop-auth" class="hidden md:flex space-x-4 shrink-0 items-center">
+                @if (User.Identity.IsAuthenticated && role == "Customer")
+                {
+                    <div class="relative">
+            <button id="userDropdown" class="flex items-center space-x-2 focus:outline-none">
+                <img src="~/images/Customer/@photo" class="user-image" style="border-radius: 50%;" width="30px" alt="User Image">
+                <span class="hidden-xs">Xin chào, @fullName</span>
+            </button>
+
+            <!-- Dropdown -->
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-2 z-50">
+                <a href="~/Account/Info" class="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    Thông tin
+                </a>
+                <a href="~/Account/Promotions" class="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+                    </svg>
+
+                    Khuyến mãi
+                </a>
+                <a href="~/Account/Reviews" class="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Đánh giá
+                </a>
+                <a href="~/Account/Saved" class="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 5v14l7-5 7 5V5z" />
+                    </svg>
+                    Đã lưu
+                </a>
+                <a href="~/Account/Logout" class="flex items-center px-4 py-2 text-red-600 hover:bg-red-100">
+                                <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" />
+                                </svg>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a href="~/Account/Login?tab=login" class="bg-white text-[#003087] px-4 py-2 rounded-xl text-2xl font-medium hover:text-white hover:bg-[#e55b00] transition-colors duration-300 shrink-0">
+                        Đăng nhập
+                    </a>
+                    <a href="~/Account/Login?tab=register" class="bg-white text-[#003087] px-4 py-2 rounded-xl text-2xl font-medium hover:text-white hover:bg-[#e55b00] transition-colors duration-300 shrink-0">
+                        Đăng ký
+                    </a>
+                }
+                <select class="language-select" onchange="location = this.value;">
+                    <option value="/lang/en" selected>EN</option>
+                    <option value="/lang/vi">VI</option>
+                    <option value="/lang/kr">KR</option>
+                </select>
+            </div>
         </div>
 
         <!-- Mobile Navigation (Hidden by default) -->
-        <nav id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 mt-4 space-y-4 text-center">
-            <a href="~/" class="text-lg font-medium hover:text-gray-200 transition block">Trang chủ</a>
-            <a href="~/Hotels" class="text-lg font-medium hover:text-gray-200 transition block">Khách sạn</a>
-            <a href="~/Bookings/Create" class="text-lg font-medium hover:text-gray-200 transition block">Đặt phòng</a>
-            <a href="~/Contact" class="text-lg font-medium hover:text-gray-200 transition block">Liên hệ</a>
-            <!-- Nút Đăng nhập/Đăng ký cho Mobile -->
-            <a href="~/Account/Login" class="bg-[#FF6200] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#e55b00] transition block">Đăng nhập</a>
-            <a href="~/Account/Register" class="bg-white text-[#003087] px-4 py-2 rounded-lg text-lg font-medium hover:bg-gray-100 transition block">Đăng ký</a>
+        <nav id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-300 mt-4 space-y-4 text-center">
+            <a href="~/" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link active">Trang chủ</a>
+            <a href="~/Rooms" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link">Phòng</a>
+            <a href="~/Dining" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link">Ẩm thực</a>
+            <a href="~/Facilities" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link">Tiện ích</a>
+            <a href="~/Offers" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link">Ưu đãi</a>
+            <a href="~/Contact" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link">Liên hệ</a>
+            @if (Context.Session.GetString("Email") != null)
+            {
+                <a href="@Url.Action("Logout", "Account")" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Xuất</a>
+            }
+            else
+            {
+                <a href="~/Account/Login?tab=login" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Nhập</a>
+                <a href="~/Account/Login?tab=register" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Ký</a>
+            }
         </nav>
     </div>
 </header>
 
+
+<script>
+    document.addEventListener('click', function (e) {
+        const dropdownBtn = document.getElementById('userDropdown');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        if (dropdownBtn.contains(e.target)) {
+            dropdownMenu.classList.toggle('hidden');
+        } else {
+            dropdownMenu.classList.add('hidden');
+        }
+    });
+</script>
+
 <!-- JS Toggle Menu and Handle Resize -->
-<script src="~/js/header2.js"></script>
+<script src="~/js/PageJS/_MainHeader2.js"></script>

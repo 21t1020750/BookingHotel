@@ -8,7 +8,7 @@ namespace BookingHotel.Controllers
         public IActionResult Index()
         {
             _ = _logger;
-            return View("WebBooking");
+            return View();
         }
 
         public IActionResult Privacy()

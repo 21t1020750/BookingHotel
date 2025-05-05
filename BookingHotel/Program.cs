@@ -1,4 +1,4 @@
-using BookingHotel.Data;
+using BookingHotel.Areas.Admin.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,14 +12,13 @@ builder.Services.AddControllersWithViews()
     {
         option.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
     });
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(option =>
-                {
-                    option.Cookie.Name = "AuthenticationCookie";
-                    option.LoginPath = "/Account/Login";
-                    option.AccessDeniedPath = "/Account/AccessDenined";
-                    option.ExpireTimeSpan = TimeSpan.FromMinutes(120);
-                });
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie("Cookies", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
+    });
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
@@ -44,6 +43,15 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=AdminDashboard}/{action=Index}/{id?}"
+    );
+});
+
 
 app.MapControllerRoute
     (

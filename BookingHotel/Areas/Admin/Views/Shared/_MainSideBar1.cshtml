@@ -1,0 +1,105 @@
+﻿<aside class="main-sidebar" style="background-color:#003087">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <!-- Dashboard -->
+            <li>
+                <a href="/Admin/AdminDashboard">
+                    <i class="fas fa-tachometer-alt" style="color: #FF6200;"></i> <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Dữ liệu (Data) -->
+
+            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Employees" ? "active" : "")">
+                <a href="/Admin/Employees">
+                    <i class="fa-solid fa-user-tie" style="color: #FF6200 !important;"></i> <span>  Nhân Viên</span>
+                </a>
+            </li>
+
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" ? "active" : "")">
+                <a href="#">
+                    <i class="fa-solid fa-bed" style="color: #FF6200 !important;"></i> <span>Phòng</span>
+                </a>
+
+                <ul class="treeview-menu" style="background-color:#003087">
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Rooms" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/Rooms">Danh Sách Phòng</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "RoomTypes" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/RoomTypes">Thể Loại Phòng</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" ? "active" : "")">
+                <a href="/Admin/Customers">
+                    <i class="fa-solid fa-circle-user" style="color: #FF6200 !important;"></i> <span>Khách Hàng</span>
+                </a>
+            </li>
+
+            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Services" ? "active" : "")">
+                <a href="/Admin/Services">
+                    <i class="fa-solid fa-bell-concierge" style=" color: #FF6200 !important;"></i> <span>Dịch Vụ</span>
+                </a>
+            </li>
+
+            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Reviews" ? "active" : "")">
+                <a href="/Admin/Reviews">
+                    <i class="fa-solid fa-comments" style=" color: #FF6200 !important;"></i> <span>Đánh Giá</span>
+                </a>
+            </li>
+
+            <!-- Quản lý Booking -->
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" ? "active" : "")">
+                <a href="#">
+                    <i class="fa-solid fa-receipt" style="color: #FF6200 !important;"></i> <span>Booking</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/Bookings">
+                             Danh Mục Booking
+                        </a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active" : "")">
+                        <a href="/Admin/Bookings/Create">
+                             Lập Booking
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+<style>
+    .sidebar-menu li a:hover,
+    .sidebar-menu li.active > a,
+    .treeview-menu li.active > a {
+        background-color: #ffffff !important;
+        color: #003087 !important;
+    }
+
+        /* Cả icon cũng đổi màu khi active hoặc hover */
+        .sidebar-menu li a:hover i,
+        .sidebar-menu li.active > a i,
+        .treeview-menu li.active > a i {
+            color: #ffffff !important;
+        }
+
+    /* Đảm bảo hiển thị submenu khi menu cha có class menu-open */
+    .treeview-menu {
+        background-color: #003087 !important;
+    }
+
+        /* Highlight khi đang trong submenu */
+        .treeview-menu > li > a:hover {
+            background-color: #ffffff !important;
+            color: #003087 !important;
+        }
+</style>
+

@@ -1,4 +1,6 @@
 wwwroot\css\login.css
+wwwroot\css\PageCSS\_Language.css
+wwwroot\css\PageCSS\_MainHeader2.css
 wwwroot\css\PageCSS\background.css
 wwwroot\css\PageCSS\SearchSection.css
 wwwroot\css\site.css
@@ -11,9 +13,11 @@ wwwroot\images\Room\assassins-creed-VALHALLA.jpg
 wwwroot\images\Room\gg.JPG
 wwwroot\images\Room\nophoto.png
 wwwroot\images\Room\Untitled.png
-wwwroot\js\header2.js
 wwwroot\js\login.js
+wwwroot\js\logintab.js
+wwwroot\js\PageJS\_MainHeader2.js
 wwwroot\js\PageJS\background.js
+wwwroot\js\PageJS\LoginTab.js
 wwwroot\js\PageJS\SearchSection.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

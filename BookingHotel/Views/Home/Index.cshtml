@@ -1,58 +1,228 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Đặt Phòng - VietNamBooking";
 }
+<body class="bg-gray-50" alt="khách sạn sang trọng">
+    <main>
+        <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')" alt="sảnh sang trọng">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center" alt="lớp phủ hero">
+                <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 text-white">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">Đẳng Cấp Sang Trọng Tại Huế</h2>
+                    <p class="text-xl md:text-2xl max-w-2xl mb-8">Trải nghiệm sự tinh tế và dịch vụ đẳng cấp thế giới tại Lavela Huế</p>
+                    <a href="#" class="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded hover:bg-white hover:text-gray-800 transition duration-300" alt="khám phá ngay">Khám Phá Ngay</a>
+                </div>
+            </div>
+        </section>
 
-<style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f5f7fa;
-    }
+        <section class="py-20 bg-gray-100" alt="phần hình ảnh">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Những Khoảnh Khắc Thanh Lịch</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Khám phá những không gian tuyệt đẹp làm nên điểm đến Lavela Huế.</p>
+                </div>
 
-    .hero-section {
-        background: linear-gradient(rgba(0, 48, 135, 0.8), rgba(0, 48, 135, 0.8)), url('/images/hero-bg.jpg');
-        background-size: cover;
-        background-position: center;
-        color: #fff;
-        text-align: center;
-        padding: 100px 20px;
-        border-radius: 12px;
-        margin: 20px 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="relative h-64 overflow-hidden rounded-lg" alt="hồ bơi khách sạn">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="hồ bơi vô cực" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300" alt="Hồ Bơi Vô Cực">
+                            <span class="text-white font-medium">Hồ Bơi Vô Cực</span>
+                        </div>
+                    </div>
 
-        .hero-section h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+                    <div class="relative h-64 overflow-hidden rounded-lg" alt="khu vực sảnh">
+                        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="sảnh lớn" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300" alt="Sảnh Lớn">
+                            <span class="text-white font-medium">Sảnh Lớn</span>
+                        </div>
+                    </div>
 
-        .hero-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+                    <div class="relative h-64 overflow-hidden rounded-lg" alt="khu nghỉ dưỡng spa">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="spa sang trọng" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300" alt="Khu Nghỉ Dưỡng Spa">
+                            <span class="text-white font-medium">Khu Nghỉ Dưỡng Spa</span>
+                        </div>
+                    </div>
 
-    .btn-primary {
-        background-color: #FF6200;
-        border: none;
-        border-radius: 8px;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
+                    <div class="relative h-64 overflow-hidden rounded-lg" alt="khu vực ăn uống">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ẩm thực tinh tế" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300" alt="Ẩm Thực Tinh Tế">
+                            <span class="text-white font-medium">Ẩm Thực Tinh Tế</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        .btn-primary:hover {
-            background-color: #e55b00;
-        }
+        <section class="py-20 bg-white" alt="Nơi Tịnh Luyện Hoàn Hảo">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nơi Tịnh Luyện Hoàn Hảo</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Lavela Huế định nghĩa lại sự sang trọng trong ngành khách sạn với sự chú ý tỉ mỉ đến chi tiết, dịch vụ xuất sắc và tầm nhìn tuyệt đẹp hướng ra sông Hương.</p>
+                </div>
 
-        .btn-primary a {
-            color: #fff;
-            text-decoration: none;
-        }
-</style>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="text-center px-6">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền">
+                            <i class="fas fa-concierge-bell text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Dịch Vụ Lễ Tân 24/7</h3>
+                        <p class="text-gray-600">Đội ngũ lễ tân tận tâm của chúng tôi sẵn sàng phục vụ quanh đồng hồ để đáp ứng mọi nhu cầu của bạn với sự chính xác và chăm sóc.</p>
+                    </div>
 
-<div class="hero-section">
-    <h1 class="display-4">Chào mừng đến với VietNamBooking</h1>
-    <p>Khám phá và đặt phòng khách sạn dễ dàng tại Việt Nam với dịch vụ nhanh chóng, an toàn và tiện lợi!</p>
+                    <div class="text-center px-6">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền">
+                            <i class="fas fa-spa text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Spa Đạt Giải Thưởng</h3>
+                        <p class="text-gray-600">Thưởng thức các liệu pháp spa đẳng cấp thế giới được thiết kế để tái tạo cơ thể và tâm trí với các kỹ thuật truyền thống Việt Nam.</p>
+                    </div>
 
-</div>
+                    <div class="text-center px-6">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền">
+                            <i class="fas fa-utensils text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Ẩm Thực Michelin</h3>
+                        <p class="text-gray-600">Thưởng thức những món ăn tinh tế tại nhà hàng đặc trưng của chúng tôi, kết hợp hương vị địa phương với sự tinh tế quốc tế.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tùy Chọn Lưu Trú</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="Phòng Đẳng Cấp">
+                    <img src="https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="phòng đẳng cấp" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Phòng Đẳng Cấp</h3>
+                        <p class="text-gray-600 mb-4">Phòng rộng rãi với tiện nghi hiện đại và tầm nhìn thành phố tuyệt đẹp</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-lg">Từ 3.500.000 VNĐ/đêm</span>
+                            <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="Suite Hành Chánh">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="suite hành chánh" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Suite Hành Chánh</h3>
+                        <p class="text-gray-600 mb-4">Suite sang trọng với khu vực sinh hoạt riêng và dịch vụ cao cấp</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-lg">Từ 5.800.000 VNĐ/đêm</span>
+                            <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="Suite Tổng Thống">
+                    <img src="https://images.unsplash.com/photo-1604525925032-c28f963e8cbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="suite tổng thống" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Suite Tổng Thống</h3>
+                        <p class="text-gray-600 mb-4">Sự sang trọng tối thượng với không gian rộng lớn và tiện nghi đặc biệt</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-lg">Từ 10.500.000 VNĐ/đêm</span>
+                            <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-100 py-16" alt="Tiện Ích Phòng">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Tiện Ích Phòng</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Tất cả phòng của chúng tôi đều được trang bị tiện nghi cao cấp cho sự thoải mái của bạn</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="Wifi Miễn Phí">
+                        <i class="fas fa-wifi text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Wifi Miễn Phí</h3>
+                        <p class="text-gray-600">Truy cập internet tốc độ cao suốt thời gian lưu trú</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="Dịch Vụ Phòng">
+                        <i class="fas fa-utensils text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Dịch Vụ Phòng</h3>
+                        <p class="text-gray-600">Tùy chọn ăn uống 24 giờ sẵn có</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="Truy Cập Hồ Bơi">
+                        <i class="fas fa-swimming-pool text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Truy Cập Hồ Bơi</h3>
+                        <p class="text-gray-600">Truy cập độc quyền vào hồ bơi trên sân thượng của chúng tôi</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="TV Thông Minh">
+                        <i class="fas fa-tv text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">TV Thông Minh</h3>
+                        <p class="text-gray-600">Giải trí ngay tại đầu ngón tay bạn</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="nội thất khách sạn" class="rounded-lg shadow-lg w-full" loading="lazy">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Ưu Đãi Đặc Biệt</h2>
+                    <p class="text-gray-600 mb-6">Tận hưởng các gói ưu đãi độc quyền và chương trình khuyến mãi để nâng cao trải nghiệm lưu trú của bạn.</p>
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6" alt="Đi Nghỉ Cuối Tuần">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Đi Nghỉ Cuối Tuần</h3>
+                        <p class="text-gray-600 mb-4">Đặt 2 đêm và nhận miễn phí 1 đêm. Bao gồm bữa sáng cho hai người.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:underline">Tìm Hiểu Thêm</a>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg" alt="Giảm Giá Đặt Sớm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Giảm Giá Đặt Sớm</h3>
+                        <p class="text-gray-600 mb-4">Đặt trước 30 ngày và tiết kiệm 20% cho kỳ nghỉ của bạn.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:underline">Tìm Hiểu Thêm</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 bg-white" alt="Hội Viên Độc Quyền">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Hội Viên Độc Quyền</h2>
+                        <div class="w-24 h-1 bg-blue-600 mb-6" alt="đường phân cách"></div>
+                        <p class="text-gray-600 mb-8">Tham gia Vòng Tròn Ưu Đãi của chúng tôi để tận hưởng các lợi ích độc quyền, dịch vụ cá nhân hóa và truy cập vào các sự kiện dành riêng cho hội viên.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-800">Ưu tiên nâng cấp phòng và nhận check-in sớm/check-out muộn</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-800">Miễn phí liệu pháp spa trong tháng sinh nhật của bạn</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-800">Truy cập độc quyền vào các sự kiện nếm rượu cùng chuyên gia của chúng tôi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-800">Giảm 20% trên dịch vụ ăn uống và spa</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="px-8 py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-300 inline-block" alt="tham gia ngay">Tham Gia Ngay</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="lợi ích hội viên" class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>

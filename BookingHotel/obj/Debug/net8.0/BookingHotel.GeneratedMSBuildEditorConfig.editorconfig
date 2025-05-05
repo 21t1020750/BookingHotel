@@ -17,145 +17,173 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookingHotel
 build_property.RootNamespace = BookingHotel
-build_property.ProjectDir = D:\CNTT\Full-stack\BookingHotel2\BookingHotel\
+build_property.ProjectDir = D:\CNTT\Full-stack\BookingHotel\BookingHotel\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\CNTT\Full-stack\BookingHotel2\BookingHotel
+build_property.MSBuildProjectDirectory = D:\CNTT\Full-stack\BookingHotel\BookingHotel
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Account/Login.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/AdminDashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Bookings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Bookings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Bookings/EditService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ3NcRWRpdFNlcnZpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Bookings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Reviews/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmV2aWV3c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Reviews/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmV2aWV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Rooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Rooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/RoomTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbVR5cGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/RoomTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbVR5cGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Services/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Services/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_ControlSidebar1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Db250cm9sU2lkZWJhcjEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_MainFooter1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NYWluRm9vdGVyMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_MainHeader1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NYWluSGVhZGVyMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_MainSideBar1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NYWluU2lkZUJhcjEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/AdminDashboard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Bookings/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcQ3JlYXRlLmNzaHRtbA==
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Dining/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGluaW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Bookings/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcRGV0YWlscy5jc2h0bWw=
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Facilities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Bookings/EditService.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcRWRpdFNlcnZpY2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Bookings/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Customers/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Customers/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Employees/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Employees/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Home/Index.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Home/Privacy.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Reviews/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3c1xEZXRhaWxzLmNzaHRtbA==
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Offers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Reviews/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3c1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Rooms/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Rooms/Index.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Rooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/RoomTypes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVR5cGVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/RoomTypes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVR5cGVzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Services/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Services/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/Error.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/WebBooking.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFdlYkJvb2tpbmcuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_ControlSidebar1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db250cm9sU2lkZWJhcjEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_MainFooter1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluRm9vdGVyMS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_MainFooter2.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Shared/_MainFooter2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluRm9vdGVyMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_MainHeader1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluSGVhZGVyMS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_MainHeader2.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Shared/_MainHeader2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluSGVhZGVyMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_MainSideBar1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluU2lkZUJhcjEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/_ViewImports.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/_ViewStart.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_Layout1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = b-bxz1spotg3
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Areas/Admin/Views/Shared/_Layout1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-wklny3bjxe
 
-[D:/CNTT/Full-stack/BookingHotel2/BookingHotel/Views/Shared/_Layout2.cshtml]
+[D:/CNTT/Full-stack/BookingHotel/BookingHotel/Views/Shared/_Layout2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-rtijr8ytcw

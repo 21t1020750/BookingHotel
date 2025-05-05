@@ -1,0 +1,109 @@
+/* File: _Layout1.cshtml.css */
+a.navbar-brand[b-wklny3bjxe] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+a[b-wklny3bjxe] {
+    color: #003087;
+    transition: color 0.3s ease;
+}
+
+    a:hover[b-wklny3bjxe] {
+        color: #0056b3;
+    }
+
+.btn-primary[b-wklny3bjxe] {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary:hover[b-wklny3bjxe] {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.nav-pills .nav-link.active[b-wklny3bjxe], .nav-pills .show > .nav-link[b-wklny3bjxe] {
+    color: #fff;
+    background-color: #003087;
+    border-color: #003087;
+}
+
+.border-top[b-wklny3bjxe] {
+    border-top: 1px solid #e0e0e0;
+}
+
+.border-bottom[b-wklny3bjxe] {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.box-shadow[b-wklny3bjxe] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.accept-policy[b-wklny3bjxe] {
+    font-size: 1rem;
+    line-height: inherit;
+    background-color: #003087;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+    button.accept-policy:hover[b-wklny3bjxe] {
+        background-color: #0056b3;
+    }
+
+.footer[b-wklny3bjxe] {
+    background-color: #003087;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    line-height: 60px;
+    text-align: center;
+}
+
+/* Sidebar customizations */
+.main-sidebar[b-wklny3bjxe] {
+    background-color: #001f57 !important;
+}
+
+.sidebar-menu li a[b-wklny3bjxe] {
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li.treeview > a:hover[b-wklny3bjxe],
+.sidebar-menu li.active > a[b-wklny3bjxe] {
+    background-color: #003087 !important;
+    color: #fff !important;
+}
+
+.sidebar-menu .treeview-menu[b-wklny3bjxe] {
+    background-color: #002244 !important;
+}
+
+    .sidebar-menu .treeview-menu li a[b-wklny3bjxe] {
+        color: #fff !important;
+        font-weight: 400;
+    }
+
+    .sidebar-menu .treeview-menu li.active a[b-wklny3bjxe] {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }
+
+    .sidebar-menu .treeview-menu li a:hover[b-wklny3bjxe] {
+        background-color: #003087 !important;
+        color: #fff !important;
+    }

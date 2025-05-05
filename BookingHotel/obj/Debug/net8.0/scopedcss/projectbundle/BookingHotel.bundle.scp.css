@@ -1,6 +1,6 @@
-/* _content/BookingHotel/Views/Shared/_Layout1.cshtml.rz.scp.css */
+/* _content/BookingHotel/Areas/Admin/Views/Shared/_Layout1.cshtml.rz.scp.css */
 /* File: _Layout1.cshtml.css */
-a.navbar-brand[b-bxz1spotg3] {
+a.navbar-brand[b-wklny3bjxe] {
     white-space: normal;
     text-align: center;
     word-break: break-all;
@@ -9,16 +9,16 @@ a.navbar-brand[b-bxz1spotg3] {
     font-weight: 600;
 }
 
-a[b-bxz1spotg3] {
+a[b-wklny3bjxe] {
     color: #003087;
     transition: color 0.3s ease;
 }
 
-    a:hover[b-bxz1spotg3] {
+    a:hover[b-wklny3bjxe] {
         color: #0056b3;
     }
 
-.btn-primary[b-bxz1spotg3] {
+.btn-primary[b-wklny3bjxe] {
     color: #fff;
     background-color: #003087;
     border-color: #003087;
@@ -27,30 +27,30 @@ a[b-bxz1spotg3] {
     transition: all 0.3s ease;
 }
 
-    .btn-primary:hover[b-bxz1spotg3] {
+    .btn-primary:hover[b-wklny3bjxe] {
         background-color: #0056b3;
         border-color: #0056b3;
     }
 
-.nav-pills .nav-link.active[b-bxz1spotg3], .nav-pills .show > .nav-link[b-bxz1spotg3] {
+.nav-pills .nav-link.active[b-wklny3bjxe], .nav-pills .show > .nav-link[b-wklny3bjxe] {
     color: #fff;
     background-color: #003087;
     border-color: #003087;
 }
 
-.border-top[b-bxz1spotg3] {
+.border-top[b-wklny3bjxe] {
     border-top: 1px solid #e0e0e0;
 }
 
-.border-bottom[b-bxz1spotg3] {
+.border-bottom[b-wklny3bjxe] {
     border-bottom: 1px solid #e0e0e0;
 }
 
-.box-shadow[b-bxz1spotg3] {
+.box-shadow[b-wklny3bjxe] {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-button.accept-policy[b-bxz1spotg3] {
+button.accept-policy[b-wklny3bjxe] {
     font-size: 1rem;
     line-height: inherit;
     background-color: #003087;
@@ -59,11 +59,11 @@ button.accept-policy[b-bxz1spotg3] {
     padding: 8px 16px;
 }
 
-    button.accept-policy:hover[b-bxz1spotg3] {
+    button.accept-policy:hover[b-wklny3bjxe] {
         background-color: #0056b3;
     }
 
-.footer[b-bxz1spotg3] {
+.footer[b-wklny3bjxe] {
     background-color: #003087;
     color: #fff;
     padding: 20px 0;
@@ -73,38 +73,38 @@ button.accept-policy[b-bxz1spotg3] {
 }
 
 /* Sidebar customizations */
-.main-sidebar[b-bxz1spotg3] {
+.main-sidebar[b-wklny3bjxe] {
     background-color: #001f57 !important;
 }
 
-.sidebar-menu li a[b-bxz1spotg3] {
+.sidebar-menu li a[b-wklny3bjxe] {
     color: #fff !important;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     transition: background-color 0.3s ease;
 }
 
-.sidebar-menu li.treeview > a:hover[b-bxz1spotg3],
-.sidebar-menu li.active > a[b-bxz1spotg3] {
+.sidebar-menu li.treeview > a:hover[b-wklny3bjxe],
+.sidebar-menu li.active > a[b-wklny3bjxe] {
     background-color: #003087 !important;
     color: #fff !important;
 }
 
-.sidebar-menu .treeview-menu[b-bxz1spotg3] {
+.sidebar-menu .treeview-menu[b-wklny3bjxe] {
     background-color: #002244 !important;
 }
 
-    .sidebar-menu .treeview-menu li a[b-bxz1spotg3] {
+    .sidebar-menu .treeview-menu li a[b-wklny3bjxe] {
         color: #fff !important;
         font-weight: 400;
     }
 
-    .sidebar-menu .treeview-menu li.active a[b-bxz1spotg3] {
+    .sidebar-menu .treeview-menu li.active a[b-wklny3bjxe] {
         background-color: #003087 !important;
         color: #fff !important;
     }
 
-    .sidebar-menu .treeview-menu li a:hover[b-bxz1spotg3] {
+    .sidebar-menu .treeview-menu li a:hover[b-wklny3bjxe] {
         background-color: #003087 !important;
         color: #fff !important;
     }
@@ -117,16 +117,45 @@ body[b-rtijr8ytcw] {
     background-color: #f5f7fa;
 }
 
+/* Fix header to the top */
+header[b-rtijr8ytcw] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Fix footer to the bottom */
+footer[b-rtijr8ytcw] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Adjust main content to avoid overlap with fixed header and footer */
+main[b-rtijr8ytcw] {
+    padding: 80px 0; /* Adjust based on header/footer height */
+    min-height: calc(100vh - 160px); /* Ensure content takes full viewport height minus header/footer */
+    background-color: #f9ffff; /* Moved from inline style */
+    position: relative; /* Ensure main is not above mobile menu */
+    z-index: 500; /* Lower z-index to ensure mobile menu appears above */
+}
+
+    /* Ensure main blur doesn't affect other elements */
+    main.blurred[b-rtijr8ytcw] {
+        filter: blur(5px); /* Ensure blur applies correctly */
+        transition: filter 0.3s ease;
+    }
+
 header a:hover[b-rtijr8ytcw] {
     color: #FF6200 !important;
 }
 
 header .btn:hover[b-rtijr8ytcw] {
     opacity: 0.9;
-}
-
-main[b-rtijr8ytcw] {
-    padding: 30px 0;
 }
 
 footer a:hover[b-rtijr8ytcw] {
@@ -154,5 +183,11 @@ footer a:hover[b-rtijr8ytcw] {
 
     header .text-right[b-rtijr8ytcw] {
         text-align: center;
+    }
+
+    /* Adjust padding for mobile to account for smaller header/footer height */
+    main[b-rtijr8ytcw] {
+        padding: 60px 0;
+        min-height: calc(100vh - 120px);
     }
 }

@@ -1,0 +1,297 @@
+﻿/* wwwroot/css/PageCSS/_MainHeader2.css */
+.bg-cyan-600 {
+    background-color: #0891b2;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-3xl {
+    font-size: 1.875rem; /* ~30px */
+}
+
+.text-2xl {
+    font-size: 1.5rem; /* ~24px */
+}
+
+.text-xl {
+    font-size: 1.25rem; /* ~20px */
+}
+
+.text-lg {
+    font-size: 1.125rem; /* ~18px */
+}
+
+.focus-outline-none:focus {
+    outline: none;
+}
+
+.md-hidden {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .md-hidden {
+        display: none !important;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .md-flex {
+        display: flex !important;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.ml-12 {
+    margin-left: 3rem;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.transition-colors {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem;
+}
+
+.space-x-12 > * + * {
+    margin-left: 3rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.bg-orange-600 {
+    background-color: #f97316;
+}
+
+.bg-ffcc99 {
+    background-color: #FFCC99;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.text-f0ffff {
+    color: #F0FFFF;
+}
+
+.text-003087 {
+    color: #003087;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.border-ffcc99 {
+    border-bottom: 2px solid #FFCC99;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.left-half {
+    left: 50%;
+}
+
+.transform {
+    transform: translateX(-50%);
+}
+
+.w-0 {
+    width: 0;
+}
+
+.h-3px {
+    height: 3px;
+}
+
+.group {
+    position: relative;
+    display: inline-block;
+}
+
+    .group:hover .group-hover-w-full {
+        width: 100%;
+    }
+
+    .group:hover .group-hover-text-f0ffff {
+        color: #F0FFFF;
+    }
+
+.nav-link:hover .hover-bg-ff6200 {
+    background-color: #FF6200;
+}
+
+.nav-link:hover .hover-text-white {
+    color: #ffffff;
+}
+
+.bg-orange-600:hover {
+    background-color: #ea580c;
+}
+
+.bg-white:hover {
+    /* Removed background-color: #f3f4f6; to avoid conflict with hover-bg-ff6200 */
+}
+
+/* Ensure header is always visible and uses flex */
+header.bg-cyan-600 {
+    display: flex !important;
+    position: relative;
+}
+
+/* Style for desktop menu */
+@media (min-width: 768px) {
+    #desktop-menu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #desktop-nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Align underline with bottom of header */
+    .nav-link {
+        position: relative;
+        display: inline-block;
+    }
+
+    .underline {
+        bottom: -2.1rem; /* Adjusted to align closer to the bottom of the header with py-7 */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: #FFCC99;
+        transition: width 0.3s ease;
+        transform-origin: center;
+    }
+
+    /* Hover effect: underline expands from center */
+    .group:hover .underline {
+        width: 100%; /* Match text width */
+    }
+
+    /* Active link styles for desktop */
+    .nav-link.active .underline {
+        width: 100%; /* Match text width more precisely */
+    }
+}
+
+/* Style for mobile menu button */
+#mobile-menu-button {
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+/* Active link styles for mobile */
+#mobile-menu .nav-link.active {
+    border-bottom: 3px solid #FFCC99;
+    padding-bottom: 0.25rem; /* Ensure underline aligns closely with text */
+}
+
+
+

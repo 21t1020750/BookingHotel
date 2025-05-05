@@ -1,0 +1,164 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model Review
+
+@{
+    Layout = null;
+}
+
+<style>
+    .modal-dialog {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+        background-color: #003087;
+        color: #fff;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 15px 20px;
+    }
+
+    .btn-secondary {
+        border-radius: 8px;
+        padding: 8px 16px;
+        background-color: #e9ecef;
+        border: none;
+        transition: all 0.3s ease;
+        color: #333;
+    }
+
+        .btn-secondary:hover {
+            background-color: #dee2e6;
+        }
+
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+
+    .d-flex {
+        display: flex !important;
+    }
+
+    .align-items-start {
+        align-items: flex-start !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .mr-3 {
+        margin-right: 1rem !important;
+    }
+
+    .ml-auto {
+        margin-left: auto !important;
+    }
+
+    .flex-grow-1 {
+        flex-grow: 1 !important;
+    }
+
+    .font-weight-bold {
+        font-weight: 700;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .text-warning {
+        color: #ffc107 !important;
+    }
+
+    .text-white {
+        color: #fff !important;
+    }
+
+    .close {
+        color: #fff;
+        opacity: 1;
+        font-size: 24px;
+    }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+</style>
+
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header bg-primary text-white">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Đánh giá của khách hàng</h4>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+            <div class="d-flex align-items-start mb-3">
+                <!-- Avatar -->
+                <img src="/images/Customer/@Model.Customer.Photo" alt="Avatar"
+                     class="rounded-circle border mr-3" style="width: 64px; height: 64px; object-fit: cover;">
+
+                <!-- Thông tin khách hàng -->
+                <div class="flex-grow-1">
+                    <h5 class="mb-1">@Model.Customer.FullName</h5>
+                    <small class="text-muted">Đã đặt 3 ngày • Ngày đánh giá: @Model.ReviewDate</small>
+                </div>
+            </div>
+
+            <!-- Số sao dưới Avatar và trên tiêu đề -->
+            <div class="mb-3">
+                <span class="text-warning">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (i <= Model.Rating)
+                        {
+                            <i class="fa-solid fa-star"></i> <!-- sao đầy -->
+                        }
+                        else
+                        {
+                            <i class="fa-regular fa-star"></i> <!-- sao rỗng -->
+                        }
+                    }
+                </span>
+            </div>
+
+            <!-- Tiêu đề -->
+            <h6 class="font-weight-bold">@Model.Title</h6>
+
+            <!-- Nội dung đánh giá -->
+            <p class="text-muted mb-0">
+                @Model.Comment
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        </div>
+    </div>
+</div>
+
+

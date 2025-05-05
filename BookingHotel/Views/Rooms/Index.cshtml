@@ -1,170 +1,224 @@
-﻿@model IEnumerable<Room>
-@{
-    ViewBag.Title = "Quản lý Phòng";
+﻿@{
+    ViewData["Title"] = "Trang Phòng Nghỉ";
 }
-
-<style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f5f7fa;
-    }
-
-    .box-primary {
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin: 20px 0;
-        padding: 20px;
-    }
-
-    .input-group {
-        margin-bottom: 20px;
-    }
-
-    .form-control {
-        border-radius: 8px;
-        padding: 10px;
-        border: 1px solid #e0e0e0;
-    }
-
-    .btn-default, .btn-primary {
-        border-radius: 8px;
-        padding: 8px 16px;
-        transition: all 0.3s ease;
-    }
-
-    .btn-default {
-        background-color: #e9ecef;
-        border: none;
-    }
-
-        .btn-default:hover {
-            background-color: #dee2e6;
-        }
-
-    .btn-primary {
-        background-color: #003087;
-        border: none;
-        color: #fff;
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-    .table {
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-        .table thead tr {
-            background-color: #003087;
-            color: #fff;
-        }
-
-        .table tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .table img {
-            border-radius: 6px;
-            object-fit: cover;
-        }
-
-    .btn-xs {
-        padding: 4px 8px;
-        border-radius: 6px;
-    }
-
-    .pagination li a {
-        border-radius: 6px;
-        margin: 0 4px;
-        padding: 8px 14px;
-        color: #003087;
-        border: 1px solid #e0e0e0;
-        transition: all 0.3s ease;
-    }
-
-    .pagination li.active a {
-        background-color: #003087;
-        color: #fff;
-        border-color: #003087;
-    }
-
-    .pagination li a:hover {
-        background-color: #e9ecef;
-    }
-</style>
-
-<div class="box-primary">
-    <div class="box-body">
-        <form id="formSearch" action="#" method="get" data-container="#searchResult">
-            <div class="input-group">
-                <input type="hidden" name="PageSize" value="20">
-                <input name="SearchValue" type="text" class="form-control" placeholder="Nhập thông tin phòng" value="" autofocus>
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                    <a href="~/Rooms/Create" class="btn btn-primary" style="margin-left:5px">
-                        <i class="fa fa-plus"></i> Bổ sung
-                    </a>
+<body class="bg-gray-50" alt="khách sạn sang trọng">
+    <main>
+        <section class="relative h-96 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjByb29tfGVufDB8fHx8MTc0NTkxMTc2NXww&ixlib=rb-4.0.3&q=85'); background-size: cover; background-position: center;" alt="phòng nghỉ sang trọng">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center" alt="lớp phủ hero">
+                <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 text-white">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Phòng Nghỉ Tinh Tế</h2>
+                    <p class="text-xl md:text-2xl max-w-2xl mb-8">Khám phá bộ sưu tập các phòng và suite được thiết kế tỉ mỉ</p>
                 </div>
             </div>
-        </form>
-        <div id="searchResult">
-            <p style="margin:10px 0 10px 0">
-                Có <strong>9</strong> phòng trong <strong>1</strong> trang
-            </p>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr class="bg-primary">
-                            <th>Ảnh Phòng</th>
-                            <th>Số Phòng</th>
-                            <th>Thể Loại Phòng</th>
-                            <th>Giá</th>
-                            <th>Trạng Thái</th>
-                            <th>Mô Tả</th>
-                            <th style="width:80px"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var room in Model)
-                        {
-                            <tr>
-                                <td><img src="/images/Room/@(room.Photo ?? "nophoto.png")" style="width:100px" alt="Ảnh phòng" /></td>
-                                <td>@room.RoomNumber</td>
-                                <td>@room.RoomType.TypeName</td>
-                                <td>@room.Price $</td>
-                                <td>@room.RoomStatus.Description</td>
-                                <td>@room.Description</td>
-                                <td class="text-right">
-                                    <a href="~/Rooms/Edit/@room.RoomID" class="btn btn-xs btn-info">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a href="~/Rooms/Delete/@room.RoomID" class="btn btn-xs btn-danger" onclick="return confirmDelete()">
-                                        <i class="fa fa-remove"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-center">
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-@section scripts {
-    <script>
-        function confirmDelete() {
-            return confirm("Bạn có chắc chắn muốn xóa phòng này không?");
-        }
-    </script>
-}
+        <section class="py-20 bg-white" alt="danh mục phòng">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Phòng & Suite Của Chúng Tôi</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Mỗi không gian được thiết kế chu đáo để mang lại sự thoải mái vượt trội với sự kết hợp hoàn hảo giữa sang trọng hiện đại và thẩm mỹ truyền thống Việt Nam.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" alt="phòng deluxe">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="phòng deluxe" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Phòng Deluxe</h3>
+                            <p class="text-gray-600 mb-4">Phòng rộng 45 m² với tầm nhìn ra thành phố hoặc vườn, có giường cỡ lớn và tiện nghi hiện đại.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold">Từ $250/đêm</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Xem Chi Tiết →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" alt="suite cao cấp">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="suite cao cấp" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Suite Cao Cấp</h3>
+                            <p class="text-gray-600 mb-4">Suite 70 m² với khu vực sinh hoạt riêng, tầm nhìn toàn cảnh thành phố và tiện nghi cao cấp.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold">Từ $450/đêm</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Xem Chi Tiết →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" alt="suite hoàng gia">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1652670098484-ed324ee57158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="suite hoàng gia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Suite Hoàng Gia</h3>
+                            <p class="text-gray-600 mb-4">120 m² sang trọng với ban công riêng nhìn ra sông Hương, bao gồm dịch vụ quản gia.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold">Từ $850/đêm</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Xem Chi Tiết →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" alt="phòng nhìn sông">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="phòng nhìn sông" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Phòng Nhìn Sông</h3>
+                            <p class="text-gray-600 mb-4">Phòng 50 m² với tầm nhìn tuyệt đẹp ra sông Hương, có phòng tắm lát đá cẩm thạch sang trọng.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold">Từ $350/đêm</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Xem Chi Tiết →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" alt="suite doanh nhân">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1425421669292-0c3da3b8f529?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="suite doanh nhân" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Suite Doanh Nhân</h3>
+                            <p class="text-gray-600 mb-4">Suite 90 m² với khu vực làm việc riêng, minibar miễn phí và quyền truy cập phòng chờ doanh nhân.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold">Từ $600/đêm</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Xem Chi Tiết →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-100" alt="tiện nghi phòng">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Tiện Nghi Phòng</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Mỗi phòng tại Lavela Huế đều được trang bị tiện nghi cao cấp để đảm bảo kỳ nghỉ của bạn thoải mái nhất có thể.</p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi wifi">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-wifi text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">WiFi Tốc Độ Cao</h4>
+                        <p class="text-gray-600 text-sm">Truy cập internet tốc độ cao miễn phí trong suốt kỳ nghỉ</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi giường">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-bed text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Giường Cao Cấp</h4>
+                        <p class="text-gray-600 text-sm">Nệm êm ái với chăn ga cao cấp cho giấc ngủ hoàn hảo</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi phòng tắm">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-bath text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Phòng Tắm Sang Trọng</h4>
+                        <p class="text-gray-600 text-sm">Bồn tắm sâu với đồ dùng vệ sinh cá nhân cao cấp</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi cà phê">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-coffee text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Góc Pha Cà Phê</h4>
+                        <p class="text-gray-600 text-sm">Máy Nespresso với viên cà phê miễn phí</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi tivi">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-tv text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">TV Thông Minh</h4>
+                        <p class="text-gray-600 text-sm">TV 65" 4K với các kênh quốc tế và dịch vụ streaming</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi két sắt">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-lock text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Két Sắt Trong Phòng</h4>
+                        <p class="text-gray-600 text-sm">Két sắt kỹ thuật số để bảo vệ tài sản quý giá</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi minibar">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-wine-bottle text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Minibar Miễn Phí</h4>
+                        <p class="text-gray-600 text-sm">Được bổ sung hàng ngày với đồ uống nhẹ và đồ ăn vặt</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="tiện nghi dịch vụ">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4" alt="hình nền">
+                            <i class="fas fa-concierge-bell text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Dịch Vụ 24 Giờ</h4>
+                        <p class="text-gray-600 text-sm">Dịch vụ phòng và hỗ trợ 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-blue-900 text-white" alt="ưu đãi đặc biệt">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ưu Đãi Đặc Biệt</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="max-w-3xl mx-auto text-blue-200">Nâng tầm kỳ nghỉ của bạn với các gói ưu đãi và khuyến mãi độc quyền</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg" alt="kỳ nghỉ lãng mạn">
+                        <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="thiết lập lãng mạn" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Kỳ Nghỉ Lãng Mạn</h3>
+                            <p class="text-gray-600 mb-4">Kỷ niệm tình yêu với rượu sâm panh, cánh hoa hồng và liệu pháp spa cho cặp đôi.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-bold">Tiết Kiệm 20%</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Đặt Ngay →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg" alt="gói gia đình">
+                        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="vui chơi gia đình" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Chuyến Đi Gia Đình</h3>
+                            <p class="text-gray-600 mb-4">Ưu đãi đặc biệt cho gia đình với bữa ăn miễn phí cho trẻ dưới 12 tuổi.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-bold">Trẻ Em Ở Miễn Phí</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Đặt Ngay →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg" alt="lưu trú dài ngày">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="lưu trú dài ngày" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Lưu Trú Dài Ngày</h3>
+                            <p class="text-gray-600 mb-4">Đặt từ 7 đêm trở lên và tận hưởng dịch vụ giặt là miễn phí cùng bữa sáng hàng ngày.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-bold">Giảm 15%</span>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Đặt Ngay →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>

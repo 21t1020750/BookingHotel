@@ -1,6 +1,6 @@
 ﻿namespace BookingHotel.Models
 {
-    public class UserAcouny
+    public class UserAccount
     {
         /// <summary>
         /// ID tài khoản

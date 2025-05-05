@@ -31,6 +31,20 @@ button.bg-blue-600:hover {
     --tw-ring-color: #2563eb; /* Đảm bảo focus ring khớp với Tailwind */
 }
 
+/* Tab styles */
+#loginTab, #registerTab {
+    transition: all 0.3s ease; /* Smooth transition for color and border */
+}
+
+    #loginTab:hover, #registerTab:hover {
+        color: #003087; /* Hover color matches active state */
+    }
+
+/* Ensure inactive tab has gray color */
+.text-gray-500 {
+    color: #6b7280;
+}
+
 /* Style dự phòng nếu Tailwind CSS không hoạt động */
 .max-w-sm {
     max-width: 384px;

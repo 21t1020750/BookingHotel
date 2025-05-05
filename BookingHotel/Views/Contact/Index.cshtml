@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Trang Liên Hệ";
+}
+<body class="bg-gray-50" alt="khách sạn sang trọng">
+    <main>
+        <section class="relative h-96 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');" alt="hình ảnh liên hệ">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center" alt="lớp phủ hero">
+                <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 text-white">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Liên Hệ Với Chúng Tôi</h2>
+                    <p class="text-xl md:text-2xl max-w-2xl mb-8">Chúng tôi luôn sẵn sàng hỗ trợ bạn với mọi thắc mắc hoặc yêu cầu đặc biệt</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white" alt="thông tin liên hệ">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Liên Hệ Với Chúng Tôi</h2>
+                        <div class="w-24 h-1 bg-blue-600 mb-8" alt="đường phân cách"></div>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start" alt="thông tin địa chỉ">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-6" alt="hình nền biểu tượng">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Địa Chỉ</h4>
+                                    <p class="text-gray-600">123 Đường Hoàng Đế<br>Thành phố Huế, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start" alt="thông tin điện thoại">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-6" alt="hình nền biểu tượng">
+                                    <i class="fas fa-phone text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Điện Thoại</h4>
+                                    <p class="text-gray-600">+84 234 567 890 (Lễ Tân)<br>+84 234 567 891 (Đặt Phòng)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start" alt="thông tin email">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-6" alt="hình nền biểu tượng">
+                                    <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Email</h4>
+                                    <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection#1d6f786e786f6b7c697472736e5d717c6b78717c756878337e7270" class="hover:text-blue-600 transition"><span class="__cf_email__" data-cfemail="6d1f081e081f1b0c190402031e2d010c1b08010c051808430e0200">[email&nbsp;protected]</span></a><br><a href="/cdn-cgi/l/email-protection#cdf9eef8eef9fdeafdebedecf1cdede2e1f8e3a3eee2e0" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="5a2e392f392e2a3d2a2c2d301a3a35362f3474292527">[email&nbsp;protected]</span></a></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start" alt="thông tin giờ hoạt động">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-6" alt="hình nền biểu tượng">
+                                    <i class="fas fa-clock text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Giờ Hoạt Động</h4>
+                                    <p class="text-gray-600">Lễ Tân: 24/7<br>Hỗ Trợ: 7:00 - 22:00 hàng ngày</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md" alt="form liên hệ">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Gửi Tin Nhắn Cho Chúng Tôi</h3>
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Tên</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tên của bạn">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Email của bạn">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Chủ Đề</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Chủ đề">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Tin Nhắn</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tin nhắn của bạn"></textarea>
+                            </div>
+                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full" alt="nút gửi">Gửi Tin Nhắn</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map Section -->
+        <section class="py-20 bg-gray-100" alt="bản đồ vị trí">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Vị Trí Của Chúng Tôi</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Vị trí thuận tiện ngay trung tâm Huế với dễ dàng tiếp cận các điểm tham quan và giao thông chính</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-md overflow-hidden h-96" alt="khung bản đồ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3193477040717!2d106.70003881533408!3d10.786840061981098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3a7e1c78b5%3A0x8c5e4dce4a529ef0!2s123%20L%C3%AA%20L%E1%BB%A3i%2C%20B%E1%BA%BFn%20Ngh%C3%A9%2C%20Qu%E1%BA%ADn%201%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                            style="width: 100%"
+                            
+                            allowfullscreen=""
+                            loading="lazy"
+                            alt="bản đồ google">
+                    </iframe>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=123+Le+Loi,+Ben+Nghe,+Quan+1,+Ho+Chi+Minh" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium inline-block">Lấy Hướng Dẫn →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white" alt="phòng ban liên hệ">
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Phòng Ban Liên Hệ</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Đối với các thắc mắc cụ thể, vui lòng liên hệ trực tiếp với phòng ban phù hợp</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng đặt chỗ">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-calendar-check text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Đặt Phòng</h3>
+                        <p class="text-gray-600 mb-4">Đối với thắc mắc đặt phòng, tình trạng phòng và yêu cầu đặc biệt</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#cdf9eef8eef9fdeafdebedecf1cdede2e1f8e3a3eee2e0" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="5a2e392f392e2a3d2a2c2d301a3a35362f3474292527">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 891</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng sự kiện">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-glass-cheers text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sự Kiện & Hôn Lễ</h3>
+                        <p class="text-gray-600 mb-4">Đối với việc lên kế hoạch họp, đám cưới và sự kiện đặc biệt</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#c9a0a7afa689a8a7a4bda6e6aba7a5" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="4b22252d240b2a25263f2465292527">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 892</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng spa">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-spa text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Spa & Sức Khỏe</h3>
+                        <p class="text-gray-600 mb-4">Đối với đặt lịch spa, liệu pháp và chương trình sức khỏe</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#0a7f686e7b4a6b64677e6525686466" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="2a1f081e0b2a0b04071e0544090507">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 893</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng ăn uống">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-utensils text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Ẩm Thực</h3>
+                        <p class="text-gray-600 mb-4">Đối với đặt bàn nhà hàng và thắc mắc ăn uống riêng tư</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#7f1a0d1b0d1a1e091e18190a3f1f10130a11511c1012" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="4a2f382e382f2b3c2b2d2c3f0a2a25263f2464292527">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 894</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng hỗ trợ">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-concierge-bell text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Hỗ Trợ</h3>
+                        <p class="text-gray-600 mb-4">Đối với gợi ý địa phương, tour và phương tiện giao thông</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#b5d6d1d6d0f5d4dbd8c1da9ad7dbd9" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="1c7f787e795c7d72716873327f7371">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 895</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition-shadow" alt="phòng tuyển dụng">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền biểu tượng">
+                            <i class="fas fa-briefcase text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Tuyển Dụng</h3>
+                        <p class="text-gray-600 mb-4">Đối với cơ hội việc làm và chương trình thực tập</p>
+                        <p class="text-blue-600 font-medium"><a href="/cdn-cgi/l/email-protection#a38f8a8d8e8e8a96868d9186a3828d8e978ccd808c8e" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="3e1217161515110d1d160a1d3e1f10130a11501d1113">[email&nbsp;protected]</span></a></p>
+                        <p class="text-gray-700">+84 234 567 896</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>

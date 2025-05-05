@@ -1,0 +1,67 @@
+﻿.offer-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.offer-tab {
+    padding: 12px 24px;
+    margin: 0 10px 10px 0;
+    background: white;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+    .offer-tab.active {
+        background: #2563eb;
+        color: white;
+    }
+
+    .offer-tab:hover:not(.active) {
+        background: #f3f4f6;
+    }
+
+.offer-details {
+    display: none;
+}
+
+    .offer-details.active {
+        display: block;
+    }
+
+.offer-highlight {
+    border-left: 4px solid #2563eb;
+    padding-left: 16px;
+    margin: 20px 0;
+}
+
+/* Style cho dropdown ngôn ngữ */
+.language-select {
+    background-color: #0891b2; /* bg-cyan-600 */
+    color: white; /* Chữ trắng ban đầu */
+    padding: 8px 24px 8px 12px; /* Giảm padding bên phải để thu nhỏ khung */
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    width: 60px; /* Thu nhỏ chiều rộng để vừa với chữ EN/VI */
+    text-align: center; /* Căn giữa chữ */
+}
+
+    .language-select:hover {
+        background-color: white; /* Khi hover: nền trắng */
+        color: #0891b2; /* Khi hover: chữ thành bg-cyan-600 */
+        background-image: url('data:image/svg+xml;utf8,<svg fill="%230891b2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Đổi màu mũi tên khi hover */
+    }

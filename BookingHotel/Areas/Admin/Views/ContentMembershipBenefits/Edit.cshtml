@@ -1,0 +1,20 @@
+﻿@model BookingHotel.Models.Content_MembershipBenefit
+
+<h2>Sửa Lợi Ích Hội Viên</h2>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Benefit" class="control-label"></label>
+        <textarea asp-for="Benefit" class="form-control" name="Benefit"></textarea>
+        <span asp-validation-for="Benefit" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,434 @@
+﻿@model List<BookingHotel.Areas.Admin.Models.Room>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Tìm kiếm";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavela Hue | Đặt phòng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .filter-card, .hotel-card {
+            transition: all 0.3s ease;
+        }
+
+            .filter-card:hover, .hotel-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            }
+
+        .price-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .map-container {
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+
+        .search-bar-container {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+            .search-bar-container.fade {
+                opacity: 0.5;
+            }
+
+            .search-bar-container.sticky {
+                position: fixed;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 50;
+                width: 100%;
+                max-width: 1200px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 10px 10px;
+                padding: 1rem;
+            }
+
+        input.no-spinner[type="number"] {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: none;
+        }
+
+            input.no-spinner[type="number"]::-webkit-outer-spin-button,
+            input.no-spinner[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+    </style>
+</head>
+<body class="bg-white">
+    <main class="py-8">
+        <div class="page-container px-4">
+            <!-- Search Section -->
+            <div id="searchBar" class="text-2xl bg-white mx-auto max-w-full w-[1200px] rounded-2xl p-4 sm:p-5 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
+                    <div>
+                        <label for="checkin" class="block text-xl font-normal text-gray-700">Ngày nhận phòng</label>
+                        <div class="mt-2 relative rounded-lg shadow-sm">
+                            <input type="date" id="checkin" onkeydown="return false" onfocus="this.showPicker()" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200" />
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                <i class=" text-cyan-500 text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="checkout" class="block text-xl font-normal text-gray-700">Ngày trả phòng</label>
+                        <div class="mt-2 relative rounded-lg shadow-sm">
+                            <input type="date" id="checkout" onkeydown="return false" onfocus="this.showPicker()" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200" />
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                <i class="text-cyan-500 text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label for="guests" class="block text-xl font-normal text-gray-700">Số người</label>
+                        <div class="mt-2 relative rounded-lg shadow-sm">
+                            <button id="guestsBtn" type="button" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-4 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
+                                <span id="guestsSummary" class="truncate">1 Người lớn | 0 Trẻ em | 1 Phòng</span>
+                                <i class="fas fa-chevron-down text-cyan-500 text-3xl"></i>
+                            </button>
+                            <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
+                                <div class="mb-4">
+                                    <div class="flex justify-between items-center">
+                                        <label class="text-3xl font-normal text-gray-700">Người lớn</label>
+                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                            <button onclick="updateGuests('adults', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                            <input type="number" id="adultsCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="1" min="1" oninput="updateGuests('adults', 0)">
+                                            <button onclick="updateGuests('adults', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex justify-between items-center">
+                                        <label class="text-3xl font-normal text-gray-700">Trẻ em</label>
+                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                            <button onclick="updateGuests('children', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                            <input type="number" id="childrenCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="0" min="0" oninput="updateGuests('children', 0)">
+                                            <button onclick="updateGuests('children', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex justify-between items-center">
+                                        <label class="text-3xl font-normal text-gray-700">Phòng</label>
+                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                            <button onclick="updateGuests('rooms', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                            <input type="number" id="roomsCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="1" min="1" oninput="updateGuests('rooms', 0)">
+                                            <button onclick="updateGuests('rooms', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="button" class="w-full bg-cyan-600 text-white rounded-xl py-4 sm:py-4 px-6 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover">
+                            <i class="fas fa-search mr-2 text-3xl"></i> Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS Sticky & Blur -->
+            <link rel="stylesheet" href="~/css/PageCSS/SearchSection.css" />
+
+            <!-- JavaScript Scroll Behavior -->
+            <script src="~/js/PageJS/SearchSection.js"></script>
+
+            <div class="flex flex-col lg:flex-row gap-8 mt-6">
+                <!-- Filters Column -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 filter-card">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Bộ lọc</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Giá mỗi đêm ($)</h4>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-2xl text-gray-500">500,000</span>
+                                <span class="text-2xl text-gray-500">5,000,000</span>
+                            </div>
+                            <input type="range" min="500000" max="5000000" value="2500000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Xếp hạng sao</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-2xl text-gray-700">
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                    </span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-2xl text-gray-700">
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                    </span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-2xl text-gray-700">
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                    </span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-2xl text-gray-700">
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                    </span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-2xl text-gray-700">
+                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Loại chỗ nghỉ</h4>
+                            <div class="space-y-2">
+                                @foreach (var roomType in ViewBag.RoomTypes ?? new List<BookingHotel.Areas.Admin.Models.RoomType>())
+                                {
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="h-4 w-4 text-blue-600" @(roomType.TypeName == "Khách sạn" ? "checked" : "")>
+                                        <span class="ml-2 text-2xl text-gray-700 font-medium">@roomType.TypeName</span>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Tiện nghi</h4>
+                            <div class="space-y-2">
+                                @foreach (var service in ViewBag.Amenities ?? new List<BookingHotel.Areas.Admin.Models.Service>())
+                                {
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="h-4 w-4 text-blue-600" value="@service.ServiceID" @(service.ServiceName == "Wifi miễn phí" ? "checked" : "")>
+                                        <span class="ml-2 text-2xl text-gray-700 font-medium">@service.ServiceName</span>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6 filter-card">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Bản đồ</h3>
+                        <div class="map-container bg-gray-200 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwyfHxodWUlMjBtYXB8ZW58MHx8fHwxNzQ2NzY1ODA5fDA&ixlib=rb-4.1.0&q=85" alt="hue map" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Column -->
+                <div class="lg:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800">Huế: @Model.Count chỗ nghỉ tìm thấy</h2>
+                        <div class="flex items-center">
+                            <span class="text-2xl text-gray-600 mr-2">Sắp xếp:</span>
+                            <select class="border rounded-lg px-3 py-1 text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>Đề xuất cho bạn</option>
+                                <option>Giá (thấp nhất trước)</option>
+                                <option>Giá (cao nhất trước)</option>
+                                <option>Xếp hạng sao</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hotel Cards -->
+                    <div class="space-y-6">
+                        @foreach (var room in Model)
+                        {
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                                <div class="flex flex-col md:flex-row">
+                                    <div class="md:w-1/3 relative">
+                                        <img src="~/images/room/@room.Photo" alt="room image" class="w-full h-full object-cover">
+                                        <span class="price-badge bg-green-600 text-white px-3 py-1 rounded-full text-2xl font-bold">@room.Price.ToString("N0") VND</span>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="text-3xl font-bold text-gray-800">@room.RoomNumber</h3>
+                                                <div class="flex items-center mt-1 mb-3">
+                                                    @for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <i class="fas fa-star text-yellow-400 text-2xl mr-1" style="@(i <= 4 ? "" : "color: gray;")"></i>
+                                                    }
+                                                    <span class="text-2xl text-gray-500 ml-2">(64 đánh giá)</span>
+                                                </div>
+                                                <p class="text-2xl text-gray-600 mb-4">@room.Description</p>
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">Wifi miễn phí</span>
+                                                    <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">Bể bơi</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-2xl text-gray-500 days-display" data-room-id="@room.RoomID"> Ngày, @room.number người</p>
+                                                <p class="text-3xl font-bold text-gray-800 mt-2">@room.Price.ToString("N0") $</p>
+                                                <p class="text-2xl text-gray-500 mb-3">+ 200,000 VND thuế</p>
+                                                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-2xl hover:bg-blue-700 transition font-medium">Chọn phòng</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-8 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow">
+                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100">
+                                <i class="fas fa-chevron-left text-2xl"></i>
+                            </a>
+                            <a href="#" class="px-4 py-2 bg-blue-600 text-white text-2xl border border-blue-600">1</a>
+                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">2</a>
+                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">3</a>
+                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">4</a>
+                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100">
+                                <i class="fas fa-chevron-right text-2xl"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let adults = 1;
+            let children = 0;
+            let rooms = 1;
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Guests dropdown toggle
+            const guestsBtn = document.getElementById('guestsBtn');
+            const guestsDropdown = document.getElementById('guestsDropdown');
+            guestsBtn.addEventListener('click', () => {
+                guestsDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!guestsBtn.contains(e.target) && !guestsDropdown.contains(e.target)) {
+                    guestsDropdown.classList.add('hidden');
+                }
+            });
+
+            // Calculate days between check-in and check-out
+            function calculateDays() {
+                const checkin = document.getElementById('checkin').value;
+                const checkout = document.getElementById('checkout').value;
+                if (checkin && checkout) {
+                    const checkinDate = new Date(checkin);
+                    const checkoutDate = new Date(checkout);
+                    const timeDiff = checkoutDate - checkinDate;
+                    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                    return daysDiff > 0 ? daysDiff : 1;
+                }
+                return 1;
+            }
+
+            // Update days display for all rooms
+            function updateDaysDisplay() {
+                const days = calculateDays();
+                document.querySelectorAll('.days-display').forEach(element => {
+                    const people = element.textContent.match(/\d+ người/)[0];
+                    element.textContent = `${days} Ngày, ${people}`;
+                });
+            }
+
+            // Handle search button click
+            const searchButton = document.querySelector('.btn-hover');
+            searchButton.addEventListener('click', () => {
+                updateDaysDisplay();
+            });
+
+            // Update guests
+            window.updateGuests = function(type, change) {
+                const adultsInput = document.getElementById('adultsCount');
+                const childrenInput = document.getElementById('childrenCount');
+                const roomsInput = document.getElementById('roomsCount');
+                const summary = document.getElementById('guestsSummary');
+
+                if (change === 0) {
+                    if (type === 'adults') {
+                        adults = parseInt(adultsInput.value) || 1;
+                    } else if (type === 'children') {
+                        children = parseInt(childrenInput.value) || 0;
+                    } else if (type === 'rooms') {
+                        rooms = parseInt(roomsInput.value) || 1;
+                    }
+                } else {
+                    if (type === 'adults') {
+                        adults = Math.max(1, adults + change);
+                        adultsInput.value = adults;
+                    } else if (type === 'children') {
+                        children = Math.max(0, children + change);
+                        childrenInput.value = children;
+                    } else if (type === 'rooms') {
+                        rooms = Math.max(1, rooms + change);
+                        roomsInput.value = rooms;
+                    }
+                }
+
+                adults = Math.max(1, adults);
+                children = Math.max(0, children);
+                rooms = Math.max(1, rooms);
+
+                adultsInput.value = adults;
+                childrenInput.value = children;
+                roomsInput.value = rooms;
+
+                summary.textContent = `${adults} Người lớn | ${children} Trẻ em | ${rooms} Phòng`;
+            };
+
+            window.closeGuestsDropdown = function() {
+                document.getElementById('guestsDropdown').classList.add('hidden');
+            };
+
+            // Initialize days display
+            updateDaysDisplay();
+        });
+    </script>
+</body>

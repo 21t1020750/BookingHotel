@@ -1,4 +1,5 @@
 ﻿using BookingHotel.Areas.Admin.Models;
+using BookingHotel.Models; // Add this to access content models
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingHotel.Areas.Admin.Data
@@ -6,9 +7,11 @@ namespace BookingHotel.Areas.Admin.Data
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+            : base(options)
         {
         }
+
+        // Existing DbSet properties for the booking system
         public DbSet<Room> Rooms { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<RoomStatus> RoomStatus { get; set; }
@@ -20,11 +23,21 @@ namespace BookingHotel.Areas.Admin.Data
         public DbSet<BookingDetail> BookingDetails { get; set; }
         public DbSet<BookingStatus> BookingStatus { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<RoomImage> RoomImages { get; set; }
+
+        // Add DbSet properties for content-related entities
+        public DbSet<Content_BannerImage> Content_BannerImages { get; set; }
+        public DbSet<Content_Service> Content_Services { get; set; }
+        public DbSet<Content_Room> Content_Rooms { get; set; }
+        public DbSet<Content_Amenity> Content_Amenities { get; set; }
+        public DbSet<Content_Offer> Content_Offers { get; set; }
+        public DbSet<Content_MembershipBenefit> Content_MembershipBenefits { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            // Existing relationships for the booking system
             modelBuilder.Entity<Room>()
                 .HasOne(r => r.RoomType)
                 .WithMany()
@@ -35,7 +48,6 @@ namespace BookingHotel.Areas.Admin.Data
                 .WithMany()
                 .HasForeignKey(r => r.StatusID)
                 .OnDelete(DeleteBehavior.Restrict);
-
 
             modelBuilder.Entity<Booking>()
                 .HasOne(r => r.Customer)
@@ -84,6 +96,12 @@ namespace BookingHotel.Areas.Admin.Data
                 .WithMany()
                 .HasForeignKey(r => r.CustomerID)
                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<RoomImage>()
+                 .HasOne(r => r.Room)
+                 .WithMany(r => r.RoomImages)
+                 .HasForeignKey(r => r.RoomID);
+
+            // No additional relationships needed for content entities (they are independent)
         }
     }
 }

@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yd0xpr1xp2</Fingerprint>
-      <Integrity>NtXdVBgKTotjn/ySRmxGaz6MYvvvCjS7IaehCixZ+ps=</Integrity>
+      <Fingerprint>g2fywqa272</Fingerprint>
+      <Integrity>OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\PageCSS\SearchSection.css'))</OriginalItemSpec>
@@ -180,6 +180,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Customer\nophoto.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Customer\Screenshot 2025-05-07 112640.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingHotel</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingHotel</BasePath>
+      <RelativePath>images/Customer/Screenshot 2025-05-07 112640.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>5h5mdchgew</Fingerprint>
+      <Integrity>ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Customer\Screenshot 2025-05-07 112640.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Employee\assassins-creed-VALHALLA.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingHotel</SourceId>
@@ -269,6 +287,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\nophoto.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\Screenshot 2025-05-08 131306.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingHotel</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingHotel</BasePath>
+      <RelativePath>images/Room/Screenshot 2025-05-08 131306.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>uxqr5m2ru3</Fingerprint>
+      <Integrity>3iEJQIGMsRmB/KnUAzGTv41jZ9c1O89FD8XcR1suGWM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\Screenshot 2025-05-08 131306.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\Screenshot 2025-05-08 131316.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingHotel</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingHotel</BasePath>
+      <RelativePath>images/Room/Screenshot 2025-05-08 131316.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>eb0v06lyl7</Fingerprint>
+      <Integrity>pkTYNp68i/jiRxCPFFwGk8ZxLFKow7t9BjfflJ8fC1Q=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\Screenshot 2025-05-08 131316.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Room\Untitled.png'))">
       <SourceType>Package</SourceType>
@@ -390,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>u66k3q68p3</Fingerprint>
-      <Integrity>VkcRqHGxb70ou6YzpQaD4wRoJzx4giMop81Wea5ifcA=</Integrity>
+      <Fingerprint>xw89dzpf2j</Fingerprint>
+      <Integrity>YX5EgYToynsrgbS8QEviSVQc5uBJ3/NEwyPnAxuKKYw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PageJS\_MainHeader2.js'))</OriginalItemSpec>

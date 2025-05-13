@@ -7,11 +7,14 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\Customer\gg.JPG
 wwwroot\images\Customer\nophoto.png
+wwwroot\images\Customer\Screenshot 2025-05-07 112640.png
 wwwroot\images\Employee\assassins-creed-VALHALLA.jpg
 wwwroot\images\Employee\nophoto.png
 wwwroot\images\Room\assassins-creed-VALHALLA.jpg
 wwwroot\images\Room\gg.JPG
 wwwroot\images\Room\nophoto.png
+wwwroot\images\Room\Screenshot 2025-05-08 131306.png
+wwwroot\images\Room\Screenshot 2025-05-08 131316.png
 wwwroot\images\Room\Untitled.png
 wwwroot\js\login.js
 wwwroot\js\logintab.js

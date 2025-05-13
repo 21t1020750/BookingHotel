@@ -1,4 +1,6 @@
-﻿namespace BookingHotel.Areas.Admin.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookingHotel.Areas.Admin.Models
 {
     public class Room
     {
@@ -11,5 +13,10 @@
         public int StatusID { get; set; }
         public RoomType RoomType { get; set; } // Quan hệ với RoomType
         public RoomStatus RoomStatus { get; set; }
+        public int number { get; set; }
+        public List<RoomImage> RoomImages { get; set; }
+        [NotMapped]
+        public List<IFormFile> NewImages { get; set; }
+
     }
 }

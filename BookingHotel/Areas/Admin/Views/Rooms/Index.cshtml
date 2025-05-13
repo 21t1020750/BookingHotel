@@ -124,6 +124,7 @@
                             <th>Ảnh Phòng</th>
                             <th>Số Phòng</th>
                             <th>Thể Loại Phòng</th>
+                            <th>Sô người</th>
                             <th>Giá</th>
                             <th>Trạng Thái</th>
                             <th>Mô Tả</th>
@@ -137,9 +138,10 @@
                                 <td><img src="/images/Room/@(room.Photo ?? "nophoto.png")" style="width:100px" alt="Ảnh phòng" /></td>
                                 <td>@room.RoomNumber</td>
                                 <td>@room.RoomType.TypeName</td>
+                                <td>@room.number</td>
                                 <td>@room.Price $</td>
                                 <td>@room.RoomStatus.Description</td>
-                                <td>@room.Description</td>
+                                <td>@Html.Raw(room.Description)</td>
                                 <td class="text-right">
                                     <a href="~/Admin/Rooms/Edit/@room.RoomID" class="btn btn-xs btn-info">
                                         <i class="fa fa-edit"></i>

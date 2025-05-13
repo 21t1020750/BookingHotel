@@ -1,0 +1,752 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model Customer
+@{
+    ViewData["Title"] = "Trang Thông tin";
+}
+
+<style data-id="fytyca59" data-line="7-41">
+    .user-dropdown {
+        min-width: 280px;
+        right: 0;
+        top: 100%;
+    }
+
+    .info-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .readonly-input {
+        background-color: #f3f4f6;
+        pointer-events: none;
+    }
+
+    .nav-tab {
+        position: relative;
+    }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #2496b3;
+        }
+
+    .booking-card {
+        transition: all 0.3s ease;
+    }
+
+        .booking-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+    .photo-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .edit-photo-icon {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        background-color: #3b82f6; /* blue-600 */
+        color: white;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .edit-photo-icon:hover {
+            background-color: #2563eb; /* blue-700 */
+        }
+
+    .photo-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        display: none;
+        min-width: 200px;
+    }
+
+        .photo-menu.show {
+            display: block;
+        }
+
+    .photo-menu-item {
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+        .photo-menu-item:hover {
+            background-color: #f3f4f6;
+        }
+
+        .photo-menu-item i {
+            margin-right: 0.5rem;
+            color: #6b7280;
+        }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 50;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .modal.show {
+            display: flex;
+        }
+
+    .modal-content {
+        background-color: transparent;
+        border-radius: 12px;
+        overflow: hidden;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
+    .modal-image {
+        max-width: 90vw; /* Giới hạn chiều rộng tối đa là 90% chiều rộng màn hình */
+        max-height: 90vh; /* Giới hạn chiều cao tối đa là 90% chiều cao màn hình */
+        width: 1024px; /* Đặt kích thước mặc định là 1024px (gấp đôi 512px) */
+        height: auto; /* Giữ tỷ lệ ảnh */
+        object-fit: contain; /* Đảm bảo toàn bộ ảnh hiển thị */
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        background-color: #ef4444; /* red-500 */
+        color: white;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+        .modal-close:hover {
+            background-color: #dc2626; /* red-600 */
+        }
+</style>
+<body class="bg-gray-100" alt="luxury hotel" data-id="ziqth1z1" data-line="43-616">
+    <main class="py-12" data-id="loalmcrk" data-line="123-461">
+        <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8" data-id="7pq2ovex" data-line="124-460">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8" data-id="f9vl4drc" data-line="125-125">Thông tin tài khoản</h1>
+
+            <!-- Hiển thị thông báo thành công -->
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
+                    <p>@TempData["SuccessMessage"]</p>
+                </div>
+            }
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-id="yu1i05gr" data-line="127-459">
+                <div class="lg:col-span-1" data-id="bk8zefi4" data-line="128-183">
+                    <div class="info-card p-6" data-id="4fo6cay2" data-line="129-147">
+                        <div class="flex flex-col items-center text-center mb-6" data-id="kpewrlxt" data-line="130-135">
+                            <img src="/images/Customer/@(Model.Photo ?? "nophoto.png")" alt="user avatar" class="w-32 h-32 rounded-full object-cover mb-4" data-id="4vhfn9qp" data-line="131-131">
+                            <h2 class="text-xl font-bold text-gray-800" data-id="63agnww2" data-line="132-132">@Model.FullName</h2>
+                            <p class="text-gray-600 mb-2" data-id="snior38c" data-line="133-133">Gold Member</p>
+                            <p class="text-sm text-gray-500" data-id="xuvo30ml" data-line="134-134">Thành viên từ: @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+                        </div>
+
+                        <div class="border-t pt-4" data-id="k7v1h7o8" data-line="137-146">
+                            <div class="flex justify-between items-center mb-3" data-id="spfkxrpg" data-line="138-141">
+                                <span class="text-gray-600" data-id="h167c5de" data-line="139-139">Điểm tích luỹ:</span>
+                                <span class="font-medium" data-id="hq7tgiqd" data-line="140-140">1,200 điểm</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5" data-id="9164rl72" data-line="142-144">
+                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 60%" data-id="014coqa7" data-line="143-143"></div>
+                            </div>
+                            <p class="text-right text-sm text-gray-500 mt-1" data-id="wcohdiuv" data-line="145-145">Cần 800 điểm để lên Diamond</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card p-6 mt-6" data-id="lfoooyyf" data-line="149-182">
+                        <ul class="space-y-2" data-id="4p4col95" data-line="150-181">
+                            <li data-id="zu3vfy52" data-line="151-156">
+                                <a href="#profile" class="nav-tab active flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="pqpjogqd" data-line="152-155">
+                                    <i class="fas fa-user-circle mr-3 text-blue-500" data-id="c7qo7ez5" data-line="153-153"></i>
+                                    <span data-id="3cjz0doe" data-line="154-154">Thông tin cá nhân</span>
+                                </a>
+                            </li>
+                            <li data-id="aery8a0n" data-line="157-162">
+                                <a href="#bookings" class="nav-tab flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="emknjskh" data-line="158-161">
+                                    <i class="fas fa-calendar-check mr-3 text-blue-500" data-id="l45phhye" data-line="159-159"></i>
+                                    <span data-id="q4lmxacg" data-line="160-160">Đặt phòng</span>
+                                </a>
+                            </li>
+                            <li data-id="jp5eojd4" data-line="163-168">
+                                <a href="#history" class="nav-tab flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="y5gkw570" data-line="164-167">
+                                    <i class="fas fa-history mr-3 text-blue-500" data-id="j7z6obe6" data-line="165-165"></i>
+                                    <span data-id="szg4ktpk" data-line="166-166">Lịch sử</span>
+                                </a>
+                            </li>
+                            <li data-id="jp5eojd5" data-line="169-174">
+                                <a href="#reviews" class="nav-tab flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="y5gkw571" data-line="170-173">
+                                    <i class="fas fa-star mr-3 text-blue-500" data-id="j7z6obe7" data-line="171-171"></i>
+                                    <span data-id="szg4ktpl" data-line="172-172">Đánh giá</span>
+                                </a>
+                            </li>
+                            <li data-id="1l3s4sbi" data-line="175-180">
+                                <a href="#security" class="nav-tab flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="qw7dy56d" data-line="176-179">
+                                    <i class="fas fa-shield-alt mr-3 text-blue-500" data-id="63mh5lr9" data-line="177-177"></i>
+                                    <span data-id="3ubk3lgu" data-line="178-178">Bảo mật</span>
+                                </a>
+                            </li>
+                            <li data-id="om9per2j" data-line="181-186">
+                                <a href="#rewards" class="nav-tab flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition" data-id="q11l447e" data-line="182-185">
+                                    <i class="fas fa-gift mr-3 text-blue-500" data-id="yrchi6m4" data-line="183-183"></i>
+                                    <span data-id="ju8crkek" data-line="184-184">Ưu đãi</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-6" data-id="ii0sxsqm" data-line="188-458">
+                    <!-- Profile Section -->
+                    <div id="profile" class="info-card p-6" data-id="z5tpa7f8" data-line="190-235">
+                        <div class="flex justify-between items-center mb-6" data-id="5gajlnbt" data-line="191-196">
+                            <h3 class="text-2xl font-bold text-gray-800" data-id="zdb1gj5e" data-line="192-192">Thông tin cá nhân</h3>
+                            <button id="editProfileBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium" data-id="nkrhcvf8" data-line="193-195">
+                                <i class="fas fa-edit mr-2" data-id="l1ahwu98" data-line="194-194"></i> Chỉnh sửa
+                            </button>
+                        </div>
+
+                        <form id="profileForm" asp-action="UpdateProfile" asp-controller="Information" method="post" enctype="multipart/form-data" class="space-y-4" data-id="2j5i9kv3" data-line="198-234">
+                            <input type="hidden" asp-for="CustomerID" />
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="photo-upload" data-line="221-228">
+                                <div data-id="photo-preview" data-line="222-225">
+                                    <label class="block text-gray-700 mb-2">Ảnh đại diện</label>
+                                    <div class="photo-container">
+                                        <img src="/images/Customer/@(Model.Photo ?? "nophoto.png")" alt="Preview" class="w-32 h-32 rounded-full object-cover mb-4 cursor-pointer" id="photoPreview">
+                                        <span id="editPhotoIcon" class="edit-photo-icon hidden">
+                                            <i class="fas fa-camera"></i>
+                                        </span>
+                                        <input type="file" name="uploadPhoto" accept="image/*" class="hidden" id="uploadPhotoInput">
+                                        <div id="photoMenu" class="photo-menu">
+                                            <div class="photo-menu-item" id="viewPhotoOption">
+                                                <i class="fas fa-eye"></i>
+                                                <span>Xem ảnh</span>
+                                            </div>
+                                            <div class="photo-menu-item" id="changePhotoOption">
+                                                <i class="fas fa-camera"></i>
+                                                <span>Chọn ảnh đại diện</span>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="4qu91vc0" data-line="199-208">
+                                <div data-id="0ganuwmm" data-line="200-203">
+                                    <label class="block text-gray-700 mb-2" data-id="53zac1ds" data-line="201-201">Họ và tên</label>
+                                    <input type="text" asp-for="FullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="0dpc9e7i" data-line="202-202">
+                                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+                                <div data-id="1in5wp9a" data-line="204-207">
+                                    <label class="block text-gray-700 mb-2" data-id="yuppnfwf" data-line="205-205">Email</label>
+                                    <input type="email" asp-for="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="h3vg561s" data-line="206-206">
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="k6vjp3mk" data-line="210-219">
+                                <div data-id="uqlhdmvi" data-line="211-214">
+                                    <label class="block text-gray-700 mb-2" data-id="6vx92rga" data-line="212-212">Số điện thoại</label>
+                                    <input type="tel" asp-for="Phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="jatfpn67" data-line="213-213">
+                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+                                <div data-id="evsrcs2t" data-line="215-218">
+                                    <label class="block text-gray-700 mb-2" data-id="y4ai1jwr" data-line="216-216">Ngày sinh</label>
+                                    <input type="date" asp-for="DateOfBirth" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="zumaewkx" data-line="217-217">
+                                    @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+                            </div>
+
+                            <!-- Modal for viewing photo -->
+                            <div id="photoModal" class="modal">
+                                <div class="modal-content">
+                                    <span id="modalClose" class="modal-close">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                    <img id="modalImage" class="modal-image" src="" alt="Full size photo">
+                                </div>
+                            </div>
+
+                            <div data-id="33i7t8fm" data-line="229-232">
+                                <label class="block text-gray-700 mb-2" data-id="hrsz4zlm" data-line="230-230">Địa chỉ</label>
+                                <textarea asp-for="Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" rows="2" readonly data-id="igvs9fjd" data-line="231-231"></textarea>
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-red-500 text-sm mt-1" })
+                            </div>
+
+                            <div id="saveBtnContainer" class="pt-4 hidden" data-id="xzlsl6qo" data-line="234-241">
+                                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium" data-id="w5gmt91q" data-line="235-237">
+                                    <i class="fas fa-save mr-2" data-id="hurffe76" data-line="236-236"></i> Lưu thông tin
+                                </button>
+                                <button type="button" id="cancelEditBtn" class="ml-4 px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition font-medium" data-id="mz63ji0l" data-line="238-240">
+                                    <i class="fas fa-times mr-2" data-id="2ztk5u3i" data-line="239-239"></i> Hủy
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Bookings Section -->
+                    <div id="bookings" class="info-card p-6 hidden" data-id="oypw37u7" data-line="244-310">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-id="oqiybe8g" data-line="245-245">Đặt phòng</h3>
+
+                        <div class="space-y-4" data-id="cobcgn0i" data-line="247-309">
+                            <div class="booking-card bg-white border rounded-lg overflow-hidden shadow-sm" data-id="6hd1vu7n" data-line="248-277">
+                                <div class="p-4 border-b" data-id="i373v4vd" data-line="249-257">
+                                    <div class="flex justify-between items-start" data-id="223wngi0" data-line="250-256">
+                                        <div data-id="avrcsrq5" data-line="251-254">
+                                            <h4 class="font-bold text-lg" data-id="t22pse2z" data-line="252-252">Phòng Deluxe</h4>
+                                            <p class="text-gray-600" data-id="mh3bhthn" data-line="253-253">Mã đặt phòng: #LHL12345</p>
+                                        </div>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" data-id="8kcaspff" data-line="255-255">Đã xác nhận</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4" data-id="8igpw4p6" data-line="258-271">
+                                    <div data-id="7avh3a2b" data-line="259-262">
+                                        <p class="text-sm text-gray-500" data-id="ccvzkppu" data-line="260-260">Ngày đến</p>
+                                        <p class="font-medium" data-id="11q7tqre" data-line="261-261">15/05/2025</p>
+                                    </div>
+                                    <div data-id="vv1v0m6u" data-line="263-266">
+                                        <p class="text-sm text-gray-500" data-id="9l04mlre" data-line="264-264">Ngày đi</p>
+                                        <p class="font-medium" data-id="l5c53tz9" data-line="265-265">18/05/2025</p>
+                                    </div>
+                                    <div data-id="cawux772" data-line="267-270">
+                                        <p class="text-sm text-gray-500" data-id="qvpw1he8" data-line="268-268">Tổng cộng</p>
+                                        <p class="font-medium" data-id="yw0v6fmn" data-line="269-269">12,600,000 VND</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-t flex justify-end" data-id="3ugauoys" data-line="272-276">
+                                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium" data-id="uc74qkxn" data-line="273-275">
+                                        Xem chi tiết
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="booking-card bg-white border rounded-lg overflow-hidden shadow-sm" data-id="4u43ahyo" data-line="279-308">
+                                <div class="p-4 border-b" data-id="dglrqobk" data-line="280-288">
+                                    <div class="flex justify-between items-start" data-id="8wmipwf0" data-line="281-287">
+                                        <div data-id="g9u8r5fo" data-line="282-285">
+                                            <h4 class="font-bold text-lg" data-id="w12jt9yh" data-line="283-283">Phòng Suite</h4>
+                                            <p class="text-gray-600" data-id="b9uu02va" data-line="284-284">Mã đặt phòng: #LHL12344</p>
+                                        </div>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-id="smkdwh60" data-line="286-286">Đang xử lý</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4" data-id="m3rdsh83" data-line="289-302">
+                                    <div data-id="o7gr8p3z" data-line="290-293">
+                                        <p class="text-sm text-gray-500" data-id="wzp2v0g4" data-line="291-291">Ngày đến</p>
+                                        <p class="font-medium" data-id="9r4lnmvw" data-line="292-292">20/05/2025</p>
+                                    </div>
+                                    <div data-id="kvzp954g" data-line="294-297">
+                                        <p class="text-sm text-gray-500" data-id="v2ebejkm" data-line="295-295">Ngày đi</p>
+                                        <p class="font-medium" data-id="7t80kk4z" data-line="296-296">22/05/2025</p>
+                                    </div>
+                                    <div data-id="9i6lplpz" data-line="298-301">
+                                        <p class="text-sm text-gray-500" data-id="ghbg9r04" data-line="299-299">Tổng cộng</p>
+                                        <p class="font-medium" data-id="r5o3oic9" data-line="300-300">9,800,000 VND</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-t flex justify-end" data-id="05j1813w" data-line="303-307">
+                                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium" data-id="519kqmji" data-line="304-306">
+                                        Xem chi tiết
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Section -->
+                    <div id="history" class="info-card p-6 hidden" data-id="tphzb17r" data-line="313-352">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-id="vh8nxdh8" data-line="314-314">Lịch sử đặt phòng</h3>
+
+                        <div class="overflow-x-auto" data-id="ny3nhl3q" data-line="316-351">
+                            <table class="min-w-full divide-y divide-gray-200" data-id="cwl0xjqs" data-line="317-350">
+                                <thead class="bg-gray-50" data-id="58vm1yxu" data-line="318-326">
+                                    <tr data-id="btnp8acd" data-line="319-325">
+                                        <th class="px-6 py-3 text-left text-3xl font-medium text-gray-500 uppercase tracking-wider" data-id="gz36upxw" data-line="320-320">Mã đặt phòng</th>
+                                        <th class="px-6 py-3 text-left text-3xl font-medium text-gray-500 uppercase tracking-wider" data-id="fxh75439" data-line="321-321">Phòng</th>
+                                        <th class="px-6 py-3 text-left text-3xl font-medium text-gray-500 uppercase tracking-wider" data-id="frqrky9c" data-line="322-322">Ngày</th>
+                                        <th class="px-6 py-3 text-left text-3xl font-medium text-gray-500 uppercase tracking-wider" data-id="cc31srmv" data-line="323-323">Tổng tiền</th>
+                                        <th class="px-6 py-3 text-left text-3xl font-medium text-gray-500 uppercase tracking-wider" data-id="tuffpolj" data-line="324-324">Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" data-id="p291a914" data-line="327-349">
+                                    <tr data-id="a5iq4kyi" data-line="328-334">
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="1vmbu2zt" data-line="329-329">#LHL12343</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="zzyfok6y" data-line="330-330">Premium</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="eebsdbqn" data-line="331-331">10-12/03/2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="fer4oty8" data-line="332-332">8,400,000 VND</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="w5to7m34" data-line="333-333">Hoàn thành</td>
+                                    </tr>
+                                    <tr data-id="5cg71nze" data-line="335-341">
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="gxm48ion" data-line="336-336">#LHL12342</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="ypfwocnc" data-line="337-337">Deluxe</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="hpk9qfge" data-line="338-338">25-28/02/2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="8swg5ynl" data-line="339-339">12,600,000 VND</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="xmwcxu4o" data-line="340-340">Hoàn thành</td>
+                                    </tr>
+                                    <tr data-id="x1kuorrp" data-line="342-348">
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="srktahg2" data-line="343-343">#LHL12341</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="pj5w2zr5" data-line="344-344">Standard</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="i8h76poy" data-line="345-345">15-18/01/2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="h3vtbcpt" data-line="346-346">6,800,000 VND</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="l8mw6d44" data-line="347-347">Hoàn thành</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Section -->
+                    <div id="reviews" class="info-card p-6 hidden" data-id="xyz12345" data-line="355-389">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-id="abc67890" data-line="356-356">Đánh giá của bạn</h3>
+
+                        <div class="space-y-6" data-id="def12345" data-line="358-388">
+                            <div class="border rounded-lg p-6" data-id="ghi67890" data-line="359-367">
+                                <div class="flex justify-between items-center mb-4" data-id="jkl12345" data-line="360-363">
+                                    <h4 class="font-bold text-gray-800" data-id="mno67890" data-line="361-361">Phòng Deluxe</h4>
+                                    <span class="text-yellow-500">★★★★☆</span>
+                                </div>
+                                <p class="text-gray-600" data-id="pqr12345" data-line="364-364">Mã đặt phòng: #LHL12343</p>
+                                <p class="text-gray-500 mt-2" data-id="stu67890" data-line="365-365">Phòng sạch sẽ, nhân viên thân thiện, nhưng wifi hơi chậm.</p>
+                                <p class="text-sm text-gray-400 mt-2" data-id="vwx12345" data-line="366-366">Đánh giá ngày: 12/03/2025</p>
+                            </div>
+
+                            <div class="border rounded-lg p-6" data-id="yz123456" data-line="369-377">
+                                <div class="flex justify-between items-center mb-4" data-id="abc78901" data-line="370-373">
+                                    <h4 class="font-bold text-gray-800" data-id="def23456" data-line="371-371">Phòng Suite</h4>
+                                    <span class="text-yellow-500">★★★★★</span>
+                                </div>
+                                <p class="text-gray-600" data-id="ghi78901" data-line="374-374">Mã đặt phòng: #LHL12344</p>
+                                <p class="text-gray-500 mt-2" data-id="jkl23456" data-line="375-375">Trải nghiệm tuyệt vời, mọi thứ đều hoàn hảo!</p>
+                                <p class="text-sm text-gray-400 mt-2" data-id="mno78901" data-line="376-376">Đánh giá ngày: 22/02/2025</p>
+                            </div>
+
+                            <div class="text-center" data-id="pqr23456" data-line="379-388">
+                                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium" data-id="stu78901" data-line="380-382">
+                                    Viết đánh giá mới
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div id="security" class="info-card p-6 hidden" data-id="taj6hmki" data-line="392-426">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-id="14jwqmc7" data-line="393-393">Thông tin bảo mật</h3>
+
+                        <div class="space-y-6" data-id="zw0bea85" data-line="395-425">
+                            <div class="flex justify-between items-center pb-4 border-b" data-id="mohjclmq" data-line="396-404">
+                                <div data-id="1uu15pi6" data-line="397-400">
+                                    <h4 class="font-medium text-gray-800" data-id="riji6utx" data-line="398-398">Mật khẩu</h4>
+                                    <p class="text-sm text-gray-500" data-id="vw5o4n95" data-line="399-399">•••••••••••••</p>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium" data-id="j8r9r7ot" data-line="401-403">
+                                    <i class="fas fa-pencil-alt mr-1" data-id="8ahjrr00" data-line="402-402"></i> Đổi mật khẩu
+                                </button>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-4 border-b" data-id="objetoox" data-line="406-414">
+                                <div data-id="2zq664hj" data-line="407-410">
+                                    <h4 class="font-medium text-gray-800" data-id="lvyhluze" data-line="408-408">Xác thực 2 bước</h4>
+                                    <p class="text-sm text-gray-500" data-id="jg7piyfc" data-line="409-409">Chưa bật</p>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium" data-id="xb4al1hk" data-line="411-413">
+                                    <i class="fas fa-toggle-off mr-1" data-id="b1d3gx0j" data-line="412-412"></i> Bật
+                                </button>
+                            </div>
+
+                            <div class="flex justify-between items-center" data-id="g8ca94mi" data-line="416-424">
+                                <div data-id="ft8v8lt9" data-line="417-420">
+                                    <h4 class="font-medium text-gray-800" data-id="nk79ywrv" data-line="418-418">Thiết bị đã đăng nhập</h4>
+                                    <p class="text-sm text-gray-500" data-id="tafihwyq" data-line="419-419">2 thiết bị</p>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium" data-id="6dfvng3n" data-line="421-423">
+                                    <i class="fas fa-eye mr-1" data-id="bck24ved" data-line="422-422"></i> Xem chi tiết
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rewards Section -->
+                    <div id="rewards" class="info-card p-6 hidden" data-id="48n5008u" data-line="429-503">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-id="e78wjd2y" data-line="430-430">Ưu đãi và phần thưởng</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-id="i9c7nb6v" data-line="432-502">
+                            <div class="border rounded-lg p-6 bg-gradient-to-r from-yellow-50 to-yellow-100" data-id="0mdb9vwa" data-line="433-453">
+                                <div class="flex items-center mb-4" data-id="1ushqjys" data-line="434-442">
+                                    <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mr-4" data-id="03ltvnla" data-line="435-437">
+                                        <i class="fas fa-crown text-white text-xl" data-id="wd64y373" data-line="436-436"></i>
+                                    </div>
+                                    <div data-id="d8qfstho" data-line="438-441">
+                                        <h4 class="font-bold text-gray-800" data-id="cus38it9" data-line="439-439">Hạng thành viên</h4>
+                                        <p class="text-yellow-600 font-medium" data-id="e7qdaeqz" data-line="440-440">Gold</p>
+                                    </div>
+                                </div>
+                                <div class="mb-4" data-id="2ehqv6nh" data-line="443-451">
+                                    <div class="flex justify-between text-sm text-gray-600 mb-1" data-id="eomb4cbk" data-line="444-447">
+                                        <span data-id="3qxtbm3b" data-line="445-445">Điểm tích luỹ</span>
+                                        <span data-id="kngvivq6" data-line="446-446">1,200/2,000</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2" data-id="yjtx8p7k" data-line="448-450">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 60%" data-id="fxaet6ha" data-line="449-449"></div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600" data-id="esktvcte" data-line="452-452">Cần thêm 800 điểm để lên hạng Diamond</p>
+                            </div>
+
+                            <div class="border rounded-lg p-6 bg-gradient-to-r from-blue-50 to-blue-100" data-id="fyrfttz9" data-line="455-469">
+                                <div class="flex items-center mb-4" data-id="z64cauqm" data-line="456-464">
+                                    <div class="w-12 h-12 rounded-full bg-blue-400 flex items-center justify-center mr-4" data-id="ufuxwx6u" data-line="457-459">
+                                        <i class="fas fa-gift text-white text-xl" data-id="1ffcehuc" data-line="458-458"></i>
+                                    </div>
+                                    <div data-id="0dwiop43" data-line="460-463">
+                                        <h4 class="font-bold text-gray-800" data-id="b66j4wi8" data-line="461-461">Ưu đãi đặc biệt</h4>
+                                        <p class="text-blue-600 font-medium" data-id="taqbuqoc" data-line="462-462">Giảm 15% dịp hè</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4" data-id="ul966v0i" data-line="465-465">Áp dụng cho tất cả các loại phòng từ 01/06/2025 đến 31/08/2025</p>
+                                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium" data-id="722t1fkt" data-line="466-468">
+                                    Xem chi tiết
+                                </button>
+                            </div>
+
+                            <div class="border rounded-lg p-6 bg-gradient-to-r from-green-50 to-green-100" data-id="znb99t21" data-line="471-485">
+                                <div class="flex items-center mb-4" data-id="i6mdjfnq" data-line="472-480">
+                                    <div class="w-12 h-12 rounded-full bg-green-400 flex items-center justify-center mr-4" data-id="b0bwrmn8" data-line="473-475">
+                                        <i class="fas fa-percentage text-white text-xl" data-id="cp4kb858" data-line="474-474"></i>
+                                    </div>
+                                    <div data-id="rnuf7umy" data-line="476-479">
+                                        <h4 class="font-bold text-gray-800" data-id="5j38cyvy" data-line="477-477">Ưu đãi sinh nhật</h4>
+                                        <p class="text-green-600 font-medium" data-id="lht9sty2" data-line="478-478">Giảm 20%</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4" data-id="esdtd94j" data-line="481-481">Áp dụng trong tháng sinh nhật của bạn</p>
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium" data-id="aw2au6co" data-line="482-484">
+                                    Xem chi tiết
+                                </button>
+                            </div>
+
+                            <div class="border rounded-lg p-6 bg-gradient-to-r from-red-50 to-red-100" data-id="52l9wcmj" data-line="487-501">
+                                <div class="flex items-center mb-4" data-id="dz7e5o02" data-line="488-496">
+                                    <div class="w-12 h-12 rounded-full bg-red-400 flex items-center justify-center mr-4" data-id="cx2nu13x" data-line="489-491">
+                                        <i class="fas fa-utensils text-white text-xl" data-id="xa8zvqir" data-line="490-490"></i>
+                                    </div>
+                                    <div data-id="q15nohyg" data-line="492-495">
+                                        <h4 class="font-bold text-gray-800" data-id="k63x57t8" data-line="493-493">Ưu đãi ẩm thực</h4>
+                                        <p class="text-red-600 font-medium" data-id="mzwzi7nv" data-line="494-494">Miễn phí bữa sáng</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4" data-id="qfy7elx8" data-line="497-497">Áp dụng cho mọi đặt phòng từ 3 đêm trở lên</p>
+                                <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm font-medium" data-id="q8b7gef6" data-line="498-500">
+                                    Xem chi tiết
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script data-id="1ncvdhrg" data-line="506-598">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Profile edit functionality
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const profileForm = document.getElementById('profileForm');
+            const saveBtnContainer = document.getElementById('saveBtnContainer');
+            const inputs = profileForm.querySelectorAll('input, textarea');
+            const uploadPhotoInput = document.getElementById('uploadPhotoInput');
+            const photoPreview = document.getElementById('photoPreview');
+            const editPhotoIcon = document.getElementById('editPhotoIcon');
+            const photoMenu = document.getElementById('photoMenu');
+            const changePhotoOption = document.getElementById('changePhotoOption');
+            const viewPhotoOption = document.getElementById('viewPhotoOption');
+            const photoModal = document.getElementById('photoModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+
+            if (editProfileBtn) {
+                editProfileBtn.addEventListener('click', function() {
+                    inputs.forEach(input => {
+                        input.classList.remove('readonly-input');
+                        input.readOnly = false;
+                    });
+                    editPhotoIcon.classList.remove('hidden');
+                    saveBtnContainer.classList.remove('hidden');
+                    editProfileBtn.classList.add('hidden');
+                });
+            }
+
+            if (cancelEditBtn) {
+                cancelEditBtn.addEventListener('click', function() {
+                    inputs.forEach(input => {
+                        input.classList.add('readonly-input');
+                        input.readOnly = true;
+                    });
+                    editPhotoIcon.classList.add('hidden');
+                    photoMenu.classList.remove('show');
+                    uploadPhotoInput.value = ''; // Reset file input
+                    photoPreview.src = '/images/Customer/@(Model.Photo ?? "nophoto.png")'; // Reset preview
+                    saveBtnContainer.classList.add('hidden');
+                    if (editProfileBtn) editProfileBtn.classList.remove('hidden');
+                });
+            }
+
+            if (editPhotoIcon) {
+                editPhotoIcon.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent triggering photoPreview click
+                    uploadPhotoInput.click(); // Trigger file input click
+                });
+            }
+
+            if (photoPreview) {
+                photoPreview.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (editPhotoIcon.classList.contains('hidden')) return; // Only show menu when in edit mode
+                    photoMenu.classList.toggle('show');
+                });
+            }
+
+            if (changePhotoOption) {
+                changePhotoOption.addEventListener('click', function() {
+                    uploadPhotoInput.click();
+                    photoMenu.classList.remove('show');
+                });
+            }
+
+            if (viewPhotoOption) {
+                viewPhotoOption.addEventListener('click', function() {
+                    modalImage.src = photoPreview.src;
+                    photoModal.classList.add('show');
+                    photoMenu.classList.remove('show');
+                });
+            }
+
+            if (modalClose) {
+                modalClose.addEventListener('click', function() {
+                    photoModal.classList.remove('show');
+                });
+            }
+
+            if (photoModal) {
+                photoModal.addEventListener('click', function(e) {
+                    if (e.target === photoModal) {
+                        photoModal.classList.remove('show');
+                    }
+                });
+            }
+
+            if (uploadPhotoInput) {
+                uploadPhotoInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            photoPreview.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            if (profileForm) {
+                profileForm.addEventListener('submit', function(e) {
+                    // Form will be submitted to the server via POST
+                });
+            }
+
+            // Close photo menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!photoMenu.contains(e.target) && !photoPreview.contains(e.target)) {
+                    photoMenu.classList.remove('show');
+                }
+            });
+
+            // Tab navigation functionality
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = ['profile', 'bookings', 'history', 'reviews', 'security', 'rewards'];
+
+            function activateTab(targetId) {
+                tabs.forEach(t => t.classList.remove('active'));
+                const activeTab = Array.from(tabs).find(tab => tab.getAttribute('href').substring(1) === targetId);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+
+                sections.forEach(section => {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        if (section === targetId) {
+                            element.classList.remove('hidden');
+                        } else {
+                            element.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    window.location.hash = targetId;
+                    activateTab(targetId);
+                });
+            });
+
+            // Check URL hash on page load
+            const hash = window.location.hash.substring(1);
+            if (hash && sections.includes(hash)) {
+                activateTab(hash);
+            } else {
+                // Default to first tab if no valid hash
+                if (tabs.length > 0) {
+                    tabs[0].click();
+                }
+            }
+        });
+    </script>
+</body>

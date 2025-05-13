@@ -1037,6 +1037,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\Screenshot 2025-05-07 112640.png",
+      "PackagePath": "staticwebassets\\images\\Customer\\Screenshot 2025-05-07 112640.png"
+    },
+    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\gg.JPG",
       "PackagePath": "staticwebassets\\images\\Customer\\gg.JPG"
     },
@@ -1051,6 +1055,14 @@
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Employee\\nophoto.png",
       "PackagePath": "staticwebassets\\images\\Employee\\nophoto.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-08 131306.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-08 131306.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-08 131316.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-08 131316.png"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Untitled.png",

@@ -1,0 +1,22 @@
+﻿@model BookingHotel.Models.Content_Room
+
+<h2>Xóa Phòng Hiển Thị</h2>
+
+<h3>Bạn có chắc muốn xóa?</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Mô Tả</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+        <dt class="col-sm-2">Giá</dt>
+        <dd class="col-sm-10">@Model.Price VNĐ/đêm</dd>
+        <dt class="col-sm-2">URL Hình Ảnh</dt>
+        <dd class="col-sm-10">@Model.ImageUrl</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay Lại</a>
+    </form>
+</div>

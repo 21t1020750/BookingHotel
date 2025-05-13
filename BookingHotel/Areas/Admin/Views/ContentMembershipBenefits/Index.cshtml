@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BookingHotel.Models.Content_MembershipBenefit>
+
+<h2>Lợi Ích Hội Viên</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lợi Ích</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Benefit</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

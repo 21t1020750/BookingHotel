@@ -1,17 +1,21 @@
-using BookingHotel.Areas.Admin.Data;
+﻿using BookingHotel.Areas.Admin.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Register ApplicationDbContext only
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add services for Controllers and Views
 builder.Services.AddControllersWithViews()
     .AddMvcOptions(option =>
     {
         option.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
     });
+
+// Configure Cookie Authentication
 builder.Services.AddAuthentication("Cookies")
     .AddCookie("Cookies", options =>
     {
@@ -20,8 +24,10 @@ builder.Services.AddAuthentication("Cookies")
         options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
     });
 
+// Add HttpContextAccessor to access HttpContext
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
+
+// Add session support
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -32,12 +38,14 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
@@ -46,22 +54,15 @@ app.UseSession();
 
 app.UseEndpoints(endpoints =>
 {
+    // Route for Areas (e.g., Admin)
     endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=AdminDashboard}/{action=Index}/{id?}"
-    );
+        name: "areas",
+        pattern: "{area:exists}/{controller=AdminDashboard}/{action=Index}/{id?}");
+
+    // Default route for non-area controllers
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-
-app.MapControllerRoute
-    (
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-    );
-
-
-
-
-
-app.UseSession();
 app.Run();

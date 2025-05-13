@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BookingHotel.Models.Content_Offer>
+
+<h2>Ưu Đãi Hiển Thị</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tiêu Đề</th>
+            <th>Mô Tả</th>
+            <th>URL Hình Ảnh</th>
+            <th>Hết Hạn</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.ImageUrl</td>
+                <td>@item.ValidUntil.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

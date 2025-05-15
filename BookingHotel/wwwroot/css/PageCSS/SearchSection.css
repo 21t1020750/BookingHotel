@@ -1,18 +1,16 @@
 ﻿.sticky-blur {
-    position: static;
+    position: sticky;
     top: 0;
-    z-index: 10;
-    backdrop-filter: none;
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     transition: all 0.3s ease;
 }
 
-
 .normal {
-    backdrop-filter: none;
+    position: relative; /* Sử dụng relative thay vì static để tránh nhảy layout */
     background-color: white;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
 }
-

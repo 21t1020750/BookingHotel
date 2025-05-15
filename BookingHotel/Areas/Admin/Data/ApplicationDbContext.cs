@@ -24,6 +24,7 @@ namespace BookingHotel.Areas.Admin.Data
         public DbSet<BookingStatus> BookingStatus { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<RoomImage> RoomImages { get; set; }
+        public DbSet<RoomService> RoomServices { get; set; }
 
         // Add DbSet properties for content-related entities
         public DbSet<Content_BannerImage> Content_BannerImages { get; set; }
@@ -100,6 +101,20 @@ namespace BookingHotel.Areas.Admin.Data
                  .HasOne(r => r.Room)
                  .WithMany(r => r.RoomImages)
                  .HasForeignKey(r => r.RoomID);
+
+            //Room Service
+            modelBuilder.Entity<RoomService>()
+                .HasKey(rs => new { rs.RoomID, rs.ServiceID });
+
+            modelBuilder.Entity<RoomService>()
+                .HasOne(rs => rs.Room)
+                .WithMany(r => r.RoomServices)
+                .HasForeignKey(rs => rs.RoomID);
+
+            modelBuilder.Entity<RoomService>()
+                .HasOne(rs => rs.Service)
+                .WithMany(s => s.RoomServices)
+                .HasForeignKey(rs => rs.ServiceID);
 
             // No additional relationships needed for content entities (they are independent)
         }

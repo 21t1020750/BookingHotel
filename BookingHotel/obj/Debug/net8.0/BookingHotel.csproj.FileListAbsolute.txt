@@ -834,7 +834,6 @@ D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.Razor
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.RazorAssemblyInfo.cs
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.sourcelink.json
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Areas\Admin\Views\Shared\_Layout1.cshtml.rz.scp.css
-D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout2.cshtml.rz.scp.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\bundle\BookingHotel.styles.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\projectbundle\BookingHotel.bundle.scp.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets.build.json
@@ -853,3 +852,4 @@ D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\refint\BookingHote
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.pdb
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.genruntimeconfig.cache
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\ref\BookingHotel.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout2.cshtml.rz.scp.css

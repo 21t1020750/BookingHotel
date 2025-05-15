@@ -1057,6 +1057,38 @@
       "PackagePath": "staticwebassets\\images\\Employee\\nophoto.png"
     },
     {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png",
+      "PackagePath": "staticwebassets\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png",
+      "PackagePath": "staticwebassets\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png",
+      "PackagePath": "staticwebassets\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png",
+      "PackagePath": "staticwebassets\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-06 154954.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-06 154954.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 112640.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-07 112640.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 141426.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-07 141426.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 152830.png",
+      "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-07 152830.png"
+    },
+    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-08 131306.png",
       "PackagePath": "staticwebassets\\images\\Room\\Screenshot 2025-05-08 131306.png"
     },

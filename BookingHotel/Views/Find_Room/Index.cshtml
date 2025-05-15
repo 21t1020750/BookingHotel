@@ -37,7 +37,6 @@
             width: 100%;
         }
 
-
         .search-bar-container {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -71,6 +70,11 @@
                 -webkit-appearance: none;
                 margin: 0;
             }
+
+        .filter-card label, .filter-card label span {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500 !important;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -78,73 +82,93 @@
         <div class="page-container px-4">
             <!-- Search Section -->
             <div id="searchBar" class="text-2xl bg-white mx-auto max-w-full w-[1200px] rounded-2xl p-4 sm:p-5 relative z-10">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
-                    <div>
-                        <label for="checkin" class="block text-xl font-normal text-gray-700">Ngày nhận phòng</label>
-                        <div class="mt-2 relative rounded-lg shadow-sm">
-                            <input type="date" id="checkin" onkeydown="return false" onfocus="this.showPicker()" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200" />
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                                <i class=" text-cyan-500 text-3xl"></i>
+                <form method="get" action="/Find_Room" id="searchForm">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
+                        <div>
+                            <label for="checkin" class="block text-xl font-normal text-gray-700">Ngày nhận phòng</label>
+                            <div class="mt-2 relative rounded-lg shadow-sm">
+                                <input type="date" id="checkin" name="checkin" value="@(ViewBag.Checkin?.ToString("yyyy-MM-dd"))"
+                                       onkeydown="return false"
+                                       onfocus="this.showPicker()"
+                                       class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                    <i class="text-cyan-500 text-3xl"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <label for="checkout" class="block text-xl font-normal text-gray-700">Ngày trả phòng</label>
-                        <div class="mt-2 relative rounded-lg shadow-sm">
-                            <input type="date" id="checkout" onkeydown="return false" onfocus="this.showPicker()" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200" />
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                                <i class="text-cyan-500 text-3xl"></i>
+                        <div>
+                            <label for="checkout" class="block text-xl font-normal text-gray-700">Ngày trả phòng</label>
+                            <div class="mt-2 relative rounded-lg shadow-sm">
+                                <input type="date" id="checkout" name="checkout" value="@(ViewBag.Checkout?.ToString("yyyy-MM-dd"))"
+                                       onkeydown="return false"
+                                       onfocus="this.showPicker()"
+                                       class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                    <i class="text-cyan-500 text-3xl"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <label for="guests" class="block text-xl font-normal text-gray-700">Số người</label>
-                        <div class="mt-2 relative rounded-lg shadow-sm">
-                            <button id="guestsBtn" type="button" class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-4 py-3 sm:py-4 text-2xl border-gray-300 rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
-                                <span id="guestsSummary" class="truncate">1 Người lớn | 0 Trẻ em | 1 Phòng</span>
-                                <i class="fas fa-chevron-down text-cyan-500 text-3xl"></i>
+
+                        <style>
+                            input[type="date"]::-webkit-calendar-picker-indicator {
+                                position: absolute;
+                                right: 12px;
+                                z-index: 10;
+                            }
+                        </style>
+
+                        <div class="relative">
+                            <label for="guests" class="block text-xl sm:text-2xl font-medium text-gray-700">Số người</label>
+                            <div class="mt-2 relative rounded-lg shadow-sm bg-white">
+                                <button id="guestsBtn" type="button"
+                                        class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
+                                    <span id="guestsSummary" class="truncate">
+                                        @(ViewBag.Adults ?? 1) Người lớn | @(ViewBag.Children ?? 0) Trẻ em | @(ViewBag.Rooms ?? 1) Phòng
+                                    </span>
+                                    <i class="fas fa-chevron-down text-cyan-500 text-3xl"></i>
+                                </button>
+                                <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
+                                    <div class="mb-4">
+                                        <div class="flex justify-between items-center">
+                                            <label class="text-3xl font-normal text-gray-700">Người lớn</label>
+                                            <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                                <button type="button" onclick="updateGuests('adults', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                                <input type="number" id="adultsCount" name="adults" value="@(ViewBag.Adults ?? 1)" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" min="1" oninput="updateGuests('adults', 0)">
+                                                <button type="button" onclick="updateGuests('adults', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="flex justify-between items-center">
+                                            <label class="text-3xl font-normal text-gray-700">Trẻ em</label>
+                                            <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                                <button type="button" onclick="updateGuests('children', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                                <input type="number" id="childrenCount" name="children" value="@(ViewBag.Children ?? 0)" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" min="0" oninput="updateGuests('children', 0)">
+                                                <button type="button" onclick="updateGuests('children', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="flex justify-between items-center">
+                                            <label class="text-3xl font-normal text-gray-700">Phòng</label>
+                                            <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                                <button type="button" onclick="updateGuests('rooms', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
+                                                <input type="number" id="roomsCount" name="rooms" value="@(ViewBag.Rooms ?? 1)" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" min="1" oninput="updateGuests('rooms', 0)">
+                                                <button type="button" onclick="updateGuests('rooms', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full bg-cyan-600 text-white rounded-xl py-4 sm:py-4 px-6 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover">
+                                <i class="fas fa-search mr-2 text-3xl"></i> Tìm kiếm
                             </button>
-                            <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
-                                <div class="mb-4">
-                                    <div class="flex justify-between items-center">
-                                        <label class="text-3xl font-normal text-gray-700">Người lớn</label>
-                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                            <button onclick="updateGuests('adults', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
-                                            <input type="number" id="adultsCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="1" min="1" oninput="updateGuests('adults', 0)">
-                                            <button onclick="updateGuests('adults', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between items-center">
-                                        <label class="text-3xl font-normal text-gray-700">Trẻ em</label>
-                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                            <button onclick="updateGuests('children', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
-                                            <input type="number" id="childrenCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="0" min="0" oninput="updateGuests('children', 0)">
-                                            <button onclick="updateGuests('children', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between items-center">
-                                        <label class="text-3xl font-normal text-gray-700">Phòng</label>
-                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                            <button onclick="updateGuests('rooms', -1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">-</button>
-                                            <input type="number" id="roomsCount" class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner" value="1" min="1" oninput="updateGuests('rooms', 0)">
-                                            <button onclick="updateGuests('rooms', 1)" class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
-                            </div>
                         </div>
                     </div>
-                    <div class="flex items-end">
-                        <button type="button" class="w-full bg-cyan-600 text-white rounded-xl py-4 sm:py-4 px-6 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover">
-                            <i class="fas fa-search mr-2 text-3xl"></i> Tìm kiếm
-                        </button>
-                    </div>
-                </div>
+                </form>
             </div>
 
             <!-- CSS Sticky & Blur -->
@@ -160,55 +184,64 @@
                         <h3 class="text-3xl font-bold text-gray-800 mb-4">Bộ lọc</h3>
 
                         <div class="mb-6">
-                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Giá mỗi đêm ($)</h4>
+                            <h4 id="priceLabel" class="text-3xl font-medium text-gray-700 mb-3">
+                                Giá mỗi đêm (VND): @(ViewBag.MaxPrice != null ? Convert.ToInt32(ViewBag.MaxPrice).ToString("N0") : "10,000,000")
+                            </h4>
                             <div class="flex justify-between mb-2">
-                                <span class="text-2xl text-gray-500">500,000</span>
-                                <span class="text-2xl text-gray-500">5,000,000</span>
+                                <span class="text-2xl text-gray-500">100,000</span>
+                                <span class="text-2xl text-gray-500">10,000,000</span>
                             </div>
-                            <input type="range" min="500000" max="5000000" value="2500000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <input type="range"
+                                   min="100000"
+                                   max="10000000"
+                                   value="@(ViewBag.MaxPrice ?? 10000000)"
+                                   step="100000"
+                                   class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                   id="priceRange"
+                                   oninput="updatePriceLabel(this.value)" />
                         </div>
 
-                        <div class="mb-6">
-                            <h4 class="text-3xl font-medium text-gray-700 mb-3">Xếp hạng sao</h4>
-                            <div class="space-y-2">
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-                                    <span class="ml-2 text-2xl text-gray-700">
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <div class="mb-6" data-id="3hsjauc0" data-line="115-146">
+                            <h4 class="font-medium text-gray-700 mb-3" data-id="77su6a2z" data-line="116-116">Xếp hạng sao</h4>
+                            <div class="space-y-2" data-id="g9qa1p00" data-line="117-145">
+                                <label class="flex items-center" data-id="bpr9b5j8" data-line="118-127">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" data-id="0vtb4tia" data-line="119-119">
+                                    <span class="ml-2 text-gray-700" data-id="gxhjqnsc" data-line="120-126">
+                                        <i class="fas fa-star text-yellow-400" data-id="0kr4mqi6" data-line="121-121"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="vcwbvalu" data-line="122-122"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="00onklan" data-line="123-123"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="m1rk4d4p" data-line="124-124"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="n3lv10lu" data-line="125-125"></i>
                                     </span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-                                    <span class="ml-2 text-2xl text-gray-700">
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                <label class="flex items-center" data-id="4o0f7h3l" data-line="128-136">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" data-id="r4dpjqh5" data-line="129-129">
+                                    <span class="ml-2 text-gray-700" data-id="2y3zb6fq" data-line="130-135">
+                                        <i class="fas fa-star text-yellow-400" data-id="sus2mt2y" data-line="131-131"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="ub5uztam" data-line="132-132"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="l1z62g8j" data-line="133-133"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="6d1k3386" data-line="134-134"></i>
                                     </span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-                                    <span class="ml-2 text-2xl text-gray-700">
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                <label class="flex items-center" data-id="yjijjhvp" data-line="137-144">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" data-id="t3iaznlt" data-line="138-138">
+                                    <span class="ml-2 text-gray-700" data-id="tu2yeipf" data-line="139-143">
+                                        <i class="fas fa-star text-yellow-400" data-id="wlx3qz44" data-line="140-140"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="e47hj3jo" data-line="141-141"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="gjx62fhw" data-line="142-142"></i>
                                     </span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-                                    <span class="ml-2 text-2xl text-gray-700">
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                <label class="flex items-center" data-id="yjijjhvp" data-line="137-144">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" data-id="t3iaznlt" data-line="138-138">
+                                    <span class="ml-2 text-gray-700" data-id="tu2yeipf" data-line="139-143">
+                                        <i class="fas fa-star text-yellow-400" data-id="wlx3qz44" data-line="140-140"></i>
+                                        <i class="fas fa-star text-yellow-400" data-id="e47hj3jo" data-line="141-141"></i>
                                     </span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-                                    <span class="ml-2 text-2xl text-gray-700">
-                                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                                <label class="flex items-center" data-id="yjijjhvp" data-line="137-144">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" data-id="t3iaznlt" data-line="138-138">
+                                    <span class="ml-2 text-gray-700" data-id="tu2yeipf" data-line="139-143">
+                                        <i class="fas fa-star text-yellow-400" data-id="wlx3qz44" data-line="140-140"></i>
                                     </span>
                                 </label>
                             </div>
@@ -220,7 +253,7 @@
                                 @foreach (var roomType in ViewBag.RoomTypes ?? new List<BookingHotel.Areas.Admin.Models.RoomType>())
                                 {
                                     <label class="flex items-center">
-                                        <input type="checkbox" class="h-4 w-4 text-blue-600" @(roomType.TypeName == "Khách sạn" ? "checked" : "")>
+                                        <input type="checkbox" class="h-4 w-4 text-blue-600" value="@roomType.RoomTypeID" name="roomTypes" @(ViewBag.RoomTypeIds.Contains(roomType.RoomTypeID) ? "checked" : "") onchange="updateRoomTypes(this)">
                                         <span class="ml-2 text-2xl text-gray-700 font-medium">@roomType.TypeName</span>
                                     </label>
                                 }
@@ -233,7 +266,7 @@
                                 @foreach (var service in ViewBag.Amenities ?? new List<BookingHotel.Areas.Admin.Models.Service>())
                                 {
                                     <label class="flex items-center">
-                                        <input type="checkbox" class="h-4 w-4 text-blue-600" value="@service.ServiceID" @(service.ServiceName == "Wifi miễn phí" ? "checked" : "")>
+                                        <input type="checkbox" class="h-4 w-4 text-blue-600" value="@service.ServiceID" name="services" @(ViewBag.ServiceIds.Contains(service.ServiceID) ? "checked" : "") onchange="updateServices(this)">
                                         <span class="ml-2 text-2xl text-gray-700 font-medium">@service.ServiceName</span>
                                     </label>
                                 }
@@ -252,14 +285,13 @@
                 <!-- Results Column -->
                 <div class="lg:w-3/4">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-3xl font-bold text-gray-800">Huế: @Model.Count chỗ nghỉ tìm thấy</h2>
+                        <h2 class="text-3xl font-bold text-gray-800">@Model.Count chỗ nghỉ tìm thấy</h2>
                         <div class="flex items-center">
                             <span class="text-2xl text-gray-600 mr-2">Sắp xếp:</span>
-                            <select class="border rounded-lg px-3 py-1 text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>Đề xuất cho bạn</option>
-                                <option>Giá (thấp nhất trước)</option>
-                                <option>Giá (cao nhất trước)</option>
-                                <option>Xếp hạng sao</option>
+                            <select id="sortSelect" class="border rounded-lg px-3 py-1 text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="applySort(this.value)">
+                                <option value="recommended" selected="@(ViewBag.Sort == "recommended")">Đề xuất cho bạn</option>
+                                <option value="price-low" selected="@(ViewBag.Sort == "price-low")">Giá (thấp nhất trước)</option>
+                                <option value="price-high" selected="@(ViewBag.Sort == "price-high")">Giá (cao nhất trước)</option>
                             </select>
                         </div>
                     </div>
@@ -277,25 +309,24 @@
                                     <div class="md:w-2/3 p-6">
                                         <div class="flex justify-between items-start">
                                             <div>
-                                                <h3 class="text-3xl font-bold text-gray-800">@room.RoomNumber</h3>
-                                                <div class="flex items-center mt-1 mb-3">
-                                                    @for (int i = 1; i <= 5; i++)
-                                                    {
-                                                        <i class="fas fa-star text-yellow-400 text-2xl mr-1" style="@(i <= 4 ? "" : "color: gray;")"></i>
-                                                    }
-                                                    <span class="text-2xl text-gray-500 ml-2">(64 đánh giá)</span>
-                                                </div>
-                                                <p class="text-2xl text-gray-600 mb-4">@room.Description</p>
+                                                <h3 class="text-3xl font-bold text-gray-800">@room.Room</h3>
+                                                <p class="text-2xl text-gray-600 mb-4">@Html.Raw(room.Description)</p>
                                                 <div class="flex flex-wrap gap-2 mb-4">
-                                                    <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">Wifi miễn phí</span>
-                                                    <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">Bể bơi</span>
+                                                    @foreach (var service in room.RoomServices?.Select(rs => rs.Service) ?? new List<BookingHotel.Areas.Admin.Models.Service>())
+                                                    {
+                                                        <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">@service.ServiceName</span>
+                                                    }
                                                 </div>
                                             </div>
                                             <div class="text-right">
-                                                <p class="text-2xl text-gray-500 days-display" data-room-id="@room.RoomID"> Ngày, @room.number người</p>
-                                                <p class="text-3xl font-bold text-gray-800 mt-2">@room.Price.ToString("N0") $</p>
+                                                <p class="text-2xl text-gray-500 days-display" data-room-id="@room.RoomID">Ngày, @room.number người</p>
+                                                <p class="text-3xl font-bold text-gray-800 mt-2">@room.Price.ToString("N0") VND</p>
                                                 <p class="text-2xl text-gray-500 mb-3">+ 200,000 VND thuế</p>
-                                                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-2xl hover:bg-blue-700 transition font-medium">Chọn phòng</button>
+                                                <a asp-controller="Booking" asp-action="Index">
+                                                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-2xl hover:bg-blue-700 transition font-medium">
+                                                        Chọn phòng
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -307,14 +338,14 @@
                     <!-- Pagination -->
                     <div class="mt-8 flex justify-center">
                         <nav class="inline-flex rounded-md shadow">
-                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100">
+                            <a href="@(ViewBag.CurrentPage > 1 ? $"/Find_Room?page={ViewBag.CurrentPage - 1}&sort={ViewBag.Sort}&maxPrice={ViewBag.MaxPrice}&roomTypeIds={string.Join("&roomTypeIds=", ViewBag.RoomTypeIds)}&serviceIds={string.Join("&serviceIds=", ViewBag.ServiceIds)}" : "#")" class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 @(ViewBag.CurrentPage == 1 ? "pointer-events-none opacity-50" : "")">
                                 <i class="fas fa-chevron-left text-2xl"></i>
                             </a>
-                            <a href="#" class="px-4 py-2 bg-blue-600 text-white text-2xl border border-blue-600">1</a>
-                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">2</a>
-                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">3</a>
-                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-2xl hover:bg-gray-100">4</a>
-                            <a href="#" class="px-4 py-2 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100">
+                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                            {
+                                <a href="/Find_Room?page=@i&sort=@ViewBag.Sort&maxPrice=@ViewBag.MaxPrice&roomTypeIds=@string.Join("&roomTypeIds=", ViewBag.RoomTypeIds)&serviceIds=@string.Join("&serviceIds=", ViewBag.ServiceIds)" class="px-4 py-2 border border-gray-300 text-2xl hover:bg-gray-100 @(i == ViewBag.CurrentPage ? "bg-blue-600 text-white border-blue-600" : "bg-white")">@i</a>
+                            }
+                            <a href="@(ViewBag.CurrentPage < ViewBag.TotalPages ? $"/Find_Room?page={ViewBag.CurrentPage + 1}&sort={ViewBag.Sort}&maxPrice={ViewBag.MaxPrice}&roomTypeIds={string.Join("&roomTypeIds=", ViewBag.RoomTypeIds)}&serviceIds={string.Join("&serviceIds=", ViewBag.ServiceIds)}" : "#")" class="px-4 py-2 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 @(ViewBag.CurrentPage == ViewBag.TotalPages ? "pointer-events-none opacity-50" : "")">
                                 <i class="fas fa-chevron-right text-2xl"></i>
                             </a>
                         </nav>
@@ -323,12 +354,30 @@
             </div>
         </div>
     </main>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            let adults = 1;
-            let children = 0;
-            let rooms = 1;
+            // Khởi tạo giá trị từ ViewBag
+            let adults = @(ViewBag.Adults ?? 1);
+            let children = @(ViewBag.Children ?? 0);
+            let rooms = @(ViewBag.Rooms ?? 1);
+
+            // Khởi tạo biến để lưu trữ bộ lọc
+            let selectedMaxPrice = @(ViewBag.MaxPrice ?? 10000000);
+            let selectedRoomTypeIds = @(ViewBag.RoomTypeIds != null ? $"[{string.Join(",", ViewBag.RoomTypeIds)}]" : "[]");
+            let selectedServiceIds = @(ViewBag.ServiceIds != null ? $"[{string.Join(",", ViewBag.ServiceIds)}]" : "[]");
+
+            // Cập nhật giao diện ngay khi trang tải
+            const summary = document.getElementById('guestsSummary');
+            const adultsInputDom = document.getElementById('adultsCount');
+            const childrenInputDom = document.getElementById('childrenCount');
+            const roomsInputDom = document.getElementById('roomsCount');
+            summary.textContent = `${adults} Người lớn | ${children} Trẻ em | ${rooms} Phòng`;
+            adultsInputDom.value = adults;
+            childrenInputDom.value = children;
+            roomsInputDom.value = rooms;
+
+            // Thêm input ẩn để lưu trữ số người lớn và trẻ em (đã không cần vì đã thêm name trực tiếp)
+            const form = document.getElementById('searchForm');
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href*="#"]').forEach(anchor => {
@@ -378,37 +427,22 @@
                 });
             }
 
-            // Handle search button click
-            const searchButton = document.querySelector('.btn-hover');
-            searchButton.addEventListener('click', () => {
-                updateDaysDisplay();
-            });
-
             // Update guests
             window.updateGuests = function(type, change) {
-                const adultsInput = document.getElementById('adultsCount');
-                const childrenInput = document.getElementById('childrenCount');
-                const roomsInput = document.getElementById('roomsCount');
-                const summary = document.getElementById('guestsSummary');
-
                 if (change === 0) {
-                    if (type === 'adults') {
-                        adults = parseInt(adultsInput.value) || 1;
-                    } else if (type === 'children') {
-                        children = parseInt(childrenInput.value) || 0;
-                    } else if (type === 'rooms') {
-                        rooms = parseInt(roomsInput.value) || 1;
-                    }
+                    adults = parseInt(adultsInputDom.value) || 1;
+                    children = parseInt(childrenInputDom.value) || 0;
+                    rooms = parseInt(roomsInputDom.value) || 1;
                 } else {
                     if (type === 'adults') {
                         adults = Math.max(1, adults + change);
-                        adultsInput.value = adults;
+                        adultsInputDom.value = adults;
                     } else if (type === 'children') {
                         children = Math.max(0, children + change);
-                        childrenInput.value = children;
+                        childrenInputDom.value = children;
                     } else if (type === 'rooms') {
                         rooms = Math.max(1, rooms + change);
-                        roomsInput.value = rooms;
+                        roomsInputDom.value = rooms;
                     }
                 }
 
@@ -416,9 +450,9 @@
                 children = Math.max(0, children);
                 rooms = Math.max(1, rooms);
 
-                adultsInput.value = adults;
-                childrenInput.value = children;
-                roomsInput.value = rooms;
+                adultsInputDom.value = adults;
+                childrenInputDom.value = children;
+                roomsInputDom.value = rooms;
 
                 summary.textContent = `${adults} Người lớn | ${children} Trẻ em | ${rooms} Phòng`;
             };
@@ -427,8 +461,165 @@
                 document.getElementById('guestsDropdown').classList.add('hidden');
             };
 
+            // Hàm định dạng số với dấu phân cách hàng nghìn
+            function formatNumberWithCommas(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            // Cập nhật nhãn giá và lưu giá trị maxPrice
+            window.updatePriceLabel = function(value) {
+                const priceLabel = document.getElementById('priceLabel');
+                const formattedPrice = formatNumberWithCommas(value);
+                priceLabel.textContent = `Giá mỗi đêm từ 100,000 đến ${formattedPrice} (VND)`;
+                selectedMaxPrice = value; // Lưu giá trị maxPrice
+            };
+
+            // Cập nhật danh sách loại chỗ nghỉ đã chọn
+            window.updateRoomTypes = function(checkbox) {
+                const value = parseInt(checkbox.value);
+                if (checkbox.checked) {
+                    if (!selectedRoomTypeIds.includes(value)) {
+                        selectedRoomTypeIds.push(value);
+                    }
+                } else {
+                    selectedRoomTypeIds = selectedRoomTypeIds.filter(id => id !== value);
+                }
+            };
+
+            // Cập nhật danh sách tiện nghi đã chọn
+            window.updateServices = function(checkbox) {
+                const value = parseInt(checkbox.value);
+                if (checkbox.checked) {
+                    if (!selectedServiceIds.includes(value)) {
+                        selectedServiceIds.push(value);
+                    }
+                } else {
+                    selectedServiceIds = selectedServiceIds.filter(id => id !== value);
+                }
+            };
+
+            // Xử lý ngày check-in và check-out
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
+
+            // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
+            function getToday() {
+                const today = new Date();
+                return today.toISOString().split('T')[0];
+            }
+
+            // Hàm cập nhật ngày tối thiểu cho check-out
+            function updateCheckoutMinDate() {
+                const checkinDate = checkinInput.value;
+                if (checkinDate) {
+                    const minCheckoutDate = new Date(checkinDate);
+                    minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+                    checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+
+                    // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
+                    if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
+                        checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
+                        alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
+                    }
+                } else {
+                    checkoutInput.min = getToday();
+                }
+            }
+
+            // Kiểm tra khi chọn ngày check-out
+            checkoutInput.addEventListener('change', () => {
+                if (!checkinInput.value) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    checkoutInput.value = '';
+                } else {
+                    updateCheckoutMinDate();
+                }
+            });
+
+            // Đặt ngày tối thiểu cho check-in là hôm nay
+            checkinInput.min = getToday();
+
+            // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
+            checkinInput.addEventListener('change', updateCheckoutMinDate);
+
+            // Khởi tạo ngày tối thiểu cho check-out khi tải trang
+            updateCheckoutMinDate();
+
+            // Xử lý khi nhấn nút "Tìm kiếm" (chỉ kiểm tra và submit form)
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Ngăn gửi form mặc định tạm thời để kiểm tra
+
+                const checkin = checkinInput.value;
+                const checkout = checkoutInput.value;
+                const roomsInput = document.getElementById('roomsCount').value;
+
+                // Kiểm tra các trường đã nhập
+                if (!checkin) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    return;
+                }
+                if (!checkout) {
+                    alert('Vui lòng chọn ngày trả phòng.');
+                    return;
+                }
+                if (!roomsInput || parseInt(roomsInput) < 1) {
+                    alert('Vui lòng chọn số phòng hợp lệ.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
+                const today = new Date(getToday());
+                const checkinDate = new Date(checkin);
+                if (checkinDate < today) {
+                    alert('Ngày nhận phòng không được là ngày trong quá khứ.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-out phải sau ngày check-in
+                const checkoutDate = new Date(checkout);
+                if (checkinDate >= checkoutDate) {
+                    alert('Ngày trả phòng phải sau ngày nhận phòng.');
+                    return;
+                }
+
+                // Thêm các tham số bộ lọc ẩn vào form
+                const maxPriceInput = document.createElement('input');
+                maxPriceInput.type = 'hidden';
+                maxPriceInput.name = 'maxPrice';
+                maxPriceInput.value = selectedMaxPrice;
+                form.appendChild(maxPriceInput);
+
+                const roomTypeIdsInput = document.createElement('input');
+                roomTypeIdsInput.type = 'hidden';
+                roomTypeIdsInput.name = 'roomTypeIds';
+                roomTypeIdsInput.value = selectedRoomTypeIds.join(',');
+                form.appendChild(roomTypeIdsInput);
+
+                const serviceIdsInput = document.createElement('input');
+                serviceIdsInput.type = 'hidden';
+                serviceIdsInput.name = 'serviceIds';
+                serviceIdsInput.value = selectedServiceIds.join(',');
+                form.appendChild(serviceIdsInput);
+
+                // Cập nhật giao diện trước khi gửi
+                updateDaysDisplay();
+
+                // Cho phép form gửi
+                form.submit();
+            });
+
+            window.applySort = function(sortValue) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('sort', sortValue);
+                url.searchParams.set('page', '1');
+                window.location.href = url.toString();
+            };
+
             // Initialize days display
             updateDaysDisplay();
+
+            // Gọi hàm updatePriceLabel khi trang tải để hiển thị giá trị ban đầu
+            updatePriceLabel(document.getElementById('priceRange').value);
         });
     </script>
 </body>

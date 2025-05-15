@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/hPhOoUCzAzxjx3GfwD1FEsh3PzwKEpJ810AO5d/YTc=",
+  "Hash": "RUkJ2FmvfnGAkWr/TPP9jeE7mNiwOgDMxIYeQsRNFEk=",
   "Source": "BookingHotel",
   "BasePath": "_content/BookingHotel",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "g2fywqa272",
-      "Integrity": "OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA=",
+      "Fingerprint": "vgp42a4478",
+      "Integrity": "70ON0Iyh64c3NTHgUXfmVO9eGGgcfH0aqQhPZIYekXc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\PageCSS\\SearchSection.css"
@@ -374,6 +374,90 @@
       "OriginalItemSpec": "wwwroot\\images\\Room\\assassins-creed-VALHALLA.jpg"
     },
     {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/ExtraImages/Screenshot 2025-05-06 154954#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "znmvyjs9bn",
+      "Integrity": "fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/ExtraImages/Screenshot 2025-05-07 112640#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5h5mdchgew",
+      "Integrity": "ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/ExtraImages/Screenshot 2025-05-07 141426#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "d9eqh1oh2z",
+      "Integrity": "sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/ExtraImages/Screenshot 2025-05-07 152830#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8fcjn6jwah",
+      "Integrity": "XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png"
+    },
+    {
       "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\gg.JPG",
       "SourceId": "BookingHotel",
       "SourceType": "Discovered",
@@ -414,6 +498,90 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Room\\nophoto.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-06 154954.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/Screenshot 2025-05-06 154954#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "znmvyjs9bn",
+      "Integrity": "fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\Screenshot 2025-05-06 154954.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 112640.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/Screenshot 2025-05-07 112640#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5h5mdchgew",
+      "Integrity": "ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\Screenshot 2025-05-07 112640.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 141426.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/Screenshot 2025-05-07 141426#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "d9eqh1oh2z",
+      "Integrity": "sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\Screenshot 2025-05-07 141426.png"
+    },
+    {
+      "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 152830.png",
+      "SourceId": "BookingHotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\",
+      "BasePath": "_content/BookingHotel",
+      "RelativePath": "images/Room/Screenshot 2025-05-07 152830#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8fcjn6jwah",
+      "Integrity": "XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Room\\Screenshot 2025-05-07 152830.png"
     },
     {
       "Identity": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-08 131306.png",
@@ -598,8 +766,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0pmbtd1rak",
-      "Integrity": "XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0=",
+      "Fingerprint": "nooibpy2ti",
+      "Integrity": "d9xyjtQ1e7YfRH3lotZv9xw3OnF1rl02zTLxelTnQtM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PageJS\\SearchSection.js"
@@ -7196,7 +7364,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 08:45:02 GMT"
+          "Value": "Wed, 14 May 2025 02:14:34 GMT"
         },
         {
           "Name": "Link",
@@ -7241,7 +7409,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 08:45:02 GMT"
+          "Value": "Wed, 14 May 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7278,7 +7446,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 08:45:02 GMT"
+          "Value": "Wed, 14 May 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7327,7 +7495,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 08:45:02 GMT"
+          "Value": "Wed, 14 May 2025 02:14:34 GMT"
         },
         {
           "Name": "Link",
@@ -7680,7 +7848,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "370"
+          "Value": "464"
         },
         {
           "Name": "Content-Type",
@@ -7688,11 +7856,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA=\""
+          "Value": "\"70ON0Iyh64c3NTHgUXfmVO9eGGgcfH0aqQhPZIYekXc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:05:29 GMT"
+          "Value": "Wed, 14 May 2025 03:53:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7702,12 +7870,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA="
+          "Value": "sha256-70ON0Iyh64c3NTHgUXfmVO9eGGgcfH0aqQhPZIYekXc="
         }
       ]
     },
     {
-      "Route": "css/PageCSS/SearchSection.g2fywqa272.css",
+      "Route": "css/PageCSS/SearchSection.vgp42a4478.css",
       "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\PageCSS\\SearchSection.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7717,7 +7885,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "370"
+          "Value": "464"
         },
         {
           "Name": "Content-Type",
@@ -7725,11 +7893,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA=\""
+          "Value": "\"70ON0Iyh64c3NTHgUXfmVO9eGGgcfH0aqQhPZIYekXc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:05:29 GMT"
+          "Value": "Wed, 14 May 2025 03:53:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7739,7 +7907,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g2fywqa272"
+          "Value": "vgp42a4478"
         },
         {
           "Name": "label",
@@ -7747,7 +7915,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-OJdM/BlB5d3j/DhA1cEU21tj4Zs7++8zGtFmlYl5jNA="
+          "Value": "sha256-70ON0Iyh64c3NTHgUXfmVO9eGGgcfH0aqQhPZIYekXc="
         }
       ]
     },
@@ -8408,6 +8576,334 @@
       ]
     },
     {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-06 154954.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-06 154954.znmvyjs9bn.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "znmvyjs9bn"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/ExtraImages/Screenshot 2025-05-06 154954.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 112640.5h5mdchgew.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5h5mdchgew"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/ExtraImages/Screenshot 2025-05-07 112640.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 112640.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 112640.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 141426.d9eqh1oh2z.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d9eqh1oh2z"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/ExtraImages/Screenshot 2025-05-07 141426.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 141426.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 141426.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 152830.8fcjn6jwah.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8fcjn6jwah"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/ExtraImages/Screenshot 2025-05-07 152830.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/ExtraImages/Screenshot 2025-05-07 152830.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-07 152830.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo="
+        }
+      ]
+    },
+    {
       "Route": "images/Room/gg.JPG",
       "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\gg.JPG",
       "Selectors": [],
@@ -8568,6 +9064,334 @@
         {
           "Name": "integrity",
           "Value": "sha256-QtWdy9OJceL1kJfOeSefBIRAKEP/HPl30FXf7uqpWB8="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-06 154954.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-06 154954.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-06 154954.znmvyjs9bn.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-06 154954.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "znmvyjs9bn"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/Screenshot 2025-05-06 154954.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fxLF0GTGGrUGujdmzCBgdQUakNpP9uD9py7fDv9TSX4="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 112640.5h5mdchgew.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 112640.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5h5mdchgew"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/Screenshot 2025-05-07 112640.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 112640.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 112640.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObLefC8B5wUWqyZx89eaDFtOPENqyT/GOidZOVSDGPY="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 141426.d9eqh1oh2z.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 141426.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d9eqh1oh2z"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/Screenshot 2025-05-07 141426.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 141426.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 141426.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sd+qgyxmZvFBcwQJsKNZAUiBhk4xb6eI8kqKCMhqcTI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 152830.8fcjn6jwah.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 152830.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8fcjn6jwah"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Room/Screenshot 2025-05-07 152830.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Room/Screenshot 2025-05-07 152830.png",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\Screenshot 2025-05-07 152830.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 01:32:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XLuwIv1aBveKSC8h9fhtK1xEqSUW45KGB0GfI0d1xUo="
         }
       ]
     },
@@ -9228,51 +10052,6 @@
       ]
     },
     {
-      "Route": "js/PageJS/SearchSection.0pmbtd1rak.js",
-      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\js\\PageJS\\SearchSection.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "421"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 07:58:32 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0pmbtd1rak"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PageJS/SearchSection.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0="
-        }
-      ]
-    },
-    {
       "Route": "js/PageJS/SearchSection.js",
       "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\js\\PageJS\\SearchSection.js",
       "Selectors": [],
@@ -9283,7 +10062,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "421"
+          "Value": "640"
         },
         {
           "Name": "Content-Type",
@@ -9291,11 +10070,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0=\""
+          "Value": "\"d9xyjtQ1e7YfRH3lotZv9xw3OnF1rl02zTLxelTnQtM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 07:58:32 GMT"
+          "Value": "Wed, 14 May 2025 04:25:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9305,7 +10084,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XFcM9r8GUxPbDzeN4uR1c8Ty6nRChh6hpazSlfSVxE0="
+          "Value": "sha256-d9xyjtQ1e7YfRH3lotZv9xw3OnF1rl02zTLxelTnQtM="
+        }
+      ]
+    },
+    {
+      "Route": "js/PageJS/SearchSection.nooibpy2ti.js",
+      "AssetFile": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\js\\PageJS\\SearchSection.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d9xyjtQ1e7YfRH3lotZv9xw3OnF1rl02zTLxelTnQtM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 04:25:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nooibpy2ti"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PageJS/SearchSection.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-d9xyjtQ1e7YfRH3lotZv9xw3OnF1rl02zTLxelTnQtM="
         }
       ]
     },

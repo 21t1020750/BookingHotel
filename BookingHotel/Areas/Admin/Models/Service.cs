@@ -8,5 +8,6 @@ namespace BookingHotel.Areas.Admin.Models
         public string ServiceName { get; set; } = "";
         public string Description { get; set; } = "";
         public decimal Price { get; set; }
+        public List<RoomService> RoomServices { get; set; } = new List<RoomService>();
     }
 }

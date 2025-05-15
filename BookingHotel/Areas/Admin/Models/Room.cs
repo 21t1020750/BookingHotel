@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace BookingHotel.Areas.Admin.Models
 {
@@ -17,6 +18,6 @@ namespace BookingHotel.Areas.Admin.Models
         public List<RoomImage> RoomImages { get; set; }
         [NotMapped]
         public List<IFormFile> NewImages { get; set; }
-
+        public List<RoomService> RoomServices { get; set; } = new List<RoomService>();
     }
 }

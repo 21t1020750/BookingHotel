@@ -26,8 +26,8 @@
                 <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight font-['Inter']">
                     Đặt phòng khách sạn dễ dàng nhất
                 </h1>
-                <p class="mt-6 max-w-lg mx-auto text-lg sm:text-xl lg:text-2xl leading-relaxed">
-                    Hơn 10,000 khách sạn từ bình dân đến cao cấp với giá tốt nhất
+                <p class="mt-6 max-w-lg mx-auto text-3xl sm:text-xl lg:text-2xl leading-relaxed">
+                    Khách sạn từ bình dân đến cao cấp với giá tốt nhất
                 </p>
                 <div class="mt-10 sm:mt-12 max-w-md mx-auto sm:max-w-none sm:flex sm:justify-center sm:gap-6">
                     <a asp-controller="Find_Room" asp-action="Index"
@@ -41,47 +41,47 @@
                 </div>
             </div>
         </section>
-
         <!-- Search Section -->
         <div id="searchBar" class="text-lg normal bg-white shadow-2xl -mt-12 mx-auto max-w-full w-[1200px] rounded-2xl p-4 sm:p-5 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
                 <div>
-                    <label for="checkin" class="block text-lg sm:text-2xl font-medium text-gray-700">Ngày nhận phòng</label>
+                    <label for="checkin" class="block text-xl sm:text-2xl font-medium text-gray-700">Ngày nhận phòng</label>
                     <div class="mt-2 relative rounded-lg shadow-sm">
                         <input type="date"
                                id="checkin"
                                onkeydown="return false"
                                onfocus="this.showPicker()"
-                               class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl border-gray-300 rounded-lg transition duration-200" />
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <i class="fas fa-map-marker-alt text-cyan-500 text-2xl sm:text-3xl"></i>
-                        </div>
+                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
                     </div>
                 </div>
-                <div>
-                    <label for="checkout" class="block text-lg sm:text-2xl font-medium text-gray-700">Ngày trả phòng</label>
+                <div class="relative w-full">
+                    <label for="checkout" class="block text-xl sm:text-2xl font-medium text-gray-700">Ngày trả phòng</label>
                     <div class="mt-2 relative rounded-lg shadow-sm">
                         <input type="date"
                                id="checkout"
                                onkeydown="return false"
                                onfocus="this.showPicker()"
-                               class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl border-gray-300 rounded-lg transition duration-200" />
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
-                            <i class="fas fa-map-marker-alt text-cyan-500 text-2xl sm:text-3xl"></i>
-                        </div>
+                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
                     </div>
-                </div>
+                </div>             
+                <style>
+                    input[type="date"]::-webkit-calendar-picker-indicator {
+                        position: absolute;
+                        right: 12px;
+                        z-index: 10;
+                    }
+                </style>
                 <div class="relative">
-                    <label for="guests" class="block text-lg sm:text-2xl font-medium text-gray-700">Số người</label>
-                    <div class="mt-2 relative rounded-lg shadow-sm">
+                    <label for="guests" class="block text-xl sm:text-2xl font-medium text-gray-700">Số người</label>
+                    <div class="mt-2 relative rounded-lg shadow-sm bg-white">
                         <button id="guestsBtn"
-                                class="focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl border-gray-300 rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
+                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
                             <span id="guestsSummary" class="truncate">
-                                12 Người lớn | 0 Trẻ em | 1 Phòng
+                                1 Người lớn | 0 Trẻ em | 1 Phòng
                             </span>
                             <i class="fas fa-chevron-down text-cyan-500 text-2xl sm:text-3xl"></i>
                         </button>
-                   
+
 
                         <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
                             <div class="mb-4">
@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <button onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
                         </div>
                     </div>
@@ -152,18 +152,15 @@
             </div>
         </div>
 
-        <!-- CSS Sticky & Blur -->
-        <link rel="stylesheet" href="~/css/PageCSS/SearchSection.css" />
-
-        <!-- JavaScript Scroll Behavior -->
-        <script src="~/js/PageJS/SearchSection.js"></script>
+        <link rel="stylesheet" href="@Url.Content("~/css/PageCSS/SearchSection.css")" />
+        <script src="@Url.Content("~/js/PageJS/SearchSection.js")"></script>
 
         <section class="py-20 bg-gray-100" alt="phần hình ảnh">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Những Khoảnh Khắc Thanh Lịch</h2>
+                    <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-4">ĐỊA ĐIỂM NỔI BẬT</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Khám phá những không gian tuyệt đẹp làm nên điểm đến Lavela Huế.</p>
+                    <p class="text-gray-600 max-w-3xl mx-auto text-3xl">Khám phá những không gian tuyệt đẹp làm nên tên tuổi của khách sạn</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     @if (Model.BannerImages != null && Model.BannerImages.Any())
@@ -173,7 +170,7 @@
                             <div class="relative h-64 overflow-hidden rounded-lg" alt="@image.Title">
                                 <img src="@image.ImageUrl" alt="@image.Title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                                 <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                    <span class="text-white font-medium">@image.Title</span>
+                                    <span class="text-white font-medium text-3xl">@image.Title</span>
                                 </div>
                             </div>
                         }
@@ -189,9 +186,9 @@
         <section class="py-20 bg-white" alt="Nơi Tịnh Luyện Hoàn Hảo">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nơi Tịnh Luyện Hoàn Hảo</h2>
+                    <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-4">Nơi Tịnh Luyện Hoàn Hảo</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Lavela Huế định nghĩa lại sự sang trọng trong ngành khách sạn với sự chú ý tỉ mỉ đến chi tiết, dịch vụ xuất sắc và tầm nhìn tuyệt đẹp hướng ra sông Hương.</p>
+                    <p class="text-gray-600 max-w-3xl mx-auto text-3xl">VietNamBooking định nghĩa lại sự sang trọng trong ngành khách sạn với sự chú ý tỉ mỉ đến chi tiết, dịch vụ xuất sắc và tầm nhìn tuyệt đẹp hướng ra sông Hương.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-10">
                     @if (Model.Services != null && Model.Services.Any())
@@ -217,8 +214,8 @@
 
         <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tùy Chọn Lưu Trú</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tùy Chọn Lưu Trú</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-3xl">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @if (Model.Rooms != null && Model.Rooms.Any())
@@ -228,10 +225,10 @@
                         <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="@room.Name">
                             <img src="@room.ImageUrl" alt="@room.Name" class="w-full h-64 object-cover" loading="lazy">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">@room.Name</h3>
-                                <p class="text-gray-600 mb-4">@room.Description</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">@room.Name</h3>
+                                <p class="text-gray-600 mb-4 text-2xl">@room.Description</p>
                                 <div class="flex justify-between items-center">
-                                    <span class="text-blue-600 font-bold text-lg">Từ @room.Price VNĐ/đêm</span>
+                                    <span class="text-blue-600 font-bold text-3xl">Từ @room.Price VNĐ/đêm</span>
                                     <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
                                 </div>
                             </div>
@@ -338,27 +335,10 @@
     </main>
 
     <style>
-        .search-bar-container {
-            transition: opacity 0.3s ease, transform 0.3s ease;
+        
+        main, .mx-auto, body {
+            overflow: visible !important;
         }
-
-            .search-bar-container.fade {
-                opacity: 0.5;
-            }
-
-            .search-bar-container.sticky {
-                position: fixed;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 50;
-                width: 100%;
-                max-width: 1200px;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                border-radius: 0 0 10px 10px;
-                padding: 1rem;
-            }
         /* Hide number input arrows */
         input.no-spinner[type="number"] {
             -webkit-appearance: none;
@@ -454,4 +434,101 @@
             document.getElementById('guestsDropdown').classList.add('hidden');
         }
     </script>
+    <!-- Thêm vào phần <script> -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Các mã JavaScript khác (guests, smooth scroll, v.v.) giữ nguyên...
+
+        // Xử lý ngày check-in và check-out
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+
+        // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
+        function getToday() {
+            const today = new Date();
+            return today.toISOString().split('T')[0];
+        }
+
+        // Hàm cập nhật ngày tối thiểu cho check-out
+        function updateCheckoutMinDate() {
+            const checkinDate = checkinInput.value;
+            if (checkinDate) {
+                const minCheckoutDate = new Date(checkinDate);
+                minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+                checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+
+                // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
+                if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
+                    checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
+                    alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
+                }
+            } else {
+                checkoutInput.min = getToday();
+            }
+        }
+
+        // Kiểm tra khi chọn ngày check-out
+        checkoutInput.addEventListener('change', () => {
+            if (!checkinInput.value) {
+                alert('Vui lòng chọn ngày nhận phòng.');
+                checkoutInput.value = '';
+            } else {
+                updateCheckoutMinDate();
+            }
+        });
+
+        // Đặt ngày tối thiểu cho check-in là hôm nay
+        checkinInput.min = getToday();
+
+        // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
+        checkinInput.addEventListener('change', updateCheckoutMinDate);
+
+        // Khởi tạo ngày tối thiểu cho check-out khi tải trang
+        updateCheckoutMinDate();
+
+        // Cập nhật hàm submit form để kiểm tra ngày
+        const form = document.getElementById('searchForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const checkin = checkinInput.value;
+            const checkout = checkoutInput.value;
+            const roomsInput = document.getElementById('roomsCount').value;
+
+            // Kiểm tra các trường đã nhập
+            if (!checkin) {
+                alert('Vui lòng chọn ngày nhận phòng.');
+                return;
+            }
+            if (!checkout) {
+                alert('Vui lòng chọn ngày trả phòng.');
+                return;
+            }
+            if (!roomsInput || parseInt(roomsInput) < 1) {
+                alert('Vui lòng chọn số phòng hợp lệ.');
+                return;
+            }
+
+            // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
+            const today = new Date(getToday());
+            const checkinDate = new Date(checkin);
+            if (checkinDate < today) {
+                alert('Ngày nhận phòng không được là ngày trong quá khứ.');
+                return;
+            }
+
+            // Kiểm tra ngày check-out phải sau ngày check-in
+            const checkoutDate = new Date(checkout);
+            if (checkinDate >= checkoutDate) {
+                alert('Ngày trả phòng phải sau ngày nhận phòng.');
+                return;
+            }
+
+            updateDaysDisplay();
+            form.submit();
+        });
+
+        // Các hàm khác như updateGuests, applySort, applyFilters giữ nguyên...
+    });
+</script>
 </body>

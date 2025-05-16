@@ -309,7 +309,7 @@
                                     <div class="md:w-2/3 p-6">
                                         <div class="flex justify-between items-start">
                                             <div>
-                                                <h3 class="text-3xl font-bold text-gray-800">@room.Room</h3>
+                                                <h3 class="text-3xl font-bold text-gray-800">@room.RoomNumber</h3>
                                                 <p class="text-2xl text-gray-600 mb-4">@Html.Raw(room.Description)</p>
                                                 <div class="flex flex-wrap gap-2 mb-4">
                                                     @foreach (var service in room.RoomServices?.Select(rs => rs.Service) ?? new List<BookingHotel.Areas.Admin.Models.Service>())
@@ -322,10 +322,19 @@
                                                 <p class="text-2xl text-gray-500 days-display" data-room-id="@room.RoomID">Ngày, @room.number người</p>
                                                 <p class="text-3xl font-bold text-gray-800 mt-2">@room.Price.ToString("N0") VND</p>
                                                 <p class="text-2xl text-gray-500 mb-3">+ 200,000 VND thuế</p>
-                                                <a asp-controller="Booking" asp-action="Index">
+                                                <a asp-controller="Booking"
+                                                   asp-action="Index"
+                                                   asp-route-roomId="@room.RoomID"
+                                                   asp-route-checkin="@(ViewBag.Checkin?.ToString("yyyy-MM-dd"))"
+                                                   asp-route-checkout="@(ViewBag.Checkout?.ToString("yyyy-MM-dd"))"
+                                                   asp-route-adults="@ViewBag.Adults"
+                                                   asp-route-children="@ViewBag.Children"
+                                                   asp-route-rooms="@ViewBag.Rooms">
+                                                  
                                                     <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-2xl hover:bg-blue-700 transition font-medium">
                                                         Chọn phòng
                                                     </button>
+                                                   
                                                 </a>
                                             </div>
                                         </div>

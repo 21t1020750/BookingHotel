@@ -834,6 +834,7 @@ D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.Razor
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.RazorAssemblyInfo.cs
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.sourcelink.json
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Areas\Admin\Views\Shared\_Layout1.cshtml.rz.scp.css
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout2.cshtml.rz.scp.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\bundle\BookingHotel.styles.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\projectbundle\BookingHotel.bundle.scp.css
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets.build.json
@@ -852,4 +853,15 @@ D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\refint\BookingHote
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.pdb
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.genruntimeconfig.cache
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\ref\BookingHotel.dll
-D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout2.cshtml.rz.scp.css
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.barcodes.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.forms.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.io.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.kernel.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.layout.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.pdfa.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.sign.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.styledxmlparser.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.svg.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\itext.commons.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\bin\Debug\net8.0\BouncyCastle.Crypto.dll

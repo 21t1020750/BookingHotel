@@ -19,6 +19,7 @@ namespace BookingHotel.Areas.Admin.Models
         public Customer Customer { get; set; } // Quan hệ với RoomType
         public Employee Employee { get; set; }
         public BookingStatus BookingStatus { get; set; }
+        public virtual Payment Payment { get; set; }
 
     }
 }

@@ -5,14 +5,27 @@
 }
 <body class="bg-gray-50" alt="khách sạn sang trọng">
     <main>
-        <section class="relative text-white py-16 min-h-[50vh] flex items-center overflow-hidden">
-            <!-- Background slider -->
-            <div class="absolute inset-0 overflow-hidden z-0 rounded-b-xl">
-                <div id="slider" class="w-full h-full flex transition-transform duration-700">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full flex-shrink-0 object-cover rounded-b-xl" />
-                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" class="w-full flex-shrink-0 object-cover rounded-b-xl" />
-                    <img src="https://images.unsplash.com/photo-1593297237733-184d3ff53d80?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full flex-shrink-0 object-cover rounded-b-xl" />
-                    <img src="https://du-lich.chudu24.com/f/m/2304/24/khach-san-hoang-hon-tim-boutique-phu-quoc-2.jpg?h=532&w=800" class="w-full flex-shrink-0 object-cover rounded-b-xl" />
+        <!-- Hero Section với Background Slider -->
+        <section class="relative text-white py-24 min-h-[70vh] flex items-center overflow-hidden">
+            <!-- Background slider với hiệu ứng gradient overlay -->
+            <div class="absolute inset-0 overflow-hidden z-0">
+                <div id="slider" class="w-full h-full flex transition-transform duration-1000">
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://images.unsplash.com/photo-1593297237733-184d3ff53d80?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://du-lich.chudu24.com/f/m/2304/24/khach-san-hoang-hon-tim-boutique-phu-quoc-2.jpg?h=532&w=800" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
                 </div>
             </div>
             <div class="pagination absolute z-10">
@@ -22,46 +35,47 @@
             <!-- JavaScript -->
             <script src="~/js/PageJS/background.js"></script>
 
-            <div class="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight font-['Inter']">
-                    Đặt phòng khách sạn dễ dàng nhất
+            <div class="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+                <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight mb-6 font-['Inter']">
+                    <span class="block text-white">Khám Phá</span>
+                    <span class="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">Kỳ Nghỉ Hoàn Hảo</span>
                 </h1>
-                <p class="mt-6 max-w-lg mx-auto text-3xl sm:text-xl lg:text-2xl leading-relaxed">
-                    Khách sạn từ bình dân đến cao cấp với giá tốt nhất
+                <p class="mt-6 max-w-lg text-xl sm:text-2xl lg:text-3xl leading-relaxed text-gray-200">
+                    Trải nghiệm đẳng cấp từ những khách sạn tinh tế nhất Việt Nam
                 </p>
-                <div class="mt-10 sm:mt-12 max-w-md mx-auto sm:max-w-none sm:flex sm:justify-center sm:gap-6">
+                <div class="mt-10 flex flex-row justify-start gap-3">
                     <a asp-controller="Find_Room" asp-action="Index"
-                       class="w-full sm:w-auto bg-cyan-600 text-white rounded-xl py-8 sm:py-4 px-6 sm:px-20 text-sm sm:text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover">
-                        <i class="fas fa-search mr-2"></i> Tìm khách sạn
+                       class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl py-5 px-10 text-xl font-medium hover:shadow-lg transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-search mr-3"></i> Tìm khách sạn
                     </a>
                     <a asp-controller="Offers" asp-action="Index"
-                       class="w-full sm:w-auto bg-cyan-600 text-white rounded-xl py-8 sm:py-4 px-6 sm:px-20 text-sm sm:text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover">
-                        <i class="fas fa-percent mr-2"></i> Ưu đãi hôm nay
+                       class="bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-xl py-5 px-10 text-xl font-medium hover:bg-white/30 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-percent mr-3"></i> Ưu đãi hôm nay
                     </a>
                 </div>
             </div>
         </section>
         <!-- Search Section -->
-        <div id="searchBar" class="text-lg normal bg-white shadow-2xl -mt-12 mx-auto max-w-full w-[1200px] rounded-2xl p-4 sm:p-5 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
+        <div id="searchBar" class="shadow-2xl -mt-10 sm:-mt-14 mx-auto max-w-full w-[1200px] rounded-2xl p-8 relative z-10 bg-white/95 backdrop-blur-md border border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div>
-                    <label for="checkin" class="block text-xl sm:text-2xl font-medium text-gray-700">Ngày nhận phòng</label>
-                    <div class="mt-2 relative rounded-lg shadow-sm">
+                    <label for="checkin" class="block text-xl font-medium text-gray-700 mb-2">Ngày nhận phòng</label>
+                    <div class="relative rounded-lg">
                         <input type="date"
                                id="checkin"
                                onkeydown="return false"
                                onfocus="this.showPicker()"
-                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-12 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
+                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
                     </div>
                 </div>
-                <div class="relative w-full">
-                    <label for="checkout" class="block text-xl sm:text-2xl font-medium text-gray-700">Ngày trả phòng</label>
-                    <div class="mt-2 relative rounded-lg shadow-sm">
+                <div>
+                    <label for="checkout" class="block text-xl font-medium text-gray-700 mb-2">Ngày trả phòng</label>
+                    <div class="relative rounded-lg">
                         <input type="date"
                                id="checkout"
                                onkeydown="return false"
                                onfocus="this.showPicker()"
-                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200" />
+                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
                     </div>
                 </div>             
                 <style>
@@ -71,15 +85,18 @@
                         z-index: 10;
                     }
                 </style>
-                <div class="relative">
-                    <label for="guests" class="block text-xl sm:text-2xl font-medium text-gray-700">Số người</label>
-                    <div class="mt-2 relative rounded-lg shadow-sm bg-white">
+                <div>
+                    <label for="guests" class="block text-lg font-medium text-gray-700 mb-2">Số người & phòng</label>
+                    <div class="relative rounded-lg">
                         <button id="guestsBtn"
-                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-4 pr-4 py-3 sm:py-4 text-sm sm:text-2xl rounded-lg transition duration-200 text-left flex items-center justify-between whitespace-nowrap overflow-hidden">
-                            <span id="guestsSummary" class="truncate">
-                                1 Người lớn | 0 Trẻ em | 1 Phòng
-                            </span>
-                            <i class="fas fa-chevron-down text-cyan-500 text-2xl sm:text-3xl"></i>
+                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr- py-4 rounded-lg text-gray-700 transition-all duration-200 text-left flex items-center justify-between hover:border-gray-400">
+                            <div class="flex items-center relative w-full">
+                                <i class="text-gray-400 absolute left-0 ml-1"></i>
+                                <span id="guestsSummary" class="truncate">
+                                    1 Người lớn | 0 Trẻ em | 1 Phòng
+                                </span>
+                            </div>
+                            <i class="fas fa-user-friends text-black ml-auto pr-2"></i>
                         </button>
 
 
@@ -143,12 +160,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex items-end">
+                <div class="flex items-end h-full">
                     <a asp-controller="Find_Room" asp-action="Index"
-                       class="w-full bg-cyan-600 text-white rounded-xl py-4 sm:py-4 px-6 text-sm sm:text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 btn-hover flex justify-center items-center">
+                       class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg px-3 pr-10 py-5 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 flex justify-center items-center">
                         <i class="fas fa-search mr-2"></i> Tìm kiếm
                     </a>
+
                 </div>
+
             </div>
         </div>
 
@@ -162,26 +181,125 @@
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
                     <p class="text-gray-600 max-w-3xl mx-auto text-3xl">Khám phá những không gian tuyệt đẹp làm nên tên tuổi của khách sạn</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    @if (Model.BannerImages != null && Model.BannerImages.Any())
-                    {
-                        @foreach (var image in Model.BannerImages)
+
+                <div class="relative overflow-hidden">
+                    <!-- Container cho carousel -->
+                    <div id="carousel" class="flex transition-transform duration-500 ease-in-out" style="width: 1200px;">
+                        @if (Model.BannerImages != null && Model.BannerImages.Any())
                         {
-                            <div class="relative h-64 overflow-hidden rounded-lg" alt="@image.Title">
-                                <img src="@image.ImageUrl" alt="@image.Title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                    <span class="text-white font-medium text-3xl">@image.Title</span>
-                                </div>
-                            </div>
+                            var total = Model.BannerImages.Count();
+                            var index = 0;
+                            foreach (var image in Model.BannerImages)
+                            {
+                                string marginClass;
+                                if (index == 0)
+                                {
+                                    marginClass = "mr-2"; // Ảnh đầu tiên sát trái
+                                }
+                                else if (index == total - 1)
+                                {
+                                    marginClass = "ml-2"; // Ảnh cuối cùng sát phải
+                                }
+                                else
+                                {
+                                    marginClass = "mx-2";
+                                }
+                                <a href="@Url.Action("Details", "Location", new { id = index + 1 })"
+                                   class="relative h-64 w-[288px] flex-shrink-0 overflow-hidden rounded-lg block @marginClass"
+                                   alt="@image.Title">
+                                    <img src="@image.ImageUrl" alt="@image.Title"
+                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <span class="text-white font-medium text-3xl">@image.Title</span>
+                                    </div>
+                                </a>
+                                index++;
+                            }
                         }
-                    }
-                    else
-                    {
-                        <p>Không có hình ảnh để hiển thị.</p>
-                    }
+                        else
+                        {
+                            <p>Không có hình ảnh để hiển thị.</p>
+                        }
+                    </div>
+
+                    <!-- Nút mũi tên trái -->
+                    <button id="prevBtn"
+                            class="absolute left-0 top-0 bottom-0 w-16 bg-gray-800 bg-opacity-50 text-white flex items-center justify-center hover:bg-opacity-75 focus:outline-none hidden">
+                        <i class="fas fa-chevron-left text-3xl"></i>
+                    </button>
+
+                    <!-- Nút mũi tên phải -->
+                    <button id="nextBtn"
+                            class="absolute right-0 top-0 bottom-0 w-16 bg-gray-800 bg-opacity-50 text-white flex items-center justify-center hover:bg-opacity-75 focus:outline-none hidden">
+                        <i class="fas fa-chevron-right text-3xl"></i>
+                    </button>
                 </div>
             </div>
         </section>
+
+
+        <!-- JavaScript để xử lý carousel -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const carousel = document.getElementById('carousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const items = carousel.getElementsByTagName('a');
+                const itemWidth = 288 + 8; // Chiều rộng mỗi mục (w-[288px] + mx-2 = 296px)
+                const visibleItems = 4; // Số mục hiển thị cùng lúc
+                let currentPosition = 0;
+
+                // Kiểm tra và cập nhật giao diện
+                function updateCarousel() {
+                    const totalItems = items.length;
+                    if (totalItems > visibleItems) {
+                        prevBtn.classList.remove('hidden');
+                        nextBtn.classList.remove('hidden');
+                        carousel.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
+
+                        // Kích hoạt cuộn
+                        prevBtn.disabled = currentPosition <= 0;
+                        nextBtn.disabled = currentPosition >= totalItems - visibleItems;
+                        prevBtn.classList.toggle('opacity-50', currentPosition <= 0);
+                        nextBtn.classList.toggle('opacity-50', currentPosition >= totalItems - visibleItems);
+                    } else {
+                        prevBtn.classList.add('hidden');
+                        nextBtn.classList.add('hidden');
+                        carousel.style.transform = 'translateX(0)';
+                    }
+                }
+
+                // Xử lý nút Previous
+                prevBtn.addEventListener('click', () => {
+                    if (currentPosition > 0) {
+                        currentPosition--;
+                        updateCarousel();
+                    }
+                });
+
+                // Xử lý nút Next
+                nextBtn.addEventListener('click', () => {
+                    const totalItems = items.length;
+                    if (currentPosition < totalItems - visibleItems) {
+                        currentPosition++;
+                        updateCarousel();
+                    }
+                });
+
+                // Khởi tạo trạng thái ban đầu
+                updateCarousel();
+
+                // Theo dõi thay đổi dữ liệu (nếu admin thêm mục mới qua AJAX)
+                window.addEventListener('bannerImagesUpdated', () => {
+                    updateCarousel();
+                });
+            });
+        </script>
+
+        <!-- Font Awesome để sử dụng icon mũi tên -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
         <section class="py-20 bg-white" alt="Nơi Tịnh Luyện Hoàn Hảo">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">

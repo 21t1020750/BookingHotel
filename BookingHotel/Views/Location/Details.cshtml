@@ -1,0 +1,322 @@
+﻿@model BookingHotel.Controllers.LocationViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<body class="bg-gray-100">
+    <main class="py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <nav class="flex mb-8 text-sm font-medium">
+                <a href="@Url.Action("Index", "Home")" class="text-blue-600 hover:text-blue-800 transition">
+                    <i class="fas fa-home mr-1"></i> Trang chủ
+                </a>
+                <span class="mx-2 text-gray-500">/</span>
+                <a href="@Url.Action("Index", "Location")" class="text-blue-600 hover:text-blue-800 transition">Địa điểm</a>
+                <span class="mx-2 text-gray-500">/</span>
+                <span class="text-gray-600">@Model.Title</span>
+            </nav>
+
+            <!-- Hero Section -->
+            <div class="relative mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
+                <img src="@Model.ImageUrl" alt="@Model.Title" class="w-full h-[500px] object-cover" loading="lazy">
+                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                    <div class="flex justify-between items-end">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">@Model.Title</h1>
+                        <div class="flex space-x-3">
+                            <button class="flex items-center bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition">
+                                <i class="far fa-heart mr-2"></i> Yêu thích
+                            </button>
+                            <button class="flex items-center bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition">
+                                <i class="fas fa-share-alt mr-2"></i> Chia sẻ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                            <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                            Thông tin chi tiết
+                        </h2>
+                        <div class="prose max-w-none text-gray-600">
+                            <p class="text-lg leading-relaxed">@Model.Description</p>
+                            <p class="mt-4">Khám phá không gian độc đáo của chúng tôi, nơi mỗi chi tiết được chăm chút tỉ mỉ để mang đến trải nghiệm đặc biệt cho quý khách. Với các tiện nghi hiện đại và dịch vụ chuyên nghiệp, chúng tôi cam kết mang đến những khoảnh khắc đáng nhớ trong kỳ nghỉ của bạn.</p>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Section -->
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                            <i class="fas fa-concierge-bell text-blue-600 mr-3"></i>
+                            Tiện nghi
+                        </h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-wifi text-blue-600 mr-3"></i>
+                                <span>WiFi miễn phí</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-parking text-blue-600 mr-3"></i>
+                                <span>Bãi đỗ xe</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-snowflake text-blue-600 mr-3"></i>
+                                <span>Điều hòa</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-utensils text-blue-600 mr-3"></i>
+                                <span>Nhà hàng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-glass-cheers text-blue-600 mr-3"></i>
+                                <span>Quầy bar</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-dumbbell text-blue-600 mr-3"></i>
+                                <span>Phòng tập gym</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Section -->
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                            <i class="fas fa-images text-blue-600 mr-3"></i>
+                            Hình ảnh
+                        </h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            @for (int i = 1; i <= 6; i++)
+                            {
+                                <div class="aspect-square rounded-lg overflow-hidden">
+                                    <img src="/api/placeholder/400/400" alt="Gallery image" class="w-full h-full object-cover hover:opacity-90 transition">
+                                </div>
+                            }
+                        </div>
+                        <div class="text-center mt-6">
+                            <button class="inline-flex items-center px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
+                                <i class="fas fa-plus mr-2"></i> Xem thêm hình ảnh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Section -->
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                                <i class="fas fa-star text-blue-600 mr-3"></i>
+                                Đánh giá từ khách hàng
+                            </h2>
+                            <div class="flex items-center">
+                                <div class="flex items-center bg-yellow-100 text-yellow-700 rounded-full px-3 py-1">
+                                    <span class="font-bold mr-1">4.8</span>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-500"></i>
+                                        <i class="fas fa-star text-yellow-500"></i>
+                                        <i class="fas fa-star text-yellow-500"></i>
+                                        <i class="fas fa-star text-yellow-500"></i>
+                                        <i class="fas fa-star-half-alt text-yellow-500"></i>
+                                    </div>
+                                </div>
+                                <span class="ml-2 text-gray-500">(128 đánh giá)</span>
+                            </div>
+                        </div>
+
+                        <!-- Review Items -->
+                        <div class="space-y-6">
+                            <!-- Review 1 -->
+                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-semibold">NT</div>
+                                        <div class="ml-3">
+                                            <div class="font-semibold">Nguyễn Thành</div>
+                                            <div class="text-gray-500 text-sm">2 ngày trước</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="mt-3 text-gray-600">Địa điểm tuyệt vời, tôi rất hài lòng về dịch vụ ở đây. Nhân viên thân thiện và nhiệt tình. Chắc chắn sẽ quay lại!</p>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-semibold">PL</div>
+                                        <div class="ml-3">
+                                            <div class="font-semibold">Phạm Linh</div>
+                                            <div class="text-gray-500 text-sm">1 tuần trước</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="mt-3 text-gray-600">Không gian rất đẹp và sang trọng. Tuy nhiên, dịch vụ có thể cải thiện thêm một chút. Nhìn chung là tốt.</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-6">
+                            <button class="inline-flex items-center px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
+                                <i class="fas fa-comment-alt mr-2"></i> Xem tất cả đánh giá
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Booking Card -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Đặt chỗ ngay</h3>
+                        <div class="p-4 bg-blue-50 rounded-lg mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Giá từ</span>
+                                <span class="font-bold text-xl text-blue-600">1.200.000đ</span>
+                            </div>
+                            <div class="text-sm text-gray-500">Giá mỗi đêm, chưa bao gồm thuế và phí</div>
+                        </div>
+
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Ngày nhận phòng</label>
+                                <div class="relative">
+                                    <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500">
+                                    <div class="absolute right-3 top-3 text-gray-400">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Ngày trả phòng</label>
+                                <div class="relative">
+                                    <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500">
+                                    <div class="absolute right-3 top-3 text-gray-400">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Số lượng khách</label>
+                                <div class="relative">
+                                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500 appearance-none">
+                                        <option>1 người lớn</option>
+                                        <option>2 người lớn</option>
+                                        <option>2 người lớn, 1 trẻ em</option>
+                                        <option>2 người lớn, 2 trẻ em</option>
+                                    </select>
+                                    <div class="absolute right-3 top-3 text-gray-400 pointer-events-none">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="@Url.Action("Index", "Find_Room")" class="block w-full px-6 py-4 bg-blue-600 text-white font-medium text-center rounded-lg hover:bg-blue-700 transition duration-300">
+                                Kiểm tra phòng trống
+                            </a>
+                        </form>
+
+                        <div class="mt-6 p-4 bg-green-50 border border-green-100 rounded-lg">
+                            <div class="flex">
+                                <div class="text-green-500 mr-3">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-green-700">Ưu đãi đặc biệt</div>
+                                    <p class="text-sm text-green-600">Giảm 15% khi đặt phòng trước 30 ngày</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+                                <span class="text-gray-600">Đánh giá</span>
+                                <span class="flex items-center">
+                                    <span class="text-yellow-500 mr-1">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="font-medium">4.8/5</span>
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between py-3 border-b border-gray-100">
+                                <span class="text-gray-600">Vị trí</span>
+                                <span class="flex items-center">
+                                    <span class="text-blue-500 mr-1">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                    <span class="font-medium">Trung tâm</span>
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between pt-3">
+                                <span class="text-gray-600">Liên hệ hỗ trợ</span>
+                                <a href="tel:+84912345678" class="text-blue-600 hover:underline">
+                                    <i class="fas fa-phone-alt mr-1"></i> 0912.345.678
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Locations -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold text-gray-800 mb-8">Địa điểm khác có thể bạn quan tâm</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    @for (int i = 1; i <= 4; i++)
+                    {
+                        if (i != Model.Id)
+                        {
+                            var title = i switch
+                            {
+                                1 => "Hồ Bơi Sang Trọng",
+                                2 => "Nhà Hàng 5 Sao",
+                                3 => "Phòng Gym Hiện Đại",
+                                4 => "Spa Thư Giãn",
+                                _ => "Địa Điểm Không Xác Định"
+                            };
+
+                            var imageUrl = i switch
+                            {
+                                1 => "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+                                2 => "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+                                3 => "https://images.unsplash.com/photo-1593297237733-184d3ff53d80",
+                                4 => "https://du-lich.chudu24.com/f/m/2304/24/khach-san-hoang-hon-tim-boutique-phu-quoc-2.jpg",
+                                _ => "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                            };
+
+                            <a href="@Url.Action("Details", "Location", new { id = i })" class="relative w-full h-72 overflow-hidden rounded-xl block group">
+                                <img src="@imageUrl" alt="@title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span class="text-white font-medium text-2xl">@title</span>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>

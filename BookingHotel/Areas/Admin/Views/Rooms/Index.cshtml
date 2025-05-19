@@ -129,6 +129,7 @@
                             <th>Trạng Thái</th>
                             <th>Mô Tả</th>
                             <th style="width:80px"></th>
+                            <th style="width:80px"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -142,6 +143,11 @@
                                 <td>@room.Price VND</td>
                                 <td>@room.RoomStatus.Description</td>
                                 <td>@Html.Raw(room.Description)</td>
+                                <td class="text-center">
+                                    <a href="~/Admin/Rooms/Detail/@room.RoomID" class="btn btn-xs btn-info">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
                                 <td class="text-right">
                                     <a href="~/Admin/Rooms/Edit/@room.RoomID" class="btn btn-xs btn-info">
                                         <i class="fa fa-edit"></i>

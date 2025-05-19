@@ -265,5 +265,30 @@ namespace BookingHotel.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult Detail(int id)
+        {
+            var room = _context.Rooms.Find(id);
+            if (room == null)
+                return NotFound();
+
+            // Lấy tất cả BookingDetails có RoomID = id
+            var bookingDetails = _context.BookingDetails.Where(bd => bd.RoomID == id);
+
+            // Lấy tất cả Reviews liên quan tới các BookingID của bookingDetails
+            var ratings = _context.Reviews
+                            .Where(rv => bookingDetails.Select(bd => bd.BookingID).Contains(rv.BookingID))
+                            .Select(rv => rv.Rating);
+
+            double avgRating = 0;
+            if (ratings.Any())
+            {
+                avgRating = ratings.Average();
+            }
+
+            ViewBag.AverageRating = Math.Round(avgRating, 2);
+
+            return View(room);
+        }
     }
 }

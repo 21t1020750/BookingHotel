@@ -25,24 +25,11 @@ namespace BookingHotel.Areas.Admin.Controllers
         // GET: /Admin/ContentOffers/Create
         public IActionResult Create()
         {
-            return View();
+            ViewBag.title = "Thêm Ưu Đãi Mới";
+            return View("Edit", new Content_Offer());
         }
 
-        // POST: /Admin/ContentOffers/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Content_Offer offer)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Content_Offers.Add(offer);
-                await _db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(offer);
-        }
-
-        // GET: /Admin/ContentOffers/Edit/5
+        // GET: /Admin/ContentAmenities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -55,13 +42,14 @@ namespace BookingHotel.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewBag.title = "Sửa thông tin Tiện nghi";
             return View(offer);
         }
 
-        // POST: /Admin/ContentOffers/Edit/5
+        // POST: /Admin/ContentAmenities/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Content_Offer offer)
+        public async Task<IActionResult> Edit(int? id, Content_Offer offer)
         {
             if (id != offer.Id)
             {
@@ -70,59 +58,31 @@ namespace BookingHotel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == null) // Nếu không có id, tức là tạo mới
+                {
+                    _db.Add(offer);
+                }
+                else // Nếu có id, tức là chỉnh sửa
                 {
                     _db.Update(offer);
-                    await _db.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OfferExists(offer.Id))
-                    {
-                        return NotFound();
-                    }
-                    throw;
-                }
+
+                _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(offer);
         }
 
-        // GET: /Admin/ContentOffers/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: /Admin/ContentAmenities/Delete/5
+        public IActionResult Delete(int id)
         {
-            if (id == null)
+            var content_Offers = _db.Content_Offers.Find(id);
+            if (content_Offers != null)
             {
-                return NotFound();
+                _db.Content_Offers.Remove(content_Offers);
+                _db.SaveChanges();
             }
-
-            var offer = await _db.Content_Offers
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (offer == null)
-            {
-                return NotFound();
-            }
-
-            return View(offer);
-        }
-
-        // POST: /Admin/ContentOffers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var offer = await _db.Content_Offers.FindAsync(id);
-            if (offer != null)
-            {
-                _db.Content_Offers.Remove(offer);
-                await _db.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool OfferExists(int id)
-        {
-            return _db.Content_Offers.Any(e => e.Id == id);
+            return RedirectToAction("Index");
         }
     }
 }

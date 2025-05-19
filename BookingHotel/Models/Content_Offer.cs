@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public DateTime ValidUntil { get; set; }
+        public string redirectLink { get; set; } = "";
     }
 }

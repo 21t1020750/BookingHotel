@@ -28,7 +28,7 @@ namespace BookingHotel.Areas.Admin.Data
 
         // Add DbSet properties for content-related entities
         public DbSet<Content_BannerImage> Content_BannerImages { get; set; }
-        public DbSet<Content_Service> Content_Services { get; set; }
+        public DbSet<Content_Achivement> Content_Achivements { get; set; }
         public DbSet<Content_Room> Content_Rooms { get; set; }
         public DbSet<Content_Amenity> Content_Amenities { get; set; }
         public DbSet<Content_Offer> Content_Offers { get; set; }
@@ -115,6 +115,11 @@ namespace BookingHotel.Areas.Admin.Data
                 .HasOne(rs => rs.Service)
                 .WithMany(s => s.RoomServices)
                 .HasForeignKey(rs => rs.ServiceID);
+
+            modelBuilder.Entity<Content_Room>()
+    .HasOne(r => r.RoomType)
+    .WithMany()
+    .HasForeignKey(r => r.RoomTypeID);
 
             // No additional relationships needed for content entities (they are independent)
         }

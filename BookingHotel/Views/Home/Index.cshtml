@@ -301,7 +301,7 @@
 
 
 
-        <section class="py-20 bg-white" alt="Nơi Tịnh Luyện Hoàn Hảo">
+        <section class="py-20 bg-white" alt="Các thành tựu của khách sạn">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-4">Nơi Tịnh Luyện Hoàn Hảo</h2>
@@ -309,16 +309,16 @@
                     <p class="text-gray-600 max-w-3xl mx-auto text-3xl">VietNamBooking định nghĩa lại sự sang trọng trong ngành khách sạn với sự chú ý tỉ mỉ đến chi tiết, dịch vụ xuất sắc và tầm nhìn tuyệt đẹp hướng ra sông Hương.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-10">
-                    @if (Model.Services != null && Model.Services.Any())
+                    @if (Model.Achivements != null && Model.Achivements.Any())
                     {
-                        @foreach (var service in Model.Services)
+                        @foreach (var achivement in Model.Achivements)
                         {
                             <div class="text-center px-6">
-                                <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6" alt="hình nền">
-                                    <i class="@service.Icon text-3xl text-blue-600"></i>
+                                <div class="w-50 h-50 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <img src="@achivement.ImageLink" alt="hình nền" class="w-40 h-40 object-contain" />
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">@service.Name</h3>
-                                <p class="text-gray-600">@service.Description</p>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">@achivement.Name</h3>
+                                <p class="text-gray-600">@Html.Raw(achivement.Description)</p>
                             </div>
                         }
                     }
@@ -340,11 +340,11 @@
                 {
                     @foreach (var room in Model.Rooms)
                     {
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="@room.Name">
-                            <img src="@room.ImageUrl" alt="@room.Name" class="w-full h-64 object-cover" loading="lazy">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="@room.RoomType.TypeName">
+                            <img src="@room.ImageUrl" alt="@room.RoomType.TypeName" class="w-full h-64 object-cover" loading="lazy">
                             <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-2">@room.Name</h3>
-                                <p class="text-gray-600 mb-4 text-2xl">@room.Description</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">@room.RoomType.TypeName</h3>
+                                <p class="text-gray-600 mb-4 text-2xl">@room.RoomType.Description</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-blue-600 font-bold text-3xl">Từ @room.Price VNĐ/đêm</span>
                                     <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
@@ -403,8 +403,8 @@
                         {
                             <div class="bg-blue-50 p-6 rounded-lg mb-6" alt="@offer.Title">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">@offer.Title</h3>
-                                <p class="text-gray-600 mb-4">@offer.Description</p>
-                                <a href="#" class="text-blue-600 font-medium hover:underline">Tìm Hiểu Thêm</a>
+                                <p class="text-gray-600 mb-4">@Html.Raw(offer.Description)</p>
+                                <a href="@offer.redirectLink" class="text-blue-600 font-medium hover:underline">Tìm Hiểu Thêm</a>
                             </div>
                         }
                     }

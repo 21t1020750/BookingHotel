@@ -1,4 +1,5 @@
 ﻿using BookingHotel.Areas.Admin.Data;
+using BookingHotel.Areas.Admin.Models;
 using BookingHotel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,104 +26,57 @@ namespace BookingHotel.Areas.Admin.Controllers
         // GET: /Admin/ContentBannerImages/Create
         public IActionResult Create()
         {
-            return View();
-        }
-
-        // POST: /Admin/ContentBannerImages/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Content_BannerImage bannerImage)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Content_BannerImages.Add(bannerImage);
-                await _db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(bannerImage);
+            return View("Edit", new Content_BannerImage());
         }
 
         // GET: /Admin/ContentBannerImages/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            Content_BannerImage content_BannerImage = id == null || id == 0
+               ? new Content_BannerImage { Id = 0 }
+               : _db.Content_BannerImages.FirstOrDefault(e => e.Id == id);
 
-            var bannerImage = await _db.Content_BannerImages.FindAsync(id);
-            if (bannerImage == null)
-            {
-                return NotFound();
-            }
-            return View(bannerImage);
+            if (content_BannerImage == null) return NotFound();
+
+            ViewBag.Title = id == 0 ? "Thêm content Banner mới" : "Chỉnh sửa content Banner";
+            return View(content_BannerImage);
         }
 
         // POST: /Admin/ContentBannerImages/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Content_BannerImage bannerImage)
+        public async Task<IActionResult> Edit(int? id, Content_BannerImage content_bannerImage)
         {
-            if (id != bannerImage.Id)
+            if (id != content_bannerImage.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == null) // Nếu không có id, tức là tạo mới
                 {
-                    _db.Update(bannerImage);
-                    await _db.SaveChangesAsync();
+                    _db.Add(content_bannerImage);
                 }
-                catch (DbUpdateConcurrencyException)
+                else // Nếu có id, tức là chỉnh sửa
                 {
-                    if (!BannerImageExists(bannerImage.Id))
-                    {
-                        return NotFound();
-                    }
-                    throw;
+                    _db.Update(content_bannerImage);
                 }
+
+                _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bannerImage);
+            return View("Edit", content_bannerImage);
         }
 
-        // GET: /Admin/ContentBannerImages/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
+            var content_BannerImage = _db.Content_BannerImages.Find(id);
+            if (content_BannerImage != null)
             {
-                return NotFound();
+                _db.Content_BannerImages.Remove(content_BannerImage);
+                _db.SaveChanges();
             }
-
-            var bannerImage = await _db.Content_BannerImages
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bannerImage == null)
-            {
-                return NotFound();
-            }
-
-            return View(bannerImage);
-        }
-
-        // POST: /Admin/ContentBannerImages/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var bannerImage = await _db.Content_BannerImages.FindAsync(id);
-            if (bannerImage != null)
-            {
-                _db.Content_BannerImages.Remove(bannerImage);
-                await _db.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool BannerImageExists(int id)
-        {
-            return _db.Content_BannerImages.Any(e => e.Id == id);
+            return RedirectToAction("Index");
         }
     }
 }

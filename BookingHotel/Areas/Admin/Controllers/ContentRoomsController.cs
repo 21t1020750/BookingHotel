@@ -1,6 +1,7 @@
 ﻿using BookingHotel.Areas.Admin.Data;
 using BookingHotel.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingHotel.Areas.Admin.Controllers
@@ -18,31 +19,19 @@ namespace BookingHotel.Areas.Admin.Controllers
         // GET: /Admin/ContentRooms
         public async Task<IActionResult> Index()
         {
-            var rooms = await _db.Content_Rooms.ToListAsync();
+            var rooms = await _db.Content_Rooms.Include(r => r.RoomType).ToListAsync();
             return View(rooms);
         }
 
         // GET: /Admin/ContentRooms/Create
         public IActionResult Create()
         {
-            return View();
+            ViewBag.title = "Thêm Ưu Đãi Mới";
+            ViewBag.RoomTypes = new SelectList(_db.RoomTypes, "RoomTypeID", "TypeName");
+            return View("Edit", new Content_Room());
         }
 
-        // POST: /Admin/ContentRooms/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Content_Room room)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Content_Rooms.Add(room);
-                await _db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(room);
-        }
-
-        // GET: /Admin/ContentRooms/Edit/5
+        // GET: /Admin/ContentAmenities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -55,13 +44,16 @@ namespace BookingHotel.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.RoomTypes = new SelectList(_db.RoomTypes, "RoomTypeID", "TypeName");
+            ViewBag.title = "Sửa thông tin Tiện nghi";
             return View(room);
         }
 
-        // POST: /Admin/ContentRooms/Edit/5
+        // POST: /Admin/ContentAmenities/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Content_Room room)
+        public async Task<IActionResult> Edit(int? id, Content_Room room)
         {
             if (id != room.Id)
             {
@@ -70,59 +62,32 @@ namespace BookingHotel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == null) // Nếu không có id, tức là tạo mới
+                {
+                    _db.Add(room);
+                }
+                else // Nếu có id, tức là chỉnh sửa
                 {
                     _db.Update(room);
-                    await _db.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!RoomExists(room.Id))
-                    {
-                        return NotFound();
-                    }
-                    throw;
-                }
+
+                _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.RoomTypes = new SelectList(_db.RoomTypes, "RoomTypeID", "TypeName", "Description");
             return View(room);
         }
 
-        // GET: /Admin/ContentRooms/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: /Admin/ContentAmenities/Delete/5
+        public IActionResult Delete(int id)
         {
-            if (id == null)
+            var content_rooms = _db.Content_Rooms.Find(id);
+            if (content_rooms != null)
             {
-                return NotFound();
+                _db.Content_Rooms.Remove(content_rooms);
+                _db.SaveChanges();
             }
-
-            var room = await _db.Content_Rooms
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (room == null)
-            {
-                return NotFound();
-            }
-
-            return View(room);
-        }
-
-        // POST: /Admin/ContentRooms/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var room = await _db.Content_Rooms.FindAsync(id);
-            if (room != null)
-            {
-                _db.Content_Rooms.Remove(room);
-                await _db.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool RoomExists(int id)
-        {
-            return _db.Content_Rooms.Any(e => e.Id == id);
+            return RedirectToAction("Index");
         }
     }
 }

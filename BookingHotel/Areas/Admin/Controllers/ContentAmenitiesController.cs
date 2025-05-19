@@ -22,24 +22,11 @@ namespace BookingHotel.Areas.Admin.Controllers
             return View(amenities);
         }
 
-        // GET: /Admin/ContentAmenities/Create
+       
         public IActionResult Create()
         {
-            return View();
-        }
-
-        // POST: /Admin/ContentAmenities/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Content_Amenity amenity)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Content_Amenities.Add(amenity);
-                await _db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(amenity);
+            ViewBag.title = "Thêm Tiện nghi mới";
+            return View("Edit", new Content_Amenity());
         }
 
         // GET: /Admin/ContentAmenities/Edit/5
@@ -55,13 +42,14 @@ namespace BookingHotel.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewBag.title = "Sửa thông tin Tiện nghi";
             return View(amenity);
         }
 
         // POST: /Admin/ContentAmenities/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Content_Amenity amenity)
+        public async Task<IActionResult> Edit(int? id, Content_Amenity amenity)
         {
             if (id != amenity.Id)
             {
@@ -70,59 +58,31 @@ namespace BookingHotel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == null) // Nếu không có id, tức là tạo mới
+                {
+                    _db.Add(amenity);
+                }
+                else // Nếu có id, tức là chỉnh sửa
                 {
                     _db.Update(amenity);
-                    await _db.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AmenityExists(amenity.Id))
-                    {
-                        return NotFound();
-                    }
-                    throw;
-                }
+
+                _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(amenity);
         }
 
         // GET: /Admin/ContentAmenities/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
+            var content_Amenities = _db.Content_Amenities.Find(id);
+            if (content_Amenities != null)
             {
-                return NotFound();
+                _db.Content_Amenities.Remove(content_Amenities);
+                _db.SaveChanges();
             }
-
-            var amenity = await _db.Content_Amenities
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (amenity == null)
-            {
-                return NotFound();
-            }
-
-            return View(amenity);
-        }
-
-        // POST: /Admin/ContentAmenities/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var amenity = await _db.Content_Amenities.FindAsync(id);
-            if (amenity != null)
-            {
-                _db.Content_Amenities.Remove(amenity);
-                await _db.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool AmenityExists(int id)
-        {
-            return _db.Content_Amenities.Any(e => e.Id == id);
+            return RedirectToAction("Index");
         }
     }
 }

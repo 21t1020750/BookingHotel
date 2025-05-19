@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using BookingHotel.Areas.Admin.Data; // Update to use ApplicationDbContext
 using BookingHotel.Models;
+using iText.Commons.Actions.Contexts;
 
 namespace BookingHotel.Controllers
 {
@@ -24,8 +25,8 @@ namespace BookingHotel.Controllers
                 var model = new HomeViewModel
                 {
                     BannerImages = await _db.Content_BannerImages.ToListAsync(),
-                    Services = await _db.Content_Services.ToListAsync(),
-                    Rooms = await _db.Content_Rooms.ToListAsync(),
+                    Achivements = await _db.Content_Achivements.ToListAsync(),
+                    Rooms = await _db.Content_Rooms.Include(r => r.RoomType).ToListAsync(),
                     Amenities = await _db.Content_Amenities.ToListAsync(),
                     Offers = await _db.Content_Offers.ToListAsync(),
                     MembershipBenefits = await _db.Content_MembershipBenefits.ToListAsync()
@@ -38,6 +39,21 @@ namespace BookingHotel.Controllers
                 return View("Error");
             }
         }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var review = _db.Content_BannerImages
+                .FirstOrDefault(b =>b.Id == id);
+
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView(review);
+        }
+
 
         public IActionResult Privacy()
         {

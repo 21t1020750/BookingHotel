@@ -1,4 +1,5 @@
-﻿.offer-tabs {
+﻿/* Các styles cho tab offers giữ nguyên */
+.offer-tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
@@ -39,29 +40,260 @@
     margin: 20px 0;
 }
 
-/* Style cho dropdown ngôn ngữ */
-.language-select {
+/* Style cho dropdown ngôn ngữ (mới) */
+#lang-toggle {
     background-color: #0891b2; /* bg-cyan-600 */
-    color: white; /* Chữ trắng ban đầu */
-    padding: 8px 24px 8px 12px; /* Giảm padding bên phải để thu nhỏ khung */
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px; /* rounded-full */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
     font-weight: 500;
-    cursor: pointer;
     outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    width: 60px; /* Thu nhỏ chiều rộng để vừa với chữ EN/VI */
-    text-align: center; /* Căn giữa chữ */
+    border: none;
+    cursor: pointer;
 }
 
-    .language-select:hover {
-        background-color: white; /* Khi hover: nền trắng */
-        color: #0891b2; /* Khi hover: chữ thành bg-cyan-600 */
-        background-image: url('data:image/svg+xml;utf8,<svg fill="%230891b2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Đổi màu mũi tên khi hover */
+    #lang-toggle:hover {
+        background-color: white;
+        color: #1d4ed8; /* text-blue-700 */
     }
+
+#lang-menu {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 6rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    overflow: hidden;
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    transition: all 0.2s ease;
+}
+
+    #lang-menu a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 1.125rem; /* text-lg */
+        color: #374151; /* text-gray-700 */
+        transition: background-color 0.2s ease;
+        text-decoration: none;
+    }
+
+        #lang-menu a:hover {
+            background-color: #eff6ff; /* bg-blue-50 */
+        }
+
+    /* Animation cho dropdown menu */
+    #lang-menu.hidden {
+        display: none;
+    }
+
+/* User dropdown style */
+#userDropdown {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: rgba(29, 78, 216, 0.3); /* bg-blue-700 bg-opacity-30 */
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+    #userDropdown:hover {
+        background-color: rgba(29, 78, 216, 0.5); /* bg-blue-700 bg-opacity-50 */
+    }
+
+    #userDropdown img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+        object-fit: cover;
+        border: 2px solid white;
+        margin-right: 1rem;
+    }
+
+    #userDropdown span {
+        font-size: 1.25rem; /* text-xl */
+        white-space: nowrap;
+        color: white;
+    }
+
+/* User dropdown menu */
+#dropdownMenu {
+    position: absolute;
+    right: 0;
+    margin-top: 0.75rem;
+    width: 22rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 50;
+    overflow: hidden;
+    transform-origin: top right;
+    transition: all 0.2s ease;
+    font-size: 1.125rem; /* text-lg */
+    border: 1px solid #f3f4f6; /* border-gray-100 */
+}
+
+    #dropdownMenu.hidden {
+        display: none;
+    }
+
+    /* Animation cho dropdown */
+    #dropdownMenu.scale-100 {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    #dropdownMenu.scale-95 {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    /* Header dropdown menu */
+    #dropdownMenu .p-6 {
+        padding: 1.5rem;
+    }
+
+    #dropdownMenu .border-b {
+        border-bottom-width: 1px;
+    }
+
+    #dropdownMenu .bg-gradient-to-r {
+        background-image: linear-gradient(to right, #eff6ff, #ecfeff); /* from-blue-50 to-cyan-50 */
+    }
+
+    #dropdownMenu img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 9999px;
+        object-fit: cover;
+        margin-right: 1rem;
+        border: 2px solid #93c5fd; /* border-blue-300 */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    }
+
+    #dropdownMenu h4 {
+        font-weight: 600;
+        font-size: 1.25rem; /* text-xl */
+        color: #1f2937; /* text-gray-800 */
+    }
+
+    #dropdownMenu .bg-yellow-100 {
+        background-color: #fef9c3;
+        color: #854d0e; /* text-yellow-800 */
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px; /* rounded-full */
+        font-size: 0.875rem; /* text-sm */
+        font-weight: 500;
+    }
+
+    #dropdownMenu p {
+        font-size: 1rem; /* text-base */
+        color: #4b5563; /* text-gray-600 */
+        margin-top: 0.5rem;
+    }
+
+    /* Dropdown menu options */
+    #dropdownMenu a {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: #374151; /* text-gray-700 */
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+
+        #dropdownMenu a:hover {
+            background-color: #eff6ff; /* bg-blue-50 */
+        }
+
+        #dropdownMenu a:last-child:hover {
+            background-color: #fef2f2; /* bg-red-50 */
+            color: #dc2626; /* text-red-600 */
+        }
+
+    #dropdownMenu i {
+        color: #3b82f6; /* text-blue-500 */
+        font-size: 1.5rem; /* text-2xl */
+    }
+
+@media (max-width: 1023px) {
+    #mobile-menu {
+        /* Remove redundant styles */
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+        #mobile-menu.max-h-\[500px\] {
+            max-height: 500px;
+        }
+
+        #mobile-menu a {
+            background-color: rgba(29, 78, 216, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            position: relative; /* Ensure underline works */
+        }
+
+            #mobile-menu a:hover {
+                background-color: rgba(29, 78, 216, 0.4);
+            }
+
+            #mobile-menu a.active {
+                background-color: rgba(29, 78, 216, 0.6);
+            }
+}
+/* Login/Register buttons */
+.bg-white {
+    background-color: white;
+}
+
+.text-blue-700 {
+    color: #1d4ed8;
+}
+
+.bg-yellow-400 {
+    background-color: #facc15;
+}
+
+.text-blue-800 {
+    color: #1e3a8a;
+}
+
+.hover\:bg-yellow-400:hover {
+    background-color: #facc15;
+}
+
+.hover\:text-blue-800:hover {
+    color: #1e3a8a;
+}
+
+.hover\:bg-white:hover {
+    background-color: white;
+}
+
+.hover\:text-blue-700:hover {
+    color: #1d4ed8;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}

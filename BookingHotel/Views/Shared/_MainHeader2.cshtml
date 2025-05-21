@@ -9,121 +9,118 @@
 <!-- CSS Sticky & Blur -->
 <link rel="stylesheet" href="~/css/PageCSS/_MainHeader2.css" />
 <link rel="stylesheet" href="~/css/PageCSS/_Language.css" />
-
-<header class="bg-cyan-600 text-white py-7">
-    <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+<header class="header-gradient">
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="header-container">
         <div class="flex items-center justify-between">
             <!-- Logo -->
-            <a href="~/" class="flex items-center text-white no-underline">
-                <i class="fas fa-hotel text-white text-4xl md:text-4xl mr-2"></i>
-                <span class="text-4xl md:text-4xl font-bold">VietNamBooking</span>
+            <a href="~/" class="brand-logo">
+                <i class="fas fa-hotel logo-icon"></i>
+                <span class="brand-name">VietNamBooking</span>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <div class="lg:hidden">
-                <button id="menu-toggle" class="text-white text-4xl focus:outline-none">
-                    <span id="menu-icon">☰</span>
-                </button>
-            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
 
             <!-- Desktop Navigation -->
-            <nav id="desktop-nav" class="hidden md:flex md:items-center md:space-x-12 flex-1 justify-center">
-                <div class="group nav-link @(currentPath == "/" ? "active" : "")">
-                    <a href="~/" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Trang chủ</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+            <nav class="nav-container" id="desktop-nav" aria-label="Main navigation">
+                <div class="nav-link-wrapper @(currentPath == "/" ? "active" : "")">
+                    <a href="~/" class="nav-link">
+                        <i class="fas fa-home mr-1 text-sm"></i> Trang chủ
+                    </a>
                 </div>
-                <div class="group nav-link @(currentPath.StartsWith("/rooms") ? "active" : "")">
-                    <a href="~/Rooms" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Phòng</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                <div class="nav-link-wrapper @(currentPath.StartsWith("/rooms") ? "active" : "")">
+                    <a href="~/Rooms" class="nav-link">
+                        <i class="fas fa-bed mr-1 text-sm"></i> Phòng
+                    </a>
                 </div>
-                <div class="group nav-link @(currentPath.StartsWith("/dining") ? "active" : "")">
-                    <a href="~/Dining" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Ẩm thực</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                <div class="nav-link-wrapper @(currentPath.StartsWith("/dining") ? "active" : "")">
+                    <a href="~/Dining" class="nav-link">
+                        <i class="fas fa-utensils mr-1 text-sm"></i> Ẩm thực
+                    </a>
                 </div>
-                <div class="group nav-link @(currentPath.StartsWith("/facilities") ? "active" : "")">
-                    <a href="~/Facilities" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Tiện ích</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                <div class="nav-link-wrapper @(currentPath.StartsWith("/facilities") ? "active" : "")">
+                    <a href="~/Facilities" class="nav-link">
+                        <i class="fas fa-swimming-pool mr-1 text-sm"></i> Tiện ích
+                    </a>
                 </div>
-                <div class="group nav-link @(currentPath.StartsWith("/offers") ? "active" : "")">
-                    <a href="~/Offers" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Ưu đãi</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                <div class="nav-link-wrapper @(currentPath.StartsWith("/offers") ? "active" : "")">
+                    <a href="~/Offers" class="nav-link">
+                        <i class="fas fa-tags mr-1 text-sm"></i> Ưu đãi
+                        @if (new Random().Next(0, 2) == 1)
+                        {
+                            <span class="notification-dot"></span>
+                        }
+                    </a>
                 </div>
-                <div class="group nav-link @(currentPath.StartsWith("/contact") ? "active" : "")">
-                    <a href="~/Contact" class="text-2xl md:text-4xl font-medium hover:text-gray-200 transition shrink-0">Liên hệ</a>
-                    <span class="underline absolute bottom-0 left-0 w-0 h-3px bg-ffcc99 transition"></span>
+                <div class="nav-link-wrapper @(currentPath.StartsWith("/contact") ? "active" : "")">
+                    <a href="~/Contact" class="nav-link">
+                        <i class="fas fa-envelope mr-1 text-sm"></i> Liên hệ
+                    </a>
                 </div>
             </nav>
 
-            <div id="desktop-auth" class="hidden md:flex items-center space-x-6 justify-end">
-                <!-- Ngôn ngữ + icon -->
-                <div class="relative inline-block text-left">
-                    <button id="lang-toggle" type="button" class="inline-flex items-center space-x-2 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-700 focus:outline-none">
-                        <i class="fas fa-globe"></i>
-                        <span id="current-lang">EN</span>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
-                        </svg>
+            <!-- Auth Section (Language + Login/Signup or User Profile) -->
+            <div class="flex items-center auth-section" id="desktop-auth">
+                <!-- Language Selector -->
+                <div class="relative mr-4">
+                    <button id="lang-toggle" class="lang-button" aria-label="Change language">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span id="current-lang">VI</span>
+                        <i class="fas fa-chevron-down ml-2 text-sm"></i>
                     </button>
-
-                    <div id="lang-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded shadow-lg z-10 transition duration-150 ease-in-out">
-                        <a href="/lang/en" data-lang="EN"
-                           class="block w-full text-center px-2 py-2 text-2xl text-gray-700 hover:bg-gray-100 transition">EN</a>
-                        <a href="/lang/vi" data-lang="VI"
-                           class="block w-full text-center px-2 py-2 text-2xl text-gray-700 hover:bg-gray-100 transition">VI</a>
+                    <div id="lang-menu" class="lang-dropdown">
+                        <a href="/lang/en" data-lang="EN" class="lang-option">
+                            <i class="fas fa-flag-usa mr-2"></i> English
+                        </a>
+                        <a href="/lang/vi" data-lang="VI" class="lang-option">
+                            <i class="fas fa-flag mr-2"></i> Tiếng Việt
+                        </a>
                     </div>
                 </div>
 
                 @if (User.Identity.IsAuthenticated && role == "Customer")
                 {
-                    <div class="relative inline-block text-left">
-                        <!-- Avatar + Tên người dùng -->
-                        <button id="userDropdown" class="flex items-center space-x-4 focus:outline-none min-w-[100px] justify-end">
-                            <img src="~/images/Customer/@photo" class="rounded-full" width="35" height="35" alt="User Avatar">
-                            <span class="text-xl whitespace-nowrap">Xin chào, @fullName</span>
+                    <!-- User Profile Dropdown -->
+                    <div class="relative">
+                        <button id="userDropdown" class="user-dropdown-button" aria-label="User menu">
+                            <img src="~/images/Customer/@photo" class="user-avatar" alt="User Avatar">
+                            <span class="user-greeting">Xin chào, @fullName</span>
+                            <i class="fas fa-chevron-down ml-2 text-sm"></i>
                         </button>
-
-                        <!-- Dropdown menu -->
-                        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-[22rem] bg-white rounded-md shadow-lg z-50 text-lg">
-                            <div class="p-6 border-b">
-                                <div class="flex items-center">
-                                    <img src="~/images/Customer/@photo" class="w-15 h-20 rounded-full object-cover mr-4" alt="User Avatar">
-                                    <div>
-                                        <div class="flex items-center">
-                                            <h4 class="font-semibold text-xl text-gray-800">@fullName</h4>
-                                            <span class="ml-3 bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full">Gold</span>
-                                        </div>
-                                        <p class="text-base text-gray-600 mt-2">Điểm tích luỹ: 1200 điểm</p>
+                        <!-- User Menu Dropdown -->
+                        <div id="dropdownMenu" class="user-menu">
+                            <div class="user-header">
+                                <img src="~/images/Customer/@photo" class="menu-avatar" alt="User Avatar">
+                                <div class="user-info">
+                                    <div class="user-name">
+                                        @fullName
+                                        <span class="user-level">Gold</span>
                                     </div>
+                                    <div class="user-points">1200 điểm</div>
                                 </div>
                             </div>
-
-                            <a href="@Url.Action("Index", "Information")" onclick="switchTab('profile')"
-                               class="grid grid-cols-[auto_1fr] gap-x-4 items-center px-6 py-3 text-gray-700 hover:bg-gray-100 text-2xl">
-                                <i class="fas fa-user-circle text-blue-500 mr-4 text-2xl"></i>
+                            <a href="@Url.Action("Index", "Information")" onclick="switchTab('profile')" class="menu-item">
+                                <i class="fas fa-user-circle"></i>
                                 <span>Thông tin cá nhân</span>
                             </a>
-
-                            <a href="@Url.Action("Index", "Information")#rewards" onclick="switchTab('rewards')"
-                               class="grid grid-cols-[auto_1fr] gap-x-4 items-center px-6 py-3 text-gray-700 hover:bg-gray-100 text-2xl">
-                                <i class="fas fa-gift text-blue-500 mr-4 text-2xl"></i>
+                            <a href="@Url.Action("Index", "Information")#rewards" onclick="switchTab('rewards')" class="menu-item">
+                                <i class="fas fa-gift"></i>
                                 <span>Ưu đãi</span>
+                                <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">2</span>
                             </a>
-
-                            <a href="@Url.Action("Index", "Information")#reviews" onclick="switchTab('reviews')"
-                               class="grid grid-cols-[auto_1fr] gap-x-4 items-center px-6 py-3 text-gray-700 hover:bg-gray-100 text-2xl">
-                                <i class="fas fa-star text-blue-500 mr-4 text-2xl"></i>
+                            <a href="@Url.Action("Index", "Information")#reviews" onclick="switchTab('reviews')" class="menu-item">
+                                <i class="fas fa-star"></i>
                                 <span>Đánh giá</span>
                             </a>
-
-                            <a href="@Url.Action("Index", "Information")#history" onclick="switchTab('history')"
-                               class="grid grid-cols-[auto_1fr] gap-x-4 items-center px-6 py-3 text-gray-700 hover:bg-gray-100 text-2xl">
-                                <i class="fas fa-history text-blue-500 mr-4 text-2xl"></i>
+                            <a href="@Url.Action("Index", "Information")#history" onclick="switchTab('history')" class="menu-item">
+                                <i class="fas fa-history"></i>
                                 <span>Lịch sử</span>
                             </a>
-
-                            <a href="~/Account/Logout"
-                               class="grid grid-cols-[auto_1fr] gap-x-4 items-center px-6 py-3 text-gray-700 hover:bg-gray-100 text-2xl">
-                                <i class="fas fa-sign-out-alt text-blue-500 mr-4 text-2xl"></i>
+                            <a href="~/Account/Logout" class="menu-item">
+                                <i class="fas fa-sign-out-alt"></i>
                                 <span>Đăng xuất</span>
                             </a>
                         </div>
@@ -131,125 +128,222 @@
                 }
                 else
                 {
-                    <div class="flex space-x-2">
-                        <a href="~/Account/Login?tab=login" class="bg-white text-[#003087] px-4 py-2 rounded-xl text-2xl font-medium hover:text-white hover:bg-[#e55b00] transition duration-300">Đăng nhập</a>
-                        <a href="~/Account/Login?tab=register" class="bg-white text-[#003087] px-4 py-2 rounded-xl text-2xl font-medium hover:text-white hover:bg-[#e55b00] transition duration-300">Đăng ký</a>
+                    <!-- Login/Register Buttons -->
+                    <div class="auth-buttons">
+                        <a href="~/Account/Login?tab=login" class="login-button">
+                            <i class="fas fa-sign-in-alt mr-1"></i> Đăng nhập
+                        </a>
+                        <a href="~/Account/Login?tab=register" class="register-button">
+                            <i class="fas fa-user-plus mr-1"></i> Đăng ký
+                        </a>
                     </div>
                 }
             </div>
         </div>
-
-        <!-- Mobile Navigation (Hidden by default) -->
-        <nav id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-300 mt-4 space-y-4 text-center">
-            <a href="~/" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath == "/" ? "active" : "")">Trang chủ</a>
-            <a href="~/Rooms" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath.StartsWith("/rooms") ? "active" : "")">Phòng</a>
-            <a href="~/Dining" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath.StartsWith("/dining") ? "active" : "")">Ẩm thực</a>
-            <a href="~/Facilities" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath.StartsWith("/facilities") ? "active" : "")">Tiện ích</a>
-            <a href="~/Offers" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath.StartsWith("/offers") ? "active" : "")">Ưu đãi</a>
-            <a href="~/Contact" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block nav-link @(currentPath.StartsWith("/contact") ? "active" : "")">Liên hệ</a>
-            @if (Context.Session.GetString("Email") != null)
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+            <a href="~/" class="mobile-nav-link @(currentPath == "/" ? "active" : "")">
+                <span><i class="fas fa-home mr-2"></i> Trang chủ</span>
+            </a>
+            <a href="~/Rooms" class="mobile-nav-link @(currentPath.StartsWith("/rooms") ? "active" : "")">
+                <span><i class="fas fa-bed mr-2"></i> Phòng</span>
+            </a>
+            <a href="~/Dining" class="mobile-nav-link @(currentPath.StartsWith("/dining") ? "active" : "")">
+                <span><i class="fas fa-utensils mr-2"></i> Ẩm thực</span>
+            </a>
+            <a href="~/Facilities" class="mobile-nav-link @(currentPath.StartsWith("/facilities") ? "active" : "")">
+                <span><i class="fas fa-swimming-pool mr-2"></i> Tiện ích</span>
+            </a>
+            <a href="~/Offers" class="mobile-nav-link @(currentPath.StartsWith("/offers") ? "active" : "")">
+                <span><i class="fas fa-tags mr-2"></i> Ưu đãi</span>
+                @if (new Random().Next(0, 2) == 1)
+                {
+                    <span class="notification-dot"></span>
+                }
+            </a>
+            <a href="~/Contact" class="mobile-nav-link @(currentPath.StartsWith("/contact") ? "active" : "")">
+                <span><i class="fas fa-envelope mr-2"></i> Liên hệ</span>
+            </a>
+            <!-- Mobile Auth Links -->
+            @if (User.Identity.IsAuthenticated)
             {
-                <a href="@Url.Action("Logout", "Account")" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Xuất</a>
+                <a href="@Url.Action("Index", "Information")" class="mobile-nav-link">
+                    <span><i class="fas fa-user-circle mr-2"></i> Tài khoản</span>
+                </a>
+                <a href="~/Account/Logout" class="mobile-nav-link">
+                    <span><i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất</span>
+                </a>
             }
             else
             {
-                <a href="~/Account/Login?tab=login" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Nhập</a>
-                <a href="~/Account/Login?tab=register" class="bg-cyan-600 text-white px-3 py-1 rounded-xl text-2xl font-medium hover:bg-gray-100 transition block">Đăng Ký</a>
+                <a href="~/Account/Login?tab=login" class="mobile-nav-link">
+                    <span><i class="fas fa-sign-in-alt mr-2"></i> Đăng nhập</span>
+                </a>
+                <a href="~/Account/Login?tab=register" class="mobile-nav-link">
+                    <span><i class="fas fa-user-plus mr-2"></i> Đăng ký</span>
+                </a>
             }
         </nav>
     </div>
+
 </header>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Lang toggle functionality
+            const langToggle = document.getElementById('lang-toggle');
+            const langMenu = document.getElementById('lang-menu');
+            const currentLang = document.getElementById('current-lang');
 
-        document.addEventListener("DOMContentLoaded", function () {
-            // Xử lý dropdown người dùng
-            const userDropdown = document.getElementById("userDropdown");
-            const dropdownMenu = document.getElementById("dropdownMenu");
-            const langToggle = document.getElementById("lang-toggle");
-            const langMenu = document.getElementById("lang-menu");
-            const currentLang = document.getElementById("current-lang");
-
-            // Dropdown người dùng
-            userDropdown?.addEventListener("click", function (event) {
-                event.stopPropagation();
-                dropdownMenu?.classList.toggle("hidden");
-            });
-
-            document.addEventListener("click", function () {
-                dropdownMenu?.classList.add("hidden");
-                langMenu?.classList.add("hidden");
-            });
-
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape") {
-                    dropdownMenu?.classList.add("hidden");
-                    langMenu?.classList.add("hidden");
-                }
-            });
-
-            // Dropdown ngôn ngữ
-            langToggle?.addEventListener("click", function (event) {
-                event.stopPropagation();
-                langMenu?.classList.toggle("hidden");
-            });
-
-            // Xử lý chọn ngôn ngữ
-            langMenu?.querySelectorAll("a").forEach(function (link) {
-                link.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    const selectedLang = this.getAttribute("data-lang");
-                    currentLang.textContent = selectedLang;
-                    window.location.href = this.getAttribute("href");
+            if (langToggle) {
+                langToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('active');
                 });
-            });
-        });
 
-        // Hàm chuyển tab toàn cục
-        function switchTab(tabId) {
-            // Nếu đang ở trang Index.cshtml
-            if (window.location.pathname.includes('/Information/Index')) {
-                if (typeof activateTab === 'function') {
-                    activateTab(tabId);
-                } else {
-                    // Fallback thủ công
-                    const sections = ['profile', 'bookings', 'history', 'reviews', 'security', 'rewards'];
-                    const tabs = document.querySelectorAll('.nav-tab');
-                    if (sections.includes(tabId)) {
-                        tabs.forEach(t => t.classList.remove('active'));
-                        const activeTab = Array.from(tabs).find(tab => tab.getAttribute('href').substring(1) === tabId);
-                        if (activeTab) {
-                            activeTab.classList.add('active');
+                // Handle language selection
+                const langOptions = document.querySelectorAll('.lang-option');
+                langOptions.forEach(option => {
+                    option.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const newLang = this.getAttribute('data-lang');
+                        currentLang.textContent = newLang;
+                        langMenu.classList.remove('active');
+                        window.location.href = this.getAttribute('href');
+                    });
+                });
+            }
+
+            // User dropdown functionality
+            const userDropdown = document.getElementById('userDropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            if (userDropdown) {
+                userDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    dropdownMenu.classList.toggle('active');
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+
+                    if (mobileMenu.classList.contains('active')) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times');
+                        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                    } else {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                        mobileMenu.style.maxHeight = '0';
+                    }
+                });
+            }
+
+            // Close menus when clicking outside
+            document.addEventListener('click', function() {
+                if (langMenu) langMenu.classList.remove('active');
+                if (dropdownMenu) dropdownMenu.classList.remove('active');
+            });
+
+            // Close menus with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (langMenu) langMenu.classList.remove('active');
+                    if (dropdownMenu) dropdownMenu.classList.remove('active');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        if (menuIcon) {
+                            menuIcon.classList.remove('fa-times');
+                            menuIcon.classList.add('fa-bars');
                         }
-                        sections.forEach(section => {
-                            const element = document.getElementById(section);
-                            if (element) {
-                                if (section === tabId) {
-                                    element.classList.remove('hidden');
-                                } else {
-                                    element.classList.add('hidden');
-                                }
-                            }
-                        });
                     }
                 }
+            });
 
-                // Hash hiện tại
-                const currentHash = window.location.hash.substring(1);
-                if (currentHash !== tabId) {
-                    window.location.hash = tabId;
+            // Scroll effect - header becomes more compact on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                const headerContainer = document.querySelector('.header-container');
+                const scrollProgress = document.getElementById('scroll-progress');
+
+                if (window.scrollY > 30) {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                    headerContainer.style.padding = '0.5rem 2rem';
                 } else {
-                    // Kích hoạt lại nếu hash không đổi
-                    window.dispatchEvent(new HashChangeEvent("hashchange"));
+                    header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                    headerContainer.style.padding = '1rem 2rem';
                 }
-            } else {
-                // Nếu đang ở trang khác, chuyển hướng sang Index
-                window.location.href = `/Information/Index#${tabId}`;
+
+                // Update scroll progress bar
+                const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                if (scrollProgress) {
+                    scrollProgress.style.width = scrollPercentage + '%';
+                }
+            });
+
+            // Switch tab function for user profile
+            window.switchTab = function(tabId) {
+                if (window.location.pathname.includes('/Information/Index')) {
+                    if (typeof activateTab === 'function') {
+                        activateTab(tabId);
+                    } else {
+                        const sections = ['profile', 'bookings', 'history', 'reviews', 'security', 'rewards'];
+                        const tabs = document.querySelectorAll('.nav-tab');
+
+                        if (sections.includes(tabId)) {
+                            tabs.forEach(t => t.classList.remove('active'));
+                            const activeTab = Array.from(tabs).find(tab => tab.getAttribute('href').substring(1) === tabId);
+                            if (activeTab) {
+                                activeTab.classList.add('active');
+                            }
+
+                            sections.forEach(section => {
+                                const element = document.getElementById(section);
+                                if (element) {
+                                    element.classList.toggle('hidden', section !== tabId);
+                                }
+                            });
+                        }
+                    }
+
+                    const currentHash = window.location.hash.substring(1);
+                    if (currentHash !== tabId) {
+                        window.location.hash = tabId;
+                    } else {
+                        window.dispatchEvent(new HashChangeEvent("hashchange"));
+                    }
+                } else {
+                    window.location.href = `/Information/Index#${tabId}`;
+                }
+            };
+
+            // Add animations for enhanced visual feedback
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Initialize tooltips if any
+            if (typeof tippy !== 'undefined') {
+                tippy('[data-tippy-content]', {
+                    theme: 'light-border',
+                    animation: 'scale'
+                });
             }
-        }
+        });
     </script>
 
-
-
 <!-- JS Toggle Menu and Handle Resize -->
-<script src="~/js/PageJS/_MainHeader2.js"></script>
+@* <script src="~/js/PageJS/_MainHeader2.js"></script> *@

@@ -1,9 +1,12 @@
-wwwroot\css\login.css
+wwwroot\css\Details.css
+wwwroot\css\Login.css
 wwwroot\css\PageCSS\_Language.css
 wwwroot\css\PageCSS\_MainHeader2.css
 wwwroot\css\PageCSS\background.css
 wwwroot\css\PageCSS\SearchSection.css
 wwwroot\css\site.css
+wwwroot\css\ThanhTuu.css
+wwwroot\EmailTemplates\BookingConfirmation.cshtml
 wwwroot\favicon.ico
 wwwroot\images\Customer\gg.JPG
 wwwroot\images\Customer\nophoto.png

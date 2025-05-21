@@ -23,12 +23,14 @@ namespace BookingHotel.Controllers
             {
                 // Bước 1: Tạo danh sách các claims
                 var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, employee.FullName),
-        new Claim(ClaimTypes.Email, employee.Email),
-        new Claim("Photo", employee.Photo),
-        new Claim(ClaimTypes.Role, "Admin")
-    };
+        {
+                new Claim(ClaimTypes.NameIdentifier, employee.EmployeeID.ToString()),
+                new Claim(ClaimTypes.Name, employee.FullName),
+                new Claim(ClaimTypes.Email, employee.Email),
+                new Claim("Photo", employee.Photo),
+                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim("EmployeeID", employee.EmployeeID.ToString())
+        };
 
                 // Bước 2: Tạo Identity từ Claims
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -47,12 +49,13 @@ namespace BookingHotel.Controllers
             if (customer != null)
             {
                 var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, customer.FullName),
-        new Claim(ClaimTypes.Email, customer.Email),
-        new Claim("Photo", customer.Photo),
-        new Claim(ClaimTypes.Role, "Customer")
-    };
+{
+                new Claim(ClaimTypes.NameIdentifier, customer.CustomerID.ToString()),
+                new Claim(ClaimTypes.Name, customer.FullName),
+                new Claim(ClaimTypes.Email, customer.Email),
+                new Claim("Photo", customer.Photo),
+                new Claim(ClaimTypes.Role, "Customer")
+};
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);

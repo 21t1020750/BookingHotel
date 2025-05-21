@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Xác nhận đặt phòng - HT Hue Hotel</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h2 style="color: #1a73e8;">Xác nhận đặt phòng thành công</h2>
+        <p>Kính gửi Quý khách,</p>
+        <p>Cảm ơn Quý khách đã đặt phòng tại <strong>HT Hue Hotel</strong>. Chúng tôi sẽ xử lý và phản hồi đến bạn.</p>
+        <p>Dưới đây là thông tin chi tiết về đặt phòng của Quý khách:</p>
+
+        <h3 style="color: #333;">Thông tin đặt phòng</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Mã đặt phòng:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{BookingCode}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Khách sạn:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">HT Hue Hotel</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Địa chỉ:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">123 Imperial Street, Huế, Việt Nam</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Phòng:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{RoomNumber}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Ngày nhận phòng:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{Checkin}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Ngày trả phòng:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{Checkout}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Số đêm:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{NumberOfNights} đêm</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Số phòng:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{Rooms} phòng</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Người lớn:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{Adults} người</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Trẻ em:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{Children}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Tổng tiền:</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{TotalPrice} VND</td>
+            </tr>
+        </table>
+
+        <h3 style="color: #333; margin-top: 20px;">Hướng dẫn nhận phòng</h3>
+        <p>
+            Vui lòng xuất trình <strong>mã đặt phòng ({BookingCode})</strong> và CMND/CCCD khi đến nhận phòng.
+            Nếu có bất kỳ câu hỏi nào, Quý khách có thể liên hệ với chúng tôi qua email <a href="https://localhost:44319/Contact">support@HT-hue.com</a> hoặc số điện thoại +84 123 456 789.
+        </p>
+
+        <p style="margin-top: 20px;">Trân trọng,<br>HT Hue Hotel</p>
+    </div>
+</body>
+</html>

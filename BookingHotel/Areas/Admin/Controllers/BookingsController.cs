@@ -72,10 +72,19 @@ namespace BookingHotel.Areas.Admin.Controllers
             if (booking == null)
                 return NotFound();
 
+            // ✅ Lấy EmployeeID từ Claims
+            var employeeIdClaim = User.Claims.FirstOrDefault(c => c.Type == "EmployeeID");
+            if (employeeIdClaim != null && int.TryParse(employeeIdClaim.Value, out int employeeId))
+            {
+                booking.EmployeeID = employeeId;
+            }
+            else
+            {
+                return Unauthorized(); // Không tìm thấy EmployeeID trong claim
+            }
 
-            booking.BookingStatusID = 2;
+            booking.BookingStatusID = 2; // Reversed
             _context.SaveChanges();
-
 
             return RedirectToAction("Details", new { id });
         }
@@ -86,6 +95,16 @@ namespace BookingHotel.Areas.Admin.Controllers
             var booking = _context.Bookings.Find(id);
             if (booking == null)
                 return NotFound();
+
+            var employeeIdClaim = User.Claims.FirstOrDefault(c => c.Type == "EmployeeID");
+            if (employeeIdClaim != null && int.TryParse(employeeIdClaim.Value, out int employeeId))
+            {
+                booking.EmployeeID = employeeId;
+            }
+            else
+            {
+                return Unauthorized(); // Không tìm thấy EmployeeID trong claim
+            }
 
             // Giả sử BookingStatusID = 3 là "Cancel"
             booking.BookingStatusID = 3;

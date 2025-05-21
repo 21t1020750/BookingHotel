@@ -58,7 +58,8 @@ namespace BookingHotel.Areas.Admin.Data
             modelBuilder.Entity<Booking>()
                 .HasOne(r => r.Employee)
                 .WithMany()
-                .HasForeignKey(r => r.EmployeeID);
+                .HasForeignKey(r => r.EmployeeID)
+                .IsRequired(false); ;
 
             modelBuilder.Entity<BookingDetail>()
                 .HasOne(r => r.Room)
@@ -117,9 +118,9 @@ namespace BookingHotel.Areas.Admin.Data
                 .HasForeignKey(rs => rs.ServiceID);
 
             modelBuilder.Entity<Content_Room>()
-    .HasOne(r => r.RoomType)
-    .WithMany()
-    .HasForeignKey(r => r.RoomTypeID);
+                .HasOne(r => r.RoomType)
+                .WithMany()
+                .HasForeignKey(r => r.RoomTypeID);
 
             // No additional relationships needed for content entities (they are independent)
         }

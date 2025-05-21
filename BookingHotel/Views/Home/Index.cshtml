@@ -85,20 +85,16 @@
                         z-index: 10;
                     }
                 </style>
-                <div>
-                    <label for="guests" class="block text-lg font-medium text-gray-700 mb-2">Số người & phòng</label>
+                <div class="relative z-10">
+                    <label for="guests" class="block text-xl font-medium text-gray-700 mb-2">Số người & phòng</label>
                     <div class="relative rounded-lg">
                         <button id="guestsBtn"
-                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr- py-4 rounded-lg text-gray-700 transition-all duration-200 text-left flex items-center justify-between hover:border-gray-400">
-                            <div class="flex items-center relative w-full">
-                                <i class="text-gray-400 absolute left-0 ml-1"></i>
-                                <span id="guestsSummary" class="truncate">
-                                    1 Người lớn | 0 Trẻ em | 1 Phòng
-                                </span>
-                            </div>
-                            <i class="fas fa-user-friends text-black ml-auto pr-2"></i>
+                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full px-3 py-4 rounded-lg text-gray-700 bg-white shadow text-left flex items-center justify-between hover:border-gray-400">
+                            <span id="guestsSummary" class="truncate max-w-[85%]">
+                                1 Người lớn | 0 Trẻ em | 1 Phòng
+                            </span>
+                            <i class="fas fa-user-friends text-black pr-1 pl-2 shrink-0"></i>
                         </button>
-
 
                         <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
                             <div class="mb-4">
@@ -174,69 +170,239 @@
         <link rel="stylesheet" href="@Url.Content("~/css/PageCSS/SearchSection.css")" />
         <script src="@Url.Content("~/js/PageJS/SearchSection.js")"></script>
 
-        <section class="py-20 bg-gray-100" alt="phần hình ảnh">
+
+        <!-- Phần "Địa Điểm Nổi Bật" -->
+        <section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100" alt="phần hình ảnh">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-4">ĐỊA ĐIỂM NỔI BẬT</h2>
-                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto text-3xl">Khám phá những không gian tuyệt đẹp làm nên tên tuổi của khách sạn</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">ĐỊA ĐIỂM NỔI BẬT</h2>
+                    <p class="text-gray-600 max-w-5xl mx-auto text-4xl md:text-3xl mt-8">
+                        Khám phá những không gian tuyệt đẹp làm nên tên tuổi của khách sạn
+                    </p>
                 </div>
-
-                <div class="relative overflow-hidden">
-                    <!-- Container cho carousel -->
-                    <div id="carousel" class="flex transition-transform duration-500 ease-in-out" style="width: 1200px;">
-                        @if (Model.BannerImages != null && Model.BannerImages.Any())
-                        {
-                            var total = Model.BannerImages.Count();
-                            var index = 0;
-                            foreach (var image in Model.BannerImages)
+                <div class="carousel-container mx-auto w-[1200px] relative">
+                    <div class="carousel-wrapper overflow-hidden">
+                        <div id="carousel" class="carousel flex gap-6 transition-transform duration-700 ease-out">
+                            @if (Model.BannerImages != null && Model.BannerImages.Any())
                             {
-                                string marginClass;
-                                if (index == 0)
+                                var total = Model.BannerImages.Count();
+                                var index = 0;
+                                foreach (var image in Model.BannerImages)
                                 {
-                                    marginClass = "mr-2"; // Ảnh đầu tiên sát trái
-                                }
-                                else if (index == total - 1)
-                                {
-                                    marginClass = "ml-2"; // Ảnh cuối cùng sát phải
-                                }
-                                else
-                                {
-                                    marginClass = "mx-2";
-                                }
-                                <a href="@Url.Action("Details", "Location", new { id = index + 1 })"
-                                   class="relative h-64 w-[288px] flex-shrink-0 overflow-hidden rounded-lg block @marginClass"
-                                   alt="@image.Title">
-                                    <img src="@image.ImageUrl" alt="@image.Title"
-                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                        <span class="text-white font-medium text-3xl">@image.Title</span>
+                                    <div class="location-card h-96 w-[392px] flex-shrink-0">
+                                        <img src="@image.ImageUrl" alt="@image.Title" class="w-full h-full object-cover">
+                                        <div class="card-overlay">
+                                            <h3 class="card-title">@image.Title</h3>
+                                            <p class="card-subtitle">@image.Description</p>
+                                        </div>
+                                        <a href="@Url.Action("Details", "Location", new { id = index + 1 })" class="view-more">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
                                     </div>
-                                </a>
-                                index++;
+                                    index++;
+                                }
                             }
-                        }
-                        else
-                        {
-                            <p>Không có hình ảnh để hiển thị.</p>
-                        }
+                            else
+                            {
+                                <p>Không có hình ảnh để hiển thị.</p>
+                            }
+                        </div>
                     </div>
 
                     <!-- Nút mũi tên trái -->
-                    <button id="prevBtn"
-                            class="absolute left-0 top-0 bottom-0 w-16 bg-gray-800 bg-opacity-50 text-white flex items-center justify-center hover:bg-opacity-75 focus:outline-none hidden">
-                        <i class="fas fa-chevron-left text-3xl"></i>
+                    <button id="prevBtn" class="carousel-nav-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
                     </button>
 
                     <!-- Nút mũi tên phải -->
-                    <button id="nextBtn"
-                            class="absolute right-0 top-0 bottom-0 w-16 bg-gray-800 bg-opacity-50 text-white flex items-center justify-center hover:bg-opacity-75 focus:outline-none hidden">
-                        <i class="fas fa-chevron-right text-3xl"></i>
+                    <button id="nextBtn" class="carousel-nav-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
         </section>
 
+        <!-- CSS cho carousel -->
+        <style>
+            .carousel-wrapper {
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .carousel {
+                display: flex;
+                gap: 12px;
+                transition: transform 0.5s ease;
+            }
+
+            .nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: white;
+                box-shadow: 0 0 8px rgba(0,0,0,0.15);
+                border: none;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .section-heading {
+                font-family: 'Playfair Display', serif;
+                letter-spacing: 1px;
+                position: relative;
+                display: inline-block;
+            }
+
+                .section-heading::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 80px;
+                    height: 3px;
+                    background: linear-gradient(90deg, #1a56db, #3182ce);
+                    border-radius: 3px;
+                }
+
+            .location-card {
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                transition: all 0.4s ease;
+                cursor: pointer;
+                flex: 0 0 auto;
+                width: 392px;
+                height: 24rem;
+            }
+
+                .location-card:hover {
+                    
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+                }
+
+                .location-card img {
+                    transition: transform 0.8s ease;
+                }
+
+                .location-card:hover img {
+                    transform: scale(1.08);
+                }
+             
+
+
+            .card-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 1.5rem;
+                opacity: 0.9;
+                transition: opacity 0.4s ease;
+            }
+
+            .location-card:hover .card-overlay {
+                opacity: 1;
+            }
+
+            .card-title {
+                color: white;
+                font-weight: 600;
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                transform: translateY(20px);
+                opacity: 0.8;
+                transition: all 0.4s ease;
+            }
+
+            .location-card:hover .card-title {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .card-subtitle {
+                color: rgba(255,255,255,0.8);
+                font-size: 1.5rem;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateY(20px);
+                transition: all 0.4s ease 0.1s;
+            }
+
+            .location-card:hover .card-subtitle {
+                max-height: 60px;
+                transform: translateY(0);
+            }
+
+            .view-more {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background-color: rgba(255,255,255,0.9);
+                color: #1a56db;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: scale(0);
+                transition: transform 0.3s ease;
+            }
+
+            .location-card:hover .view-more {
+                transform: scale(1);
+            }
+
+            .carousel-nav-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.95);
+                color: #1a56db;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 10;
+                box-shadow: 0 0 6px rgba(0,0,0,0.2);
+            }
+
+            /* Dùng giá trị âm để đẩy ra ngoài */
+            .prev-btn {
+                left: -25px;
+            }
+
+            .next-btn {
+                right: -25px;
+            }
+
+
+            .carousel-nav-btn:hover {
+                background-color: #1a56db;
+                color: white;
+            }
+
+       
+
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
+                width: 1200px;
+                margin: 0 auto;
+            }
+
+        </style>
 
         <!-- JavaScript để xử lý carousel -->
         <script>
@@ -244,96 +410,87 @@
                 const carousel = document.getElementById('carousel');
                 const prevBtn = document.getElementById('prevBtn');
                 const nextBtn = document.getElementById('nextBtn');
-                const items = carousel.getElementsByTagName('a');
-                const itemWidth = 288 + 8; // Chiều rộng mỗi mục (w-[288px] + mx-2 = 296px)
-                const visibleItems = 4; // Số mục hiển thị cùng lúc
-                let currentPosition = 0;
 
-                // Kiểm tra và cập nhật giao diện
+                const items = carousel.querySelectorAll('.location-card');
+                const itemWidth = items[0].offsetWidth + 12; // Card width + gap (24px từ gap-6)
+                const visibleItems = 3; // Cố định hiển thị 3 ảnh
+                let currentIndex = 0;
+                let totalItems = items.length;
+                let maxIndex = totalItems - visibleItems;
+
+                // Đặt chiều rộng cho carousel để chứa tất cả ảnh
+                carousel.style.width = `${totalItems * itemWidth}px`;
+
                 function updateCarousel() {
-                    const totalItems = items.length;
-                    if (totalItems > visibleItems) {
-                        prevBtn.classList.remove('hidden');
-                        nextBtn.classList.remove('hidden');
-                        carousel.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
+                    // Cập nhật transform
+                    carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
 
-                        // Kích hoạt cuộn
-                        prevBtn.disabled = currentPosition <= 0;
-                        nextBtn.disabled = currentPosition >= totalItems - visibleItems;
-                        prevBtn.classList.toggle('opacity-50', currentPosition <= 0);
-                        nextBtn.classList.toggle('opacity-50', currentPosition >= totalItems - visibleItems);
+                    // Cập nhật nút điều hướng
+                    prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+
+                    nextBtn.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
+                    nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+                }
+
+                function goToSlide(index) {
+                    // Cuộn vòng tròn
+                    if (index < 0) {
+                        currentIndex = totalItems - visibleItems; // Quay lại cuối
+                    } else if (index >= totalItems) {
+                        currentIndex = 0; // Quay lại đầu
                     } else {
-                        prevBtn.classList.add('hidden');
-                        nextBtn.classList.add('hidden');
-                        carousel.style.transform = 'translateX(0)';
+                        currentIndex = index;
+                    }
+                    updateCarousel();
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    goToSlide(currentIndex - 1);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    goToSlide(currentIndex + 1);
+                });
+
+                // Thêm tính năng vuốt (swipe)
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                carousel.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Vuốt trái
+                        goToSlide(currentIndex + 1);
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        // Vuốt phải
+                        goToSlide(currentIndex - 1);
                     }
                 }
 
-                // Xử lý nút Previous
-                prevBtn.addEventListener('click', () => {
-                    if (currentPosition > 0) {
-                        currentPosition--;
-                        updateCarousel();
-                    }
-                });
-
-                // Xử lý nút Next
-                nextBtn.addEventListener('click', () => {
-                    const totalItems = items.length;
-                    if (currentPosition < totalItems - visibleItems) {
-                        currentPosition++;
-                        updateCarousel();
-                    }
-                });
-
-                // Khởi tạo trạng thái ban đầu
+                // Khởi tạo
                 updateCarousel();
-
-                // Theo dõi thay đổi dữ liệu (nếu admin thêm mục mới qua AJAX)
-                window.addEventListener('bannerImagesUpdated', () => {
-                    updateCarousel();
-                });
             });
         </script>
 
-        <!-- Font Awesome để sử dụng icon mũi tên -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
-        <section class="py-20 bg-white" alt="Các thành tựu của khách sạn">
-            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-4">Nơi Tịnh Luyện Hoàn Hảo</h2>
-                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" alt="đường phân cách"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto text-3xl">VietNamBooking định nghĩa lại sự sang trọng trong ngành khách sạn với sự chú ý tỉ mỉ đến chi tiết, dịch vụ xuất sắc và tầm nhìn tuyệt đẹp hướng ra sông Hương.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-10">
-                    @if (Model.Achivements != null && Model.Achivements.Any())
-                    {
-                        @foreach (var achivement in Model.Achivements)
-                        {
-                            <div class="text-center px-6">
-                                <div class="w-50 h-50 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <img src="@achivement.ImageLink" alt="hình nền" class="w-40 h-40 object-contain" />
-                                </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">@achivement.Name</h3>
-                                <p class="text-gray-600">@Html.Raw(achivement.Description)</p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <p>Không có dịch vụ để hiển thị.</p>
-                    }
-                </div>
-            </div>
-        </section>
+        
+          
+       
+    
 
         <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tùy Chọn Lưu Trú</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-3xl">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Tùy Chọn Lưu Trú</h2>
+                <p class="text-gray-600 max-w-5xl mx-auto text-4xl md:text-3xl mt-8">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @if (Model.Rooms != null && Model.Rooms.Any())
@@ -363,27 +520,203 @@
         <section class="bg-gray-100 py-16" alt="Tiện Ích Phòng">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Tiện Ích Phòng</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Tất cả phòng của chúng tôi đều được trang bị tiện nghi cao cấp cho sự thoải mái của bạn</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">TIỆN TÍCH PHÒNG</h2>
+                    <p class="text-gray-600 max-w-5xl mx-auto text-4xl md:text-3xl mt-8">Tất cả phòng của chúng tôi đều được trang bị tiện nghi cao cấp cho sự thoải mái của bạn</p>
                 </div>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    @if (Model.Amenities != null && Model.Amenities.Any())
-                    {
-                        @foreach (var amenity in Model.Amenities)
-                        {
-                            <div class="bg-white p-6 rounded-lg shadow-sm text-center" alt="@amenity.Name">
-                                <i class="@amenity.Icon text-4xl text-blue-500 mb-4"></i>
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2">@amenity.Name</h3>
-                                <p class="text-gray-600">@amenity.Description</p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <p>Không có tiện ích để hiển thị.</p>
-                    }
+                <div class="carousel-container mx-auto w-[1200px] relative">
+                    <div class="carousel-wrapper overflow-hidden">
+                        <div id="amenitiesCarousel" class="carousel flex gap-8 transition-transform duration-700 ease-out">
+                            @if (Model.Amenities != null && Model.Amenities.Any())
+                            {
+                                @foreach (var amenity in Model.Amenities)
+                                {
+                                    <div class="amenity-card bg-white p-6 rounded-lg shadow-sm text-center flex-shrink-0 w-[280px]" alt="@amenity.Name">
+                                        <i class="@amenity.Icon text-4xl text-blue-500 mb-4"></i>
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">@amenity.Name</h3>
+                                        <p class="text-gray-600">@amenity.Description</p>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="w-full text-center">Không có tiện ích để hiển thị.</p>
+                            }
+                        </div>
+                    </div>
+                    <!-- Nút mũi tên trái -->
+                    <button id="amenitiesPrevBtn" class="carousel-nav-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <!-- Nút mũi tên phải -->
+                    <button id="amenitiesNextBtn" class="carousel-nav-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
+
+            <!-- CSS cho carousel -->
+            <style>
+                .amenity-card {
+                    position: relative;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                    transition: all 0.4s ease;
+                    cursor: pointer;
+                    flex: 0 0 auto;
+                    width: 280px;
+                    height: auto;
+                }
+
+                
+
+                .carousel-container {
+                    position: relative;
+                    overflow: hidden;
+                    width: 1200px;
+                    margin: 0 auto;
+                }
+
+                .carousel-wrapper {
+                    overflow: hidden;
+                    width: 100%;
+                }
+
+                .carousel {
+                    display: flex;
+                    gap: 26px;
+                    transition: transform 0.5s ease;
+                }
+
+                .carousel-nav-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background-color: rgba(255,255,255,0.95);
+                    color: #1a56db;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+                }
+
+                .prev-btn {
+                    left: -25px;
+                }
+
+                .next-btn {
+                    right: -25px;
+                }
+
+                .carousel-nav-btn:hover {
+                    background-color: #1a56db;
+                    color: white;
+                }
+
+                .section-heading {
+                    font-family: 'Playfair Display', serif;
+                    letter-spacing: 1px;
+                    position: relative;
+                    display: inline-block;
+                }
+
+                    .section-heading::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 80px;
+                        height: 3px;
+                        background: linear-gradient(90deg, #1a56db, #3182ce);
+                        border-radius: 3px;
+                    }
+            </style>
+
+            <!-- JavaScript để xử lý carousel -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const carousel = document.getElementById('amenitiesCarousel');
+                    const prevBtn = document.getElementById('amenitiesPrevBtn');
+                    const nextBtn = document.getElementById('amenitiesNextBtn');
+
+                    const items = carousel.querySelectorAll('.amenity-card');
+                    const itemWidth = 280 + 32; // Card width (280px) + gap (32px)
+                    const visibleItems = 4; // Hiển thị 4 cards cùng lúc
+                    let currentIndex = 0;
+                    let totalItems = items.length;
+                    let maxIndex = totalItems - visibleItems;
+
+                    // Đặt chiều rộng cho carousel để chứa tất cả ảnh
+                    carousel.style.width = `${totalItems * itemWidth}px`;
+
+                    function updateCarousel() {
+                        // Cập nhật transform
+                        carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+
+                        // Cập nhật nút điều hướng
+                        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                        prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+                        nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+                        nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+                    }
+
+                    function goToSlide(index) {
+                        // Cuộn vòng tròn
+                        if (index < 0) {
+                            currentIndex = Math.max(0, totalItems - visibleItems); // Quay lại cuối hoặc đầu nếu không đủ items
+                        } else if (index > maxIndex) {
+                            currentIndex = 0; // Quay lại đầu
+                        } else {
+                            currentIndex = index;
+                        }
+                        updateCarousel();
+                    }
+
+                    prevBtn.addEventListener('click', () => {
+                        goToSlide(currentIndex - 1);
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        goToSlide(currentIndex + 1);
+                    });
+
+                    // Thêm tính năng vuốt (swipe)
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    carousel.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    });
+
+                    carousel.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    });
+
+                    function handleSwipe() {
+                        const swipeThreshold = 50;
+                        if (touchEndX < touchStartX - swipeThreshold) {
+                            // Vuốt trái
+                            goToSlide(currentIndex + 1);
+                        } else if (touchEndX > touchStartX + swipeThreshold) {
+                            // Vuốt phải
+                            goToSlide(currentIndex - 1);
+                        }
+                    }
+
+                    // Khởi tạo
+                    if (totalItems > 0) {
+                        updateCarousel();
+                    }
+                });
+            </script>
         </section>
 
         <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
@@ -449,6 +782,156 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-200 relative overflow-hidden achievements-container" alt="Thành Tựu Tiêu Biểu">
+            <!-- Nền với hiệu ứng grid -->
+            <div class="absolute inset-0 grid-background"></div>
+
+            <!-- Hiệu ứng ánh sáng -->
+            <div class="light-effect absolute -top-64 -right-64 w-96 h-96 bg-cyan-500 opacity-20 rounded-full blur-3xl"></div>
+            <div class="light-effect absolute -bottom-64 -left-64 w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
+
+            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Tiêu đề và thống kê -->
+                <div class="mb-20">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                            <span class="inline-block px-4 py-1 bg-gray-100 text-gray-800 text-xs font-semibold uppercase tracking-widest rounded-full mb-4 border border-gray-300">NHÀ HÀNG KHÁCH SẠN</span>
+                            <h2 class="text-4xl md:text-5xl font-bold modern-heading mb-6 text-gray-800">
+                                Thành Tựu <br />
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Tiêu Biểu</span>
+                            </h2>
+                            <p class="text-gray-600 max-w-3xl text-lg md:pr-12">
+                                Tự hào với những cột mốc và giải thưởng định hình vị thế của chúng tôi trong ngành khách sạn cao cấp.
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center md:justify-end">
+                            <div class="stats-container grid grid-cols-2 gap-6">
+                                <div class="stat-item flex flex-col items-start p-6 backdrop-blur-sm bg-white/5 rounded-xl border border-gray-200 hover:border-cyan-500/30 transition-all duration-500">
+                                    <span class="text-4xl md:text-5xl font-bold text-cyan-500 mb-2 counter">25</span>
+                                    <span class="text-gray-600 text-sm uppercase tracking-wider">Giải thưởng quốc tế</span>
+                                </div>
+                                <div class="stat-item flex flex-col items-start p-6 backdrop-blur-sm bg-white/5 rounded-xl border border-gray-200 hover:border-cyan-500/30 transition-all duration-500">
+                                    <span class="text-4xl md:text-5xl font-bold text-cyan-500 mb-2 counter">12</span>
+                                    <span class="text-gray-600 text-sm uppercase tracking-wider">Năm kinh nghiệm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thành tựu -->
+                <div class="awards-container">
+                    @if (Model.Achivements != null && Model.Achivements.Any())
+                    {
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            @{
+                                var index = 1; // Ensure index starts as an int
+                            }
+                            @foreach (var achivement in Model.Achivements)
+                            {
+                                <div class="award-card group" alt="@achivement.Name">
+                                    <div class="award-inner p-8 md:p-10 backdrop-blur-lg bg-white/10 border border-gray-200 rounded-lg overflow-hidden h-full flex flex-col transition-all duration-500 hover:bg-white/20 hover:border-cyan-500/30 hover:shadow-glow relative">
+                                        <!-- Hiệu ứng phát sáng khi hover -->
+                                        <div class="absolute -inset-px bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 blur rounded-lg transition-opacity duration-300 -z-10"></div>
+
+                                        <!-- Đánh dấu thứ tự và năm trên cùng một hàng -->
+                                        <div class="flex justify-between items-start pt-4 pr-4">
+                                            <div class="achievement-number text-4xl font-bold text-gray-300/70 group-hover:text-gray-300/90 transition-colors duration-300">
+                                                @index.ToString("D2")
+                                            </div>
+                                            @if (achivement.Year > 0)
+                                            {
+                                                <span class="inline-flex px-3 py-1 text-xs tracking-wide font-medium bg-cyan-600/10 text-cyan-600 rounded-full ml-auto mr-2">
+                                                    @achivement.Year
+                                                </span>
+                                            }
+                                        </div>
+
+                                        <!-- Tiêu đề -->
+                                        <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">@achivement.Name</h3>
+
+                                        <!-- Logo (centered) -->
+                                        <div class="flex justify-center mb-6">
+                                            <div class="award-icon-container w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-0.5">
+                                                <div class="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-white">
+                                                    <img src="@achivement.ImageLink" alt="@achivement.Name" class="w-8 h-8 object-contain" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Mô tả -->
+                                        <p class="text-gray-600 mb-6 flex-grow">@Html.Raw(achivement.Description)</p>
+                                    </div>
+                                </div>
+                                index++; // Increment index as int
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="empty-state p-10 backdrop-blur-lg bg-white/10 border border-gray-200 rounded-lg text-center">
+                            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-white/10 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-medium mb-2 text-gray-800">Chưa có thành tựu</h3>
+                            <p class="text-gray-600">Hiện tại chưa có thành tựu nào được thêm vào hệ thống.</p>
+                        </div>
+                    }
+                </div>
+
+                <!-- Nút xem tất cả -->
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 border border-cyan-500/30 hover:border-cyan-500 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 backdrop-blur-sm rounded-full text-cyan-500 font-medium transition-all duration-300 view-all-btn group">
+                        <span>Xem tất cả thành tựu</span>
+                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CSS cho section -->
+            <link rel="stylesheet" href="@Url.Content("~/css/ThanhTuu.css")" />
+            <style>
+                .hexagon-frame {
+                    width: 100px;
+                    height: 115px;
+                    position: relative;
+                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                }
+
+                .hexagon-image {
+                    width: 90px;
+                    height: 104px;
+                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+                }
+
+                .award-card:hover .hexagon-image {
+                    transform: scale(1.1);
+                }
+
+                .hexagon-glow {
+                    position: absolute;
+                    inset: 0;
+                    background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .award-card:hover .hexagon-glow {
+                    opacity: 1;
+                }
+            </style>
         </section>
     </main>
 

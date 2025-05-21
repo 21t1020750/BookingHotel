@@ -1,6 +1,9 @@
 ﻿using BookingHotel.Areas.Admin.Data;
+using BookingHotel.Services.DataService;
+using BookingHotel.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using BookingHotel.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,8 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddSingleton<IEmailService, EmailService>();
 
 var app = builder.Build();
 

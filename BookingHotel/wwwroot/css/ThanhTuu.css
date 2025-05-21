@@ -1,0 +1,214 @@
+﻿/* Import font Space Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+.achievements-container {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Hiệu ứng grid nền - tinh tế hơn */
+.grid-background {
+    background-image: linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* Hiệu ứng chuyển động nền - mượt mà hơn */
+.light-effect {
+    animation: float 20s ease-in-out infinite alternate;
+}
+
+.light-effect-delay {
+    animation-delay: 5s;
+}
+
+.light-effect-alt {
+    animation-delay: 8s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(3%, 3%) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-3%, 5%) scale(0.95);
+    }
+
+    100% {
+        transform: translate(3%, -3%) scale(1.02);
+    }
+}
+
+/* Hiệu ứng số đếm */
+.counter {
+    position: relative;
+}
+
+    .counter::after {
+        content: '+';
+        font-size: 40%;
+        position: absolute;
+        top: 5px;
+        margin-left: 5px;
+    }
+
+/* Animation cho số liệu thống kê */
+@keyframes count-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-count-up {
+    animation: count-up 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stat-item:nth-child(1) .stat-number {
+    animation-delay: 0.3s;
+}
+
+.stat-item:nth-child(2) .stat-number {
+    animation-delay: 0.6s;
+}
+
+/* Fade in animations */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.8s ease-in-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-in-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.animate-fade-in-down {
+    animation: fade-in-down 0.8s ease-in-out forwards;
+}
+
+/* Hiệu ứng card */
+.award-card:nth-child(1) {
+    animation: fadeInUp 0.6s 0.2s backwards;
+}
+
+.award-card:nth-child(2) {
+    animation: fadeInUp 0.6s 0.4s backwards;
+}
+
+.award-card:nth-child(3) {
+    animation: fadeInUp 0.6s 0.6s backwards;
+}
+
+.award-card:nth-child(4) {
+    animation: fadeInUp 0.6s 0.8s backwards;
+}
+
+.award-card:nth-child(5) {
+    animation: fadeInUp 0.6s 1.0s backwards;
+}
+
+.award-card:nth-child(6) {
+    animation: fadeInUp 0.6s 1.2s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hiệu ứng phát sáng */
+.hexagon-glow {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.7), transparent);
+    filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 4px;
+}
+
+.award-card:hover .hexagon-glow {
+    opacity: 1;
+}
+
+/* Hiệu ứng nút xem tất cả - cải thiện */
+.view-all-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+    .view-all-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( 90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100% );
+        transition: all 0.8s;
+    }
+
+    .view-all-btn:hover::before {
+        left: 100%;
+    }
+
+/* Hiệu ứng tiêu đề */
+.modern-heading {
+    line-height: 1.1;
+    letter-spacing: -1px;
+}

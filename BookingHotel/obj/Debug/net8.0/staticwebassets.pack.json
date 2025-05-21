@@ -1009,6 +1009,14 @@
       "PackagePath": "staticwebassets\\Themes\\starter.html"
     },
     {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\Details.css",
+      "PackagePath": "staticwebassets\\css\\Details.css"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\PageCSS\\SearchSection.css",
       "PackagePath": "staticwebassets\\css\\PageCSS\\SearchSection.css"
     },
@@ -1025,8 +1033,8 @@
       "PackagePath": "staticwebassets\\css\\PageCSS\\background.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\ThanhTuu.css",
+      "PackagePath": "staticwebassets\\css\\ThanhTuu.css"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\site.css",

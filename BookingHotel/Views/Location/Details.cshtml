@@ -1,322 +1,535 @@
-﻿@model BookingHotel.Controllers.LocationViewModel
-
-@{
-    ViewBag.Title = Model.Title;
+﻿@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Địa điểm nổi bật";
 }
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+</script>
 
-<body class="bg-gray-100">
-    <main class="py-12">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <!-- Breadcrumb -->
-            <nav class="flex mb-8 text-sm font-medium">
-                <a href="@Url.Action("Index", "Home")" class="text-blue-600 hover:text-blue-800 transition">
-                    <i class="fas fa-home mr-1"></i> Trang chủ
-                </a>
-                <span class="mx-2 text-gray-500">/</span>
-                <a href="@Url.Action("Index", "Location")" class="text-blue-600 hover:text-blue-800 transition">Địa điểm</a>
-                <span class="mx-2 text-gray-500">/</span>
-                <span class="text-gray-600">@Model.Title</span>
-            </nav>
+<!-- css-->
+<link href="~/css/Details.css" rel="stylesheet" />
 
-            <!-- Hero Section -->
-            <div class="relative mb-12 rounded-2xl overflow-hidden shadow-xl">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
-                <img src="@Model.ImageUrl" alt="@Model.Title" class="w-full h-[500px] object-cover" loading="lazy">
-                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
-                    <div class="flex justify-between items-end">
-                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">@Model.Title</h1>
-                        <div class="flex space-x-3">
-                            <button class="flex items-center bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition">
-                                <i class="far fa-heart mr-2"></i> Yêu thích
-                            </button>
-                            <button class="flex items-center bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition">
-                                <i class="fas fa-share-alt mr-2"></i> Chia sẻ
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+
+<!-- Main Content -->
+<div class="main-container">
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <!-- Featured Gallery -->
+        <div class="gallery-container">
+            <!-- Featured images -->
+            <div class="gallery-item featured row-span-2 relative">
+                <div class="featured-label"><i class="fas fa-crown mr-1"></i> Nổi bật</div>
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1647105604081-a532d33fd003?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwzfHxNYWluJTIwcm9vbXxlbnwwfHx8fDE3NDc2NDYxMzd8MA&ixlib=rb-4.1.0&q=85" alt="Phòng chính">
+            </div>
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1541922633525-b39c46b1b219?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxSb29mdG9wJTIwcG9vbHxlbnwwfHx8fDE3NDc2NDYxMzd8MA&ixlib=rb-4.1.0&q=85" alt="Hồ bơi trên sân thượng">
+            </div>
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1617293672222-9a799fe55473?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwyfHxIb3RlbCUyMGJhbGNvbnl8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Ban công khách sạn">
+            </div>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnail-row">
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwyfHxSb29tJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Nội thất phòng">
+            </div>
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1671497601148-bc2375e45a74?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxCYXRocm9vbSUyMHZpZXd8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Tầm nhìn phòng tắm">
+            </div>
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxDaXR5JTIwdmlld3xlbnwwfHx8fDE3NDc2NDYxMzd8MA&ixlib=rb-4.1.0&q=85" alt="Tầm nhìn thành phố">
+            </div>
+            <div class="gallery-item">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1614846384571-1e31322ed3a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwyfHxIb3RlbCUyMGV4dGVyaW9yfGVufDB8fHx8MTc0NzY0NjEzN3ww&ixlib=rb-4.1.0&q=85" alt="Ngoại thất khách sạn" loading="lazy">
+            </div>
+            <div class="gallery-item relative">
+                <div class="image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxIb3RlbCUyMGJlZHxlbnwwfHx8fDE3NDc2NDYxMzd8MA&ixlib=rb-4.1.0&q=85" alt="Giường khách sạn">
+                <div class="more-photos"><i class="fas fa-images mr-2"></i> +37 ảnh</div>
+            </div>
+        </div>
+
+        <!-- Info below gallery -->
+        <div class="mt-8">
+            <div class="flex flex-wrap gap-2 mb-5">
+                <div class="badge"><i class="fas fa-medal"></i> Phòng sang trọng</div>
+                <div class="badge"><i class="fas fa-water"></i> Tầm nhìn biển</div>
+                <div class="badge"><i class="fas fa-utensils"></i> Bữa sáng miễn phí</div>
+                <div class="badge"><i class="fas fa-concierge-bell"></i> Dịch vụ 24/7</div>
             </div>
 
-            <!-- Main Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Left Column -->
-                <div class="lg:col-span-2">
-                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                            <i class="fas fa-info-circle text-blue-600 mr-3"></i>
-                            Thông tin chi tiết
-                        </h2>
-                        <div class="prose max-w-none text-gray-600">
-                            <p class="text-lg leading-relaxed">@Model.Description</p>
-                            <p class="mt-4">Khám phá không gian độc đáo của chúng tôi, nơi mỗi chi tiết được chăm chút tỉ mỉ để mang đến trải nghiệm đặc biệt cho quý khách. Với các tiện nghi hiện đại và dịch vụ chuyên nghiệp, chúng tôi cam kết mang đến những khoảnh khắc đáng nhớ trong kỳ nghỉ của bạn.</p>
-                        </div>
-                    </div>
-
-                    <!-- Amenities Section -->
-                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                            <i class="fas fa-concierge-bell text-blue-600 mr-3"></i>
-                            Tiện nghi
-                        </h2>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-wifi text-blue-600 mr-3"></i>
-                                <span>WiFi miễn phí</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-parking text-blue-600 mr-3"></i>
-                                <span>Bãi đỗ xe</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-snowflake text-blue-600 mr-3"></i>
-                                <span>Điều hòa</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-utensils text-blue-600 mr-3"></i>
-                                <span>Nhà hàng</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-glass-cheers text-blue-600 mr-3"></i>
-                                <span>Quầy bar</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-dumbbell text-blue-600 mr-3"></i>
-                                <span>Phòng tập gym</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Section -->
-                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                            <i class="fas fa-images text-blue-600 mr-3"></i>
-                            Hình ảnh
-                        </h2>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            @for (int i = 1; i <= 6; i++)
-                            {
-                                <div class="aspect-square rounded-lg overflow-hidden">
-                                    <img src="/api/placeholder/400/400" alt="Gallery image" class="w-full h-full object-cover hover:opacity-90 transition">
-                                </div>
-                            }
-                        </div>
-                        <div class="text-center mt-6">
-                            <button class="inline-flex items-center px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
-                                <i class="fas fa-plus mr-2"></i> Xem thêm hình ảnh
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Reviews Section -->
-                    <div class="bg-white rounded-xl shadow-md p-8">
-                        <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-2xl font-bold text-gray-800 flex items-center">
-                                <i class="fas fa-star text-blue-600 mr-3"></i>
-                                Đánh giá từ khách hàng
-                            </h2>
-                            <div class="flex items-center">
-                                <div class="flex items-center bg-yellow-100 text-yellow-700 rounded-full px-3 py-1">
-                                    <span class="font-bold mr-1">4.8</span>
-                                    <div class="flex">
-                                        <i class="fas fa-star text-yellow-500"></i>
-                                        <i class="fas fa-star text-yellow-500"></i>
-                                        <i class="fas fa-star text-yellow-500"></i>
-                                        <i class="fas fa-star text-yellow-500"></i>
-                                        <i class="fas fa-star-half-alt text-yellow-500"></i>
-                                    </div>
-                                </div>
-                                <span class="ml-2 text-gray-500">(128 đánh giá)</span>
-                            </div>
-                        </div>
-
-                        <!-- Review Items -->
-                        <div class="space-y-6">
-                            <!-- Review 1 -->
-                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-semibold">NT</div>
-                                        <div class="ml-3">
-                                            <div class="font-semibold">Nguyễn Thành</div>
-                                            <div class="text-gray-500 text-sm">2 ngày trước</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-yellow-500">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="mt-3 text-gray-600">Địa điểm tuyệt vời, tôi rất hài lòng về dịch vụ ở đây. Nhân viên thân thiện và nhiệt tình. Chắc chắn sẽ quay lại!</p>
-                            </div>
-
-                            <!-- Review 2 -->
-                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-semibold">PL</div>
-                                        <div class="ml-3">
-                                            <div class="font-semibold">Phạm Linh</div>
-                                            <div class="text-gray-500 text-sm">1 tuần trước</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-yellow-500">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="mt-3 text-gray-600">Không gian rất đẹp và sang trọng. Tuy nhiên, dịch vụ có thể cải thiện thêm một chút. Nhìn chung là tốt.</p>
-                            </div>
-                        </div>
-
-                        <div class="text-center mt-6">
-                            <button class="inline-flex items-center px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
-                                <i class="fas fa-comment-alt mr-2"></i> Xem tất cả đánh giá
-                            </button>
-                        </div>
-                    </div>
+            <div class="info-card mb-8">
+                <div class="heading-with-line">
+                    <h2>Mô Tả</h2>
+                    <div class="line"></div>
                 </div>
-
-                <!-- Right Column - Booking Card -->
-                <div class="lg:col-span-1">
-                    <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Đặt chỗ ngay</h3>
-                        <div class="p-4 bg-blue-50 rounded-lg mb-6">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-600">Giá từ</span>
-                                <span class="font-bold text-xl text-blue-600">1.200.000đ</span>
-                            </div>
-                            <div class="text-sm text-gray-500">Giá mỗi đêm, chưa bao gồm thuế và phí</div>
-                        </div>
-
-                        <form>
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-medium mb-2">Ngày nhận phòng</label>
-                                <div class="relative">
-                                    <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500">
-                                    <div class="absolute right-3 top-3 text-gray-400">
-                                        <i class="far fa-calendar-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-medium mb-2">Ngày trả phòng</label>
-                                <div class="relative">
-                                    <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500">
-                                    <div class="absolute right-3 top-3 text-gray-400">
-                                        <i class="far fa-calendar-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="block text-gray-700 font-medium mb-2">Số lượng khách</label>
-                                <div class="relative">
-                                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-500 appearance-none">
-                                        <option>1 người lớn</option>
-                                        <option>2 người lớn</option>
-                                        <option>2 người lớn, 1 trẻ em</option>
-                                        <option>2 người lớn, 2 trẻ em</option>
-                                    </select>
-                                    <div class="absolute right-3 top-3 text-gray-400 pointer-events-none">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a href="@Url.Action("Index", "Find_Room")" class="block w-full px-6 py-4 bg-blue-600 text-white font-medium text-center rounded-lg hover:bg-blue-700 transition duration-300">
-                                Kiểm tra phòng trống
-                            </a>
-                        </form>
-
-                        <div class="mt-6 p-4 bg-green-50 border border-green-100 rounded-lg">
-                            <div class="flex">
-                                <div class="text-green-500 mr-3">
-                                    <i class="fas fa-tag"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium text-green-700">Ưu đãi đặc biệt</div>
-                                    <p class="text-sm text-green-600">Giảm 15% khi đặt phòng trước 30 ngày</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6">
-                            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-                                <span class="text-gray-600">Đánh giá</span>
-                                <span class="flex items-center">
-                                    <span class="text-yellow-500 mr-1">
-                                        <i class="fas fa-star"></i>
-                                    </span>
-                                    <span class="font-medium">4.8/5</span>
-                                </span>
-                            </div>
-                            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                                <span class="text-gray-600">Vị trí</span>
-                                <span class="flex items-center">
-                                    <span class="text-blue-500 mr-1">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    <span class="font-medium">Trung tâm</span>
-                                </span>
-                            </div>
-                            <div class="flex items-center justify-between pt-3">
-                                <span class="text-gray-600">Liên hệ hỗ trợ</span>
-                                <a href="tel:+84912345678" class="text-blue-600 hover:underline">
-                                    <i class="fas fa-phone-alt mr-1"></i> 0912.345.678
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    Trải nghiệm sự thoải mái tuyệt đối tại các phòng suite hướng biển cao cấp của chúng tôi. Mỗi phòng đều có cửa sổ từ sàn đến trần, ban công riêng và các tiện nghi cao cấp được thiết kế để đảm bảo kỳ nghỉ của bạn thật sự đáng nhớ. Khu nghỉ dưỡng của chúng tôi kết hợp giữa sự sang trọng hiện đại và vẻ đẹp tự nhiên của cảnh quan xung quanh.
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    Với vị trí đắc địa ven biển, du khách có thể tận hưởng không gian riêng tư tuyệt đối cùng những hoạt động giải trí đa dạng từ thể thao nước đến các liệu pháp spa độc đáo. Nhà hàng cao cấp trong khu nghỉ dưỡng phục vụ các món ăn đặc sản địa phương và quốc tế, hứa hẹn sẽ làm hài lòng cả những thực khách khó tính nhất.
+                </p>
             </div>
 
-            <!-- Related Locations -->
-            <div class="mt-16">
-                <h2 class="text-2xl font-bold text-gray-800 mb-8">Địa điểm khác có thể bạn quan tâm</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    @for (int i = 1; i <= 4; i++)
-                    {
-                        if (i != Model.Id)
-                        {
-                            var title = i switch
-                            {
-                                1 => "Hồ Bơi Sang Trọng",
-                                2 => "Nhà Hàng 5 Sao",
-                                3 => "Phòng Gym Hiện Đại",
-                                4 => "Spa Thư Giãn",
-                                _ => "Địa Điểm Không Xác Định"
-                            };
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="info-card h-full">
+                    <div class="heading-with-line">
+                        <h2>Tiện Nghi Phòng</h2>
+                        <div class="line"></div>
+                    </div>
+                    <ul class="space-y-4 mt-4">
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-wifi text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">WiFi tốc độ cao miễn phí</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-tv text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Smart TV 55" với Netflix</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-snowflake text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Điều hòa nhiệt độ trung tâm</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-coffee text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Máy pha cà phê Nespresso</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-bath text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Bồn tắm thủy lực cao cấp</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-door-closed text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Ban công riêng với tầm nhìn biển</span>
+                        </li>
+                    </ul>
+                </div>
 
-                            var imageUrl = i switch
-                            {
-                                1 => "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-                                2 => "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
-                                3 => "https://images.unsplash.com/photo-1593297237733-184d3ff53d80",
-                                4 => "https://du-lich.chudu24.com/f/m/2304/24/khach-san-hoang-hon-tim-boutique-phu-quoc-2.jpg",
-                                _ => "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-                            };
-
-                            <a href="@Url.Action("Details", "Location", new { id = i })" class="relative w-full h-72 overflow-hidden rounded-xl block group">
-                                <img src="@imageUrl" alt="@title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span class="text-white font-medium text-2xl">@title</span>
-                                </div>
-                            </a>
-                        }
-                    }
+                <div class="info-card h-full">
+                    <div class="heading-with-line">
+                        <h2>Tiện Ích Khu Nghỉ Dưỡng</h2>
+                        <div class="line"></div>
+                    </div>
+                    <ul class="space-y-4 mt-4">
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-swimming-pool text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Hồ bơi vô cực hướng biển</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-utensils text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Nhà hàng cao cấp 5 sao</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-spa text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Spa và liệu pháp thư giãn</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-dumbbell text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Phòng tập gym hiện đại</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-cocktail text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Quầy bar bên hồ bơi</span>
+                        </li>
+                        <li class="flex items-center amenity-item">
+                            <span class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3 shadow-sm">
+                                <i class="fas fa-volleyball-ball text-primary-700 amenity-icon"></i>
+                            </span>
+                            <span class="text-sm">Các hoạt động thể thao nước</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-</body>
+    <!-- Property Info and Description -->
+    <div class="property-info-section">
+        <!-- Booking Card -->
+        <div class="booking-card info-card">
+            <h3 class="text-lg font-semibold mb-2">Đặt Ngay, Tiết Kiệm 15%</h3>
+            <div class="price-tag">
+                <span class="currency">đ</span>4,500,000<span class="per-night">/đêm</span>
+            </div>
+
+            <div class="flex items-center text-sm text-gray-600 mb-5">
+                <i class="fas fa-calendar-alt text-primary-600 mr-2"></i>
+                20/05 - 25/05, 2025 (5 đêm)
+            </div>
+
+            <div class="mb-6 space-y-3">
+                <div class="flex justify-between text-sm">
+                    <span>Giá gốc (5 đêm)</span>
+                    <span class="font-medium">đ25,000,000</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>Giảm giá sớm (-15%)</span>
+                    <span class="font-medium text-green-600">-đ3,750,000</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>Thuế và phí</span>
+                    <span class="font-medium">đ2,125,000</span>
+                </div>
+                <div class="border-t pt-3 flex justify-between font-semibold">
+                    <span>Tổng cộng</span>
+                    <span class="text-primary-700">đ23,375,000</span>
+                </div>
+            </div>
+
+            <button class="w-full py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold book-button flex items-center justify-center">
+                <i class="fas fa-calendar-check mr-2"></i> Đặt Ngay
+            </button>
+
+            <div class="mt-4 text-xs text-center text-gray-500">
+                Bạn chưa bị trừ tiền - Miễn phí hủy trước 7 ngày
+            </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="info-card">
+            <h3 class="text-lg font-semibold mb-4">Cần hỗ trợ thêm?</h3>
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                    <i class="fas fa-headset text-lg text-primary-700"></i>
+                </div>
+                <div>
+                    <div class="font-medium">Hỗ trợ 24/7</div>
+                    <div class="text-sm text-gray-600">Luôn sẵn sàng giúp đỡ bạn</div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <a href="tel:+84123456789" class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-phone-alt text-primary-700"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium">Gọi trực tiếp</div>
+                        <div class="text-xs text-gray-600">+84 123 456 789</div>
+                    </div>
+                </a>
+                <a href="mailto:support@resort.com" class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-envelope text-primary-700"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium">Email hỗ trợ</div>
+                        <div class="text-xs text-gray-600">support@resort.com</div>
+                    </div>
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-comment-dots text-primary-700"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium">Chat trực tuyến</div>
+                        <div class="text-xs text-gray-600">Phản hồi trong vòng 5 phút</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Map Location Card -->
+        <div class="info-card">
+            <h3 class="text-lg font-semibold mb-4">Vị trí</h3>
+            <div class="w-full h-[200px] bg-gray-200 rounded-lg mb-4 overflow-hidden relative">
+                <!-- Placeholder for map, would be replaced with actual map -->
+                <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxNYXAlMjB2aWV3fGVufDB8fHx8MTc0NzY0NjEzN3ww&ixlib=rb-4.1.0&q=85" alt="Bản đồ khu vực" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="bg-white px-4 py-2 rounded-lg shadow-md font-medium text-sm flex items-center hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-map-marked-alt mr-2 text-primary-600"></i> Xem bản đồ lớn
+                    </button>
+                </div>
+            </div>
+            <div class="text-sm text-gray-700 space-y-2">
+                <div class="flex items-start">
+                    <i class="fas fa-map-marker-alt text-primary-600 mt-1 mr-2"></i>
+                    <span>Bãi Dài, Cam Ranh, Khánh Hòa, Việt Nam</span>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-primary-600 mt-1 mr-2"></i>
+                    <span>Cách sân bay Cam Ranh 15 phút lái xe</span>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-car text-primary-600 mt-1 mr-2"></i>
+                    <span>Dịch vụ đưa đón sân bay miễn phí</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Summary Card -->
+        <div class="info-card">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">Đánh giá</h3>
+                <div class="flex items-center">
+                    <div class="mr-2 rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="font-semibold">5.0</span>
+                    <span class="text-gray-500 text-sm ml-1">(236)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="text-sm text-gray-600">Sạch sẽ</div>
+                    <div class="flex items-center mt-1">
+                        <div class="w-full bg-gray-200 rounded-full h-2 mr-2">
+                            <div class="bg-primary-600 h-2 rounded-full" style="width: 98%"></div>
+                        </div>
+                        <span class="text-sm font-medium">4.9</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="text-sm text-gray-600">Dịch vụ</div>
+                    <div class="flex items-center mt-1">
+                        <div class="w-full bg-gray-200 rounded-full h-2 mr-2">
+                            <div class="bg-primary-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <span class="text-sm font-medium">5.0</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="text-sm text-gray-600">Vị trí</div>
+                    <div class="flex items-center mt-1">
+                        <div class="w-full bg-gray-200 rounded-full h-2 mr-2">
+                            <div class="bg-primary-600 h-2 rounded-full" style="width: 96%"></div>
+                        </div>
+                        <span class="text-sm font-medium">4.8</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="text-sm text-gray-600">Giá trị</div>
+                    <div class="flex items-center mt-1">
+                        <div class="w-full bg-gray-200 rounded-full h-2 mr-2">
+                            <div class="bg-primary-600 h-2 rounded-full" style="width: 94%"></div>
+                        </div>
+                        <span class="text-sm font-medium">4.7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample reviews -->
+            <div class="border-t pt-4">
+                <div class="mb-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-medium">Nguyễn Thị Hoa</div>
+                                <div class="text-xs text-gray-500">Tháng 4, 2025</div>
+                            </div>
+                        </div>
+                        <div class="rating-stars text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700 mt-2">
+                        "Khu nghỉ dưỡng tuyệt vời với dịch vụ 5 sao. Nhân viên rất thân thiện và chuyên nghiệp. Tầm nhìn từ phòng ra biển thật tuyệt vời. Chắc chắn sẽ quay lại!"
+                    </p>
+                </div>
+
+                <div class="border-t pt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-medium">Trần Văn Minh</div>
+                                <div class="text-xs text-gray-500">Tháng 3, 2025</div>
+                            </div>
+                        </div>
+                        <div class="rating-stars text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700 mt-2">
+                        "Không thể tin được vào mắt mình khi bước vào phòng. Khung cảnh tuyệt đẹp, dịch vụ hoàn hảo. Đặc biệt là nhà hàng phục vụ những món ăn ngon tuyệt!"
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="block text-center text-primary-600 font-medium text-sm mt-4 hover:text-primary-700 transition-colors">
+                Xem tất cả 236 đánh giá <i class="fas fa-chevron-right ml-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Related Properties Section -->
+<div class="bg-gray-50 py-12">
+    <div class="w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="heading-with-line mb-8">
+            <h2 class="text-2xl font-bold">Các Địa Điểm Tương Tự</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Related Property 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwxfHxMdXh1cnklMjByZXNvcnR8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Resort view" class="w-full h-full object-cover">
+                    <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-3 py-1 m-2 rounded-full">
+                        Phổ biến
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">Khu nghỉ dưỡng Vịnh Xanh</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                            <span class="text-sm font-medium">4.8</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt text-primary-600 mr-1"></i> Phú Quốc, Kiên Giang
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-primary-700 font-bold text-lg">đ3,200,000</span>
+                            <span class="text-gray-500 text-xs">/đêm</span>
+                        </div>
+                        <button class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium hover:bg-primary-200 transition-colors">
+                            Xem chi tiết
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Property 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwyfHxMdXh1cnklMjByZXNvcnR8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Resort view" class="w-full h-full object-cover">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white text-xs font-bold px-3 py-1 m-2 rounded-full">
+                        Mới
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">Mia Resort Nha Trang</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                            <span class="text-sm font-medium">4.9</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt text-primary-600 mr-1"></i> Nha Trang, Khánh Hòa
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-primary-700 font-bold text-lg">đ4,800,000</span>
+                            <span class="text-gray-500 text-xs">/đêm</span>
+                        </div>
+                        <button class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium hover:bg-primary-200 transition-colors">
+                            Xem chi tiết
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Property 3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHwzfHxMdXh1cnklMjByZXNvcnR8ZW58MHx8fHwxNzQ3NjQ2MTM3fDA&ixlib=rb-4.1.0&q=85" alt="Resort view" class="w-full h-full object-cover">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 m-2 rounded-full">
+                        Ưu đãi
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">Fusion Resort Phú Quốc</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                            <span class="text-sm font-medium">4.7</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt text-primary-600 mr-1"></i> Phú Quốc, Kiên Giang
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-primary-700 font-bold text-lg">đ3,800,000</span>
+                            <span class="text-gray-500 text-xs">/đêm</span>
+                        </div>
+                        <button class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium hover:bg-primary-200 transition-colors">
+                            Xem chi tiết
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-md hover:shadow-lg">
+                Xem tất cả các khu nghỉ dưỡng <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</div>

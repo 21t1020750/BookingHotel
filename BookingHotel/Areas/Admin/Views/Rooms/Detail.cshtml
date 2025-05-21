@@ -1,9 +1,163 @@
 ﻿@using BookingHotel.Areas.Admin.Models
 @model Room
 
-<h2>Chi tiết phòng @Model.RoomNumber</h2>
+<style>
+    /* Container styling */
+    .room-single-container {
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+        max-width: 1200px;
+    }
 
-<p>Giá: @Model.Price</p>
-<p>Mô tả: @Model.Description</p>
+    /* Image styling */
+    .room-single--image-featured {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
 
-<p>⭐ Đánh giá trung bình: @ViewBag.AverageRating sao</p>
+        .room-single--image-featured img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .room-single--image-featured:hover img {
+            transform: scale(1.05);
+        }
+
+    /* Content styling */
+    .room-single--content {
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .room-single--content--label {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1a73e8;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #1a73e8;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Attribute styling */
+    .room-single--content--attribute--expand,
+    .room-single--content--attribute--king-bed,
+    .room-single--content--attribute--person {
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    /* Icon styling */
+    .icon-expand,
+    .icon-bed,
+    .icon-person {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+        color: #1a73e8;
+    }
+
+        .icon-expand::before {
+            content: "\f31e"; /* Font Awesome expand icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+        .icon-bed::before {
+            content: "\f236"; /* Font Awesome bed icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+        .icon-person::before {
+            content: "\f007"; /* Font Awesome person icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+    /* Rating styling */
+    .room-single--content--attribute--person .fas,
+    .room-single--content--attribute--person .far {
+        color: #f4b400;
+        margin-right: 0.3rem;
+    }
+
+    .room-single--content--attribute--person .rating-text {
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* Description styling */
+    .room-single--content--attribute--person.description {
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* Responsive adjustments */
+
+    .room-single--content--label {
+        font-size: 1.25rem;
+    }
+
+    .room-single--image-featured img {
+        height: 200px;
+    }
+
+    }
+</style>
+<div class="container room-single-container">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <div class="room-single--image-featured">
+                <img alt="Deluxe Room (Twin/King)" src="~/images/Room/@Model.Photo">
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="room-single--content">
+                <div class="room-single--content--label">Thông tin phòng</div>
+                <div class="room-single--content--attribute--expand d-flex">
+                    <div class="icon-expand"></div>
+                    <div>28m²</div>
+                </div>
+                <div class="room-single--content--attribute--king-bed d-flex">
+                    <div class="icon-bed"></div>
+                    01 King Bed hoặc 02 Twin Beds
+                </div>
+                <div class="room-single--content--attribute--person d-flex">
+                    <div class="icon-person"></div>
+                    @Model.number người
+                </div>
+                <div class="room-single--content--attribute--person description d-flex">
+                    <div class="icon-person"></div>
+                    @Html.Raw(Model.Description)
+                </div>
+                <div class="room-single--content--attribute--person d-flex">
+                    <div class="icon-person"></div>
+                    <div>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= ViewBag.AverageRating)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                            else
+                            {
+                                <i class="far fa-star"></i>
+                            }
+                        }
+                        <span class="rating-text">(@ViewBag.AverageRating sao)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -104,6 +104,7 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr class="bg-primary">
+                        <th>Mã Booking</th>
                         <th>Khách hàng</th>
                         <th>Ngày lập</th>
                         <th>Nhân viên phụ trách</th>
@@ -118,9 +119,10 @@
                     @foreach (var booking in Model)
                     {
                         <tr>
+                            <td>@booking.BookingCode</td>
                             <td>@booking.Customer.FullName</td>
                             <td>@booking.CreatedAt</td>
-                            <td>@booking.Employee.FullName</td>
+                            <td>@(booking.Employee != null ? booking.Employee.FullName : "Chưa chỉ định")</td>
                             <td>@booking.NumberOfRooms</td>
                             <td>@booking.CheckInDate</td>
                             <td>@booking.CheckOutDate</td>

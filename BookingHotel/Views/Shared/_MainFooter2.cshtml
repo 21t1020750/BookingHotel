@@ -1,64 +1,36 @@
-﻿<footer class="bg-gray-900 text-white py-16" alt="chân trang khách sạn">
+﻿<footer class="bg-gradient-to-b from-gray-900 to-black text-white py-16" alt="chân trang khách sạn">
     <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-4 gap-10">
-            <div>
-                <div class="flex items-center mb-6">
-                    <i class="fas fa-hotel text-4xl text-blue-600 mr-3"></i>
-                    <h3 class="text-3xl font-bold">VietNamBooking</h3>
+        <!-- Logo và thông tin khách sạn -->
+        <div class="flex flex-col md:flex-row justify-between mb-12">
+            <div class="max-w-md mb-8 md:mb-0">
+                <div class="flex items-center mb-6 group">
+                    <i class="fas fa-hotel text-4xl text-blue-500 mr-3 group-hover:text-blue-400 transition-colors duration-300"></i>
+                    <h3 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">VietNamBooking</h3>
                 </div>
-                <p class="text-gray-400 mb-6">Nơi sự thanh lịch vượt thời gian gặp gỡ sự sang trọng hiện đại tại trung tâm thành phố Huế.</p>
+                <p class="text-gray-400 mb-6 leading-relaxed">Nơi sự thanh lịch vượt thời gian gặp gỡ sự sang trọng hiện đại tại trung tâm thành phố Huế.</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition" alt="hình nền">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1" alt="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition" alt="hình nền">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1" alt="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition" alt="hình nền">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1" alt="Instagram">
                         <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition" alt="hình nền">
-                        <i class="fab fa-tripadvisor"></i>
                     </a>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-2xl font-bold mb-6">Khám Phá</h4>
-                <ul class="space-y-3">
-                    <li><a href="~/" class="text-gray-400 hover:text-white transition">Trang Chủ</a></li>
-                    <li><a href="~/Rooms" class="text-gray-400 hover:text-white transition">Phòng Nghỉ</a></li>
-                    <li><a href="~/Dining" class="text-gray-400 hover:text-white transition">Ẩm Thực</a></li>
-                    <li><a href="~/Facilities" class="text-gray-400 hover:text-white transition">Tiện ích</a></li>
-                    <li><a href="~/Offers" class="text-gray-400 hover:text-white transition">Ưu đãi</a></li>
-                    <li><a href="~ /Contact" class="text-gray-400 hover:text-white transition">Liên hệ</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-2xl font-bold mb-6">Liên Hệ</h4>
-                <ul class="space-y-3 text-gray-400">
-                    <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-600"></i>
-                        <span>Lý Thường Kiệt, Thành phố Huế, Việt Nam</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-phone mt-1 mr-3 text-blue-600"></i>
-                        <span>+84 234 567 890</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-envelope mt-1 mr-3 text-blue-600"></i>
-                        <a href="/cdn-cgi/l/email-protection#d2a0b7a1b7a0a4b3a6bbbdbca192beb3a4b7beb3baa7b7fcb1bdbf" class="hover:text-white"><span class="__cf_email__" data-cfemail="d5e7f0e6f0e7e3f4e1fcfafbe6d5f9f4e3f0f9f4fde0f0bbf6faf8">[email&#160;protected]</span></a>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-2xl font-bold mb-6">Bản Tin</h4>
+            <!-- Form đăng ký nhận tin -->
+            <div class="max-w-md">
+                <h4 class="text-2xl font-bold mb-6 relative inline-block">
+                    Bản Tin
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </h4>
                 <p class="text-gray-400 mb-4">Đăng ký để nhận các ưu đãi và cập nhật độc quyền</p>
-                <form class="flex">
-                    <input type="email" placeholder="Email của bạn" class="px-4 py-3 rounded-l focus:outline-none text-gray-800 w-full">
-                    <button class="bg-blue-600 px-4 py-3 rounded-r hover:bg-blue-700 transition" alt="nút đăng ký">
+                <form class="flex mb-2 relative">
+                    <input type="email" placeholder="Email của bạn" class="px-4 py-3 rounded-l focus:outline-none text-gray-800 w-full border-2 border-transparent focus:border-blue-500 transition-colors duration-300">
+                    <button class="bg-gradient-to-r from-blue-500 to-blue-700 px-6 py-3 rounded-r hover:from-blue-600 hover:to-blue-800 transition-all duration-300" alt="nút đăng ký">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
@@ -66,13 +38,86 @@
             </div>
         </div>
 
-        <div class="border-t border-gray-800 mt-12 pt-8">
+        <!-- Menu và thông tin liên hệ -->
+        <div class="grid md:grid-cols-3 gap-10 mb-12 border-t border-gray-800 pt-12">
+            <div>
+                <h4 class="text-2xl font-bold mb-6 relative inline-block">
+                    Khám Phá
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </h4>
+                <ul class="grid grid-cols-2 gap-3">
+                    <li><a href="~/" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Trang Chủ</a></li>
+                    <li><a href="~/Rooms" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Phòng Nghỉ</a></li>
+                    <li><a href="~/Dining" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Ẩm Thực</a></li>
+                    <li><a href="~/Facilities" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Tiện ích</a></li>
+                    <li><a href="~/Offers" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Ưu đãi</a></li>
+                    <li><a href="~/Contact" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-2xl font-bold mb-6 relative inline-block">
+                    Dịch Vụ
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </h4>
+                <ul class="grid grid-cols-2 gap-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Spa & Massage</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Hồ bơi</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Nhà hàng</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Phòng họp</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Tour du lịch</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i> Đưa đón</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-2xl font-bold mb-6 relative inline-block">
+                    Liên Hệ
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt text-blue-500 group-hover:text-white"></i>
+                        </div>
+                        <div>
+                            <span class="block text-white">Địa chỉ</span>
+                            <span class="text-gray-400">Lý Thường Kiệt, Thành phố Huế, Việt Nam</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt text-blue-500 group-hover:text-white"></i>
+                        </div>
+                        <div>
+                            <span class="block text-white">Điện thoại</span>
+                            <span class="text-gray-400">+84 234 567 890</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fas fa-envelope text-blue-500 group-hover:text-white"></i>
+                        </div>
+                        <div>
+                            <span class="block text-white">Email</span>
+                            <a href="mailto:info@vietnambooking.com" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">info@vietnambooking.com</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright và links -->
+        <div class="border-t border-gray-800 pt-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 mb-4 md:mb-0">© 2025 Lavela Huế. Mọi quyền được bảo lưu.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-white transition">Chính Sách Bảo Mật</a>
-                    <a href="#" class="text-gray-500 hover:text-white transition">Điều Khoản Dịch Vụ</a>
-                    <a href="#" class="text-gray-500 hover:text-white transition">Chính Sách Cookie</a>
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400 mb-1">© 2025 VietNamBooking Huế. Mọi quyền được bảo lưu.</p>
+                    <p class="text-xs text-gray-600">Thiết kế bởi VietNamBooking</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Chính Sách Bảo Mật</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Điều Khoản Dịch Vụ</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Chính Sách Cookie</a>
                 </div>
             </div>
         </div>

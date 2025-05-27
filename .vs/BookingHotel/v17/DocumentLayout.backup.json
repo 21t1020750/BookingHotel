@@ -302,8 +302,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T06:52:41.505Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T06:52:41.505Z"
             },
             {
               "$type": "Document",
@@ -328,8 +327,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Shared\\_MainFooter2.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T06:49:30.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T06:49:30.551Z"
             },
             {
               "$type": "Document",
@@ -341,8 +339,7 @@
               "RelativeToolTip": "BookingHotel\\wwwroot\\css\\PageCSS\\_MainHeader2.css",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-21T06:25:20.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T06:25:20.06Z"
             },
             {
               "$type": "Document",
@@ -354,8 +351,7 @@
               "RelativeToolTip": "BookingHotel\\wwwroot\\css\\Rooms.css",
               "ViewState": "AgIAAGwCAAAAAAAAAAAmwIICAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-27T03:27:10.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T03:27:10.058Z"
             },
             {
               "$type": "Document",
@@ -367,8 +363,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Rooms\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T03:24:11.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T03:24:11.864Z"
             },
             {
               "$type": "Document",
@@ -380,8 +375,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Booking\\Index.cshtml",
               "ViewState": "AgIAAFABAAAAAAAAAAAgwHUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T08:14:45.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T08:14:45.062Z"
             },
             {
               "$type": "Document",
@@ -393,8 +387,7 @@
               "RelativeToolTip": "BookingHotel\\Models\\BookingViewModel.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAwwBwAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T08:20:41.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T08:20:41.991Z"
             },
             {
               "$type": "Document",
@@ -406,8 +399,7 @@
               "RelativeToolTip": "BookingHotel\\Controllers\\BookingController.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAowF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T08:14:51.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T08:14:51.679Z"
             },
             {
               "$type": "Document",
@@ -419,8 +411,7 @@
               "RelativeToolTip": "BookingHotel\\Controllers\\InformationController.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAcwGMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T08:48:58.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T08:48:58.862Z"
             },
             {
               "$type": "Document",
@@ -432,8 +423,7 @@
               "RelativeToolTip": "BookingHotel\\wwwroot\\js\\PageJS\\_MainHeader2.js",
               "ViewState": "AgIAAJoAAAAAAAAAAAAgwKoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-21T04:57:47.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T04:57:47.124Z"
             },
             {
               "$type": "Document",
@@ -445,8 +435,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Shared\\_Layout2.cshtml.css",
               "ViewState": "AgIAACcAAAAAAAAAAAAowEEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-27T02:07:18.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T02:07:18.236Z"
             },
             {
               "$type": "Document",
@@ -458,8 +447,7 @@
               "RelativeToolTip": "BookingHotel\\wwwroot\\css\\Login.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-21T09:50:56.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T09:50:56.972Z"
             },
             {
               "$type": "Document",
@@ -471,8 +459,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Information\\Index.cshtml",
               "ViewState": "AgIAAMACAAAAAAAAAAAqwOACAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T08:48:25.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T08:48:25.611Z"
             },
             {
               "$type": "Document",
@@ -484,8 +471,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Account\\LoginRegister.cshtml",
               "ViewState": "AgIAANcAAAAAAAAAAAAqwAEBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T02:11:02.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T02:11:02.542Z"
             },
             {
               "$type": "Document",
@@ -497,8 +483,7 @@
               "RelativeToolTip": "BookingHotel\\Areas\\Admin\\Controllers\\BookingsController.cs",
               "ViewState": "AgIAAKMAAAAAAAAAAAAgwMIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T08:17:23.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T08:17:23.498Z"
             },
             {
               "$type": "Document",
@@ -510,8 +495,7 @@
               "RelativeToolTip": "BookingHotel\\Views\\Shared\\_Layout2.cshtml",
               "ViewState": "AgIAAAsAAAAAAAAAAAAqwBoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T09:55:47.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T09:55:47.712Z"
             },
             {
               "$type": "Document",
@@ -523,8 +507,7 @@
               "RelativeToolTip": "BookingHotel\\Controllers\\Find_RoomController.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA4wFoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T09:43:44.592Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T09:43:44.592Z"
             },
             {
               "$type": "Document",
@@ -536,8 +519,7 @@
               "RelativeToolTip": "BookingHotel\\Areas\\Admin\\Views\\Bookings\\Index.cshtml",
               "ViewState": "AgIAAFUAAAAAAAAAAAAmwG0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T08:16:04.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T08:16:04.689Z"
             },
             {
               "$type": "Document",

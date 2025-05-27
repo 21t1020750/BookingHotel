@@ -1,9 +1,11 @@
 ﻿using BookingHotel.Areas.Admin.Data;
-using BookingHotel.Services.DataService;
+using BookingHotel.Areas.Admin.Services;
+using BookingHotel.Areas.Admin.Services.AdminService;
+using BookingHotel.Models;
 using BookingHotel.Services;
+using BookingHotel.Services.DataService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using BookingHotel.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +24,7 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddAuthentication("Cookies")
     .AddCookie("Cookies", options =>
     {
-        options.LoginPath = "/Account/Login";
+        options.LoginPath = "/Account/LoginRegister";
         options.AccessDeniedPath = "/Account/AccessDenied";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
     });
@@ -40,6 +42,7 @@ builder.Services.AddSession(options =>
 });
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddSingleton<IEmailService, EmailService>();
+builder.Services.AddSingleton<IEmailServiceAdmin, EmailServiceAdmin>();
 
 var app = builder.Build();
 

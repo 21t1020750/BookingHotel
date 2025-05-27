@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BookingHotel.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, employee")]
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _context;

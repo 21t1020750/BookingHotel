@@ -1,13 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>@ViewData["Title"]</title>
-</head>
-@model BookingHotel.Models.BookingViewModel
+﻿@model BookingHotel.Models.BookingViewModel
 @{
     ViewData["Title"] = "Đặt phòng";
 }
@@ -99,33 +90,64 @@
                             <!-- Room Details -->
                             <div class="border-b border-gray-200 pb-6 mb-6">
                                 <h3 class="text-lg font-bold text-gray-800 mb-4">Phòng đã chọn</h3>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <div class="flex justify-between items-start mb-3">
-                                        <div>
-                                            <h4 class="font-bold text-gray-800">@Model.RoomNumber</h4>
-                                            <p class="text-sm text-gray-600">@Html.Raw(Model.Description)</p>
+
+                                @foreach (var room in Model.RoomInfo)
+                                {
+                                    <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <div>
+                                                <h4 class="font-bold text-gray-800">Phòng @room.RoomNumber</h4>
+                                                <p class="text-sm text-gray-600">@Html.Raw(room.Description)</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-gray-800 font-bold">@room.Price.ToString("N0") VND</p>
+                                                <p class="text-xs text-gray-500">@((Model.Checkout - Model.Checkin).Days) đêm, @(Model.Adults + Model.Children) người</p>
+                                            </div>
                                         </div>
-                                        <div class="text-right">
-                                            <p class="text-gray-800 font-bold">@(Model.Price.ToString("N0")) VND</p>
-                                            <p class="text-xs text-gray-500">@((Model.Checkout - Model.Checkin).Days) đêm, @(Model.Adults + Model.Children) người</p>
+
+                                        <div class="pl-4 border-l-2 border-blue-200">
+                                            <div class="flex justify-between items-center py-2">
+                                                <span class="text-sm text-gray-700">
+                                                    Giá phòng (1 phòng × @((Model.Checkout - Model.Checkin).Days) đêm)
+                                                </span>
+                                                <span class="text-sm text-gray-700">
+                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days).ToString("N0")) VND
+                                                </span>
+                                            </div>
+                                            <div class="flex justify-between items-center py-2">
+                                                <span class="text-sm text-gray-700">Thuế & phí (12%)</span>
+                                                <span class="text-sm text-gray-700">
+                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days * 0.12m).ToString("N0")) VND
+                                                </span>
+                                            </div>
+                                            <div class="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
+                                                <span class="font-medium text-gray-800">Tổng cộng</span>
+                                                <span class="font-bold text-lg text-blue-600">
+                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days * 1.12m).ToString("N0")) VND
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="pl-4 border-l-2 border-blue-200">
-                                        <div class="flex justify-between items-center py-2">
-                                            <span class="text-sm text-gray-700">Giá phòng (@Model.Rooms phòng × @((Model.Checkout - Model.Checkin).Days) đêm)</span>
-                                            <span class="text-sm text-gray-700">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days).ToString("N0")) VND</span>
-                                        </div>
-                                        <div class="flex justify-between items-center py-2">
-                                            <span class="text-sm text-gray-700">Thuế & phí (12%)</span>
-                                            <span class="text-sm text-gray-700">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days * 0.12m).ToString("N0")) VND</span>
-                                        </div>
-                                        <div class="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
-                                            <span class="font-medium text-gray-800">Tổng cộng</span>
-                                            <span class="font-bold text-lg text-blue-600">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days * (1 + 0.12m)).ToString("N0")) VND</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
                             </div>
+
+                            <h3>Dịch vụ bổ sung</h3>
+                            @foreach (var service in Model.AllServices)
+                            {
+                                <div>
+                                    <label>
+                                        <input type="checkbox" class="service-checkbox" data-price="@service.Price" name="SelectedServiceIds" value="@service.ServiceID" />
+                                        @service.ServiceName (@service.Price.ToString("N0") đ)
+                                    </label>
+                                </div>
+                            }
+
+                            <hr />
+                            <p><strong>Tổng tiền tạm tính: </strong><span id="totalPrice">@Model.Price.ToString("N0")</span> đ</p>
+
+                            <!-- Hidden để post lên -->
+                            <input type="hidden" id="hiddenTotalPrice" name="TotalPrice" value="@Model.Price" />
+
 
                             <!-- Special Requests -->
                             <div class="mb-6">
@@ -325,6 +347,30 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
+
+            document.addEventListener("DOMContentLoaded", function () {
+            const checkboxes = document.querySelectorAll('.service-checkbox');
+            const totalPriceSpan = document.getElementById('totalPrice');
+            const hiddenTotal = document.getElementById('hiddenTotalPrice');
+
+            let basePrice = parseFloat(hiddenTotal.value); // Giá phòng đã tính sẵn
+            let currentTotal = basePrice;
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', function () {
+                    const price = parseFloat(this.getAttribute('data-price'));
+
+                    if (this.checked) {
+                        currentTotal += price;
+                    } else {
+                        currentTotal -= price;
+                    }
+
+                    totalPriceSpan.textContent = currentTotal.toLocaleString('vi-VN');
+                    hiddenTotal.value = currentTotal;
+                });
+            });
+        });
+
     </script>
 </body>
-</html>

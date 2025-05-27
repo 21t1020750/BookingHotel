@@ -5,8 +5,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+ 
 }
 
 .header-container {
@@ -228,7 +227,6 @@
     background-color: rgba(255, 255, 255, 0.15);
     color: white;
     margin-right: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
     .login-button::before {
@@ -249,7 +247,6 @@
     .login-button:hover {
         background-color: rgba(255, 255, 255, 0.25);
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
 .register-button {
@@ -271,6 +268,7 @@
         transform: scale(0);
         opacity: 0;
         transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        display: none;
     }
 
     .register-button:hover::after {
@@ -283,8 +281,8 @@
     .register-button:hover {
         background-color: #f0f9ff;
         color: #0e7490;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 15px rgba(8, 145, 178, 0.2);
+        transform: none;
+        box-shadow: none;
     }
 
 .user-dropdown-button {

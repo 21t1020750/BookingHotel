@@ -1,7 +1,9 @@
 ﻿using BookingHotel.Areas.Admin.Data;
 using BookingHotel.Areas.Admin.Models;
+using BookingHotel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using System.Security.Claims;
 
 namespace BookingHotel.Controllers
@@ -32,12 +34,27 @@ namespace BookingHotel.Controllers
                 return NotFound("Không tìm thấy thông tin khách hàng.");
             }
 
-            return View(customer);
+            // Lấy danh sách booking của khách hàng
+            var bookings = await _context.Bookings
+                .Where(b => b.CustomerID == customer.CustomerID)
+                .Include(r => r.BookingStatus)// hoặc .Id tùy tên cột
+                .OrderByDescending(b => b.CheckInDate)
+                .ToListAsync();
+
+            // Tạo ViewModel chứa cả thông tin khách và danh sách booking
+            var model = new InformationViewModel
+            {
+                Customer = customer,
+                Bookings = bookings
+            };
+
+            return View(model);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateProfile(Customer model, IFormFile uploadPhoto)
+        public async Task<IActionResult> UpdateProfile(InformationViewModel model, IFormFile uploadPhoto)
         {
             if (!ModelState.IsValid)
             {
@@ -54,10 +71,10 @@ namespace BookingHotel.Controllers
             }
 
             // Cập nhật các trường thông tin
-            customer.FullName = model.FullName;
-            customer.Phone = model.Phone;
-            customer.Address = model.Address;
-            customer.DateOfBirth = model.DateOfBirth;
+            customer.FullName = model.Customer.FullName;
+            customer.Phone = model.Customer.Phone;
+            customer.Address = model.Customer.Address;
+            customer.DateOfBirth = model.Customer.DateOfBirth;
 
             // Xử lý ảnh đại diện
             if (uploadPhoto != null)

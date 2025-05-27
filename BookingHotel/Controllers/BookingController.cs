@@ -6,6 +6,7 @@ using BookingHotel.Services.DataService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Security.Claims;
 
 namespace BookingHotel.Controllers
@@ -30,39 +31,55 @@ namespace BookingHotel.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index(int roomId, string checkin, string checkout, int adults, int children, int rooms)
+        public async Task<IActionResult> Index(List<string> selectedRoomIds, string checkin, string checkout, int adults, int children)
         {
             // Kiểm tra dữ liệu đầu vào
-            if (roomId <= 0 || string.IsNullOrEmpty(checkin) || string.IsNullOrEmpty(checkout))
+            if (selectedRoomIds == null || !selectedRoomIds.Any() || string.IsNullOrEmpty(checkin) || string.IsNullOrEmpty(checkout))
             {
                 return RedirectToAction("Index", "Find_Room"); // Chuyển về trang tìm kiếm nếu dữ liệu không hợp lệ
             }
 
-            // Truy vấn thông tin phòng từ cơ sở dữ liệu
-            var room = await _db.Rooms
+            var idsParam = string.Join(",", selectedRoomIds); // Chuyển List<int> thành chuỗi "1,2,3"
+            var sql = $@"
+                    SELECT r.*
+                    FROM Rooms r
+                    WHERE r.RoomID IN ({idsParam})
+                ";
+
+            // Lấy danh sách phòng từ SQL thuần
+            var selectedRooms = await _db.Rooms
+                .FromSqlRaw(sql)
                 .Include(r => r.RoomServices)
                 .ThenInclude(rs => rs.Service)
-                .FirstOrDefaultAsync(r => r.RoomID == roomId);
+                .ToListAsync();
 
-            if (room == null)
+            if (selectedRooms == null || selectedRooms.Count == 0)
             {
-                return NotFound(); // Trả về lỗi 404 nếu không tìm thấy phòng
+                return NotFound(); // Không tìm thấy phòng nào
             }
+
+            var allServices = await _db.Services.ToListAsync();
+
 
             // Tạo ViewModel
             var viewModel = new BookingViewModel
             {
-                RoomId = room.RoomID,
-                RoomNumber = room.RoomNumber,
-                Description = room.Description,
-                Price = room.Price,
-                Photo = room.Photo,
-                Services = room.RoomServices?.Select(rs => rs.Service.ServiceName).ToList() ?? new List<string>(),
+                RoomInfo = selectedRooms.Select(room => new RoomInfo
+                {
+                    RoomId = room.RoomID,
+                    RoomNumber = room.RoomNumber,
+                    Description = room.Description,
+                    Price = room.Price,
+                    Photo = room.Photo,
+                    Services = room.RoomServices?.Select(rs => rs.Service.ServiceName).ToList() ?? new List<string>()
+                }).ToList(),
+
                 Checkin = DateTime.Parse(checkin),
                 Checkout = DateTime.Parse(checkout),
                 Adults = adults,
                 Children = children,
-                Rooms = rooms,
+                Rooms = selectedRooms.Count,
+                AllServices = allServices
             };
 
             return View(viewModel);
@@ -70,7 +87,7 @@ namespace BookingHotel.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Confirm(BookingViewModel model)
+        public async Task<IActionResult> Confirm(BookingViewModel model, List<int> selectedRoomIds)
         {
             if (!ModelState.IsValid)
             {

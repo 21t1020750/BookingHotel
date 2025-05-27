@@ -64,6 +64,9 @@
     <script src="~/js/login.js"></script>
     <script src="~/themes/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/themes/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,4 +1,6 @@
-﻿namespace BookingHotel.Models
+﻿using BookingHotel.Areas.Admin.Models;
+
+namespace BookingHotel.Models
 {
     public class BookingViewModel
     {
@@ -22,6 +24,19 @@
         public bool IsBookingSuccessful { get; set; }
         public string BookingCode { get; set; }
         public int RoomTypeID { get; set; }
+        public List<RoomInfo> RoomInfo { get; set; }
+        public List<Service> AllServices { get; set; }
+        public List<int> SelectedServiceIds { get; set; }
 
+    }
+
+    public class RoomInfo
+    {
+        public int RoomId { get; set; }
+        public string RoomNumber { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public string Photo { get; set; }
+        public List<string> Services { get; set; } = new();
     }
 }

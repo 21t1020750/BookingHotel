@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\n3qil3kw.pah~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="itext7" Version="7.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.11" />

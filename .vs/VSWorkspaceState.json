@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BookingHotel"
+    "\\BookingHotel",
+    "\\BookingHotel\\Areas",
+    "\\BookingHotel\\Areas\\Admin",
+    "\\BookingHotel\\Areas\\Admin\\Views",
+    "\\BookingHotel\\Areas\\Admin\\Views\\Bookings"
   ],
   "SelectedNode": "\\BookingHotel.sln",
   "PreviewInSolutionExplorer": false

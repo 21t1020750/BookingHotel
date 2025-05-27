@@ -1,5 +1,5 @@
 ﻿@using BookingHotel.Areas.Admin.Models
-@model Customer
+@model BookingHotel.Models.InformationViewModel
 @{
     ViewData["Title"] = "Trang Thông tin";
 }
@@ -180,10 +180,10 @@
                 <div class="lg:col-span-1" data-id="bk8zefi4" data-line="128-183">
                     <div class="info-card p-6" data-id="4fo6cay2" data-line="129-147">
                         <div class="flex flex-col items-center text-center mb-6" data-id="kpewrlxt" data-line="130-135">
-                            <img src="/images/Customer/@(Model.Photo ?? "nophoto.png")" alt="user avatar" class="w-32 h-32 rounded-full object-cover mb-4" data-id="4vhfn9qp" data-line="131-131">
-                            <h2 class="text-xl font-bold text-gray-800" data-id="63agnww2" data-line="132-132">@Model.FullName</h2>
+                            <img src="/images/Customer/@(Model.Customer.Photo ?? "nophoto.png")" alt="user avatar" class="w-32 h-32 rounded-full object-cover mb-4" data-id="4vhfn9qp" data-line="131-131">
+                            <h2 class="text-xl font-bold text-gray-800" data-id="63agnww2" data-line="132-132">@Model.Customer.FullName</h2>
                             <p class="text-gray-600 mb-2" data-id="snior38c" data-line="133-133">Gold Member</p>
-                            <p class="text-sm text-gray-500" data-id="xuvo30ml" data-line="134-134">Thành viên từ: @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+                            <p class="text-sm text-gray-500" data-id="xuvo30ml" data-line="134-134">Thành viên từ: @Model.Customer.CreatedAt.ToString("dd/MM/yyyy")</p>
                         </div>
 
                         <div class="border-t pt-4" data-id="k7v1h7o8" data-line="137-146">
@@ -251,12 +251,12 @@
                         </div>
 
                         <form id="profileForm" asp-action="UpdateProfile" asp-controller="Information" method="post" enctype="multipart/form-data" class="space-y-4" data-id="2j5i9kv3" data-line="198-234">
-                            <input type="hidden" asp-for="CustomerID" />
+                            <input type="hidden" asp-for="Customer.CustomerID" />
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="photo-upload" data-line="221-228">
                                 <div data-id="photo-preview" data-line="222-225">
                                     <label class="block text-gray-700 mb-2">Ảnh đại diện</label>
                                     <div class="photo-container">
-                                        <img src="/images/Customer/@(Model.Photo ?? "nophoto.png")" alt="Preview" class="w-32 h-32 rounded-full object-cover mb-4 cursor-pointer" id="photoPreview">
+                                        <img src="/images/Customer/@(Model.Customer.Photo ?? "nophoto.png")" alt="Preview" class="w-32 h-32 rounded-full object-cover mb-4 cursor-pointer" id="photoPreview">
                                         <span id="editPhotoIcon" class="edit-photo-icon hidden">
                                             <i class="fas fa-camera"></i>
                                         </span>
@@ -278,26 +278,26 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="4qu91vc0" data-line="199-208">
                                 <div data-id="0ganuwmm" data-line="200-203">
                                     <label class="block text-gray-700 mb-2" data-id="53zac1ds" data-line="201-201">Họ và tên</label>
-                                    <input type="text" asp-for="FullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="0dpc9e7i" data-line="202-202">
-                                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    <input type="text" asp-for="Customer.FullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="0dpc9e7i" data-line="202-202">
+                                    @Html.ValidationMessageFor(m => m.Customer.FullName, "", new { @class = "text-red-500 text-sm mt-1" })
                                 </div>
                                 <div data-id="1in5wp9a" data-line="204-207">
                                     <label class="block text-gray-700 mb-2" data-id="yuppnfwf" data-line="205-205">Email</label>
-                                    <input type="email" asp-for="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="h3vg561s" data-line="206-206">
-                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    <input type="email" asp-for="Customer.Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="h3vg561s" data-line="206-206">
+                                    @Html.ValidationMessageFor(m => m.Customer.Email, "", new { @class = "text-red-500 text-sm mt-1" })
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="k6vjp3mk" data-line="210-219">
                                 <div data-id="uqlhdmvi" data-line="211-214">
                                     <label class="block text-gray-700 mb-2" data-id="6vx92rga" data-line="212-212">Số điện thoại</label>
-                                    <input type="tel" asp-for="Phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="jatfpn67" data-line="213-213">
-                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    <input type="tel" asp-for="Customer.Phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="jatfpn67" data-line="213-213">
+                                    @Html.ValidationMessageFor(m => m.Customer.Phone, "", new { @class = "text-red-500 text-sm mt-1" })
                                 </div>
                                 <div data-id="evsrcs2t" data-line="215-218">
                                     <label class="block text-gray-700 mb-2" data-id="y4ai1jwr" data-line="216-216">Ngày sinh</label>
-                                    <input type="date" asp-for="DateOfBirth" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="zumaewkx" data-line="217-217">
-                                    @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    <input type="date" asp-for="Customer.DateOfBirth" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" readonly data-id="zumaewkx" data-line="217-217">
+                                    @Html.ValidationMessageFor(m => m.Customer.DateOfBirth, "", new { @class = "text-red-500 text-sm mt-1" })
                                 </div>
                             </div>
 
@@ -313,8 +313,8 @@
 
                             <div data-id="33i7t8fm" data-line="229-232">
                                 <label class="block text-gray-700 mb-2" data-id="hrsz4zlm" data-line="230-230">Địa chỉ</label>
-                                <textarea asp-for="Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" rows="2" readonly data-id="igvs9fjd" data-line="231-231"></textarea>
-                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-red-500 text-sm mt-1" })
+                                <textarea asp-for="Customer.Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 readonly-input" rows="2" readonly data-id="igvs9fjd" data-line="231-231"></textarea>
+                                @Html.ValidationMessageFor(m => m.Customer.Address, "", new { @class = "text-red-500 text-sm mt-1" })
                             </div>
 
                             <div id="saveBtnContainer" class="pt-4 hidden" data-id="xzlsl6qo" data-line="234-241">
@@ -413,27 +413,19 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200" data-id="p291a914" data-line="327-349">
+                                    @if (Model.Bookings.Any())
+                                   {  
+                                       foreach (var booking in Model.Bookings)
+                                        {
                                     <tr data-id="a5iq4kyi" data-line="328-334">
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="1vmbu2zt" data-line="329-329">#LHL12343</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="zzyfok6y" data-line="330-330">Premium</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="eebsdbqn" data-line="331-331">10-12/03/2025</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="fer4oty8" data-line="332-332">8,400,000 VND</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="w5to7m34" data-line="333-333">Hoàn thành</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="1vmbu2zt" data-line="329-329">@booking.BookingCode</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="zzyfok6y" data-line="330-330">@booking.NumberOfRooms</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="eebsdbqn" data-line="331-331">@booking.CreatedAt</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="fer4oty8" data-line="332-332">@booking.TotalPrice</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="w5to7m34" data-line="333-333">@booking.BookingStatus.Description </td>
                                     </tr>
-                                    <tr data-id="5cg71nze" data-line="335-341">
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="gxm48ion" data-line="336-336">#LHL12342</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="ypfwocnc" data-line="337-337">Deluxe</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="hpk9qfge" data-line="338-338">25-28/02/2025</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="8swg5ynl" data-line="339-339">12,600,000 VND</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="xmwcxu4o" data-line="340-340">Hoàn thành</td>
-                                    </tr>
-                                    <tr data-id="x1kuorrp" data-line="342-348">
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-900" data-id="srktahg2" data-line="343-343">#LHL12341</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="pj5w2zr5" data-line="344-344">Standard</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="i8h76poy" data-line="345-345">15-18/01/2025</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-gray-500" data-id="h3vtbcpt" data-line="346-346">6,800,000 VND</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-xl text-green-600 font-medium" data-id="l8mw6d44" data-line="347-347">Hoàn thành</td>
-                                    </tr>
+                                        }
+                                   }
                                 </tbody>
                             </table>
                         </div>
@@ -629,7 +621,7 @@
                     editPhotoIcon.classList.add('hidden');
                     photoMenu.classList.remove('show');
                     uploadPhotoInput.value = ''; // Reset file input
-                    photoPreview.src = '/images/Customer/@(Model.Photo ?? "nophoto.png")'; // Reset preview
+                    photoPreview.src = '/images/Customer/@(Model.Customer.Photo ?? "nophoto.png")'; // Reset preview
                     saveBtnContainer.classList.add('hidden');
                     if (editProfileBtn) editProfileBtn.classList.remove('hidden');
                 });

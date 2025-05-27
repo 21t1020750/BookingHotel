@@ -1,21 +1,24 @@
-﻿using System.Security.Claims;
-using BookingHotel.Areas.Admin.Data;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using BookingHotel.Areas.Admin.Data;
+using BookingHotel.Areas.Admin.Models;
+using BookingHotel.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BookingHotel.Controllers
 {
     public class AccountController(ApplicationDbContext _context) : Controller
     {
+        private const string DefaultPhoto = "nophoto.png";
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult LoginRegister()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password, string tab ="login")
         {
             // Kiểm tra Employee trước
             var employee = _context.Employees.FirstOrDefault(e => e.Email == email && e.Password == password);
@@ -28,7 +31,7 @@ namespace BookingHotel.Controllers
                 new Claim(ClaimTypes.Name, employee.FullName),
                 new Claim(ClaimTypes.Email, employee.Email),
                 new Claim("Photo", employee.Photo),
-                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim(ClaimTypes.Role, employee.Roles),
                 new Claim("EmployeeID", employee.EmployeeID.ToString())
         };
 
@@ -64,9 +67,86 @@ namespace BookingHotel.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Error = "Email hoặc mật khẩu không đúng!";
-            return View();
+            ModelState.AddModelError(string.Empty, "Email hoặc mật khẩu không đúng.");
+            ViewBag.Tab = tab;
+            return View("LoginRegister");
         }
+
+        [HttpGet]
+        public IActionResult Register(string tab = "register")
+        {
+            ViewBag.Tab = tab;
+            return View("LoginRegister");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterUser model, string tab = "register")
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Tab = tab;
+                return View("LoginRegister", model);
+            }
+
+            if (!model.AgreeTerms)
+            {
+                ModelState.AddModelError("AgreeTerms", "Bạn cần đồng ý với điều khoản.");
+                ViewBag.Tab = tab;
+                return View("LoginRegister", model);
+            }
+
+            var exists = _context.Customers.Any(c => c.Email == model.Email);
+            if (exists)
+            {
+                ModelState.AddModelError("Email", "Email đã được đăng ký.");
+                ViewBag.Tab = tab;
+                return View("LoginRegister", model);
+            }
+
+            var customer = new Customer
+            {
+                FullName = model.FullName,
+                Email = model.Email,
+                Phone = model.Phone,
+                Password = model.Password,
+                DateOfBirth = model.DateOfBirth,
+                Address = model.Address,
+                CreatedAt = DateTime.Now,
+                Photo = DefaultPhoto
+            };
+
+            try
+            {
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi DB: " + ex.Message);
+                ModelState.AddModelError("", "Không thể lưu dữ liệu vào database.");
+                ViewBag.Tab = tab;
+                return View("LoginRegister", model);
+            }
+
+            // Đăng nhập sau khi đăng ký thành công
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, customer.CustomerID.ToString()),
+        new Claim(ClaimTypes.Name, customer.FullName),
+        new Claim(ClaimTypes.Email, customer.Email),
+        new Claim("Photo", customer.Photo),
+        new Claim(ClaimTypes.Role, "Customer")
+    };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Logout()
@@ -80,6 +160,15 @@ namespace BookingHotel.Controllers
 
         public IActionResult AccessDenied()
         {
+            var role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (role == "employee")
+                return RedirectToAction("AccessDenied", "AdminDashBoard", new { area = "Admin" });
+
+            if (role == "Customer")
+                return RedirectToAction("AccessDenied", "Account");
+
+
             return View();
         }
     }

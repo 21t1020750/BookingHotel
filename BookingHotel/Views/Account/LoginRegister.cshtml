@@ -1,0 +1,258 @@
+﻿@model BookingHotel.Models.RegisterUser;
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Đăng Nhập - VietNamBooking";
+
+    string tab = string.IsNullOrEmpty(Context.Request.Query["tab"].ToString()) ? "LoginRegister" : Context.Request.Query["tab"].ToString();
+}
+
+<body class="bg-gray-100" alt="luxury hotel">
+    <main class="py-16">
+        <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+                <!-- Login Form -->
+                <div id="login" class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-12 @(tab != "login" ? "hidden" : "")" alt="login form">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">ĐĂNG NHẬP</h2>
+                        <p class="text-xl text-gray-600">Đăng nhập để quản lý đặt phòng và tùy chỉnh của bạn</p>
+                    </div>
+
+                    <form id="loginForm" asp-controller="Account" asp-action="Login" asp-route-tab="login" method="post" class="space-y-10">
+                        <div>
+                            <label for="login-email" class="block text-xl text-gray-700 font-medium mb-4">Địa Chỉ Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="email" id="login-email" name="email" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="email@domain.com" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="login-password" class="block text-xl text-gray-700 font-medium mb-4">Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="login-password" name="password" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required>
+
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember-me" name="rememberMe" class="h-6 w-6 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-4 block text-lg text-gray-700">Ghi nhớ tôi</label>
+                            </div>
+                            <a href="#" class="text-lg text-blue-600 hover:text-blue-800">Quên mật khẩu?</a>
+                        </div>
+
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger">
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <p>@error.ErrorMessage</p>
+                                }
+                            </div>
+                        }
+
+                        <button type="submit" class="w-full bg-blue-600 text-white py-5 rounded-lg hover:bg-blue-700 transition font-medium text-xl" alt="login button">Đăng Nhập</button>
+
+                        <div class="text-center">
+                            <p class="text-lg text-gray-600">Chưa có tài khoản? <a href="/Account/LoginRegister?tab=register" class="text-blue-600 hover:text-blue-800 font-medium" onclick="switchTab('register')">Đăng ký tại đây</a></p>
+                        </div>
+                    </form>
+
+                    <div class="mt-12">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-lg">
+                                <span class="px-4 bg-white text-gray-500" alt="Or login with">Hoặc đăng nhập với</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 grid grid-cols-2 gap-8">
+                            <button type="button" class="w-full inline-flex justify-center py-4 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-lg font-medium text-gray-700 hover:bg-gray-50 transition" alt="google login">
+                                <i class="fab fa-google text-blue-600 mr-3 text-xl"></i> Google
+                            </button>
+                            <button type="button" class="w-full inline-flex justify-center py-4 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-lg font-medium text-gray-700 hover:bg-gray-50 transition" alt="facebook login">
+                                <i class="fab fa-facebook-f text-blue-600 mr-3 text-xl"></i> Facebook
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register" class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-12 @(tab != "register" ? "hidden" : "")" alt="register form">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">ĐĂNG KÝ</h2>
+                        <p class="text-xl text-gray-600">Đăng ký để nhận ưu đãi dành riêng cho thành viên</p>
+                    </div>
+
+                    <form asp-action="Register" asp-controller="Account" asp-route-tab="register" method="post" id="registerForm">
+                        @Html.AntiForgeryToken()
+                        <div class="grid md:grid-cols-2 gap-10">
+                            <div>
+                                <label for="first-name" class="block text-xl text-gray-700 font-medium mb-4">Họ</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                                    </div>
+                                    <input type="text" id="first-name" name="FirstName" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="Nguyễn" required>
+                                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-xl text-gray-700 font-medium mb-4">Tên</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                                    </div>
+                                    <input type="text" id="last-name" name="LastName" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="Văn A" required>
+                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="register-email" class="block text-xl text-gray-700 font-medium mb-4">Địa Chỉ Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="email" id="register-email" name="Email" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="email@domain.com" required>
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-xl text-gray-700 font-medium mb-4">Số Điện Thoại</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="tel" id="phone" name="Phone" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="+84 123 456 789" required>
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="dateofbirth" class="block text-xl text-gray-700 font-medium mb-4">Ngày tháng năm sinh</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-cake text-gray-400 text-xl"></i>
+                                </div>
+                                <input name="DateOfBirth" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="+84 123 456 789" required type="date" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="address" class="block text-xl text-gray-700 font-medium mb-4">Địa chỉ</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-location-dot text-gray-400 text-xl"></i>
+                                </div>
+                                <input name="Address" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="11 Lý Thường Kiệt, Quận Phú Xuân, Thành Phố Huế" required type="text" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="register-password" class="block text-xl text-gray-700 font-medium mb-4">Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="register-password" name="Password" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required>
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <p class="mt-4 text-lg text-gray-500">Ít nhất 8 ký tự, bao gồm chữ cái, số và ký hiệu</p>
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block text-xl text-gray-700 font-medium mb-4">Xác Nhận Mật Khẩu</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400 text-xl"></i>
+                                </div>
+                                <input type="password" id="confirm-password" name="ConfirmPassword" class="w-full pl-14 pr-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xl" placeholder="••••••••" required>
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="terms" name="AgreeTerms" class="h-6 w-6 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" value="true" required>
+                            <label for="terms" class="ml-4 block text-lg text-gray-700">Tôi đồng ý với <a href="#" class="text-blue-600 hover:text-blue-800">Điều khoản Dịch vụ</a> và <a href="#" class="text-blue-600 hover:text-blue-800">Chính sách Bảo mật</a></label>
+                            @Html.ValidationMessageFor(m => m.AgreeTerms, "", new { @class = "text-danger" })
+                        </div>
+
+                        <button type="submit" id="register-tab" class="w-full bg-blue-600 text-white py-5 rounded-lg hover:bg-blue-700 transition font-medium text-xl" alt="register button">Tạo Tài Khoản</button>
+
+                        <div class="text-center">
+                            <p class="text-lg text-gray-600">Đã có tài khoản? <a href="#login" class="text-blue-600 hover:text-blue-800 font-medium" onclick="switchTab('login')">Đăng nhập tại đây</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+</body>
+@section Scripts {
+    <!-- Truyền giá trị tab vào một thuộc tính HTML -->
+    <div id="tab-data" data-tab="@tab" style="display: none;"></div>
+
+    <!-- Tham chiếu file logintab.js -->
+   <script src="~/js/PageJS/LoginTab.js"></script>
+    <script>
+        // Hiển thị tab mặc định khi trang tải
+                        document.addEventListener("DOMContentLoaded", function () {
+            const tabData = document.getElementById("tab-data");
+            if (tabData) {
+                const tab = tabData.dataset.tab;
+                const loginDiv = document.getElementById("login");
+                const registerDiv = document.getElementById("register");
+                if (tab === "register") {
+                    loginDiv.classList.add("hidden");
+                    registerDiv.classList.remove("hidden");
+                } else {
+                    loginDiv.classList.remove("hidden");
+                    registerDiv.classList.add("hidden");
+                }
+            }
+        });
+
+
+        function switchTab(tab) {
+            window.location.href = `/Account/LoginRegister?tab=${tab}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const toggleButtons = document.querySelectorAll(".toggle-password");
+
+        toggleButtons.forEach(button => {
+            const icon = button.querySelector("i");
+            const input = button.previousElementSibling; // giả định input nằm ngay trước icon
+
+            button.addEventListener("click", function () {
+                const isPassword = input.type === "password";
+                input.type = isPassword ? "text" : "password";
+                icon.classList.toggle("fa-eye");
+                icon.classList.toggle("fa-eye-slash");
+            });
+        });
+    });
+    </script>
+}

@@ -64,22 +64,7 @@
 
             <!-- Auth Section (Language + Login/Signup or User Profile) -->
             <div class="flex items-center auth-section" id="desktop-auth">
-                <!-- Language Selector -->
-                <div class="relative mr-4">
-                    <button id="lang-toggle" class="lang-button" aria-label="Change language">
-                        <i class="fas fa-globe mr-2"></i>
-                        <span id="current-lang">VI</span>
-                        <i class="fas fa-chevron-down ml-2 text-sm"></i>
-                    </button>
-                    <div id="lang-menu" class="lang-dropdown">
-                        <a href="/lang/en" data-lang="EN" class="lang-option">
-                            <i class="fas fa-flag-usa mr-2"></i> English
-                        </a>
-                        <a href="/lang/vi" data-lang="VI" class="lang-option">
-                            <i class="fas fa-flag mr-2"></i> Tiếng Việt
-                        </a>
-                    </div>
-                </div>
+               
 
                 @if (User.Identity.IsAuthenticated && role == "Customer")
                 {
@@ -130,10 +115,10 @@
                 {
                     <!-- Login/Register Buttons -->
                     <div class="auth-buttons">
-                        <a href="~/Account/Login?tab=login" class="login-button">
+                        <a href="~/Account/LoginRegister?tab=login" class="login-button">
                             <i class="fas fa-sign-in-alt mr-1"></i> Đăng nhập
                         </a>
-                        <a href="~/Account/Login?tab=register" class="register-button">
+                        <a href="~/Account/LoginRegister?tab=register" class="register-button">
                             <i class="fas fa-user-plus mr-1"></i> Đăng ký
                         </a>
                     </div>
@@ -176,10 +161,10 @@
             }
             else
             {
-                <a href="~/Account/Login?tab=login" class="mobile-nav-link">
+                <a href="~/Account/LoginRegister?tab=login" class="mobile-nav-link">
                     <span><i class="fas fa-sign-in-alt mr-2"></i> Đăng nhập</span>
                 </a>
-                <a href="~/Account/Login?tab=register" class="mobile-nav-link">
+                <a href="~/Account/LoginRegister?tab=register" class="mobile-nav-link">
                     <span><i class="fas fa-user-plus mr-2"></i> Đăng ký</span>
                 </a>
             }

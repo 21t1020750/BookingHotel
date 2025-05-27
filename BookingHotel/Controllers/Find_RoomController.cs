@@ -25,13 +25,12 @@ namespace BookingHotel.Controllers
             DateTime? checkin = null,
             DateTime? checkout = null,
             int? adults = null,
-            int? children = null,
-            int? rooms = null)
+            int? children = null)
         {
             int pageSize = 3;
 
             // Debug: Kiểm tra giá trị nhận được từ form
-            Console.WriteLine($"Received: adults={adults}, children={children}, rooms={rooms}, checkin={checkin}, checkout={checkout}");
+            Console.WriteLine($"Received: adults={adults}, children={children}, checkin={checkin}, checkout={checkout}");
 
             // Lấy danh sách phòng
             var roomsQuery = _context.Rooms
@@ -54,7 +53,7 @@ namespace BookingHotel.Controllers
                 roomsQuery = roomsQuery.Where(r => r.RoomServices.Any(rs => serviceIds.Contains(rs.ServiceID)));
 
             // Lọc theo ngày và số người
-            if (checkin.HasValue && checkout.HasValue && adults.HasValue && children.HasValue && rooms.HasValue)
+            if (checkin.HasValue && checkout.HasValue && adults.HasValue && children.HasValue)
             {
                 int totalGuests = adults.Value + children.Value;
                 roomsQuery = roomsQuery.Where(r => r.number >= totalGuests);
@@ -107,9 +106,9 @@ namespace BookingHotel.Controllers
             ViewBag.Checkout = checkout;
             ViewBag.Adults = adults;
             ViewBag.Children = children;
-            ViewBag.Rooms = rooms;
 
             return View(pagedRooms);
         }
+
     }
 }

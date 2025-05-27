@@ -11,5 +11,6 @@
         public DateTime HireDate { get; set; }
         public string Photo { get; set; } = "";
         public string Password { get; set; } = "";
+        public string Roles { get; set; }
     }
 }

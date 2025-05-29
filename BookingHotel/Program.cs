@@ -6,12 +6,23 @@ using BookingHotel.Services;
 using BookingHotel.Services.DataService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging; // Add this for logging
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register ApplicationDbContext only
+// Register ApplicationDbContext with detailed logging
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+           .EnableDetailedErrors() // Enable detailed error messages
+           .EnableSensitiveDataLogging()); // Enable sensitive data logging (e.g., SQL parameters)
+
+// Add logging configuration
+builder.Services.AddLogging(logging =>
+{
+    logging.AddConsole(); // Log to console
+    logging.AddDebug(); // Log to debug output
+    logging.SetMinimumLevel(LogLevel.Debug); // Capture detailed logs
+});
 
 // Add services for Controllers and Views
 builder.Services.AddControllersWithViews()

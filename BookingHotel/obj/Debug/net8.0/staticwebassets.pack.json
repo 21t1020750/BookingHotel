@@ -1013,16 +1013,8 @@
       "PackagePath": "staticwebassets\\css\\Details.css"
     },
     {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\Login.css",
-      "PackagePath": "staticwebassets\\css\\Login.css"
-    },
-    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\PageCSS\\SearchSection.css",
       "PackagePath": "staticwebassets\\css\\PageCSS\\SearchSection.css"
-    },
-    {
-      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\PageCSS\\_Language.css",
-      "PackagePath": "staticwebassets\\css\\PageCSS\\_Language.css"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\PageCSS\\_MainHeader2.css",
@@ -1033,8 +1025,16 @@
       "PackagePath": "staticwebassets\\css\\PageCSS\\background.css"
     },
     {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\Rooms.css",
+      "PackagePath": "staticwebassets\\css\\Rooms.css"
+    },
+    {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\ThanhTuu.css",
       "PackagePath": "staticwebassets\\css\\ThanhTuu.css"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\css\\site.css",
@@ -1043,6 +1043,14 @@
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Cuisine\\download.jpg",
+      "PackagePath": "staticwebassets\\images\\Cuisine\\download.jpg"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\367649033_812118453874405_5438718400571388742_n.jpg",
+      "PackagePath": "staticwebassets\\images\\Customer\\367649033_812118453874405_5438718400571388742_n.jpg"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Customer\\Screenshot 2025-05-07 112640.png",
@@ -1063,6 +1071,10 @@
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Employee\\nophoto.png",
       "PackagePath": "staticwebassets\\images\\Employee\\nophoto.png"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Employee\\z6389780119770_7a8dda9983bde416bfa1c0ddc34f4514.jpg",
+      "PackagePath": "staticwebassets\\images\\Employee\\z6389780119770_7a8dda9983bde416bfa1c0ddc34f4514.jpg"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\ExtraImages\\Screenshot 2025-05-06 154954.png",
@@ -1111,6 +1123,10 @@
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\assassins-creed-VALHALLA.jpg",
       "PackagePath": "staticwebassets\\images\\Room\\assassins-creed-VALHALLA.jpg"
+    },
+    {
+      "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\download.jpg",
+      "PackagePath": "staticwebassets\\images\\Room\\download.jpg"
     },
     {
       "Id": "D:\\CNTT\\Full-stack\\BookingHotel\\BookingHotel\\wwwroot\\images\\Room\\gg.JPG",

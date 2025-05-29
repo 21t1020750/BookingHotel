@@ -57,119 +57,101 @@
         </section>
         <!-- Search Section -->
         <div id="searchBar" class="shadow-2xl -mt-10 sm:-mt-14 mx-auto max-w-full w-[1200px] rounded-2xl p-8 relative z-10 bg-white/95 backdrop-blur-md border border-gray-100">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div>
-                    <label for="checkin" class="block text-xl font-medium text-gray-700 mb-2">Ngày nhận phòng</label>
-                    <div class="relative rounded-lg">
-                        <input type="date"
-                               id="checkin"
-                               onkeydown="return false"
-                               onfocus="this.showPicker()"
-                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
-                    </div>
-                </div>
-                <div>
-                    <label for="checkout" class="block text-xl font-medium text-gray-700 mb-2">Ngày trả phòng</label>
-                    <div class="relative rounded-lg">
-                        <input type="date"
-                               id="checkout"
-                               onkeydown="return false"
-                               onfocus="this.showPicker()"
-                               class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
-                    </div>
-                </div>             
-                <style>
-                    input[type="date"]::-webkit-calendar-picker-indicator {
-                        position: absolute;
-                        right: 12px;
-                        z-index: 10;
-                    }
-                </style>
-                <div class="relative z-10">
-                    <label for="guests" class="block text-xl font-medium text-gray-700 mb-2">Số người & phòng</label>
-                    <div class="relative rounded-lg">
-                        <button id="guestsBtn"
-                                class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full px-3 py-4 rounded-lg text-gray-700 bg-white shadow text-left flex items-center justify-between hover:border-gray-400">
-                            <span id="guestsSummary" class="truncate max-w-[85%]">
-                                1 Người lớn | 0 Trẻ em | 1 Phòng
-                            </span>
-                            <i class="fas fa-user-friends text-black pr-1 pl-2 shrink-0"></i>
-                        </button>
-
-                        <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
-                            <div class="mb-4">
-                                <div class="flex justify-between items-center">
-                                    <label class="text-3xl font-normal text-gray-700">Người lớn</label>
-                                    <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                        <button onclick="updateGuests('adults', -1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            -
-                                        </button>
-                                        <input type="number" id="adultsCount"
-                                               class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner"
-                                               value="1" min="1" oninput="updateGuests('adults', 0)">
-                                        <button onclick="updateGuests('adults', 1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="flex justify-between items-center">
-                                    <label class="text-3xl font-normal text-gray-700">Người lớn</label>
-                                    <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                        <button onclick="updateGuests('children', -1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            -
-                                        </button>
-                                        <input type="number" id="childrenCount"
-                                               class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner"
-                                               value="1" min="1" oninput="updateGuests('children', 0)">
-                                        <button onclick="updateGuests('children', 1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="flex justify-between items-center">
-                                    <label class="text-3xl font-normal text-gray-700">Phòng</label>
-                                    <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
-                                        <button onclick="updateGuests('rooms', -1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            -
-                                        </button>
-                                        <input type="number" id="roomsCount"
-                                               class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner"
-                                               value="1" min="1" oninput="updateGuests('rooms', 0)">
-                                        <button onclick="updateGuests('rooms', 1)"
-                                                class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
+            <form id="searchForm" action="@Url.Action("Index", "Find_Room")" method="get">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div>
+                        <label for="checkin" class="block text-xl font-medium text-gray-700 mb-2">Ngày nhận phòng</label>
+                        <div class="relative rounded-lg">
+                            <input type="date"
+                                   id="checkin"
+                                   name="checkin"
+                                   onkeydown="return false"
+                                   onfocus="this.showPicker()"
+                                   class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
                         </div>
                     </div>
+                    <div>
+                        <label for="checkout" class="block text-xl font-medium text-gray-700 mb-2">Ngày trả phòng</label>
+                        <div class="relative rounded-lg">
+                            <input type="date"
+                                   id="checkout"
+                                   name="checkout"
+                                   onkeydown="return false"
+                                   onfocus="this.showPicker()"
+                                   class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full pl-3 pr-10 py-4 rounded-lg text-gray-700 hover:border-gray-400 transition-all duration-200" />
+                        </div>
+                    </div>
+                    <style>
+                        input[type="date"]::-webkit-calendar-picker-indicator {
+                            position: absolute;
+                            right: 12px;
+                            z-index: 10;
+                        }
+                    </style>
+                    <div class="relative z-10">
+                        <label for="guests" class="block text-xl font-medium text-gray-700 mb-2">Số người</label>
+                        <div class="relative rounded-lg">
+                            <button id="guestsBtn"
+                                    type="button"
+                                    class="focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 border border-gray-300 block w-full px-3 py-4 rounded-lg text-gray-700 bg-white shadow text-left flex items-center justify-between hover:border-gray-400">
+                                <span id="guestsSummary" class="truncate max-w-[85%]">
+                                    1 Người lớn | 0 Trẻ em
+                                </span>
+                                <i class="fas fa-user-friends text-black pr-1 pl-2 shrink-0"></i>
+                            </button>
+                            <div id="guestsDropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-20 p-4">
+                                <div class="mb-4">
+                                    <div class="flex justify-between items-center">
+                                        <label class="text-3xl font-normal text-gray-700">Người lớn</label>
+                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                            <button type="button" onclick="updateGuests('adults', -1)"
+                                                    class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
+                                                -
+                                            </button>
+                                            <input type="number" id="adultsCount" name="adults"
+                                                   class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner"
+                                                   value="1" min="1" oninput="updateGuests('adults', 0)">
+                                            <button type="button" onclick="updateGuests('adults', 1)"
+                                                    class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex justify-between items-center">
+                                        <label class="text-3xl font-normal text-gray-700">Trẻ em</label>
+                                        <div class="flex items-center rounded-lg overflow-hidden border border-gray-300 w-fit">
+                                            <button type="button" onclick="updateGuests('children', -1)"
+                                                    class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
+                                                -
+                                            </button>
+                                            <input type="number" id="childrenCount" name="children"
+                                                   class="w-20 h-14 text-center text-2xl bg-white text-gray-700 font-normal border-none focus:ring-0 no-spinner"
+                                                   value="0" min="0" oninput="updateGuests('children', 0)">
+                                            <button type="button" onclick="updateGuests('children', 1)"
+                                                    class="w-14 h-14 text-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="closeGuestsDropdown()" class="w-full bg-cyan-600 text-white rounded-lg py-2 text-2xl font-medium hover:bg-cyan-700">DONE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-end h-full">
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg px-3 pr-10 py-5 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 flex justify-center items-center">
+                            <i class="fas fa-search mr-2"></i> Tìm kiếm
+                        </button>
+                    </div>
                 </div>
-                <div class="flex items-end h-full">
-                    <a asp-controller="Find_Room" asp-action="Index"
-                       class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg px-3 pr-10 py-5 text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-200 flex justify-center items-center">
-                        <i class="fas fa-search mr-2"></i> Tìm kiếm
-                    </a>
-
-                </div>
-
-            </div>
+            </form>
         </div>
 
         <link rel="stylesheet" href="@Url.Content("~/css/PageCSS/SearchSection.css")" />
         <script src="@Url.Content("~/js/PageJS/SearchSection.js")"></script>
-
 
         <!-- Phần "Địa Điểm Nổi Bật" -->
         <section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100" alt="phần hình ảnh">
@@ -180,9 +162,9 @@
                         Khám phá những không gian tuyệt đẹp làm nên tên tuổi của khách sạn
                     </p>
                 </div>
-                <div class="carousel-container mx-auto w-[1200px] relative">
-                    <div class="carousel-wrapper overflow-hidden">
-                        <div id="carousel" class="carousel flex gap-6 transition-transform duration-700 ease-out">
+                <div class="location-carousel-container mx-auto w-[1200px] relative">
+                    <div class="location-carousel-wrapper overflow-hidden">
+                        <div id="location-carousel" class="location-carousel flex gap-6 transition-transform duration-700 ease-out">
                             @if (Model.BannerImages != null && Model.BannerImages.Any())
                             {
                                 var total = Model.BannerImages.Count();
@@ -190,7 +172,7 @@
                                 foreach (var image in Model.BannerImages)
                                 {
                                     <div class="location-card h-96 w-[392px] flex-shrink-0">
-                                        <img src="@image.ImageUrl" alt="@image.Title" class="w-full h-full object-cover">
+                                        <img src="@image.ImageUrl" alt="@image.Title" class="w-full h-full object-cover" loading="lazy">
                                         <div class="card-overlay">
                                             <h3 class="card-title">@image.Title</h3>
                                             <p class="card-subtitle">@image.Description</p>
@@ -210,12 +192,12 @@
                     </div>
 
                     <!-- Nút mũi tên trái -->
-                    <button id="prevBtn" class="carousel-nav-btn prev-btn">
+                    <button id="location-prev-btn" class="carousel-nav-btn prev-btn">
                         <i class="fas fa-chevron-left"></i>
                     </button>
 
                     <!-- Nút mũi tên phải -->
-                    <button id="nextBtn" class="carousel-nav-btn next-btn">
+                    <button id="location-next-btn" class="carousel-nav-btn next-btn">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -224,14 +206,14 @@
 
         <!-- CSS cho carousel -->
         <style>
-            .carousel-wrapper {
+            .location-carousel-wrapper {
                 overflow: hidden;
                 width: 100%;
             }
 
-            .carousel {
+            .location-carousel {
                 display: flex;
-                gap: 12px;
+                gap: 12px; /* Giữ khoảng cách 6px */
                 transition: transform 0.5s ease;
             }
 
@@ -393,9 +375,9 @@
                 color: white;
             }
 
-       
 
-            .carousel-container {
+
+            .location-carousel-container {
                 position: relative;
                 overflow: hidden;
                 width: 1200px;
@@ -406,115 +388,513 @@
 
         <!-- JavaScript để xử lý carousel -->
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const carousel = document.getElementById('carousel');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
+                  document.addEventListener('DOMContentLoaded', () => {
+                const locationCarousel = document.getElementById('location-carousel');
+                const locationPrevBtn = document.getElementById('location-prev-btn');
+                const locationNextBtn = document.getElementById('location-next-btn');
 
-                const items = carousel.querySelectorAll('.location-card');
-                const itemWidth = items[0].offsetWidth + 12; // Card width + gap (24px từ gap-6)
-                const visibleItems = 3; // Cố định hiển thị 3 ảnh
-                let currentIndex = 0;
-                let totalItems = items.length;
-                let maxIndex = totalItems - visibleItems;
+                const locationItems = locationCarousel.querySelectorAll('.location-card');
+                const locationItemWidth = locationItems[0].offsetWidth + 12; // Card width + gap (6px)
+                const locationVisibleItems = 3; // Cố định hiển thị 3 ảnh
+                let locationCurrentIndex = 0;
+                let locationTotalItems = locationItems.length;
+                let locationMaxIndex = locationTotalItems - locationVisibleItems;
 
-                // Đặt chiều rộng cho carousel để chứa tất cả ảnh
-                carousel.style.width = `${totalItems * itemWidth}px`;
+                // Đặt chiều rộng cho carousel
+                locationCarousel.style.width = `${locationTotalItems * locationItemWidth}px`;
 
-                function updateCarousel() {
-                    // Cập nhật transform
-                    carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-
-                    // Cập nhật nút điều hướng
-                    prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-                    prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-
-                    nextBtn.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
-                    nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+                function updateLocationCarousel() {
+                    locationCarousel.style.transform = `translateX(${-locationCurrentIndex * locationItemWidth}px)`;
+                    locationPrevBtn.style.opacity = locationCurrentIndex === 0 ? '0.5' : '1';
+                    locationPrevBtn.style.pointerEvents = locationCurrentIndex === 0 ? 'none' : 'auto';
+                    locationNextBtn.style.opacity = locationCurrentIndex === locationMaxIndex ? '0.5' : '1';
+                    locationNextBtn.style.pointerEvents = locationCurrentIndex === locationMaxIndex ? 'none' : 'auto';
                 }
 
-                function goToSlide(index) {
-                    // Cuộn vòng tròn
+                function goToLocationSlide(index) {
                     if (index < 0) {
-                        currentIndex = totalItems - visibleItems; // Quay lại cuối
-                    } else if (index >= totalItems) {
-                        currentIndex = 0; // Quay lại đầu
+                        locationCurrentIndex = locationTotalItems - locationVisibleItems;
+                    } else if (index >= locationTotalItems) {
+                        locationCurrentIndex = 0;
                     } else {
-                        currentIndex = index;
+                        locationCurrentIndex = index;
                     }
-                    updateCarousel();
+                    updateLocationCarousel();
                 }
 
-                prevBtn.addEventListener('click', () => {
-                    goToSlide(currentIndex - 1);
+                locationPrevBtn.addEventListener('click', () => {
+                    goToLocationSlide(locationCurrentIndex - 1);
                 });
 
-                nextBtn.addEventListener('click', () => {
-                    goToSlide(currentIndex + 1);
+                locationNextBtn.addEventListener('click', () => {
+                    goToLocationSlide(locationCurrentIndex + 1);
                 });
 
                 // Thêm tính năng vuốt (swipe)
                 let touchStartX = 0;
                 let touchEndX = 0;
 
-                carousel.addEventListener('touchstart', (e) => {
+                locationCarousel.addEventListener('touchstart', (e) => {
                     touchStartX = e.changedTouches[0].screenX;
                 });
 
-                carousel.addEventListener('touchend', (e) => {
+                locationCarousel.addEventListener('touchend', (e) => {
                     touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
+                    handleLocationSwipe();
                 });
 
-                function handleSwipe() {
+                function handleLocationSwipe() {
                     const swipeThreshold = 50;
                     if (touchEndX < touchStartX - swipeThreshold) {
-                        // Vuốt trái
-                        goToSlide(currentIndex + 1);
+                        goToLocationSlide(locationCurrentIndex + 1);
                     } else if (touchEndX > touchStartX + swipeThreshold) {
-                        // Vuốt phải
-                        goToSlide(currentIndex - 1);
+                        goToLocationSlide(locationCurrentIndex - 1);
                     }
                 }
 
                 // Khởi tạo
-                updateCarousel();
+                if (locationTotalItems > 0) {
+                    updateLocationCarousel();
+                }
             });
         </script>
+        <section class="section-container py-20">
+            <div class="content-wrapper max-w-[1200px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
-        
-          
-       
-    
+                    <!-- Left Column - Title and Description -->
+                    <div class="lg:col-span-4">
+                        <div class="mb-8">
+                            <span class="category-badge inline-block px-4 py-2 text-gray-600 text-xs font-semibold uppercase tracking-wider rounded-full">
+                                NHÀ HÀNG KHÁCH SẠN
+                            </span>
+                        </div>
+
+                        <h2 class="text-5xl lg:text-6xl font-black mb-8 text-gray-800 leading-tight tracking-tight">
+                            Thành Tựu<br>
+                            <span class="gradient-text">Tiêu Biểu</span>
+                        </h2>
+
+                        <p class="text-gray-600 text-xl leading-relaxed font-medium">
+                            Tự hào với những cột mốc và giải thưởng định hình vị thế của chúng tôi trong ngành khách sạn cao cấp.
+                        </p>
+                    </div>
+
+                    <!-- Middle Column - Hexagon Awards -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="hexagon-group flex items-center">
+                            @if (Model.Achivements != null && Model.Achivements.Any())
+                            {
+                                var index = 0;
+                                @foreach (var achivement in Model.Achivements.Take(3))
+                                {
+                                    <div class="flex flex-col items-center">
+                                        <div class="hexagon mb-4" onclick="toggleDescription('desc-@index')">
+                                            <div class="hexagon-icon">
+                                                <img src="@achivement.ImageLink" alt="@achivement.Name" class="w-4 h-4 object-contain" />
+                                            </div>
+                                        </div>
+                                        @if (achivement.Year > 0)
+                                        {
+                                            <span class="year-label">@achivement.Year</span>
+                                        }
+                                        <div id="desc-@index" class="description-box">
+                                            @Html.Raw(achivement.Description)
+                                        </div>
+                                    </div>
+                                    @if (index < Model.Achivements.Take(3).Count() - 1)
+                                    {
+                                        <div class="connector-line mx-3"></div>
+                                    }
+                                    index++;
+                                }
+                            }
+                            else
+                            {
+                                <div class="flex flex-col items-center">
+                                    <div class="hexagon mb-4">
+                                        <div class="hexagon-icon">
+                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="year-label">Chưa có</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Statistics -->
+                    <div class="lg:col-span-3">
+                        <div class="space-y-12">
+                            <div class="stats-card text-center lg:text-left">
+                                <div class="stats-number">10+</div>
+                                <div class="stats-label">GIẢI THƯỞNG QUỐC TẾ</div>
+                            </div>
+                            <div class="stats-card text-center lg:text-left">
+                                <div class="stats-number">12</div>
+                                <div class="stats-label">NĂM KINH NGHIỆM</div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-number">1000+</div>
+                                <div class="stats-label">KHÁCH HÀNG HÀI LÒNG</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <link rel="stylesheet" href="@Url.Content("~/css/ThanhTuu.css")" />
+
+        <script>
+            function toggleDescription(id) {
+                const descriptions = document.querySelectorAll('.description-box');
+                descriptions.forEach(desc => {
+                    if (desc.id === id) {
+                        desc.classList.toggle('active');
+                    } else {
+                        desc.classList.remove('active');
+                    }
+                });
+            }
+        </script>
+
+
+
 
         <section class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Tùy Chọn Lưu Trú</h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">TÙY CHỌN LƯU TRÚ</h2>
                 <p class="text-gray-600 max-w-5xl mx-auto text-4xl md:text-3xl mt-8">Chọn từ danh sách các phòng và suite được trang bị sang trọng của chúng tôi</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @if (Model.Rooms != null && Model.Rooms.Any())
-                {
-                    @foreach (var room in Model.Rooms)
-                    {
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden" alt="@room.RoomType.TypeName">
-                            <img src="@room.ImageUrl" alt="@room.RoomType.TypeName" class="w-full h-64 object-cover" loading="lazy">
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-2">@room.RoomType.TypeName</h3>
-                                <p class="text-gray-600 mb-4 text-2xl">@room.RoomType.Description</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-blue-600 font-bold text-3xl">Từ @room.Price VNĐ/đêm</span>
-                                    <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" alt="Xem Chi Tiết">Xem Chi Tiết</a>
+            <div class="room-carousel-container mx-auto w-[1200px] relative">
+                <div class="room-carousel-wrapper overflow-hidden">
+                    <div id="room-carousel" class="room-carousel flex gap-8 transition-transform duration-700 ease-out">
+                        @if (Model.Rooms != null && Model.Rooms.Any())
+                        {
+                            @foreach (var room in Model.Rooms)
+                            {
+                                <div class="room-card bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[392px]" alt="@room.RoomType.TypeName">
+                                    <div class="relative w-full h-full">
+                                        <img src="@room.ImageUrl" alt="@room.RoomType.TypeName" class="w-full h-full object-cover" loading="lazy">
+                                        <div class="absolute top-4 left-4 text-white px-2 py-1">
+                                            <h3 class="text-2xl font-bold">@room.RoomType.TypeName</h3>
+                                        </div>
+                                        <div class="room-overlay"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <p>Không có phòng để hiển thị.</p>
-                }
+                            }
+                        }
+                        else
+                        {
+                            <p class="w-full text-center">Không có phòng để hiển thị.</p>
+                        }
+                    </div>
+                </div>
+                <!-- Nút mũi tên trái -->
+                <button id="room-prev-btn" class="carousel-nav-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <!-- Nút mũi tên phải -->
+                <button id="room-next-btn" class="carousel-nav-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+
+            <!-- CSS cho carousel -->
+            <style>
+                .room-carousel-container {
+                    position: relative;
+                    overflow: hidden;
+                    width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px 0;
+                }
+
+                .room-carousel-wrapper {
+                    overflow: hidden;
+                    width: 100%;
+                    border-radius: 20px;
+                }
+
+                .room-carousel {
+                    display: flex;
+                    gap: 16px;
+                    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .room-card {
+                    position: relative;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                    cursor: pointer;
+                    flex: 0 0 auto;
+                    width: 392px;
+                    height: 300px;
+                    background: linear-gradient(145deg, #ffffff, #f8fafc);
+                    border: 1px solid rgba(255,255,255,0.2);
+                }
+
+                    .room-card::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+                        border-radius: 20px;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
+
+                    .room-card:hover {
+                        box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+                    }
+
+                    .room-card img {
+                        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        filter: brightness(1.1) contrast(1.05);
+                    }
+
+                    .room-card:hover img {
+                        transform: scale(1.1);
+                        filter: brightness(1.2) contrast(1.1) saturate(1.1);
+                    }
+
+                .room-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                    pointer-events: none;
+                }
+
+                .room-card:hover .room-overlay {
+                    opacity: 1;
+                }
+
+                .room-card h3 {
+                    text-shadow: 0 3px 10px rgba(0,0,0,0.7); /* Tăng shadow để dễ đọc */
+                    letter-spacing: 0.5px;
+                }
+
+                .carousel-nav-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.9));
+                    color: #1a56db;
+                    border: 2px solid rgba(26,86,219,0.1);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+                    backdrop-filter: blur(10px);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    font-size: 18px;
+                }
+
+                .prev-btn {
+                    left: -28px;
+                }
+
+                .next-btn {
+                    right: -28px;
+                }
+
+                .carousel-nav-btn:hover {
+                    background: linear-gradient(135deg, #1a56db, #3182ce);
+                    color: white;
+                    transform: translateY(-50%) scale(1.1);
+                    box-shadow: 0 12px 40px rgba(26,86,219,0.4);
+                }
+
+                .carousel-nav-btn:active {
+                    transform: translateY(-50%) scale(0.95);
+                }
+
+                .carousel-nav-btn i {
+                    transition: transform 0.2s ease;
+                }
+
+                .carousel-nav-btn:hover i {
+                    transform: scale(1.2);
+                }
+
+                .section-heading {
+                    font-family: 'Playfair Display', serif;
+                    letter-spacing: 1px;
+                    position: relative;
+                    display: inline-block;
+                }
+
+                    .section-heading::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 80px;
+                        height: 3px;
+                        background: linear-gradient(90deg, #1a56db, #3182ce);
+                        border-radius: 3px;
+                    }
+
+                .room-card {
+                    animation: slideInUp 0.6s ease forwards;
+                }
+
+                    .room-card:nth-child(1) {
+                        animation-delay: 0.1s;
+                    }
+
+                    .room-card:nth-child(2) {
+                        animation-delay: 0.2s;
+                    }
+
+                    .room-card:nth-child(3) {
+                        animation-delay: 0.3s;
+                    }
+
+                    .room-card:nth-child(4) {
+                        animation-delay: 0.4s;
+                    }
+
+                    .room-card:nth-child(5) {
+                        animation-delay: 0.5s;
+                    }
+            </style>
+
+            <!-- JavaScript để xử lý carousel -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const roomCarousel = document.getElementById('room-carousel');
+                    const roomPrevBtn = document.getElementById('room-prev-btn');
+                    const roomNextBtn = document.getElementById('room-next-btn');
+
+                    const roomItems = roomCarousel.querySelectorAll('.room-card');
+                    const roomItemWidth = 392 + 16; // Card width (392px) + gap (16px)
+                    const roomVisibleItems = 3; // Hiển thị 3 phòng cùng lúc
+                    let roomCurrentIndex = 0;
+                    let roomTotalItems = roomItems.length;
+                    let roomMaxIndex = roomTotalItems - roomVisibleItems;
+
+                    // Đặt chiều rộng cho carousel
+                    roomCarousel.style.width = `${roomTotalItems * roomItemWidth}px`;
+
+                    function updateRoomCarousel() {
+                        roomCarousel.style.transform = `translateX(${-roomCurrentIndex * roomItemWidth}px)`;
+
+                        // Smooth button state transitions
+                        roomPrevBtn.style.opacity = roomCurrentIndex === 0 ? '0.4' : '1';
+                        roomPrevBtn.style.pointerEvents = roomCurrentIndex === 0 ? 'none' : 'auto';
+                        roomPrevBtn.style.transform = roomCurrentIndex === 0 ? 'translateY(-50%) scale(0.9)' : 'translateY(-50%) scale(1)';
+
+                        roomNextBtn.style.opacity = roomCurrentIndex >= roomMaxIndex ? '0.4' : '1';
+                        roomNextBtn.style.pointerEvents = roomCurrentIndex >= roomMaxIndex ? 'none' : 'auto';
+                        roomNextBtn.style.transform = roomCurrentIndex >= roomMaxIndex ? 'translateY(-50%) scale(0.9)' : 'translateY(-50%) scale(1)';
+                    }
+
+                    function goToRoomSlide(index) {
+                        if (index < 0) {
+                            roomCurrentIndex = Math.max(0, roomTotalItems - roomVisibleItems);
+                        } else if (index > roomMaxIndex) {
+                            roomCurrentIndex = 0;
+                        } else {
+                            roomCurrentIndex = index;
+                        }
+                        updateRoomCarousel();
+                    }
+
+                    roomPrevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        goToRoomSlide(roomCurrentIndex - 1);
+                    });
+
+                    roomNextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        goToRoomSlide(roomCurrentIndex + 1);
+                    });
+
+                    // Enhanced touch/swipe functionality
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    let isDragging = false;
+
+                    roomCarousel.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                        isDragging = true;
+                    });
+
+                    roomCarousel.addEventListener('touchmove', (e) => {
+                        if (isDragging) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    roomCarousel.addEventListener('touchend', (e) => {
+                        if (!isDragging) return;
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleRoomSwipe();
+                        isDragging = false;
+                    });
+
+                    function handleRoomSwipe() {
+                        const swipeThreshold = 75;
+                        const swipeDistance = Math.abs(touchEndX - touchStartX);
+
+                        if (swipeDistance > swipeThreshold) {
+                            if (touchEndX < touchStartX) {
+                                goToRoomSlide(roomCurrentIndex + 1);
+                            } else {
+                                goToRoomSlide(roomCurrentIndex - 1);
+                            }
+                        }
+                    }
+
+                    // Auto-play functionality (optional)
+                    let autoPlayInterval;
+                    const startAutoPlay = () => {
+                        autoPlayInterval = setInterval(() => {
+                            if (roomCurrentIndex >= roomMaxIndex) {
+                                goToRoomSlide(0);
+                            } else {
+                                goToRoomSlide(roomCurrentIndex + 1);
+                            }
+                        }, 4000);
+                    };
+
+                    const stopAutoPlay = () => {
+                        clearInterval(autoPlayInterval);
+                    };
+
+                    // Pause auto-play on hover
+                    roomCarousel.addEventListener('mouseenter', stopAutoPlay);
+                    roomCarousel.addEventListener('mouseleave', startAutoPlay);
+
+                    // Khởi tạo
+                    if (roomTotalItems > 0) {
+                        updateRoomCarousel();
+                        startAutoPlay(); // Start auto-play
+                    }
+                });
+            </script>
         </section>
 
         <section class="bg-gray-100 py-16" alt="Tiện Ích Phòng">
@@ -584,7 +964,7 @@
 
                 .carousel {
                     display: flex;
-                    gap: 26px;
+                    gap: 27px;
                     transition: transform 0.5s ease;
                 }
 
@@ -647,7 +1027,7 @@
                     const nextBtn = document.getElementById('amenitiesNextBtn');
 
                     const items = carousel.querySelectorAll('.amenity-card');
-                    const itemWidth = 280 + 32; // Card width (280px) + gap (32px)
+                    const itemWidth = 280 + 27; // Card width (280px) + gap (32px)
                     const visibleItems = 4; // Hiển thị 4 cards cùng lúc
                     let currentIndex = 0;
                     let totalItems = items.length;
@@ -783,156 +1163,6 @@
                 </div>
             </div>
         </section>
-        <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-200 relative overflow-hidden achievements-container" alt="Thành Tựu Tiêu Biểu">
-            <!-- Nền với hiệu ứng grid -->
-            <div class="absolute inset-0 grid-background"></div>
-
-            <!-- Hiệu ứng ánh sáng -->
-            <div class="light-effect absolute -top-64 -right-64 w-96 h-96 bg-cyan-500 opacity-20 rounded-full blur-3xl"></div>
-            <div class="light-effect absolute -bottom-64 -left-64 w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
-
-            <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10">
-                <!-- Tiêu đề và thống kê -->
-                <div class="mb-20">
-                    <div class="flex flex-col md:flex-row items-center justify-between">
-                        <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-                            <span class="inline-block px-4 py-1 bg-gray-100 text-gray-800 text-xs font-semibold uppercase tracking-widest rounded-full mb-4 border border-gray-300">NHÀ HÀNG KHÁCH SẠN</span>
-                            <h2 class="text-4xl md:text-5xl font-bold modern-heading mb-6 text-gray-800">
-                                Thành Tựu <br />
-                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Tiêu Biểu</span>
-                            </h2>
-                            <p class="text-gray-600 max-w-3xl text-lg md:pr-12">
-                                Tự hào với những cột mốc và giải thưởng định hình vị thế của chúng tôi trong ngành khách sạn cao cấp.
-                            </p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-center md:justify-end">
-                            <div class="stats-container grid grid-cols-2 gap-6">
-                                <div class="stat-item flex flex-col items-start p-6 backdrop-blur-sm bg-white/5 rounded-xl border border-gray-200 hover:border-cyan-500/30 transition-all duration-500">
-                                    <span class="text-4xl md:text-5xl font-bold text-cyan-500 mb-2 counter">25</span>
-                                    <span class="text-gray-600 text-sm uppercase tracking-wider">Giải thưởng quốc tế</span>
-                                </div>
-                                <div class="stat-item flex flex-col items-start p-6 backdrop-blur-sm bg-white/5 rounded-xl border border-gray-200 hover:border-cyan-500/30 transition-all duration-500">
-                                    <span class="text-4xl md:text-5xl font-bold text-cyan-500 mb-2 counter">12</span>
-                                    <span class="text-gray-600 text-sm uppercase tracking-wider">Năm kinh nghiệm</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Thành tựu -->
-                <div class="awards-container">
-                    @if (Model.Achivements != null && Model.Achivements.Any())
-                    {
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            @{
-                                var index = 1; // Ensure index starts as an int
-                            }
-                            @foreach (var achivement in Model.Achivements)
-                            {
-                                <div class="award-card group" alt="@achivement.Name">
-                                    <div class="award-inner p-8 md:p-10 backdrop-blur-lg bg-white/10 border border-gray-200 rounded-lg overflow-hidden h-full flex flex-col transition-all duration-500 hover:bg-white/20 hover:border-cyan-500/30 hover:shadow-glow relative">
-                                        <!-- Hiệu ứng phát sáng khi hover -->
-                                        <div class="absolute -inset-px bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 blur rounded-lg transition-opacity duration-300 -z-10"></div>
-
-                                        <!-- Đánh dấu thứ tự và năm trên cùng một hàng -->
-                                        <div class="flex justify-between items-start pt-4 pr-4">
-                                            <div class="achievement-number text-4xl font-bold text-gray-300/70 group-hover:text-gray-300/90 transition-colors duration-300">
-                                                @index.ToString("D2")
-                                            </div>
-                                            @if (achivement.Year > 0)
-                                            {
-                                                <span class="inline-flex px-3 py-1 text-xs tracking-wide font-medium bg-cyan-600/10 text-cyan-600 rounded-full ml-auto mr-2">
-                                                    @achivement.Year
-                                                </span>
-                                            }
-                                        </div>
-
-                                        <!-- Tiêu đề -->
-                                        <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">@achivement.Name</h3>
-
-                                        <!-- Logo (centered) -->
-                                        <div class="flex justify-center mb-6">
-                                            <div class="award-icon-container w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-0.5">
-                                                <div class="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-white">
-                                                    <img src="@achivement.ImageLink" alt="@achivement.Name" class="w-8 h-8 object-contain" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Mô tả -->
-                                        <p class="text-gray-600 mb-6 flex-grow">@Html.Raw(achivement.Description)</p>
-                                    </div>
-                                </div>
-                                index++; // Increment index as int
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="empty-state p-10 backdrop-blur-lg bg-white/10 border border-gray-200 rounded-lg text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-white/10 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-medium mb-2 text-gray-800">Chưa có thành tựu</h3>
-                            <p class="text-gray-600">Hiện tại chưa có thành tựu nào được thêm vào hệ thống.</p>
-                        </div>
-                    }
-                </div>
-
-                <!-- Nút xem tất cả -->
-                <div class="mt-12 text-center">
-                    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 border border-cyan-500/30 hover:border-cyan-500 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 backdrop-blur-sm rounded-full text-cyan-500 font-medium transition-all duration-300 view-all-btn group">
-                        <span>Xem tất cả thành tựu</span>
-                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- CSS cho section -->
-            <link rel="stylesheet" href="@Url.Content("~/css/ThanhTuu.css")" />
-            <style>
-                .hexagon-frame {
-                    width: 100px;
-                    height: 115px;
-                    position: relative;
-                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                    background: linear-gradient(135deg, #06b6d4, #3b82f6);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
-                }
-
-                .hexagon-image {
-                    width: 90px;
-                    height: 104px;
-                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                    object-fit: cover;
-                    transition: transform 0.3s ease;
-                }
-
-                .award-card:hover .hexagon-image {
-                    transform: scale(1.1);
-                }
-
-                .hexagon-glow {
-                    position: absolute;
-                    inset: 0;
-                    background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
-
-                .award-card:hover .hexagon-glow {
-                    opacity: 1;
-                }
-            </style>
-        </section>
     </main>
 
     <style>
@@ -958,9 +1188,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             let adults = 1;
             let children = 0;
-            let rooms = 1;
 
-            // Smooth scroll for anchor links
+            // Smooth scroll for anchor link
             document.querySelectorAll('a[href*="#"]').forEach(anchor => {
                 anchor.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -984,152 +1213,219 @@
                     guestsDropdown.classList.add('hidden');
                 }
             });
-        });
 
-        let adults = 1, children = 0, rooms = 1;
+            // Xử lý ngày check-in và check-out
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
 
-        function updateGuests(type, change) {
-            const adultsInput = document.getElementById('adultsCount');
-            const childrenInput = document.getElementById('childrenCount');
-            const roomsInput = document.getElementById('roomsCount');
-            const summary = document.getElementById('guestsSummary');
+            // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
+            function getToday() {
+                const today = new Date();
+                return today.toISOString().split('T')[0];
+            }
 
-            // If change is 0, get value from input (manual entry)
-            if (change === 0) {
-                if (type === 'adults') {
-                    adults = parseInt(adultsInput.value) || 1;
-                } else if (type === 'children') {
-                    children = parseInt(childrenInput.value) || 0;
-                } else if (type === 'rooms') {
-                    rooms = parseInt(roomsInput.value) || 1;
-                }
-            } else {
-                // Handle button clicks (+/-)
-                if (type === 'adults') {
-                    adults = Math.max(1, adults + change);
-                    adultsInput.value = adults;
-                } else if (type === 'children') {
-                    children = Math.max(0, children + change);
-                    childrenInput.value = children;
-                } else if (type === 'rooms') {
-                    rooms = Math.max(1, rooms + change);
-                    roomsInput.value = rooms;
+            // Hàm cập nhật ngày tối thiểu cho check-out
+            function updateCheckoutMinDate() {
+                const checkinDate = checkinInput.value;
+                if (checkinDate) {
+                    const minCheckoutDate = new Date(checkinDate);
+                    minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+                    checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+
+                    // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
+                    if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
+                        checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
+                        alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
+                    }
+                } else {
+                    checkoutInput.min = getToday();
                 }
             }
 
-            // Enforce constraints
-            adults = Math.max(1, adults); // Minimum 1 adult
-            children = Math.max(0, children); // Minimum 0 children
-            rooms = Math.max(1, rooms); // Minimum 1 room
+            // Kiểm tra khi chọn ngày check-out
+            checkoutInput.addEventListener('change', () => {
+                if (!checkinInput.value) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    checkoutInput.value = '';
+                } else {
+                    updateCheckoutMinDate();
+                }
+            });
 
-            // Update input values
-            adultsInput.value = adults;
-            childrenInput.value = children;
-            roomsInput.value = rooms;
+            // Đặt ngày tối thiểu cho check-in là hôm nay
+            checkinInput.min = getToday();
 
-            // Update summary
-            summary.textContent = `${adults} Người lớn | ${children} Trẻ em | ${rooms} Phòng`;
-        }
+            // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
+            checkinInput.addEventListener('change', updateCheckoutMinDate);
 
-        function closeGuestsDropdown() {
-            document.getElementById('guestsDropdown').classList.add('hidden');
-        }
+            // Khởi tạo ngày tối thiểu cho check-out khi tải trang
+            updateCheckoutMinDate();
+
+            // Update guests
+            window.updateGuests = function(type, change) {
+                const adultsInput = document.getElementById('adultsCount');
+                const childrenInput = document.getElementById('childrenCount');
+                const summary = document.getElementById('guestsSummary');
+
+                if (change === 0) {
+                    adults = parseInt(adultsInput.value) || 1;
+                    children = parseInt(childrenInput.value) || 0;
+                } else {
+                    if (type === 'adults') {
+                        adults = Math.max(1, adults + change);
+                        adultsInput.value = adults;
+                    } else if (type === 'children') {
+                        children = Math.max(0, children + change);
+                        childrenInput.value = children;
+                    }
+                }
+
+                adults = Math.max(1, adults);
+                children = Math.max(0, children);
+
+                adultsInput.value = adults;
+                childrenInput.value = children;
+
+                summary.textContent = `${adults} Người lớn | ${children} Trẻ em`;
+            };
+
+            window.closeGuestsDropdown = function() {
+                document.getElementById('guestsDropdown').classList.add('hidden');
+            };
+
+            // Xử lý khi nhấn nút "Tìm kiếm"
+            const form = document.getElementById('searchForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const checkin = checkinInput.value;
+                const checkout = checkoutInput.value;
+
+                // Kiểm tra các trường đã nhập
+                if (!checkin) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    return;
+                }
+                if (!checkout) {
+                    alert('Vui lòng chọn ngày trả phòng.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
+                const today = new Date(getToday());
+                const checkinDate = new Date(checkin);
+                if (checkinDate < today) {
+                    alert('Ngày nhận phòng không được là ngày trong quá khứ.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-out phải sau ngày check-in
+                const checkoutDate = new Date(checkout);
+                if (checkinDate >= checkoutDate) {
+                    alert('Ngày trả phòng phải sau ngày nhận phòng.');
+                    return;
+                }
+
+                // Gửi form
+                form.submit();
+            });
+        });
     </script>
     <!-- Thêm vào phần <script> -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Các mã JavaScript khác (guests, smooth scroll, v.v.) giữ nguyên...
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Các mã JavaScript khác (guests, smooth scroll, v.v.) giữ nguyên...
 
-        // Xử lý ngày check-in và check-out
-        const checkinInput = document.getElementById('checkin');
-        const checkoutInput = document.getElementById('checkout');
+            // Xử lý ngày check-in và check-out
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
 
-        // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
-        function getToday() {
-            const today = new Date();
-            return today.toISOString().split('T')[0];
-        }
+            // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
+            function getToday() {
+                const today = new Date();
+                return today.toISOString().split('T')[0];
+            }
 
-        // Hàm cập nhật ngày tối thiểu cho check-out
-        function updateCheckoutMinDate() {
-            const checkinDate = checkinInput.value;
-            if (checkinDate) {
-                const minCheckoutDate = new Date(checkinDate);
-                minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
-                checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+            // Hàm cập nhật ngày tối thiểu cho check-out
+            function updateCheckoutMinDate() {
+                const checkinDate = checkinInput.value;
+                if (checkinDate) {
+                    const minCheckoutDate = new Date(checkinDate);
+                    minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+                    checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
 
-                // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
-                if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
-                    checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
-                    alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
+                    // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
+                    if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
+                        checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
+                        alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
+                    }
+                } else {
+                    checkoutInput.min = getToday();
                 }
-            } else {
-                checkoutInput.min = getToday();
             }
-        }
 
-        // Kiểm tra khi chọn ngày check-out
-        checkoutInput.addEventListener('change', () => {
-            if (!checkinInput.value) {
-                alert('Vui lòng chọn ngày nhận phòng.');
-                checkoutInput.value = '';
-            } else {
-                updateCheckoutMinDate();
-            }
+            // Kiểm tra khi chọn ngày check-out
+            checkoutInput.addEventListener('change', () => {
+                if (!checkinInput.value) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    checkoutInput.value = '';
+                } else {
+                    updateCheckoutMinDate();
+                }
+            });
+
+            // Đặt ngày tối thiểu cho check-in là hôm nay
+            checkinInput.min = getToday();
+
+            // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
+            checkinInput.addEventListener('change', updateCheckoutMinDate);
+
+            // Khởi tạo ngày tối thiểu cho check-out khi tải trang
+            updateCheckoutMinDate();
+
+            // Cập nhật hàm submit form để kiểm tra ngày
+            const form = document.getElementById('searchForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const checkin = checkinInput.value;
+                const checkout = checkoutInput.value;
+                const roomsInput = document.getElementById('roomsCount').value;
+
+                // Kiểm tra các trường đã nhập
+                if (!checkin) {
+                    alert('Vui lòng chọn ngày nhận phòng.');
+                    return;
+                }
+                if (!checkout) {
+                    alert('Vui lòng chọn ngày trả phòng.');
+                    return;
+                }
+                if (!roomsInput || parseInt(roomsInput) < 1) {
+                    alert('Vui lòng chọn số phòng hợp lệ.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
+                const today = new Date(getToday());
+                const checkinDate = new Date(checkin);
+                if (checkinDate < today) {
+                    alert('Ngày nhận phòng không được là ngày trong quá khứ.');
+                    return;
+                }
+
+                // Kiểm tra ngày check-out phải sau ngày check-in
+                const checkoutDate = new Date(checkout);
+                if (checkinDate >= checkoutDate) {
+                    alert('Ngày trả phòng phải sau ngày nhận phòng.');
+                    return;
+                }
+
+                updateDaysDisplay();
+                form.submit();
+            });
+
+            // Các hàm khác như updateGuests, applySort, applyFilters giữ nguyên...
         });
-
-        // Đặt ngày tối thiểu cho check-in là hôm nay
-        checkinInput.min = getToday();
-
-        // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
-        checkinInput.addEventListener('change', updateCheckoutMinDate);
-
-        // Khởi tạo ngày tối thiểu cho check-out khi tải trang
-        updateCheckoutMinDate();
-
-        // Cập nhật hàm submit form để kiểm tra ngày
-        const form = document.getElementById('searchForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const checkin = checkinInput.value;
-            const checkout = checkoutInput.value;
-            const roomsInput = document.getElementById('roomsCount').value;
-
-            // Kiểm tra các trường đã nhập
-            if (!checkin) {
-                alert('Vui lòng chọn ngày nhận phòng.');
-                return;
-            }
-            if (!checkout) {
-                alert('Vui lòng chọn ngày trả phòng.');
-                return;
-            }
-            if (!roomsInput || parseInt(roomsInput) < 1) {
-                alert('Vui lòng chọn số phòng hợp lệ.');
-                return;
-            }
-
-            // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
-            const today = new Date(getToday());
-            const checkinDate = new Date(checkin);
-            if (checkinDate < today) {
-                alert('Ngày nhận phòng không được là ngày trong quá khứ.');
-                return;
-            }
-
-            // Kiểm tra ngày check-out phải sau ngày check-in
-            const checkoutDate = new Date(checkout);
-            if (checkinDate >= checkoutDate) {
-                alert('Ngày trả phòng phải sau ngày nhận phòng.');
-                return;
-            }
-
-            updateDaysDisplay();
-            form.submit();
-        });
-
-        // Các hàm khác như updateGuests, applySort, applyFilters giữ nguyên...
-    });
-</script>
+    </script>
 </body>

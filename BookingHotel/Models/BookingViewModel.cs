@@ -26,7 +26,12 @@ namespace BookingHotel.Models
         public int RoomTypeID { get; set; }
         public List<RoomInfo> RoomInfo { get; set; }
         public List<Service> AllServices { get; set; }
-        public List<int> SelectedServiceIds { get; set; }
+        public List<ServiceInfo> SelectedServices { get; set; } = new List<ServiceInfo>();
+
+        // Tổng tiền phòng, dịch vụ, tổng thanh toán
+        public decimal RoomTotal { get; set; }
+        public decimal TotalRoomPrice { get; set; }
+        public decimal TotalServicePrice { get; set; }
 
     }
 
@@ -36,7 +41,13 @@ namespace BookingHotel.Models
         public string RoomNumber { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public string Photo { get; set; }
-        public List<string> Services { get; set; } = new();
+    }
+
+    public class ServiceInfo
+    {
+        public int ServiceId { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }  // Nếu bạn cần số lượng dịch vụ
     }
 }

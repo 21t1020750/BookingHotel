@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BookingHotel.Areas.Admin.Models.Dish>
+
+@{
+    ViewData["Title"] = "Danh Sách Món Ăn Đặc Trưng";
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Món Ăn Đặc Trưng</h1>
+                </div>
+                <div class="col-sm-6">
+                    <a asp-action="Create" class="btn btn-primary float-right">Thêm Mới</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Tên</th>
+                                        <th>Mô Tả</th>
+                                        <th>Nhãn</th>
+                                        <th>Hình Ảnh</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Label</td>
+                                            <td><img src="/images/Cuisine/@item.ImageURL" alt="@item.Name" style="width: 100px;" /></td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.DishID" class="btn btn-warning btn-sm">Sửa</a>
+                                                <a asp-action="Delete" asp-route-id="@item.DishID" class="btn btn-danger btn-sm">Xóa</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

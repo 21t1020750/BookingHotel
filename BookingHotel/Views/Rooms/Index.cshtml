@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<BookingHotel.Areas.Admin.Models.RoomType>
+@using BookingHotel.Areas.Admin.Models
+@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewData["Title"] = "Trang Phòng Nghỉ";
 }
@@ -6,7 +8,6 @@
 
 <body class="font-inter bg-gray-50">
     <section class="relative h-screen parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MzY5OTh8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjByb29tfGVufDB8fHx8MTc0NTkxMTc2NXww&ixlib=rb-4.0.3&q=85');">
-
         <div class="relative h-full flex items-center justify-center">
             <div class="text-center text-white px-4 floating-animation">
                 <div class="glass-effect rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
@@ -22,16 +23,14 @@
                     </button>
                 </div>
             </div>
-        </div>
-
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
         </div>
     </section>
+
     <section class="py-20 section-bg" alt="danh mục phòng">
         <div class="container-fixed">
             <div class="text-center mb-20 fade-in" id="header">
@@ -49,156 +48,61 @@
                     Mỗi không gian được thiết kế chu đáo để mang lại sự thoải mái vượt trội với sự kết hợp hoàn hảo giữa sang trọng hiện đại và thẩm mỹ truyền thống Việt Nam.
                 </p>
             </div>
-            <!-- Collage Section for Phòng Deluxe -->
-            <section class="section-bg section-deluxe">
-                <div class="collage-section">
-                    <div class="collage-image main-image">
-                        <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Deluxe main">
-                    </div>
-                    <div class="info-card">
-                        <h3 class="room-title">Phòng Deluxe</h3>
-                        <p class="room-description">
-                            Phòng 45 m² với tầm nhìn ra thành phố, không gian thoải mái, giường lớn và tiện nghi hiện đại.
-                        </p>
-                        <div class="price-text">Từ $250/đêm</div>
-                        <button class="btn-custom">Xem thêm chi tiết</button>
-                    </div>
-                    <div class="sub-images-container">
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Deluxe bathroom">
-                        </div>
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Deluxe view">
-                        </div>
-                        <div class="collage-image sub-image last-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Deluxe amenities">
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Collage Section for Suite Cao Cấp -->
-            <section class="section-bg section-suite-cao-cap">
-                <div class="collage-section">
-                    <div class="collage-image main-image">
-                        <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Cao Cấp main">
-                    </div>
-                    <div class="info-card">
-                        <h3 class="room-title">Suite Cao Cấp</h3>
-                        <p class="room-description">
-                            Suite 70 m² với khu vực sinh hoạt riêng, tầm nhìn toàn cảnh và tiện nghi cao cấp.
-                        </p>
-                        <div class="price-text">Từ $450/đêm</div>
-                        <button class="btn-custom">Xem thêm chi tiết</button>
-                    </div>
-                    <div class="sub-images-container">
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Cao Cấp bathroom">
-                        </div>
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Cao Cấp view">
-                        </div>
-                        <div class="collage-image sub-image last-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Cao Cấp amenities">
-                        </div>
-                    </div>
-                </div>
-            </section>
+            @foreach (var roomType in Model)
+            {
+                var room = roomType.Rooms.FirstOrDefault();
+                if (room == null) { continue; }
 
-            <!-- Collage Section for Suite Hoàng Gia -->
-            <section class="section-bg section-suite-hoang-gia">
-                <div class="collage-section">
-                    <div class="collage-image main-image">
-                        <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Hoàng Gia main">
-                    </div>
-                    <div class="info-card">
-                        <h3 class="room-title">Suite Hoàng Gia</h3>
-                        <p class="room-description">
-                            120 m² sang trọng với ban công riêng, dịch vụ quản gia 24/7 và tiện nghi hoàng gia.
-                        </p>
-                        <div class="price-text">Từ $850/đêm</div>
-                        <button class="btn-custom">Xem thêm chi tiết</button>
-                    </div>
-                    <div class="sub-images-container">
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Hoàng Gia bathroom">
-                        </div>
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Hoàng Gia view">
-                        </div>
-                        <div class="collage-image sub-image last-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Hoàng Gia amenities">
-                        </div>
-                    </div>
-                </div>
-            </section>
+                var mainImage = string.IsNullOrEmpty(room.Photo)
+                ? "https://via.placeholder.com/1587x800?text=No+Image"
+                : $"/images/room/{Uri.EscapeDataString(room.Photo)}";
 
-            <!-- Collage Section for Phòng Nhìn Sông -->
-            <section class="section-bg section-phong-nhin-song">
-                <div class="collage-section">
-                    <div class="collage-image main-image">
-                        <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Nhìn Sông main">
-                    </div>
-                    <div class="info-card">
-                        <h3 class="room-title">Phòng Nhìn Sông</h3>
-                        <p class="room-description">
-                            Phòng 50 m² với tầm nhìn sông Hương, phòng tắm đá cẩm thạch sang trọng.
-                        </p>
-                        <div class="price-text">Từ $350/đêm</div>
-                        <button class="btn-custom">Xem thêm chi tiết</button>
-                    </div>
-                    <div class="sub-images-container">
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Nhìn Sông bathroom">
-                        </div>
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Nhìn Sông view">
-                        </div>
-                        <div class="collage-image sub-image last-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Phòng Nhìn Sông amenities">
-                        </div>
-                    </div>
-                </div>
-            </section>
+                // Tính giá thấp nhất và cao nhất trong cùng RoomType
+                var minPrice = roomType.Rooms.Any() ? roomType.Rooms.Min(r => r.Price) : 0;
+                var maxPrice = roomType.Rooms.Any() ? roomType.Rooms.Max(r => r.Price) : 0;
 
-            <!-- Collage Section for Suite Doanh Nhân -->
-            <section class="section-bg section-suite-doanh-nhan">
-                <div class="collage-section">
-                    <div class="collage-image main-image">
-                        <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Doanh Nhân main">
-                    </div>
-                    <div class="info-card">
-                        <h3 class="room-title">Suite Doanh Nhân</h3>
-                        <p class="room-description">
-                            Suite 90 m² với khu vực làm việc, minibar miễn phí và phòng chờ doanh nhân.
-                        </p>
-                        <div class="price-text">Từ $600/đêm</div>
-                        <button class="btn-custom">Xem thêm chi tiết</button>
-                    </div>
-                    <div class="sub-images-container">
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Doanh Nhân bathroom">
+                <section class="section-bg section-@roomType.RoomTypeID">
+                    <div class="collage-section">
+                        <div class="collage-image main-image">
+                            <img src="@Url.Content(mainImage)" alt="@roomType.TypeName main" />
                         </div>
-                        <div class="collage-image sub-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Doanh Nhân view">
+                        <div class="info-card">
+                            <h3 class="room-title">@roomType.TypeName</h3>
+                            <p class="room-description">
+                                @roomType.Description
+                            </p>
+                            <div class="price-text">
+                                @(roomType.Rooms.Any() ? $"Từ ${minPrice} - ${maxPrice}/đêm" : "Giá không khả dụng")
+                            </div>
+                            <button class="btn-custom">Xem thêm chi tiết</button>
                         </div>
-                        <div class="collage-image sub-image last-image">
-                            <img src="https://images.unsplash.com/photo-1647249893022-9287c83b8cc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Suite Doanh Nhân amenities">
+                        <div class="sub-images-container">
+                            @{
+                                var subRooms = roomType.Rooms.Skip(1).Take(3).ToList();
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    var subImage = subRooms.Count > i && !string.IsNullOrEmpty(subRooms[i].Photo)
+                                    ? $"/images/room/{Uri.EscapeDataString(subRooms[i].Photo)}"
+                                    : "https://via.placeholder.com/400x300?text=No+Image";
+                                    var altText = $"{roomType.TypeName} room-{(subRooms.Count > i ? subRooms[i].RoomNumber : "noimage")}";
+                                    <div class="collage-image sub-image @(i == 2 ? "last-image" : "")">
+                                        <img src="@Url.Content(subImage)" alt="@altText" />
+                                    </div>
+                                }
+                            }
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            }
         </div>
-
     </section>
 
     <script>
-        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -206,8 +110,6 @@
                 }
             });
         }, observerOptions);
-
-        // Observe all elements with fade-in class
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });

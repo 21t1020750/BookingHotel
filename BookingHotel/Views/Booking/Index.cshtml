@@ -34,6 +34,18 @@
                 @Html.HiddenFor(m => m.Adults)
                 @Html.HiddenFor(m => m.Children)
                 @Html.HiddenFor(m => m.Rooms)
+                <!-- Hidden inputs for RoomIds -->
+                @for (int i = 0; i < Model.RoomIds?.Count; i++)
+                {
+                    <input type="hidden" name="RoomIds[@i]" value="@Model.RoomIds[i]" />
+                }
+                <!-- Hidden inputs for existing SelectedServices -->
+                @for (int i = 0; i < Model.SelectedServices?.Count; i++)
+                {
+                    <input type="hidden" name="SelectedServices[@i].ServiceId" value="@Model.SelectedServices[i].ServiceId" />
+                    <input type="hidden" name="SelectedServices[@i].Quantity" value="@Model.SelectedServices[i].Quantity" class="quantity-input-@Model.SelectedServices[i].ServiceId" />
+                }
+
                 <div class="flex flex-col lg:flex-row gap-8">
                     <!-- Booking Summary -->
                     <div class="lg:w-2/3">
@@ -90,70 +102,77 @@
                             <!-- Room Details -->
                             <div class="border-b border-gray-200 pb-6 mb-6">
                                 <h3 class="text-lg font-bold text-gray-800 mb-4">Phòng đã chọn</h3>
-
-                                @foreach (var room in Model.RoomInfo)
+                                @if (Model.RoomInfo != null && Model.RoomInfo.Any())
                                 {
-                                    <div class="bg-gray-50 rounded-lg p-4 mb-4">
-                                        <div class="flex justify-between items-start mb-3">
-                                            <div>
-                                                <h4 class="font-bold text-gray-800">Phòng @room.RoomNumber</h4>
-                                                <p class="text-sm text-gray-600">@Html.Raw(room.Description)</p>
+                                    @foreach (var room in Model.RoomInfo)
+                                    {
+                                        <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                                            <div class="flex justify-between items-start mb-3">
+                                                <div>
+                                                    <h4 class="font-bold text-gray-800">Phòng @(room.RoomNumber ?? "Không xác định")</h4>
+                                                    <p class="text-sm text-gray-600">@Html.Raw(room.Description ?? "Không có mô tả")</p>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p class="text-gray-800 font-bold">@(room.Price.ToString("N0")) VND</p>
+                                                    <p class="text-xs text-gray-500">@((Model.Checkout - Model.Checkin).Days) đêm, @(Model.Adults + Model.Children) người</p>
+                                                </div>
                                             </div>
-                                            <div class="text-right">
-                                                <p class="text-gray-800 font-bold">@room.Price.ToString("N0") VND</p>
-                                                <p class="text-xs text-gray-500">@((Model.Checkout - Model.Checkin).Days) đêm, @(Model.Adults + Model.Children) người</p>
+                                            <div class="pl-4 border-l-2 border-blue-200">
+                                                <div class="flex justify-between items-center py-2">
+                                                    <span class="text-sm text-gray-700">
+                                                        Giá phòng (1 phòng × @((Model.Checkout - Model.Checkin).Days) đêm)
+                                                    </span>
+                                                    <span class="text-sm text-gray-700">
+                                                        @((room.Price * (Model.Checkout - Model.Checkin).Days).ToString("N0")) VND
+                                                    </span>
+                                                </div>
+                                                <div class="flex justify-between items-center py-2">
+                                                    <span class="text-sm text-gray-700">Thuế & phí (12%)</span>
+                                                    <span class="text-sm text-gray-700">
+                                                        @((room.Price * (Model.Checkout - Model.Checkin).Days * 0.12m).ToString("N0")) VND
+                                                    </span>
+                                                </div>
+                                                <div class="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
+                                                    <span class="font-medium text-gray-800">Tổng cộng</span>
+                                                    <span class="font-bold text-lg text-blue-600">
+                                                        @((room.Price * (Model.Checkout - Model.Checkin).Days * 1.12m).ToString("N0")) VND
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="pl-4 border-l-2 border-blue-200">
-                                            <div class="flex justify-between items-center py-2">
-                                                <span class="text-sm text-gray-700">
-                                                    Giá phòng (1 phòng × @((Model.Checkout - Model.Checkin).Days) đêm)
-                                                </span>
-                                                <span class="text-sm text-gray-700">
-                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days).ToString("N0")) VND
-                                                </span>
-                                            </div>
-                                            <div class="flex justify-between items-center py-2">
-                                                <span class="text-sm text-gray-700">Thuế & phí (12%)</span>
-                                                <span class="text-sm text-gray-700">
-                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days * 0.12m).ToString("N0")) VND
-                                                </span>
-                                            </div>
-                                            <div class="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
-                                                <span class="font-medium text-gray-800">Tổng cộng</span>
-                                                <span class="font-bold text-lg text-blue-600">
-                                                    @((room.Price * (Model.Checkout - Model.Checkin).Days * 1.12m).ToString("N0")) VND
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p class="text-red-600">Không có thông tin phòng được chọn.</p>
                                 }
                             </div>
 
-                            <h3>Dịch vụ bổ sung</h3>
-                            @foreach (var service in Model.AllServices)
-                            {
-                                <div>
-                                    <label>
-                                        <input type="checkbox" class="service-checkbox" data-price="@service.Price" name="SelectedServiceIds" value="@service.ServiceID" />
-                                        @service.ServiceName (@service.Price.ToString("N0") đ)
-                                    </label>
-                                </div>
-                            }
+                            <!-- Dịch vụ bổ sung -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-4">Dịch vụ bổ sung</h3>
+                                @if (Model.AllServices != null)
+                                {
+                                    @foreach (var service in Model.AllServices)
+                                    {
+                                        <div class="flex items-center mb-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" class="service-checkbox" data-price="@service.Price" data-service-id="@service.ServiceID" name="selectedServiceIds" value="@service.ServiceID" />
+                                                <span class="ml-2">@service.ServiceName (@service.Price.ToString("N0") VND)</span>
+                                            </label>
+                                            <input type="number" class="service-quantity ml-4 w-16 p-1 border rounded" data-service-id="@service.ServiceID" min="0" value="0" disabled />
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p class="text-red-500">Danh sách dịch vụ chưa được tải.</p>
+                                }
+                            </div>
 
                             <hr />
-                            <p><strong>Tổng tiền tạm tính: </strong><span id="totalPrice">@Model.Price.ToString("N0")</span> đ</p>
-
-                            <!-- Hidden để post lên -->
-                            <input type="hidden" id="hiddenTotalPrice" name="TotalPrice" value="@Model.Price" />
-
-
-                            <!-- Special Requests -->
-                            <div class="mb-6">
-                                <h3 class="text-lg font-bold text-gray-800 mb-4">Yêu cầu đặc biệt</h3>
-                                <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3" placeholder="Vui lòng nhập yêu cầu đặc biệt nếu có..."></textarea>
-                            </div>
+                            <p><strong>Tổng tiền tạm tính: </strong><span id="totalPrice">@((Model.TotalRoomPrice + Model.TotalServicePrice).ToString("N0"))</span> đ</p>
+                            <input type="hidden" id="hiddenTotalPrice" name="TotalPrice" value="@((Model.TotalRoomPrice + Model.TotalServicePrice))" />
                         </div>
 
                         <!-- Payment Method -->
@@ -203,15 +222,19 @@
                             <div class="mb-6">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-gray-700">@Model.Rooms phòng × @((Model.Checkout - Model.Checkin).Days) đêm</span>
-                                    <span class="text-gray-700">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days).ToString("N0")) VND</span>
+                                    <span class="text-gray-700">@Model.TotalRoomPrice.ToString("N0") VND</span>
+                                </div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700">Dịch vụ bổ sung</span>
+                                    <span class="text-gray-700" id="servicePrice">@Model.TotalServicePrice.ToString("N0") VND</span>
                                 </div>
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-gray-700">Thuế & phí (12%)</span>
-                                    <span class="text-gray-700">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days * 0.12m).ToString("N0")) VND</span>
+                                    <span class="text-gray-700">@((Model.TotalRoomPrice * 0.12m).ToString("N0")) VND</span>
                                 </div>
                                 <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-200">
                                     <span class="font-bold text-gray-800">Tổng cộng</span>
-                                    <span class="font-bold text-xl text-blue-600">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days * (1 + 0.12m)).ToString("N0")) VND</span>
+                                    <span class="font-bold text-xl text-blue-600" id="summaryTotalPrice">@((Model.TotalRoomPrice + Model.TotalServicePrice + (Model.TotalRoomPrice * 0.12m)).ToString("N0")) VND</span>
                                 </div>
                             </div>
                             <div class="mb-6">
@@ -233,36 +256,66 @@
 
             <!-- Success Section -->
             <div id="success-section" class="@(Model.IsBookingSuccessful ? "" : "hidden")">
-                <div class="bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
-                    <div class="text-center mb-8">
-                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-check-circle text-4xl text-green-500"></i>
+                <div class="bg-white rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check-circle text-3xl text-green-500"></i>
                         </div>
-                        <h1 class="text-2xl font-bold text-gray-800 mb-2">Đặt phòng thành công!</h1>
-                        <p class="text-gray-600">Cảm ơn bạn đã đặt phòng tại Lavela Hue Hotel.</p>
+                        <h1 class="text-xl font-bold text-gray-800 mb-2">Đặt phòng thành công!</h1>
+                        <p class="text-gray-600 text-sm">Cảm ơn bạn đã đặt phòng tại Lavida Hue Hotel.</p>
                     </div>
 
-                    <div class="border border-gray-200 rounded-lg p-6 mb-8">
-                        <h2 class="text-xl font-bold text-gray-800 mb-4">Thông tin đặt phòng</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="border border-gray-200 rounded-lg p-4 mb-6">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Thông tin đặt phòng</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-700 mb-2">Mã đặt phòng</h3>
+                                <h3 class="text-sm font-semibold text-gray-700 mb-1">Mã đặt phòng</h3>
                                 <p class="text-blue-600 font-medium">@(Model.BookingCode ?? "Chưa tạo mã")</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-700 mb-2">Ngày đặt</h3>
-                                <p>@DateTime.Now.ToString("dd/MM/yyyy HH:mm")</p>
+                                <h3 class="text-sm font-semibold text-gray-700 mb-1">Ngày đặt</h3>
+                                <p class="text-sm">@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</p>
                             </div>
                         </div>
-                        <div class="space-y-4">
+                        <div class="space-y-2 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Khách sạn:</span>
-                                <span class="font-medium">Lavela Hue Hotel</span>
+                                <span class="font-medium">HT Hue Hotel</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-gray-600">Loại phòng:</span>
-                                <span class="font-medium">@Model.RoomNumber</span>
+                                <span class="text-gray-600">Phòng đã chọn:</span>
+                                <div class="font-medium text-right">
+                                    @if (Model.RoomInfo != null && Model.RoomInfo.Any())
+                                    {
+                                        @foreach (var room in Model.RoomInfo)
+                                        {
+                                            <p>Phòng @(room.RoomNumber ?? "Không xác định")</p>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>Không có thông tin phòng</p>
+                                    }
+                                </div>
                             </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Dịch vụ đã chọn:</span>
+                                <div class="font-medium text-right">
+                                    @if (Model.SelectedServices != null && Model.SelectedServices.Any())
+                                    {
+                                        @foreach (var service in Model.SelectedServices)
+                                        {
+                                            <p>@(service.Name ?? "Không xác định") (Số lượng: @service.Quantity)</p>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>Không có dịch vụ nào</p>
+                                    }
+                                </div>
+                            </div>
+
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Ngày nhận phòng:</span>
                                 <span class="font-medium">@Model.Checkin.ToString("dd/MM/yyyy")</span>
@@ -275,19 +328,21 @@
                                 <span class="text-gray-600">Số đêm:</span>
                                 <span class="font-medium">@((Model.Checkout - Model.Checkin).Days) đêm</span>
                             </div>
-                            <div class="flex justify-between pt-4 border-t border-gray-200">
-                                <span class="text-gray-600 font-semibold">Tổng thanh toán:</span>
-                                <span class="text-blue-600 font-bold text-lg">@((Model.Price * Model.Rooms * (Model.Checkout - Model.Checkin).Days * (1 + 0.12m)).ToString("N0")) VND</span>
+                            <div class="flex justify-between pt-2 border-t border-gray-200">
+                                <span class="text-gray-600 font-semibold">Tổng thanh toán sau khi xác nhận:</span>
+                                <span class="text-green-600 font-bold" id="finalTotalAfterConfirm">
+                                    @((Model.TotalRoomPrice + Model.TotalServicePrice + ((Model.TotalRoomPrice + Model.TotalServicePrice) * 0.12m)).ToString("N0")) VND
+                                </span>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-blue-50 rounded-lg p-4 mb-6">
                         <div class="flex items-start">
-                            <i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
+                            <i class="fas fa-info-circle text-blue-500 mt-1 mr-2"></i>
                             <div>
-                                <h3 class="font-semibold text-blue-800 mb-1">Thông tin quan trọng</h3>
-                                <p class="text-gray-700 text-sm">
+                                <h3 class="font-semibold text-blue-800 mb-1 text-sm">Thông tin quan trọng</h3>
+                                <p class="text-gray-700 text-xs">
                                     Chúng tôi đã gửi thông tin đặt phòng đến email của bạn. Vui lòng kiểm tra hộp thư đến hoặc thư mục spam.
                                     Khi đến nhận phòng, vui lòng xuất trình CMND/CCCD và mã đặt phòng này.
                                 </p>
@@ -295,12 +350,12 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
-                            <i class="fas fa-download mr-2"></i> Tải hoá đơn PDF
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium text-sm">
+                            <i class="fas fa-download mr-1"></i> Tải hoá đơn PDF
                         </button>
-                        <button class="px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium" onclick="window.location.href='/'">
-                            <i class="fas fa-home mr-2"></i> Về trang chủ
+                        <button class="px-4 py-2 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium text-sm" onclick="window.location.href='/'">
+                            <i class="fas fa-home mr-1"></i> Về trang chủ
                         </button>
                     </div>
                 </div>
@@ -309,14 +364,120 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('DOMContentLoaded', function() {
             const confirmButton = document.getElementById('confirmBooking');
             const paymentMethods = document.getElementsByName('payment');
             const termsCheckbox = document.querySelector('input[type="checkbox"][required]');
+            const checkboxes = document.querySelectorAll('.service-checkbox');
+            const quantityInputs = document.querySelectorAll('.service-quantity');
+            const totalPriceSpan = document.getElementById('totalPrice');
+            const hiddenTotal = document.getElementById('hiddenTotalPrice');
+            const summaryTotalPrice = document.getElementById('summaryTotalPrice');
+            const servicePriceSpan = document.getElementById('servicePrice');
 
+            let baseRoomPrice = @(Model.TotalRoomPrice);
+            let baseServicePrice = @(Model.TotalServicePrice);
+            let currentTotal = baseRoomPrice + baseServicePrice;
+            let serviceIndex = @(Model.SelectedServices?.Count ?? 0);
+
+            // Hàm cập nhật tổng giá
+            function updateTotalPrice() {
+                baseServicePrice = 0;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        const serviceId = parseInt(cb.getAttribute('data-service-id'));
+                        const price = parseFloat(cb.getAttribute('data-price')) || 0;
+                        const quantityInput = document.querySelector(`.service-quantity[data-service-id="${serviceId}"]`);
+                        const quantity = parseInt(quantityInput.value) || 0;
+                        baseServicePrice += price * quantity;
+                    }
+                });
+
+                currentTotal = baseRoomPrice + baseServicePrice;
+                const tax = currentTotal * 0.12; // Tính VAT 12% trên tổng tiền (phòng + dịch vụ)
+                const totalWithTax = currentTotal + tax;
+
+                if (totalPriceSpan) totalPriceSpan.textContent = totalWithTax.toLocaleString('vi-VN') + ' VND';
+                if (servicePriceSpan) servicePriceSpan.textContent = baseServicePrice.toLocaleString('vi-VN') + ' VND';
+                if (summaryTotalPrice) summaryTotalPrice.textContent = totalWithTax.toLocaleString('vi-VN') + ' VND';
+                if (hiddenTotal) hiddenTotal.value = totalWithTax;
+
+                const finalTotalEl = document.getElementById('finalTotalAfterConfirm');
+                if (finalTotalEl && '@Model.IsBookingSuccessful'.toLowerCase() === 'true') {
+                    finalTotalEl.textContent = totalWithTax.toLocaleString('vi-VN') + ' VND';
+                }
+            }
+
+            // Xử lý chọn dịch vụ
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const serviceId = parseInt(this.getAttribute('data-service-id'));
+                    const quantityInput = document.querySelector(`.service-quantity[data-service-id="${serviceId}"]`);
+                    const existingQuantityInput = document.querySelector(`.quantity-input-${serviceId}`);
+
+                    if (this.checked) {
+                        quantityInput.disabled = false;
+                        quantityInput.value = quantityInput.value || 1;
+
+                        // Xóa hidden input cũ nếu tồn tại
+                        if (existingQuantityInput) {
+                            existingQuantityInput.remove();
+                        }
+
+                        // Thêm hidden input cho serviceId
+                        const serviceInputId = document.createElement('input');
+                        serviceInputId.type = 'hidden';
+                        serviceInputId.name = `selectedServiceIds[${serviceIndex}]`;
+                        serviceInputId.value = serviceId;
+                        serviceInputId.classList.add(`service-input-${serviceId}`);
+                        document.getElementById('confirmation-section').appendChild(serviceInputId);
+
+                        // Thêm hidden input cho ServiceId trong SelectedServices
+                        const serviceIdInputHidden = document.createElement('input');
+                        serviceIdInputHidden.type = 'hidden';
+                        serviceIdInputHidden.name = `SelectedServices[${serviceIndex}].ServiceId`;
+                        serviceIdInputHidden.value = serviceId;
+                        serviceIdInputHidden.classList.add(`service-id-input-${serviceId}`);
+                        document.getElementById('confirmation-section').appendChild(serviceIdInputHidden);
+
+                        // Thêm hidden input cho Quantity trong SelectedServices
+                        const quantityInputHidden = document.createElement('input');
+                        quantityInputHidden.type = 'hidden';
+                        quantityInputHidden.name = `SelectedServices[${serviceIndex}].Quantity`;
+                        quantityInputHidden.value = quantityInput.value;
+                        quantityInputHidden.classList.add(`quantity-input-${serviceId}`);
+                        document.getElementById('confirmation-section').appendChild(quantityInputHidden);
+
+                        serviceIndex++;
+                    } else {
+                        quantityInput.disabled = true;
+                        quantityInput.value = 0;
+
+                        // Xóa tất cả hidden inputs liên quan
+                        const inputs = document.querySelectorAll(`.service-input-${serviceId}, .service-id-input-${serviceId}, .quantity-input-${serviceId}`);
+                        inputs.forEach(input => input.remove());
+                        serviceIndex = Math.max(0, serviceIndex - 1);
+                    }
+
+                    updateTotalPrice();
+                });
+            });
+
+            // Xử lý thay đổi số lượng
+            quantityInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const serviceId = parseInt(this.getAttribute('data-service-id'));
+                    const quantityInputHidden = document.querySelector(`.quantity-input-${serviceId}`);
+                    if (quantityInputHidden) {
+                        quantityInputHidden.value = Math.max(0, parseInt(this.value) || 0); // Không cho phép số lượng âm
+                    }
+                    updateTotalPrice();
+                });
+            });
+
+            // Xử lý nút xác nhận
             if (confirmButton) {
                 confirmButton.addEventListener('click', function(e) {
-                    // Kiểm tra phương thức thanh toán
                     let paymentSelected = false;
                     for (const method of paymentMethods) {
                         if (method.checked) {
@@ -331,46 +492,64 @@
                         return;
                     }
 
-                    // Kiểm tra đồng ý điều khoản
                     if (!termsCheckbox.checked) {
                         e.preventDefault();
                         alert('Vui lòng đồng ý với Điều khoản & Điều kiện và Chính sách hủy phòng.');
                         return;
                     }
 
-                    // Form sẽ được gửi, server sẽ xử lý và trả về View với trạng thái cập nhật
-                });
-            }
+                    // Kiểm tra xem có dịch vụ nào được chọn với số lượng > 0
+                    let hasValidService = false;
+                    checkboxes.forEach(cb => {
+                        if (cb.checked) {
+                            const serviceId = parseInt(cb.getAttribute('data-service-id'));
+                            const quantityInput = document.querySelector(`.service-quantity[data-service-id="${serviceId}"]`);
+                            if (parseInt(quantityInput.value) > 0) {
+                                hasValidService = true;
+                            }
+                        }
+                    });
 
-            // Cuộn lên đầu trang nếu ở success section
-            if (@Model.IsBookingSuccessful.ToString().ToLower() === 'true') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
-
-            document.addEventListener("DOMContentLoaded", function () {
-            const checkboxes = document.querySelectorAll('.service-checkbox');
-            const totalPriceSpan = document.getElementById('totalPrice');
-            const hiddenTotal = document.getElementById('hiddenTotalPrice');
-
-            let basePrice = parseFloat(hiddenTotal.value); // Giá phòng đã tính sẵn
-            let currentTotal = basePrice;
-
-            checkboxes.forEach(cb => {
-                cb.addEventListener('change', function () {
-                    const price = parseFloat(this.getAttribute('data-price'));
-
-                    if (this.checked) {
-                        currentTotal += price;
-                    } else {
-                        currentTotal -= price;
+                    if (!hasValidService) {
+                        e.preventDefault();
+                        alert('Vui lòng chọn ít nhất một dịch vụ với số lượng lớn hơn 0.');
+                        return;
                     }
-
-                    totalPriceSpan.textContent = currentTotal.toLocaleString('vi-VN');
-                    hiddenTotal.value = currentTotal;
                 });
-            });
-        });
+            }
 
+            // Khôi phục trạng thái dịch vụ đã chọn
+        @if (Model.SelectedServices != null && Model.SelectedServices.Any())
+        {
+            foreach (var service in Model.SelectedServices)
+            {
+                <text>
+                                        const cb = document.querySelector(`.service-checkbox[data-service-id="${@service.ServiceId}"]`);
+                                        const qtyInput = document.querySelector(`.service-quantity[data-service-id="${@service.ServiceId}"]`);
+                                        if (cb && qtyInput) {
+                                            cb.checked = true;
+                                            qtyInput.disabled = false;
+                                            qtyInput.value = @service.Quantity;
+                                            updateTotalPrice();
+                                        }
+                </text>
+            }
+        }
+
+            // Đảm bảo success-section hiển thị
+            if ('@Model.IsBookingSuccessful'.toLowerCase() === 'true') {
+                const successSection = document.getElementById('success-section');
+                const confirmationSection = document.getElementById('confirmation-section');
+
+                if (successSection && confirmationSection) {
+                    successSection.classList.remove('hidden');
+                    confirmationSection.classList.add('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    updateTotalPrice();
+                } else {
+                    console.error('Không tìm thấy success-section hoặc confirmation-section');
+                }
+            }
+        });
     </script>
 </body>

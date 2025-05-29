@@ -68,8 +68,8 @@
                 </ul>
             </li>
 
-            <!-- Quản Lý Nội Dung (New Section) -->
-            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentServices" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" ? "active" : "")">
+            <!-- Quản Lý Nội Dung -->
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" ? "active" : "")">
                 <a href="#">
                     <i class="fa-solid fa-file-alt" style="color: #FF6200 !important;"></i> <span>Quản Lý Nội Dung</span>
                     <span class="pull-right-container">
@@ -104,6 +104,27 @@
                                 <a href="/Admin/ContentMembershipBenefits">Lợi Ích Hội Viên</a>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Quản Lý Ẩm Thực (New Section) -->
+            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" ? "active" : "")">
+                <a href="#">
+                    <i class="fa-solid fa-utensils" style="color: #FF6200 !important;"></i> <span>Ẩm Thực</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="background-color:#003087">
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/DiningRestaurants">Nhà Hàng & Quán Bar</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/DiningDishes">Món Ăn Đặc Trưng</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <a href="/Admin/DiningHeroImages">Hình Ảnh Hero</a>
                     </li>
                 </ul>
             </li>

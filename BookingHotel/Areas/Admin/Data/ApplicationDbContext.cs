@@ -1,5 +1,5 @@
 ﻿using BookingHotel.Areas.Admin.Models;
-using BookingHotel.Models; // Add this to access content models
+using BookingHotel.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingHotel.Areas.Admin.Data
@@ -34,6 +34,13 @@ namespace BookingHotel.Areas.Admin.Data
         public DbSet<Content_Offer> Content_Offers { get; set; }
         public DbSet<Content_MembershipBenefit> Content_MembershipBenefits { get; set; }
 
+        // Add DbSet properties for dining-related entities
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<RestaurantTag> Restaurant_Tags { get; set; }
+        public DbSet<Dish> Dishes { get; set; }
+        public DbSet<HeroImage> HeroImages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -59,7 +66,7 @@ namespace BookingHotel.Areas.Admin.Data
                 .HasOne(r => r.Employee)
                 .WithMany()
                 .HasForeignKey(r => r.EmployeeID)
-                .IsRequired(false); ;
+                .IsRequired(false);
 
             modelBuilder.Entity<BookingDetail>()
                 .HasOne(r => r.Room)
@@ -98,12 +105,13 @@ namespace BookingHotel.Areas.Admin.Data
                 .WithMany()
                 .HasForeignKey(r => r.CustomerID)
                 .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<RoomImage>()
                  .HasOne(r => r.Room)
                  .WithMany(r => r.RoomImages)
                  .HasForeignKey(r => r.RoomID);
 
-            //Room Service
+            // Room Service
             modelBuilder.Entity<RoomService>()
                 .HasKey(rs => new { rs.RoomID, rs.ServiceID });
 
@@ -117,12 +125,29 @@ namespace BookingHotel.Areas.Admin.Data
                 .WithMany(s => s.RoomServices)
                 .HasForeignKey(rs => rs.ServiceID);
 
-            modelBuilder.Entity<Content_Room>()
+            modelBuilder.Entity<Room>()
                 .HasOne(r => r.RoomType)
-                .WithMany()
-                .HasForeignKey(r => r.RoomTypeID);
+                .WithMany(rt => rt.Rooms)
+                .HasForeignKey(r => r.RoomTypeID)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // No additional relationships needed for content entities (they are independent)
+            // Relationships for dining-related entities
+            modelBuilder.Entity<RestaurantTag>()
+                .HasKey(rt => new { rt.RestaurantID, rt.TagID });
+
+            modelBuilder.Entity<RestaurantTag>()
+                .HasOne(rt => rt.Restaurant)
+                .WithMany()
+                .HasForeignKey(rt => rt.RestaurantID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RestaurantTag>()
+                .HasOne(rt => rt.Tag)
+                .WithMany()
+                .HasForeignKey(rt => rt.TagID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // No additional relationships needed for other content entities
         }
     }
 }

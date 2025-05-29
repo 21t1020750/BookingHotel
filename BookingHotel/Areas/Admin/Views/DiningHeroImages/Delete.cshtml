@@ -1,0 +1,49 @@
+﻿@model BookingHotel.Areas.Admin.Models.HeroImage
+
+@{
+    ViewData["Title"] = "Xóa Hình Ảnh Hero";
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Xác Nhận Xóa</h1>
+                </div>
+                <div class="col-sm-6">
+                    <a asp-action="Index" class="btn btn-secondary float-right">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-danger">
+                        <div class="card-header">
+                            <h3 class="card-title">Bạn có chắc chắn muốn xóa?</h3>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-4">Tiêu Đề</dt>
+                                <dd class="col-sm-8">@Model.SectionTitle</dd>
+                                <dt class="col-sm-4">Mô Tả</dt>
+                                <dd class="col-sm-8">@Model.Description</dd>
+                                <dt class="col-sm-4">Hình Ảnh</dt>
+                                <dd class="col-sm-8"><img src="/images/Cuisine/@Model.ImageURL" alt="@Model.SectionTitle" style="width: 100px;" /></dd>
+                            </dl>
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="HeroImageID" />
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

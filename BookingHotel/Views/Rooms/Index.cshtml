@@ -3,6 +3,7 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewData["Title"] = "Trang Phòng Nghỉ";
+
 }
 <link rel="stylesheet" href="@Url.Content("~/css/Rooms.css")" />
 
@@ -18,9 +19,10 @@
                         Khám phá bộ sưu tập các phòng và suite được thiết kế tỉ mỉ,
                         nơi sang trọng gặp gỡ sự thoải mái hoàn hảo
                     </p>
-                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    <a asp-controller="Find_Room" asp-action="Index"
+                       class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg inline-block text-center">
                         Khám Phá Ngay
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">

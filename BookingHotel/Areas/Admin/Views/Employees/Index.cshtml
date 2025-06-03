@@ -146,9 +146,27 @@
                                     <a class="btn btn-box-tool" href="~/Admin/Employees/Edit/@employee.EmployeeID">
                                         <i class="fa fa-edit text-primary"></i>
                                     </a>
+
                                     <a class="btn btn-box-tool" href="~/Admin/Employees/Delete/@employee.EmployeeID" onclick="return confirmDelete()">
                                         <i class="fa fa-trash text-danger"></i>
                                     </a>
+
+                                    @if (employee.IsBlock)
+                                    {
+                                        <a href="~/Admin/Employees/Block?id=@employee.EmployeeID"
+                                           class="btn btn-box-tool"
+                                           onclick="return confirm('Bạn có chắc muốn mở khóa tài khoản này không?');">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Admin/Employees/Block?id=@employee.EmployeeID"
+                                           class="btn btn-box-tool"
+                                           onclick="return confirm('Bạn có chắc muốn khóa tài khoản này không?');">
+                                            <i class="fa-solid fa-lock-open"></i>
+                                        </a>
+                                    }
                                 </div>
                             </div>
                             <div class="box-body">

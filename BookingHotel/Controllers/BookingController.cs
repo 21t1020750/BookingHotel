@@ -2,11 +2,11 @@
 using BookingHotel.Areas.Admin.Models;
 using BookingHotel.Models;
 using BookingHotel.Services;
-using BookingHotel.Services.DataService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Security.Claims;
 
@@ -57,30 +57,59 @@ namespace BookingHotel.Controllers
                 return NotFound();
             }
 
-            var allServices = await _db.Services.ToListAsync();
+            // Lấy ưu đãi hợp lệ
+            var today = DateTime.Today;
+            var checkinDate = DateTime.Parse(checkin);
+            var offers = await _db.Offers
+                .Include(o => o.Category)
+                .Where(o => o.IsActive && o.ValidUntil >= today && o.Category.CategoryCode == "stay")
+                .ToListAsync();
 
-            var viewModel = new BookingViewModel
+            // Áp dụng ưu đãi
+            var roomInfoList = new List<RoomInfo>();
+            foreach (var room in selectedRooms)
             {
-                RoomInfo = selectedRooms.Select(room => new RoomInfo
+                var applicableOffer = offers
+                    .Where(o => o.ValidUntil >= checkinDate)
+                    .OrderByDescending(o => o.DiscountPercentage)
+                    .FirstOrDefault();
+
+                decimal discountedPrice = applicableOffer != null
+                    ? room.Price * (1 - (applicableOffer.DiscountPercentage / 100m))
+                    : room.Price;
+
+                roomInfoList.Add(new RoomInfo
                 {
                     RoomId = room.RoomID,
                     RoomNumber = room.RoomNumber,
                     Description = room.Description,
                     Price = room.Price,
-                }).ToList(),
+                    DiscountedPrice = discountedPrice,
+                    AppliedOfferId = applicableOffer?.OfferId,
+                    AppliedOfferName = applicableOffer?.Title,
+                    DiscountPercentage = applicableOffer?.DiscountPercentage ?? 0
+                });
+            }
+
+            var allServices = await _db.Services.ToListAsync();
+            int numberOfNights = Math.Max((DateTime.Parse(checkout) - checkinDate).Days, 1);
+
+            var viewModel = new BookingViewModel
+            {
+                RoomInfo = roomInfoList,
                 RoomIds = selectedRooms.Select(r => r.RoomID).ToList(),
-                Checkin = DateTime.Parse(checkin),
+                Checkin = checkinDate,
                 Checkout = DateTime.Parse(checkout),
                 Adults = adults,
                 Children = children,
                 Rooms = selectedRooms.Count,
+                NumberOfRooms = selectedRooms.Count,
                 AllServices = allServices,
-                TotalRoomPrice = selectedRooms.Sum(r => r.Price) * (DateTime.Parse(checkout) - DateTime.Parse(checkin)).Days
+                TotalRoomPrice = roomInfoList.Sum(r => r.DiscountedPrice) * numberOfNights
             };
 
             return View(viewModel);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Confirm(BookingViewModel model, List<string> selectedServiceIds)
@@ -102,17 +131,40 @@ namespace BookingHotel.Controllers
                 .ThenInclude(rs => rs.Service)
                 .ToListAsync();
 
-            model.RoomInfo = selectedRooms.Select(room => new RoomInfo
+            // Lấy ưu đãi hợp lệ
+            var offers = await _db.Offers
+                .Include(o => o.Category)
+                .Where(o => o.IsActive && o.ValidUntil >= model.Checkin && o.Category.CategoryCode == "stay")
+                .ToListAsync();
+
+            // Áp dụng ưu đãi
+            model.RoomInfo = selectedRooms.Select(room =>
             {
-                RoomId = room.RoomID,
-                RoomNumber = room.RoomNumber ?? "Không xác định",
-                Description = room.Description ?? "Không có mô tả",
-                Price = room.Price,
+                var applicableOffer = offers
+                    .Where(o => o.ValidUntil >= model.Checkin)
+                    .OrderByDescending(o => o.DiscountPercentage)
+                    .FirstOrDefault();
+
+                decimal discountedPrice = applicableOffer != null
+                    ? room.Price * (1 - (applicableOffer.DiscountPercentage / 100m))
+                    : room.Price;
+
+                return new RoomInfo
+                {
+                    RoomId = room.RoomID,
+                    RoomNumber = room.RoomNumber ?? "Không xác định",
+                    Description = room.Description ?? "Không có mô tả",
+                    Price = room.Price,
+                    DiscountedPrice = discountedPrice,
+                    AppliedOfferId = applicableOffer?.OfferId,
+                    AppliedOfferName = applicableOffer?.Title,
+                    DiscountPercentage = applicableOffer?.DiscountPercentage ?? 0
+                };
             }).ToList();
 
-            // Tính số đêm ở và tiền phòng
+            // Tính số đêm và tiền phòng
             int numberOfNights = Math.Max((model.Checkout - model.Checkin).Days, 1);
-            model.TotalRoomPrice = model.RoomInfo.Sum(r => r.Price) * numberOfNights;
+            model.TotalRoomPrice = model.RoomInfo.Sum(r => r.DiscountedPrice) * numberOfNights;
 
             // Load và cập nhật dịch vụ
             if (selectedServiceIds != null && selectedServiceIds.Any())
@@ -125,13 +177,12 @@ namespace BookingHotel.Controllers
                     .FromSqlRaw(serviceSql, serviceParams)
                     .ToListAsync();
 
-                // Kết hợp dịch vụ với số lượng từ model.SelectedServices
                 var updatedSelectedServices = new List<ServiceInfo>();
                 foreach (var service in services)
                 {
                     var selectedService = model.SelectedServices?.FirstOrDefault(s => s.ServiceId == service.ServiceID);
-                    int quantity = selectedService?.Quantity ?? 1; // Mặc định là 1 nếu không có số lượng
-                    if (quantity > 0) // Chỉ thêm dịch vụ nếu số lượng > 0
+                    int quantity = selectedService?.Quantity ?? 1;
+                    if (quantity > 0)
                     {
                         updatedSelectedServices.Add(new ServiceInfo
                         {
@@ -146,15 +197,15 @@ namespace BookingHotel.Controllers
                 model.TotalServicePrice = model.SelectedServices.Sum(s => s.Price * s.Quantity);
             }
 
-            // Tổng tiền = tiền phòng + tiền dịch vụ
-            decimal totalPrice = model.TotalRoomPrice + model.TotalServicePrice; // Không bao gồm VAT
-            decimal vat = totalPrice * 0.12m; // VAT 12%
+            // Tính tổng giá
+            decimal totalPrice = model.TotalRoomPrice + model.TotalServicePrice;
+            decimal vat = totalPrice * 0.12m;
             decimal totalPriceWithVat = totalPrice + vat;
 
             if (!ModelState.IsValid)
             {
                 _logger.LogWarning("ModelState không hợp lệ: {Errors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                model.AllServices = await _db.Services.ToListAsync(); // Đảm bảo AllSoapServices được load lại
+                model.AllServices = await _db.Services.ToListAsync();
                 return View("Index", model);
             }
 
@@ -180,7 +231,7 @@ namespace BookingHotel.Controllers
                 CheckOutDate = model.Checkout,
                 CreatedAt = DateTime.Now,
                 NumberOfRooms = model.Rooms,
-                TotalPrice = totalPrice,
+                TotalPrice = totalPriceWithVat,
                 BookingStatusID = 1,
                 EmployeeID = null
             };
@@ -193,19 +244,21 @@ namespace BookingHotel.Controllers
             model.BookingCode = bookingCode;
 
             // Lưu chi tiết phòng
-            foreach (var roomId in model.RoomIds)
+            foreach (var roomInfo in model.RoomInfo)
             {
                 _db.BookingDetails.Add(new BookingDetail
                 {
                     BookingID = booking.BookingID,
-                    RoomID = roomId
+                    RoomID = roomInfo.RoomId,
+                    DiscountedPrice = roomInfo.DiscountedPrice,
+                    OfferId = roomInfo.AppliedOfferId
                 });
             }
 
             // Lưu dịch vụ
             foreach (var service in model.SelectedServices)
             {
-                if (service.Quantity > 0) // Chỉ lưu dịch vụ có số lượng > 0
+                if (service.Quantity > 0)
                 {
                     _db.BookingServices.Add(new BookingService
                     {
@@ -225,9 +278,10 @@ namespace BookingHotel.Controllers
                 var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "EmailTemplates", "BookingConfirmation.cshtml");
                 var emailBody = await System.IO.File.ReadAllTextAsync(templatePath);
                 var selectedRoomsText = string.Join("<br>", model.RoomInfo.Select(r =>
-                    $"Phòng {r.RoomNumber} - {r.Price:N0} VND/đêm"));
+                    $"Phòng {r.RoomNumber} - Giá gốc: {r.Price:N0} VND/đêm" +
+                    (r.AppliedOfferId.HasValue ? $"<br>Ưu đãi: {r.AppliedOfferName} ({r.DiscountPercentage}% giảm)<br>Giá sau giảm: {r.DiscountedPrice:N0} VND/đêm" : "")));
 
-                var selectedServicesText = model.SelectedServices != null && model.SelectedServices.Any()
+                var selectedServicesText = model.SelectedServices.Any()
                     ? string.Join("<br>", model.SelectedServices.Select(s =>
                         $"{s.Name ?? "Dịch vụ không xác định"} - {s.Quantity} x {s.Price:N0} VND"))
                     : "Không có dịch vụ nào";
@@ -255,12 +309,10 @@ namespace BookingHotel.Controllers
             model.IsBookingSuccessful = true;
             model.BookingID = booking.BookingID;
 
-            _logger.LogInformation("IsBookingSuccessful set to true, BookingID: {BookingID}, RoomInfo count: {RoomCount}, SelectedServices: {ServiceCount}",
+            _logger.LogInformation("Đặt phòng thành công, BookingID: {BookingID}, Số phòng: {RoomCount}, Dịch vụ: {ServiceCount}",
                 model.BookingID, model.RoomInfo?.Count ?? 0, model.SelectedServices?.Count ?? 0);
 
             return View("Index", model);
         }
-
-
     }
 }

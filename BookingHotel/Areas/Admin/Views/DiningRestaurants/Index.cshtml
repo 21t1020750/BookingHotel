@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookingHotel.Areas.Admin.Models.Restaurant>
+﻿@model IEnumerable<BookingHotel.Areas.Admin.Models.RestaurantViewModel>
 
 @{
     ViewData["Title"] = "Danh Sách Nhà Hàng & Quán Bar";
@@ -12,7 +12,8 @@
                     <h1 class="m-0">Nhà Hàng & Quán Bar</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a asp-action="Create" class="btn btn-primary float-right">Thêm Mới</a>
+                    <a asp-action="Create" class="btn btn-primary float-right">Thêm Nhà Hàng</a>
+                    <a asp-controller="Tags" asp-action="Index" class="btn btn-info float-right mr-2">Quản Lý Tags</a>
                 </div>
             </div>
         </div>
@@ -30,6 +31,7 @@
                                         <th>Tên</th>
                                         <th>Mô Tả</th>
                                         <th>Thời Gian Hoạt Động</th>
+                                        <th>Tags</th>
                                         <th>Hình Ảnh</th>
                                         <th>Thao Tác</th>
                                     </tr>
@@ -38,13 +40,14 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.Name</td>
-                                            <td>@item.Description</td>
-                                            <td>@item.OperatingHours</td>
-                                            <td><img src="/images/Cuisine/@item.ImageURL" alt="@item.Name" style="width: 100px;" /></td>
+                                            <td>@item.Restaurant.Name</td>
+                                            <td>@item.Restaurant.Description</td>
+                                            <td>@item.Restaurant.OperatingHours</td>
+                                            <td>@string.Join(", ", item.Tags)</td>
+                                            <td><img src="/images/Cuisine/@item.Restaurant.ImageURL" alt="@item.Restaurant.Name" style="width: 100px;" /></td>
                                             <td>
-                                                <a asp-action="Edit" asp-route-id="@item.RestaurantID" class="btn btn-warning btn-sm">Sửa</a>
-                                                <a asp-action="Delete" asp-route-id="@item.RestaurantID" class="btn btn-danger btn-sm">Xóa</a>
+                                                <a asp-action="Edit" asp-route-id="@item.Restaurant.RestaurantID" class="btn btn-warning btn-sm">Sửa</a>
+                                                <a asp-action="Delete" asp-route-id="@item.Restaurant.RestaurantID" class="btn btn-danger btn-sm">Xóa</a>
                                             </td>
                                         </tr>
                                     }

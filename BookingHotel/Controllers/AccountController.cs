@@ -24,6 +24,12 @@ namespace BookingHotel.Controllers
             var employee = _context.Employees.FirstOrDefault(e => e.Email == email && e.Password == password);
             if (employee != null)
             {
+                if (employee.IsBlock)
+                {
+                    ModelState.AddModelError(string.Empty, "Tài khoản nhân viên đã bị khóa. Vui lòng liên hệ quản trị viên.");
+                    ViewBag.Tab = tab;
+                    return View("LoginRegister");
+                }
                 // Bước 1: Tạo danh sách các claims
                 var claims = new List<Claim>
         {
@@ -51,6 +57,12 @@ namespace BookingHotel.Controllers
             var customer = _context.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
             if (customer != null)
             {
+                if (customer.IsBlock)
+                {
+                    ModelState.AddModelError(string.Empty, "Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.");
+                    ViewBag.Tab = tab;
+                    return View("LoginRegister");
+                }
                 var claims = new List<Claim>
 {
                 new Claim(ClaimTypes.NameIdentifier, customer.CustomerID.ToString()),

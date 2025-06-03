@@ -56,20 +56,16 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                        <a href="/Admin/Bookings">
-                            Danh Mục Booking
-                        </a>
+                        <a href="/Admin/Bookings">Danh Mục Booking</a>
                     </li>
                     <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" && ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active" : "")">
-                        <a href="/Admin/Bookings/Create">
-                            Lập Booking
-                        </a>
+                        <a href="/Admin/Bookings/Create">Lập Booking</a>
                     </li>
                 </ul>
             </li>
 
             <!-- Quản Lý Nội Dung -->
-            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" ? "active" : "")">
+            <li class="treeview @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && (ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminCategories") ? "active" : "")">
                 <a href="#">
                     <i class="fa-solid fa-file-alt" style="color: #FF6200 !important;"></i> <span>Quản Lý Nội Dung</span>
                     <span class="pull-right-container">
@@ -77,54 +73,71 @@
                     </span>
                 </a>
                 <ul class="treeview-menu" style="background-color:#003087">
-                    <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" ? "active" : "")">
-                        <a href="/Admin/ContentHome">
+                    <!-- Trang Chủ -->
+                    <li class="treeview @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && (ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentHome" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="ContentHome" asp-action="Index">
                             <i class="fa-solid fa-home"></i> <span>Trang Chủ</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu" style="background-color:#003087">
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentBannerImages">Hình Ảnh Nổi Bật</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentBannerImages" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentBannerImages" asp-action="Index">Hình Ảnh Nổi Bật</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentAchivements">Thành Tựu Nổi Bật</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAchivements" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentAchivements" asp-action="Index">Thành Tựu Nổi Bật</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentRooms">Phòng Hiển Thị</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentRooms" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentRooms" asp-action="Index">Phòng Hiển Thị</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentAmenities">Tiện Ích Hiển Thị</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentAmenities" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentAmenities" asp-action="Index">Tiện Ích Hiển Thị</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentOffers">Ưu Đãi Hiển Thị</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentOffers" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentOffers" asp-action="Index">Ưu Đãi Hiển Thị</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                                <a href="/Admin/ContentMembershipBenefits">Lợi Ích Hội Viên</a>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "ContentMembershipBenefits" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="ContentMembershipBenefits" asp-action="Index">Lợi Ích Hội Viên</a>
                             </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-
-            <!-- Quản Lý Ẩm Thực (New Section) -->
-            <li class="treeview @(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" ? "active" : "")">
-                <a href="#">
-                    <i class="fa-solid fa-utensils" style="color: #FF6200 !important;"></i> <span>Ẩm Thực</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu" style="background-color:#003087">
-                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                        <a href="/Admin/DiningRestaurants">Nhà Hàng & Quán Bar</a>
+                    <!-- Ẩm Thực -->
+                    <li class="treeview @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && (ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" || ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes") ? "active" : "")">
+                        <a href="#">
+                            <i class="fa-solid fa-utensils" style="color: #FF6200 !important;"></i> <span>Ẩm Thực</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu" style="background-color:#003087">
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="DiningHeroImages" asp-action="Index">Hình Ảnh Hero</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningRestaurants" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="DiningRestaurants" asp-action="Index">Nhà Hàng & Quán Bar</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="DiningDishes" asp-action="Index">Món Ăn Đặc Trưng</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningDishes" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                        <a href="/Admin/DiningDishes">Món Ăn Đặc Trưng</a>
-                    </li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DiningHeroImages" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                        <a href="/Admin/DiningHeroImages">Hình Ảnh Hero</a>
+                    <!-- Ưu Đãi -->
+                    <li class="treeview @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && (ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminOffers" || ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminCategories") ? "active" : "")">
+                        <a href="#">
+                            <i class="fa-solid fa-spa" style="color: #FF6200 !important;"></i> <span>Ưu Đãi</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu" style="background-color:#003087">
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminOffers" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="AdminOffers" asp-action="Index">Quản Lý Ưu Đãi</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "AdminCategories" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Danh Mục Ưu Đãi</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>

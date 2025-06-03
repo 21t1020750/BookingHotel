@@ -1,0 +1,68 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model Offer
+@{
+    ViewData["Title"] = "Tạo Ưu Đãi Mới";
+}
+<h1>Tạo Ưu Đãi Mới</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title">Tiêu đề</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Mô tả</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId">Danh mục</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DiscountPercentage">Phần trăm giảm giá</label>
+        <input asp-for="DiscountPercentage" class="form-control" type="number" />
+        <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OriginalPrice">Giá gốc</label>
+        <input asp-for="OriginalPrice" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="OriginalPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DiscountedPrice">Giá sau giảm</label>
+        <input asp-for="DiscountedPrice" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="DiscountedPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PriceUnit">Đơn vị giá</label>
+        <input asp-for="PriceUnit" class="form-control" />
+        <span asp-validation-for="PriceUnit" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ValidUntil">Hiệu lực đến</label>
+        <input asp-for="ValidUntil" class="form-control" type="date" />
+        <span asp-validation-for="ValidUntil" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IconClass">Lớp biểu tượng</label>
+        <input asp-for="IconClass" class="form-control" placeholder="e.g., fas fa-heart" />
+        <span asp-validation-for="IconClass" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AltText">Văn bản thay thế</label>
+        <input asp-for="AltText" class="form-control" />
+        <span asp-validation-for="AltText" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Đặc điểm nổi bật</label>
+        <input type="text" name="Highlights" class="form-control" placeholder="Nhập đặc điểm nổi bật" />
+        <input type="text" name="Highlights" class="form-control" placeholder="Nhập đặc điểm nổi bật" />
+        <input type="text" name="Highlights" class="form-control" placeholder="Nhập đặc điểm nổi bật" />
+    </div>
+    <button type="submit" class="btn btn-primary">Tạo</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

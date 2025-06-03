@@ -1,10 +1,12 @@
-﻿@{
+﻿@model BookingHotel.Models.ContactFormModel
+
+@{
     ViewData["Title"] = "Trang Liên Hệ";
 }
 <body class="bg-gray-50" alt="khách sạn sang trọng">
     <main>
         <section class="relative h-96 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');" alt="hình ảnh liên hệ">
-            <div class="absolute inset-0 bg-black/20 flex items-center"                 alt="lớp phủ hero">
+            <div class="absolute inset-0 bg-black/20 flex items-center" alt="lớp phủ hero">
                 <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8 text-white">
                     <h2 class="text-4xl md:text-5xl font-bold mb-6">Liên Hệ Với Chúng Tôi</h2>
                     <p class="text-xl md:text-2xl max-w-2xl mb-8">Chúng tôi luôn sẵn sàng hỗ trợ bạn với mọi thắc mắc hoặc yêu cầu đặc biệt</p>
@@ -26,7 +28,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold text-gray-800 mb-2">Địa Chỉ</h4>
-                                    <p class="text-gray-600">123 Đường Hoàng Đế<br>Thành phố Huế, Việt Nam</p>
+                                    <p class="text-gray-600">11 Lý Thường Kiệt<br>Thành phố Huế, Việt Nam</p>
                                 </div>
                             </div>
 
@@ -46,7 +48,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold text-gray-800 mb-2">Email</h4>
-                                    <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection#1d6f786e786f6b7c697472736e5d717c6b78717c756878337e7270" class="hover:text-blue-600 transition"><span class="__cf_email__" data-cfemail="6d1f081e081f1b0c190402031e2d010c1b08010c051808430e0200">[email&nbsp;protected]</span></a><br><a href="/cdn-cgi/l/email-protection#cdf9eef8eef9fdeafdebedecf1cdede2e1f8e3a3eee2e0" class="hover:text-blue-800 transition"><span class="__cf_email__" data-cfemail="5a2e392f392e2a3d2a2c2d301a3a35362f3474292527">[email&nbsp;protected]</span></a></p>
+                                    <p>huyleviet666@gmail.com</p>
                                 </div>
                             </div>
 
@@ -62,29 +64,56 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-md" alt="form liên hệ">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Gửi Tin Nhắn Cho Chúng Tôi</h3>
-                        <form class="space-y-6">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-gray-700 font-medium mb-2">Tên</label>
-                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tên của bạn">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Gửi Tin Nhắn Cho Chúng Tôi</h3>
+                        <p class="text-gray-600 mb-6">Nếu bạn cần tư vấn đặt phòng hoặc tổ chức sự kiện, hãy gửi liên hệ cho chúng tôi bằng cách điền thông tin bên dưới.</p>
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                                @TempData["Success"]
+                            </div>
+                        }
+
+                        @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="space-y-6">
+
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label asp-for="Name" class="block text-gray-700 font-medium mb-2">Tên</label>
+                                        @Html.TextBoxFor(m => m.Name, new { @class = "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder = "Tên của bạn" })
+                                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    </div>
+
+                                    <div>
+                                        <label asp-for="Phone" class="block text-gray-700 font-medium mb-2">Số Điện Thoại</label>
+                                        @Html.TextBoxFor(m => m.Phone, new { @class = "w-full px-4 py-3 border border-gray-300 rounded-lg", placeholder = "Số điện thoại của bạn" })
+                                        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-red-500 text-sm mt-1" })
+                                    </div>
                                 </div>
+
                                 <div>
-                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Email của bạn">
+                                    <label asp-for="Email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    @Html.TextBoxFor(m => m.Email, new { type = "email", @class = "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder = "Email của bạn" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red-500 text-sm mt-1" })
                                 </div>
+
+                                <div>
+                                    <label asp-for="Subject" class="block text-gray-700 font-medium mb-2">Chủ Đề</label>
+                                    @Html.TextBoxFor(m => m.Subject, new { @class = "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder = "Bạn cần đặt phòng hay tổ chức sự kiện" })
+                                    @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+
+                                <div>
+                                    <label asp-for="Message" class="block text-gray-700 font-medium mb-2">Tin Nhắn</label>
+                                    @Html.TextAreaFor(m => m.Message, 5, 50, new { @class = "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder = "Tin nhắn của bạn" })
+                                    @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-red-500 text-sm mt-1" })
+                                </div>
+
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full">Gửi Tin Nhắn</button>
                             </div>
-                            <div>
-                                <label for="subject" class="block text-gray-700 font-medium mb-2">Chủ Đề</label>
-                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Chủ đề">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Tin Nhắn</label>
-                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tin nhắn của bạn"></textarea>
-                            </div>
-                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full" alt="nút gửi">Gửi Tin Nhắn</button>
-                        </form>
+                        }
                     </div>
                 </div>
             </div>

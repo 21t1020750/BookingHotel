@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Xóa Nhà Hàng & Quán Bar";
+    var tags = ViewContext.HttpContext.RequestServices.GetService<BookingHotel.Areas.Admin.Data.ApplicationDbContext>()
+        .Restaurant_Tags
+        .Where(rt => rt.RestaurantID == Model.RestaurantID)
+        .Join(ViewContext.HttpContext.RequestServices.GetService<BookingHotel.Areas.Admin.Data.ApplicationDbContext>().Tags,
+              rt => rt.TagID,
+              t => t.TagID,
+              (rt, t) => t.TagName)
+        .ToList();
 }
 
 <div class="content-wrapper">
@@ -34,6 +42,8 @@
                                 <dd class="col-sm-8">@Model.Description</dd>
                                 <dt class="col-sm-4">Thời Gian Hoạt Động</dt>
                                 <dd class="col-sm-8">@Model.OperatingHours</dd>
+                                <dt class="col-sm-4">Tags</dt>
+                                <dd class="col-sm-8">@string.Join(", ", tags)</dd>
                                 <dt class="col-sm-4">Hình Ảnh</dt>
                                 <dd class="col-sm-8"><img src="/images/Cuisine/@Model.ImageURL" alt="@Model.Name" style="width: 100px;" /></dd>
                             </dl>

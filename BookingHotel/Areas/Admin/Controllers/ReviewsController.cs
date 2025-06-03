@@ -40,5 +40,22 @@ namespace BookingHotel.Areas.Admin.Controllers
 
             return PartialView(review);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var review = _context.Reviews.FirstOrDefault(r => r.ReviewID == id);
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            // Đảo giá trị IsDisplay
+            review.IsDisplay = !review.IsDisplay;
+
+            _context.SaveChanges();
+
+            // Quay về danh sách phòng
+            return RedirectToAction("Index");
+        }
     }
 }

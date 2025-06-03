@@ -114,13 +114,14 @@
                         <th>Tiêu đề</th>
                         <th>Rating</th>
                         <th style="width:40px"></th>
+                        <th style="width:40px"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var review in Model)
                     {
                         <tr>
-                            <td>@review.Booking.BookingID</td>
+                            <td>@review.Booking.BookingCode</td>
                             <td>@review.Customer.FullName</td>
                             <td>@review.ReviewDate</td>
                             <td>@review.Title</td>
@@ -142,6 +143,29 @@
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
                             </td>
+                            <td>
+                                @if (review.IsDisplay)
+                                {
+                                    <form asp-action="Edit" asp-controller="Reviews" method="post">
+                                        <input type="hidden" name="id" value="@review.ReviewID" />
+                                        <button type="submit" class="btn btn-sm btn-warning"
+                                                onclick="return confirm('Bạn có chắc muốn ẩn mục này không?');">
+                                            Ẩn
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="Edit" asp-controller="Reviews" method="post">
+                                        <input type="hidden" name="id" value="@review.ReviewID" />
+                                        <button type="submit" class="btn btn-sm btn-success"
+                                                onclick="return confirm('Bạn có chắc muốn phục hồi mục này không?');">
+                                            Phục hồi
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+
                         </tr>
                     }
                 </tbody>

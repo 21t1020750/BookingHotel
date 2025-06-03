@@ -1,0 +1,66 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model Offer
+@{
+    ViewData["Title"] = "Sửa Ưu Đãi";
+}
+<h1>Sửa Ưu Đãi</h1>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="OfferId" />
+    <div>
+        <label asp-for="Title">Tiêu đề</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Description">Mô tả</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div>
+        <label asp-for="CategoryId">Danh mục</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))"></select>
+    </div>
+    <div>
+        <label asp-for="DiscountPercentage">Phần trăm giảm giá</label>
+        <input asp-for="DiscountPercentage" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="OriginalPrice">Giá gốc</label>
+        <input asp-for="OriginalPrice" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="DiscountedPrice">Giá sau giảm</label>
+        <input asp-for="DiscountedPrice" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="PriceUnit">Đơn vị giá</label>
+        <input asp-for="PriceUnit" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ValidUntil">Hiệu lực đến</label>
+        <input asp-for="ValidUntil" class="form-control" type="date" />
+    </div>
+    <div>
+        <label asp-for="IconClass">Lớp biểu tượng</label>
+        <input asp-for="IconClass" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="AltText">Văn bản thay thế</label>
+        <input asp-for="AltText" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="IsActive">Kích hoạt</label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+    <div>
+        <label>Đặc điểm nổi bật</label>
+        @foreach (var highlight in Model.Highlights)
+        {
+            <input type="text" name="Highlights" class="form-control" value="@highlight.HighlightText" />
+        }
+        <input type="text" name="Highlights" class="form-control" placeholder="Nhập đặc điểm nổi bật mới" />
+        <input type="text" name="Highlights" class="form-control" placeholder="Nhập đặc điểm nổi bật mới" />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

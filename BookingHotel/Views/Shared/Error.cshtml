@@ -57,7 +57,7 @@
     <h1 class="text-danger">Lỗi</h1>
     <h2 class="text-danger">Đã xảy ra lỗi khi xử lý yêu cầu của bạn.</h2>
 
-    @if (Model.ShowRequestId)
+    @if (Model != null && Model.ShowRequestId)
     {
         <p>
             <strong>Request ID:</strong> <code>@Model.RequestId</code>

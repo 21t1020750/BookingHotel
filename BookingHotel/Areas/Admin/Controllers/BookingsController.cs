@@ -16,15 +16,30 @@ namespace BookingHotel.Areas.Admin.Controllers
         {
             var booking = _context.Bookings
                 .Include(b => b.BookingDetails).ThenInclude(d => d.Room)
+                .Include(b => b.BookingDetails).ThenInclude(d => d.Offer)
                 .Include(b => b.BookingServices)
                 .FirstOrDefault(b => b.BookingID == bookingID);
 
             if (booking != null)
             {
-                var roomTotal = booking.BookingDetails.Sum(d => d.Room.Price);
-                var serviceTotal = booking.BookingServices.Sum(s => s.TotalPrice);
+                decimal totalPrice = 0;
 
-                booking.TotalPrice = roomTotal + serviceTotal;
+                // Tính giá phòng
+                foreach (var detail in booking.BookingDetails)
+                {
+                    totalPrice += detail.DiscountedPrice > 0 ? detail.DiscountedPrice : detail.Room.Price;
+                }
+
+                // Nhân với số đêm
+                int numberOfNights = Math.Max((booking.CheckOutDate - booking.CheckInDate).Days, 1);
+                totalPrice *= numberOfNights;
+
+                // Tính giá dịch vụ
+                totalPrice += booking.BookingServices.Sum(s => s.TotalPrice);
+
+                // Thêm VAT
+                decimal vat = totalPrice * 0.12m;
+                booking.TotalPrice = totalPrice + vat;
 
                 _context.SaveChanges();
             }

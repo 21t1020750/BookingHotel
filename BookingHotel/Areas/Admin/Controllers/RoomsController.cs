@@ -290,5 +290,22 @@ namespace BookingHotel.Areas.Admin.Controllers
 
             return View(room);
         }
+
+        public IActionResult IsDisplay(int id)
+        {
+            var room = _context.Rooms.FirstOrDefault(r => r.RoomID == id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            // Đảo giá trị IsDisplay
+            room.IsDisplay = !room.IsDisplay;
+
+            _context.SaveChanges();
+
+            // Quay về danh sách phòng
+            return RedirectToAction("Index");
+        }
     }
 }

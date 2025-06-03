@@ -1,0 +1,19 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model Category
+@{
+    ViewData["Title"] = "Xóa Danh Mục";
+}
+<h1>Xóa Danh Mục</h1>
+<h3>Bạn có chắc chắn muốn xóa danh mục này?</h3>
+<div>
+    <h4>@Model.CategoryName</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Mã danh mục</dt>
+        <dd class="col-sm-10">@Model.CategoryCode</dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CategoryId" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+﻿@using BookingHotel.Areas.Admin.Models
+@model IEnumerable<Offer>
+@{
+    ViewData["Title"] = "Quản Lý Ưu Đãi";
+}
+<h1>Quản Lý Ưu Đãi</h1>
+<a asp-action="Create" class="btn btn-primary mb-3">Tạo Ưu Đãi Mới</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Danh mục</th>
+            <th>Giá gốc</th>
+            <th>Giá sau giảm</th>
+            <th>Hiệu lực đến</th>
+            <th>Kích hoạt</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var offer in Model)
+        {
+            <tr>
+                <td>@offer.Title</td>
+                <td>@offer.Category.CategoryName</td>
+                <td>@offer.OriginalPrice.ToString("C0")</td>
+                <td>@offer.DiscountedPrice.ToString("C0")</td>
+                <td>@offer.ValidUntil.ToString("dd/MM/yyyy")</td>
+                <td>@(offer.IsActive ? "Có" : "Không")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@offer.OfferId" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@offer.OfferId" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -11,5 +11,6 @@
         public string Photo { get; set; } = "";
         public string Password { get; set; } = "";
         public DateTime? DateOfBirth { get; set; }
+        public bool IsBlock { get; set; }
     }
 }

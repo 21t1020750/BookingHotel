@@ -11,6 +11,7 @@
         public DateTime ReviewDate { get; set; }
         public Booking Booking { get; set; }
         public Customer Customer { get; set; }
+        public bool IsDisplay { get; set; }
 
     }
 }

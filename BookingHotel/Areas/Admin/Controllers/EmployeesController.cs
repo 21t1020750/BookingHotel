@@ -157,5 +157,22 @@ namespace BookingHotel.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult Block(int id)
+        {
+            var emp = _context.Employees.FirstOrDefault(r => r.EmployeeID == id);
+            if (emp == null)
+            {
+                return NotFound();
+            }
+
+
+            emp.IsBlock = !emp.IsBlock;
+
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index");
+        }
     }
 }

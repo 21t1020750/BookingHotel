@@ -1,9 +1,11 @@
-﻿@model List<BookingHotel.Areas.Admin.Models.Room>
+﻿@model List<BookingHotel.Controllers.Find_RoomController.RoomViewModel>
+@using BookingHotel.Areas.Admin.Models
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "Tìm kiếm";
-    var roomIdsString = ViewBag.SelectedRoomIds as string ?? ""; // ví dụ: "1,2,3"
+    var roomIdsString = ViewBag.SelectedRoomIds as string ?? "";
 }
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,8 +78,587 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 500 !important;
         }
+
+        .sticky {
+            position: sticky;
+            top: 1rem;
+        }
+
+        .selected-rooms-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+            .selected-rooms-container ul {
+                max-height: 300px;
+                overflow-y: auto;
+                padding-right: 10px;
+            }
+
+                .selected-rooms-container ul::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .selected-rooms-container ul::-webkit-scrollbar-thumb {
+                    background: #cbd5e0;
+                    border-radius: 3px;
+                }
+
+                .selected-rooms-container ul::-webkit-scrollbar-track {
+                    background: #f7fafc;
+                }
+
+        .select-room-btn {
+            transition: all 0.2s ease;
+        }
+
+            .select-room-btn.selected {
+                background-color: #e53e3e;
+                color: #fff;
+                border-color: #e53e3e;
+            }
+
+                .select-room-btn.selected:hover {
+                    background-color: #c53030;
+                }
+
+        .selected-rooms-container li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: #f7fafc;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+            .selected-rooms-container li:hover {
+                background: #edf2f7;
+            }
+
+        .trash-icon {
+            cursor: pointer;
+            color: #e53e3e;
+            font-size: 1.5rem;
+            transition: color 0.2s ease;
+        }
+
+            .trash-icon:hover {
+                color: #c53030;
+            }
+
+        .filter-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+            .filter-section h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #111827;
+                margin-bottom: 1.5rem;
+                letter-spacing: 0.025em;
+            }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .filter-group {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
+
+            .filter-group label.font-semibold {
+                display: block;
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 1rem;
+            }
+
+            .filter-group .checkbox-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.75rem;
+                padding: 0.5rem;
+                border-radius: 6px;
+                transition: background 0.2s ease;
+            }
+
+                .filter-group .checkbox-item:hover {
+                    background-color: #f1f5f9;
+                }
+
+                .filter-group .checkbox-item input[type="checkbox"] {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    margin-right: 0.75rem;
+                    accent-color: #2563eb;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    transition: transform 0.2s ease;
+                }
+
+                    .filter-group .checkbox-item input[type="checkbox"]:checked {
+                        transform: scale(1.1);
+                    }
+
+                .filter-group .checkbox-item span {
+                    font-size: 1rem;
+                    color: #374151;
+                    font-weight: 500;
+                }
+
+                .filter-group .checkbox-item:hover span {
+                    color: #1e40af;
+                }
     </style>
+    <style>
+      
+
+        .date-input {
+            position: relative;
+        }
+
+            .date-input::after {
+                content: '\f073';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #6b7280;
+                pointer-events: none;
+            }
+
+        .guests-selector {
+            position: relative;
+        }
+
+        .guests-button {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .guests-button:hover,
+            .guests-button.active {
+                border-color: #4f46e5;
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            }
+
+        .guests-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            margin-top: 8px;
+            padding: 20px;
+            display: none;
+        }
+
+            .guests-dropdown.show {
+                display: block;
+            }
+
+        .guest-counter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+            .guest-counter:last-child {
+                margin-bottom: 0;
+            }
+
+        .guest-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .counter-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .counter-btn {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 18px;
+            color: #6b7280;
+        }
+
+            .counter-btn:hover {
+                border-color: #4f46e5;
+                color: #4f46e5;
+            }
+
+        .counter-value {
+            min-width: 40px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .search-button {
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+            .search-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+            }
+
+        .filters-section {
+            background: #f8fafc;
+            padding: 32px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .filters-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .filters-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filters-toggle {
+            background: none;
+            border: none;
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .filters-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .filter-group {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+            .filter-group h4 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+            .filter-option:hover {
+                background-color: #f3f4f6;
+            }
+
+        .filter-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+            .filter-checkbox input {
+                opacity: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+
+                .filter-checkbox input:checked + .checkmark {
+                    background: #4f46e5;
+                    border-color: #4f46e5;
+                }
+
+                    .filter-checkbox input:checked + .checkmark::after {
+                        display: block;
+                    }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+            .checkmark::after {
+                content: '\f00c';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 12px;
+                display: none;
+            }
+
+        .filter-label {
+            font-size: 14px;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+            .star-rating .fa-star {
+                color: #fbbf24;
+            }
+
+
+
+
+        .filters-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .search-container {
+            margin: 20px auto;
+        }
+
+        .search-header {
+            padding: 24px 20px;
+        }
+
+        .search-form {
+            padding: 24px 20px;
+        }
+
+        .filters-section {
+            padding: 24px 20px;
+        }
+
+        }
+
+        .filters-collapsed {
+            display: none;
+        }
+
+        /* Price Range Styles */
+        .price-range-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .price-inputs {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .price-input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .price-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+
+        .price-input {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #374151;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+            .price-input:focus {
+                outline: none;
+                border-color: #4f46e5;
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            }
+
+        .price-separator {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-top: 20px;
+        }
+
+        .price-range-slider {
+            position: relative;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .range-slider {
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e5e7eb;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+            .range-slider::-webkit-slider-thumb {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #4f46e5;
+                cursor: pointer;
+                border: 2px solid white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .range-slider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #4f46e5;
+                cursor: pointer;
+                border: 2px solid white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+        .price-quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .price-quick-btn {
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 20px;
+            background: white;
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+            .price-quick-btn:hover {
+                border-color: #4f46e5;
+                color: #4f46e5;
+                background: #f3f4f6;
+            }
+
+            .price-quick-btn.active {
+                border-color: #4f46e5;
+                background: #4f46e5;
+                color: white;
+            }
+    </style>
+
 </head>
+
 <body class="bg-white">
     <main class="py-8">
         <div class="page-container px-4">
@@ -109,7 +690,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <style>
                             input[type="date"]::-webkit-calendar-picker-indicator {
                                 position: absolute;
@@ -117,7 +697,6 @@
                                 z-index: 10;
                             }
                         </style>
-
                         <div class="relative">
                             <label for="guests" class="block text-xl sm:text-2xl font-medium text-gray-700">Số người</label>
                             <div class="mt-2 relative rounded-lg shadow-sm bg-white">
@@ -160,20 +739,188 @@
                         </div>
                     </div>
                 </form>
+               
+                    <div class="filters-section">
+                        <div class="filters-header">
+                            <h3 class="filters-title">
+                                <i class="fas fa-filter"></i>
+                                Bộ lọc tìm kiếm
+                            </h3>
+                            <button type="button" class="filters-toggle" onclick="toggleFilters()">
+                                <span id="filtersToggleText">Thu gọn</span>
+                                <i class="fas fa-chevron-up" id="filtersToggleIcon"></i>
+                            </button>
+                        </div>
+
+                        <div class="filters-grid" id="filtersGrid">
+                            <div class="filter-group">
+                                <h4><i class="fas fa-dollar-sign"></i> Khoảng giá (VNĐ/đêm)</h4>
+                                <div class="price-range-container">
+                                    <div class="price-inputs">
+                                        <div class="price-input-group">
+                                            <label class="price-label">Từ</label>
+                                            <input type="number" name="minPrice" id="minPrice" placeholder="100000" class="price-input" min="0" step="100000" value="@(ViewBag.MinPrice ?? 0)">
+                                         </div>
+                                        <div class="price-separator">-</div>
+                                        <div class="price-input-group">
+                                            <label class="price-label">Đến</label>
+                                            <input type="number" name="maxPrice" id="maxPrice" placeholder="10,000,000" class="price-input" min="0" step="100000" value="@(ViewBag.MaxPrice ?? 10000000)">
+                                        </div>
+                                    </div>
+                                    <div class="price-range-slider">
+                                        <input type="range" id="priceRangeMin" class="range-slider" min="0" max="10000000" step="100000" value="@(ViewBag.MinPrice ?? 0)">
+                                        <input type="range" id="priceRangeMax" class="range-slider" min="0" max="10000000" step="100000" value="@(ViewBag.MaxPrice ?? 10000000)">
+                                    </div>
+                                    <div class="price-quick-options">
+                                        <button type="button" class="price-quick-btn" onclick="setQuickPrice(0, 1000000)">< 1 triệu</button>
+                                        <button type="button" class="price-quick-btn" onclick="setQuickPrice(1000000, 3000000)">1-3 triệu</button>
+                                        <button type="button" class="price-quick-btn" onclick="setQuickPrice(3000000, 5000000)">3-5 triệu</button>
+                                        <button type="button" class="price-quick-btn" onclick="setQuickPrice(5000000, 10000000)">5-10 triệu</button>
+                                        <button type="button" class="price-quick-btn" onclick="setQuickPrice(10000000, 999999999)">10+ triệu</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4><i class="fas fa-star"></i> Xếp hạng sao</h4>
+                                <div class="filter-options">
+                                    <div class="filter-option">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="starRatings" value="5" onchange="updateStarRatings(this)" @(ViewBag.StarRatings != null && ViewBag.StarRatings.Contains(5) ? "checked" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="filter-label">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span style="margin-left: 8px;">5 sao</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="starRatings" value="4" onchange="updateStarRatings(this)" @(ViewBag.StarRatings != null && ViewBag.StarRatings.Contains(4) ? "checked" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="filter-label">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span style="margin-left: 8px;">4 sao</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="starRatings" value="3" onchange="updateStarRatings(this)" @(ViewBag.StarRatings != null && ViewBag.StarRatings.Contains(3) ? "checked" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="filter-label">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span style="margin-left: 8px;">3 sao</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="starRatings" value="2" onchange="updateStarRatings(this)" @(ViewBag.StarRatings != null && ViewBag.StarRatings.Contains(2) ? "checked" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="filter-label">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span style="margin-left: 8px;">2 sao</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="starRatings" value="1" onchange="updateStarRatings(this)" @(ViewBag.StarRatings != null && ViewBag.StarRatings.Contains(1) ? "checked" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="filter-label">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span style="margin-left: 8px;">1 sao</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4><i class="fas fa-bed"></i> Loại phòng</h4>
+                                <div class="filter-options">
+                                    @if (ViewBag.RoomTypes != null)
+                                    {
+                                        foreach (var roomType in ViewBag.RoomTypes)
+                                        {
+                                            <div class="filter-option">
+                                                <label class="filter-checkbox">
+                                                    <input type="checkbox" name="roomTypeIds" value="@roomType.RoomTypeID"
+                                                           onchange="updateRoomTypes(this)"
+                                                    @(ViewBag.RoomTypeIds != null && ViewBag.RoomTypeIds.Contains(roomType.RoomTypeID) ? "checked" : "") />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <span class="filter-label">@roomType.TypeName</span>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="filter-group">
+                                <h4><i class="fas fa-concierge-bell"></i> Tiện ích</h4>
+                                <div class="filter-options">
+                                    @if (ViewBag.Amenities != null)
+                                    {
+                                        foreach (var amenity in ViewBag.Amenities)
+                                        {
+                                            <div class="filter-option">
+                                                <label class="filter-checkbox">
+                                                    <input type="checkbox" name="amenityIds" value="@amenity.Id"
+                                                           onchange="updateAmenities(this)"
+                                                    @(ViewBag.AmenityIds != null && ViewBag.AmenityIds.Contains(amenity.Id) ? "checked" : "") />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <span class="filter-label">@amenity.Name</span>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                 
             </div>
-
-            <!-- CSS Sticky & Blur -->
-            <link rel="stylesheet" href="~/css/PageCSS/SearchSection.css" />
-
-            <!-- JavaScript Scroll Behavior -->
-            <script src="~/js/PageJS/SearchSection.js"></script>
+            
 
             <div class="flex flex-col lg:flex-row gap-8 mt-6">
-                <!-- Filters Column -->
                 <!-- Results Column -->
-                <div class="lg:w-3/4">
+                <div class="lg:w-2/3">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-3xl font-bold text-gray-800">@Model.Count chỗ nghỉ tìm thấy</h2>
+                        <h2 class="text-3xl font-bold text-gray-800">@Model.Count Phòng còn trống</h2>
                         <div class="flex items-center">
                             <span class="text-2xl text-gray-600 mr-2">Sắp xếp:</span>
                             <select id="sortSelect" class="border rounded-lg px-3 py-1 text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="applySort(this.value)">
@@ -186,34 +933,108 @@
 
                     <!-- Hotel Cards -->
                     <div class="space-y-6">
-                        @foreach (var room in Model)
+                        @foreach (var roomViewModel in Model)
                         {
-                            <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card" data-roomid="@room.RoomID" data-roomnumber="@room.RoomNumber" data-roomprice="@room.Price.ToString("N0")">
+                            var room = roomViewModel.Room;
+                            var rating = ViewBag.RoomRatings.ContainsKey(room.RoomID)
+                            ? (double)ViewBag.RoomRatings[room.RoomID]
+                            : 0.0;
+                            var offers = ViewBag.Offers as List<BookingHotel.Areas.Admin.Models.Offer> ?? new List<BookingHotel.Areas.Admin.Models.Offer>();
+                            var offer = roomViewModel.AppliedOfferId.HasValue ? offers.FirstOrDefault(o => o.OfferId == roomViewModel.AppliedOfferId.Value) : null;
+
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card @(roomViewModel.AppliedOfferId == ViewBag.SelectedOfferId ? "border-2 border-blue-600" : "")"
+                                 data-roomid="@room.RoomID" data-roomnumber="@room.RoomNumber" data-roomprice="@roomViewModel.DiscountedPrice.ToString("N0")">
                                 <div class="flex flex-col md:flex-row">
-                                    <div class="md:w-1/3 relative">
-                                        <img src="~/images/room/@room.Photo" alt="room image" class="w-full h-full object-cover">
-                                        <span class="price-badge bg-green-600 text-white px-3 py-1 rounded-full text-2xl font-bold">@room.Price.ToString("N0") VND</span>
+                                    <div class="col-md-4">
+                                        <div id="carouselRoom_@room.RoomID" class="carousel slide" data-ride="carousel" data-interval="false">
+                                            <div class="carousel-inner">
+                                                @if (room.RoomImages != null && room.RoomImages.Count > 0)
+                                                {
+                                                    int index = 0;
+                                                    foreach (var img in room.RoomImages.OrderBy(i => i.DisplayOrder))
+                                                    {
+                                                        var active = index == 0 ? "active" : "";
+                                                        <div class="item @active">
+                                                            <img src="@img.ImagePath" class="img-responsive" alt="Room image" style="width: 400px; height: 200px; object-fit: cover; border-radius: 10px" />
+                                                        </div>
+                                                        index++;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <div class="item active">
+                                                        <img src="~/images/room/@room.Photo" class="img-responsive" alt="Room image" style="width: 400px; height: 200px; object-fit: cover; border-radius: 10px" />
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            <!-- Controls -->
+                                            @if (room.RoomImages != null && room.RoomImages.Count > 1)
+                                            {
+                                                <a class="left carousel-control" href="javascript:void(0)" data-target="#carouselRoom_@room.RoomID" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                </a>
+                                                <a class="right carousel-control" href="javascript:void(0)" data-target="#carouselRoom_@room.RoomID" data-slide="next">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                </a>
+                                            }
+                                        </div>
+
+                                        <span class="price-badge bg-green-600 text-white px-3 py-1 rounded-full text-2xl font-bold">
+                                            @roomViewModel.DiscountedPrice.ToString("N0") VND
+                                        </span>
                                     </div>
                                     <div class="md:w-2/3 p-6">
                                         <div class="flex justify-between items-start">
                                             <div>
                                                 <h3 class="text-3xl font-bold text-gray-800">@room.RoomNumber</h3>
-                                                <p class="text-2xl text-gray-600 mb-4">@Html.Raw(room.Description)</p>
-                                                <div class="flex flex-wrap gap-2 mb-4">
-                                                    @foreach (var service in room.RoomServices?.Select(rs => rs.Service) ?? new List<BookingHotel.Areas.Admin.Models.Service>())
+                                                <div class="stars text-yellow-400">
+                                                    @for (int i = 1; i <= 5; i++)
                                                     {
-                                                        <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">@service.ServiceName</span>
+                                                        if (i <= Math.Round(rating))
+                                                        {
+                                                            <span>★</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text-gray-300">★</span>
+                                                        }
+                                                    }
+                                                    <span class="ml-2 text-sm text-gray-600">(@rating.ToString("0.0"))</span>
+                                                </div>
+                                                <p class="text-2xl text-gray-600 mb-4">@Html.Raw(room.Description)</p>
+
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    @foreach (var amenities in room.RoomAmenities?.Select(rs => rs.Amenities) ?? new List<BookingHotel.Models.Content_Amenity>())
+                                                    {
+                                                        <span class="bg-blue-100 text-blue-800 text-2xl px-2 py-1 rounded">@amenities.Name</span>
                                                     }
                                                 </div>
+
+                                                @if (offer != null)
+                                                {
+                                                    <p class="text-2xl text-green-600 mb-4">Ưu đãi: @offer.Title (@offer.DiscountPercentage% giảm)</p>
+                                                }
+                                                @if (ViewBag.SelectedOfferId != null && roomViewModel.AppliedOfferId != ViewBag.SelectedOfferId)
+                                                {
+                                                    <p class="text-2xl text-gray-500 mb-4">Không áp dụng được ưu đãi đã chọn</p>
+                                                }
                                             </div>
                                             <div class="text-right space-y-3">
-                                                <label class="inline-flex items-center space-x-2">
-                                                    <input type="checkbox" name="selectedRoomIds" value="@room.RoomID" class="room-checkbox w-6 h-6">
-                                                    <span class="text-2xl text-gray-600">Chọn</span>
-                                                </label>
-                                                <p class="text-2xl text-gray-500">Ngày, @room.number người</p>
-                                                <p class="text-3xl font-bold text-gray-800">@room.Price.ToString("N0") VND</p>
+                                                <p class="text-2xl text-gray-500 days-display">Số lượng: @room.number người</p>
+                                                @if (offer != null)
+                                                {
+                                                    <p class="text-2xl text-gray-500 line-through">@room.Price.ToString("N0") VND</p>
+                                                    <p class="text-3xl font-bold text-green-600">@roomViewModel.DiscountedPrice.ToString("N0") VND/1 đêm</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-3xl font-bold text-gray-800">@room.Price.ToString("N0") VND/1 đêm</p>
+                                                }
                                                 <p class="text-2xl text-gray-500 mb-3">+ 200,000 VND thuế</p>
+                                                <button type="button" class="select-room-btn px-4 py-2 bg-cyan-600 text-white rounded-lg text-2xl font-medium hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-200" data-roomid="@room.RoomID">
+                                                    Chọn
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -222,41 +1043,24 @@
                         }
                     </div>
 
-                    <form asp-action="Index" asp-controller="Booking" method="post">
-                        <input type="hidden" name="checkin" value="@ViewBag.Checkin?.ToString("yyyy-MM-dd")" />
-                        <input type="hidden" name="checkout" value="@ViewBag.Checkout?.ToString("yyyy-MM-dd")" />
-                        <input type="hidden" name="adults" value="@ViewBag.Adults" />
-                        <input type="hidden" name="children" value="@ViewBag.Children" />
-
-                        <!-- Danh sách phòng đã chọn -->
-                        <div class="mt-8">
-                            <h2 class="text-3xl font-semibold text-blue-700 mb-4">Phòng đã chọn:</h2>
-                            <ul id="selectedRoomsList" class="space-y-2 text-2xl text-gray-700">
-                                <!-- Danh sách phòng sẽ hiển thị tại đây -->
-                            </ul>
-                        </div>
-
-                        <!-- Submit button -->
-                        <div class="mt-6 text-center">
-                            <button type="submit" class="px-6 py-3 bg-blue-600 text-white text-2xl rounded-lg hover:bg-blue-700 transition">
-                                Đặt các phòng đã chọn
-                            </button>
-                        </div>
-                    </form>
-
-
                     <!-- Pagination -->
                     <div class="mt-8 flex justify-center">
-                        <nav class="inline-flex rounded-md shadow">
-                            @{
-                                string commonParams = $"&sort={ViewBag.Sort}&maxPrice={ViewBag.MaxPrice}" +
-                                $"&roomTypeIds={string.Join("&roomTypeIds=", ViewBag.RoomTypeIds)}" +
-                                $"&serviceIds={string.Join("&serviceIds=", ViewBag.ServiceIds)}" +
-                                $"&checkin={ViewBag.Checkin?.ToString("yyyy-MM-dd")}" +
-                                $"&checkout={ViewBag.Checkout?.ToString("yyyy-MM-dd")}" +
-                                $"&adults={ViewBag.Adults}&children={ViewBag.Children}&rooms={ViewBag.Rooms}";
+                        @{
+                            string commonParams = $"&sort={ViewBag.Sort}&maxPrice={ViewBag.MaxPrice}" +
+                            $"&roomTypeIds={string.Join("&roomTypeIds=", ViewBag.RoomTypeIds)}" +
+                            $"&amenityIds={string.Join("&amenityIds=", ViewBag.AmenityIds)}" +
+                            $"&starRatings={string.Join("&starRatings=", ViewBag.StarRatings ?? new List<int>())}" +
+                            $"&checkin={ViewBag.Checkin?.ToString("yyyy-MM-dd")}" +
+                            $"&checkout={ViewBag.Checkout?.ToString("yyyy-MM-dd")}" +
+                            $"&adults={ViewBag.Adults}&children={ViewBag.Children}" +
+                            $"&selectedRoomIds={ViewBag.SelectedRoomIds}";
+                            if (ViewBag.SelectedOfferId != null)
+                            {
+                                commonParams += $"&offerId={ViewBag.SelectedOfferId}";
                             }
+                        }
 
+                        <nav class="inline-flex rounded-md shadow">
                             <a href="@(ViewBag.CurrentPage > 1 ? $"/Find_Room?page={ViewBag.CurrentPage - 1}{commonParams}" : "#")"
                                class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 @(ViewBag.CurrentPage == 1 ? "pointer-events-none opacity-50" : "")">
                                 <i class="fas fa-chevron-left text-2xl"></i>
@@ -278,33 +1082,87 @@
                     </div>
                 </div>
 
+                <!-- Selected Rooms Column -->
+                <div class="lg:w-1/3">
+                    <div class="sticky top-4 bg-white rounded-xl shadow-lg p-6 selected-rooms-container">
+                        <form asp-action="Index" asp-controller="Booking" method="post">
+                            <input type="hidden" name="checkin" value="@ViewBag.Checkin?.ToString("yyyy-MM-dd")" />
+                            <input type="hidden" name="checkout" value="@ViewBag.Checkout?.ToString("yyyy-MM-dd")" />
+                            <input type="hidden" name="adults" value="@ViewBag.Adults" />
+                            <input type="hidden" name="children" value="@ViewBag.Children" />
+                            @if (ViewBag.SelectedOfferId != null)
+                            {
+                                <input type="hidden" name="offerId" value="@ViewBag.SelectedOfferId" />
+                            }
+                            @foreach (var roomViewModel in Model.Where(r => r.AppliedOfferId.HasValue))
+                            {
+                                <input type="hidden" name="offerIds[@roomViewModel.Room.RoomID]" value="@roomViewModel.AppliedOfferId" />
+                            }
+
+                            <h2 class="text-3xl font-semibold text-blue-700 mb-4">Phòng đã chọn:</h2>
+                            <ul id="selectedRoomsList" class="space-y-2 text-2xl text-gray-700 mb-6">
+                                <!-- Danh sách phòng sẽ hiển thị tại đây -->
+                            </ul>
+
+                            <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white text-2xl rounded-lg hover:bg-blue-700 transition">
+                                Đặt các phòng đã chọn
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Khởi tạo giá trị từ ViewBag
+            // Initialize values from ViewBag
             let adults = @(ViewBag.Adults ?? 1);
             let children = @(ViewBag.Children ?? 0);
             let rooms = @(ViewBag.Rooms ?? 1);
-
-            // Khởi tạo biến để lưu trữ bộ lọc
             let selectedMaxPrice = @(ViewBag.MaxPrice ?? 10000000);
             let selectedRoomTypeIds = @(ViewBag.RoomTypeIds != null ? $"[{string.Join(",", ViewBag.RoomTypeIds)}]" : "[]");
-            let selectedServiceIds = @(ViewBag.ServiceIds != null ? $"[{string.Join(",", ViewBag.ServiceIds)}]" : "[]");
+            let selectedAmenityIds = @(ViewBag.AmenityIds != null ? $"[{string.Join(",", ViewBag.AmenityIds)}]" : "[]");
+            let selectedStarRatings = @(ViewBag.StarRatings != null ? $"[{string.Join(",", ViewBag.StarRatings)}]" : "[]");
 
-            // Cập nhật giao diện ngay khi trang tải
+            // Update UI on page load
             const summary = document.getElementById('guestsSummary');
             const adultsInputDom = document.getElementById('adultsCount');
             const childrenInputDom = document.getElementById('childrenCount');
-            const roomsInputDom = document.getElementById('roomsCount');
             summary.textContent = `${adults} Người lớn | ${children} Trẻ em`;
             adultsInputDom.value = adults;
             childrenInputDom.value = children;
 
-
-            // Thêm input ẩn để lưu trữ số người lớn và trẻ em (đã không cần vì đã thêm name trực tiếp)
             const form = document.getElementById('searchForm');
+
+            // Add hidden input for selectedRoomIds
+            const selectedIdsInput = document.createElement('input');
+            selectedIdsInput.type = 'hidden';
+            selectedIdsInput.name = 'selectedRoomIds';
+            selectedIdsInput.id = 'selectedRoomIdsInput';
+            form.appendChild(selectedIdsInput);
+
+            // Get selected room IDs
+            function getSelectedRoomIds() {
+                const selectedButtons = document.querySelectorAll('.select-room-btn.selected');
+                const selectedIds = Array.from(selectedButtons).map(btn => btn.dataset.roomid);
+                return selectedIds.join(',');
+            }
+
+            // Initialize selected rooms from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedRoomIdsParam = urlParams.get('selectedRoomIds');
+            if (selectedRoomIdsParam) {
+                const selectedRoomIds = selectedRoomIdsParam.split(',');
+                selectedRoomIds.forEach(roomId => {
+                    const button = document.querySelector(`.select-room-btn[data-roomid="${roomId}"]`);
+                    if (button) {
+                        button.classList.add('selected');
+                        button.textContent = 'Hủy chọn';
+                    }
+                });
+                updateSelectedList();
+            }
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href*="#"]').forEach(anchor => {
@@ -345,7 +1203,7 @@
                 return 1;
             }
 
-            // Update days display for all rooms
+            // Update days display
             function updateDaysDisplay() {
                 const days = calculateDays();
                 document.querySelectorAll('.days-display').forEach(element => {
@@ -359,7 +1217,6 @@
                 if (change === 0) {
                     adults = parseInt(adultsInputDom.value) || 1;
                     children = parseInt(childrenInputDom.value) || 0;
-                    rooms = parseInt(roomsInputDom.value) || 1;
                 } else {
                     if (type === 'adults') {
                         adults = Math.max(1, adults + change);
@@ -369,15 +1226,10 @@
                         childrenInputDom.value = children;
                     }
                 }
-
                 adults = Math.max(1, adults);
                 children = Math.max(0, children);
-
-
                 adultsInputDom.value = adults;
                 childrenInputDom.value = children;
-
-
                 summary.textContent = `${adults} Người lớn | ${children} Trẻ em`;
             };
 
@@ -385,20 +1237,20 @@
                 document.getElementById('guestsDropdown').classList.add('hidden');
             };
 
-            // Hàm định dạng số với dấu phân cách hàng nghìn
+            // Format number with commas
             function formatNumberWithCommas(number) {
                 return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
 
-            // Cập nhật nhãn giá và lưu giá trị maxPrice
+            // Update price label
             window.updatePriceLabel = function(value) {
                 const priceLabel = document.getElementById('priceLabel');
                 const formattedPrice = formatNumberWithCommas(value);
                 priceLabel.textContent = `Giá mỗi đêm từ 100,000 đến ${formattedPrice} (VND)`;
-                selectedMaxPrice = value; // Lưu giá trị maxPrice
+                selectedMaxPrice = value;
             };
 
-            // Cập nhật danh sách loại chỗ nghỉ đã chọn
+            // Update room types
             window.updateRoomTypes = function(checkbox) {
                 const value = parseInt(checkbox.value);
                 if (checkbox.checked) {
@@ -408,39 +1260,50 @@
                 } else {
                     selectedRoomTypeIds = selectedRoomTypeIds.filter(id => id !== value);
                 }
+                submitForm();
             };
 
-            // Cập nhật danh sách tiện nghi đã chọn
-            window.updateServices = function(checkbox) {
+            // Update amenities
+            window.updateAmenities = function(checkbox) {
                 const value = parseInt(checkbox.value);
                 if (checkbox.checked) {
-                    if (!selectedServiceIds.includes(value)) {
-                        selectedServiceIds.push(value);
+                    if (!selectedAmenityIds.includes(value)) {
+                        selectedAmenityIds.push(value);
                     }
                 } else {
-                    selectedServiceIds = selectedServiceIds.filter(id => id !== value);
+                    selectedAmenityIds = selectedAmenityIds.filter(id => id !== value);
                 }
+                submitForm();
             };
 
-            // Xử lý ngày check-in và check-out
+            // Update star ratings
+            window.updateStarRatings = function(checkbox) {
+                const value = parseInt(checkbox.value);
+                if (checkbox.checked) {
+                    if (!selectedStarRatings.includes(value)) {
+                        selectedStarRatings.push(value);
+                    }
+                } else {
+                    selectedStarRatings = selectedStarRatings.filter(id => id !== value);
+                }
+                submitForm();
+            };
+
+            // Handle check-in and check-out dates
             const checkinInput = document.getElementById('checkin');
             const checkoutInput = document.getElementById('checkout');
 
-            // Hàm lấy ngày hiện tại dưới định dạng yyyy-MM-dd
             function getToday() {
                 const today = new Date();
                 return today.toISOString().split('T')[0];
             }
 
-            // Hàm cập nhật ngày tối thiểu cho check-out
             function updateCheckoutMinDate() {
                 const checkinDate = checkinInput.value;
                 if (checkinDate) {
                     const minCheckoutDate = new Date(checkinDate);
                     minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
                     checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
-
-                    // Kiểm tra nếu ngày check-out hiện tại không hợp lệ
                     if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(checkinDate)) {
                         checkoutInput.value = minCheckoutDate.toISOString().split('T')[0];
                         alert('Ngày trả phòng phải sau ngày nhận phòng. Ngày trả phòng đã được điều chỉnh.');
@@ -450,7 +1313,6 @@
                 }
             }
 
-            // Kiểm tra khi chọn ngày check-out
             checkoutInput.addEventListener('change', () => {
                 if (!checkinInput.value) {
                     alert('Vui lòng chọn ngày nhận phòng.');
@@ -460,23 +1322,16 @@
                 }
             });
 
-            // Đặt ngày tối thiểu cho check-in là hôm nay
             checkinInput.min = getToday();
-
-            // Cập nhật ngày tối thiểu cho check-out khi check-in thay đổi
             checkinInput.addEventListener('change', updateCheckoutMinDate);
-
-            // Khởi tạo ngày tối thiểu cho check-out khi tải trang
             updateCheckoutMinDate();
 
-            // Xử lý khi nhấn nút "Tìm kiếm" (chỉ kiểm tra và submit form)
-            form.addEventListener('submit', (e) => {
-                e.preventDefault(); // Ngăn gửi form mặc định tạm thời để kiểm tra
-
+            // Submit form
+            function submitForm() {
+                const form = document.getElementById('searchForm');
                 const checkin = checkinInput.value;
                 const checkout = checkoutInput.value;
 
-                // Kiểm tra các trường đã nhập
                 if (!checkin) {
                     alert('Vui lòng chọn ngày nhận phòng.');
                     return;
@@ -486,7 +1341,6 @@
                     return;
                 }
 
-                // Kiểm tra ngày check-in không được nhỏ hơn hôm nay
                 const today = new Date(getToday());
                 const checkinDate = new Date(checkin);
                 if (checkinDate < today) {
@@ -494,18 +1348,25 @@
                     return;
                 }
 
-                // Kiểm tra ngày check-out phải sau ngày check-in
                 const checkoutDate = new Date(checkout);
                 if (checkinDate >= checkoutDate) {
                     alert('Ngày trả phòng phải sau ngày nhận phòng.');
                     return;
                 }
 
-                // Thêm các tham số bộ lọc ẩn vào form
+                // Update selectedRoomIds
+                selectedIdsInput.value = getSelectedRoomIds();
+
+                const minPriceInput = document.createElement('input');
+                minPriceInput.type = 'hidden';
+                minPriceInput.name = 'minPrice';
+                minPriceInput.value = document.getElementById('minPrice').value || 0;
+                form.appendChild(minPriceInput);
+
                 const maxPriceInput = document.createElement('input');
                 maxPriceInput.type = 'hidden';
                 maxPriceInput.name = 'maxPrice';
-                maxPriceInput.value = selectedMaxPrice;
+                maxPriceInput.value = document.getElementById('maxPrice').value || selectedMaxPrice;
                 form.appendChild(maxPriceInput);
 
                 const roomTypeIdsInput = document.createElement('input');
@@ -514,66 +1375,220 @@
                 roomTypeIdsInput.value = selectedRoomTypeIds.join(',');
                 form.appendChild(roomTypeIdsInput);
 
-                const serviceIdsInput = document.createElement('input');
-                serviceIdsInput.type = 'hidden';
-                serviceIdsInput.name = 'serviceIds';
-                serviceIdsInput.value = selectedServiceIds.join(',');
-                form.appendChild(serviceIdsInput);
+                const amenityIdsInput = document.createElement('input');
+                amenityIdsInput.type = 'hidden';
+                amenityIdsInput.name = 'amenityIds';
+                amenityIdsInput.value = selectedAmenityIds.join(',');
+                form.appendChild(amenityIdsInput);
 
-                // Cập nhật giao diện trước khi gửi
+                const starRatingsInput = document.createElement('input');
+                starRatingsInput.type = 'hidden';
+                starRatingsInput.name = 'starRatings';
+                starRatingsInput.value = selectedStarRatings.join(',');
+                form.appendChild(starRatingsInput);
+
                 updateDaysDisplay();
-
-                // Cho phép form gửi
                 form.submit();
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                submitForm();
             });
 
             window.applySort = function(sortValue) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('sort', sortValue);
                 url.searchParams.set('page', '1');
+                const selectedIds = getSelectedRoomIds();
+                if (selectedIds) {
+                    url.searchParams.set('selectedRoomIds', selectedIds);
+                }
                 window.location.href = url.toString();
             };
 
-            // Initialize days display
-            updateDaysDisplay();
-
-            // Gọi hàm updatePriceLabel khi trang tải để hiển thị giá trị ban đầu
-            updatePriceLabel(document.getElementById('priceRange').value);
-        });
-
-                document.addEventListener('DOMContentLoaded', function () {
-            const checkboxes = document.querySelectorAll('.room-checkbox');
+            // Room selection logic
             const selectedList = document.getElementById('selectedRoomsList');
-
             function updateSelectedList() {
                 selectedList.innerHTML = '';
-                checkboxes.forEach(checkbox => {
-                    if (checkbox.checked) {
-                        const card = checkbox.closest('.hotel-card');
+                const buttons = document.querySelectorAll('.select-room-btn');
+                const selectedRoomIds = [];
+
+                buttons.forEach(button => {
+                    if (button.classList.contains('selected')) {
+                        const roomId = button.dataset.roomid;
+                        const card = button.closest('.hotel-card');
                         const roomNumber = card.getAttribute('data-roomnumber');
                         const roomPrice = card.getAttribute('data-roomprice');
-                        const roomId = checkbox.value;
 
                         const li = document.createElement('li');
-                        li.className = "flex items-center justify-between";
+                        li.className = 'flex items-center justify-between';
                         li.setAttribute('data-roomid', roomId);
-
                         li.innerHTML = `
                             <span>Phòng ${roomNumber} - Giá: ${roomPrice} VND</span>
+                            <i class="fas fa-trash-alt trash-icon" title="Xóa phòng"></i>
                             <input type="hidden" name="selectedRoomIds" value="${roomId}" />
                         `;
-
                         selectedList.appendChild(li);
+                        selectedRoomIds.push(roomId);
                     }
                 });
+
+                let selectedRoomIdsInput = document.getElementById('selectedRoomIds');
+                if (!selectedRoomIdsInput) {
+                    selectedRoomIdsInput = document.createElement('input');
+                    selectedRoomIdsInput.type = 'hidden';
+                    selectedRoomIdsInput.id = 'selectedRoomIds';
+                    selectedRoomIdsInput.name = 'selectedRoomIds';
+                    document.querySelector('form[asp-action="Index"]').appendChild(selectedRoomIdsInput);
+                }
+                selectedRoomIdsInput.value = selectedRoomIds.join(',');
             }
 
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateSelectedList);
+            document.querySelectorAll('.select-room-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const isSelected = this.classList.contains('selected');
+                    if (!isSelected) {
+                        this.classList.add('selected');
+                        this.textContent = 'Hủy chọn';
+                    } else {
+                        this.classList.remove('selected');
+                        this.textContent = 'Chọn';
+                    }
+                    updateSelectedList();
+                });
             });
 
-            updateSelectedList(); // Khởi tạo ban đầu nếu có phòng đã được chọn
-        });
+            selectedList.addEventListener('click', function (e) {
+                if (e.target.classList.contains('trash-icon')) {
+                    const li = e.target.closest('li');
+                    const roomId = li.dataset.roomid;
+                    li.remove();
 
+                    const button = document.querySelector(`.select-room-btn[data-roomid="${roomId}"]`);
+                    if (button) {
+                        button.classList.remove('selected');
+                        button.textContent = 'Chọn';
+                    }
+                    updateSelectedList();
+                }
+            });
+
+            updateSelectedList();
+            updateDaysDisplay();
+            updatePriceLabel(document.getElementById('priceRange')?.value || @(ViewBag.MaxPrice ?? 10000000));
+        });
     </script>
+   <script>
+               function toggleFilters() {
+            const filtersGrid = document.getElementById('filtersGrid');
+            const toggleText = document.getElementById('filtersToggleText');
+            const toggleIcon = document.getElementById('filtersToggleIcon');
+
+            if (filtersGrid.style.display === 'none') {
+                filtersGrid.style.display = 'grid';
+                toggleText.textContent = 'Thu gọn';
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+            } else {
+                filtersGrid.style.display = 'none';
+                toggleText.textContent = 'Mở rộng';
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+            }
+        }
+
+        function setQuickPrice(min, max) {
+            const minPriceInput = document.getElementById('minPrice');
+            const maxPriceInput = document.getElementById('maxPrice');
+            const minPriceRange = document.getElementById('priceRangeMin');
+            const maxPriceRange = document.getElementById('priceRangeMax');
+
+            minPriceInput.value = min;
+            maxPriceInput.value = max;
+            minPriceRange.value = min;
+            maxPriceRange.value = max;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const minPriceInput = document.getElementById('minPrice');
+            const maxPriceInput = document.getElementById('maxPrice');
+            const minPriceRange = document.getElementById('priceRangeMin');
+            const maxPriceRange = document.getElementById('priceRangeMax');
+
+            minPriceInput.addEventListener('input', () => {
+                minPriceRange.value = minPriceInput.value;
+            });
+
+            maxPriceInput.addEventListener('input', () => {
+                maxPriceRange.value = maxPriceInput.value;
+            });
+
+            minPriceRange.addEventListener('input', () => {
+                minPriceInput.value = minPriceRange.value;
+            });
+
+            maxPriceRange.addEventListener('input', () => {
+                maxPriceInput.value = maxPriceRange.value;
+            });
+        });
+    </script>
+    <script>
+        const minInput = document.getElementById('minPrice');
+        const maxInput = document.getElementById('maxPrice');
+        const rangeMin = document.getElementById('priceRangeMin');
+        const rangeMax = document.getElementById('priceRangeMax');
+
+        function syncPriceInputs() {
+            let min = parseInt(minInput.value) || 0;
+            let max = parseInt(maxInput.value) || 10000000;
+
+            // Đảm bảo min <= max
+            if (min > max) {
+                [min, max] = [max, min];
+                alert('Giá tối thiểu đã được điều chỉnh để nhỏ hơn hoặc bằng giá tối đa.');
+            }
+
+            rangeMin.value = min;
+            rangeMax.value = max;
+        }
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        function syncPriceSliders() {
+            let min = parseInt(rangeMin.value);
+            let max = parseInt(rangeMax.value);
+
+            if (min > max) {
+                [min, max] = [max, min];
+            }
+
+            minInput.value = min;
+            maxInput.value = max;
+        }
+
+        // Sự kiện thay đổi input
+        minInput.addEventListener('input', debounce(syncPriceInputs, 300));
+        maxInput.addEventListener('input', debounce(syncPriceInputs, 300));
+        rangeMin.addEventListener('input', debounce(syncPriceSliders, 300));
+        rangeMax.addEventListener('input', debounce(syncPriceSliders, 300));
+
+        // Nút chọn nhanh
+        function setQuickPrice(min, max) {
+            minInput.value = min;
+            maxInput.value = max;
+            rangeMin.value = min;
+            rangeMax.value = max;
+            document.getElementById('searchForm').submit();
+        }
+    </script>
+
 </body>

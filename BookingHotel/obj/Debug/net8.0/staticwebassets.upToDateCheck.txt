@@ -18,7 +18,10 @@ wwwroot\images\Employee\assassins-creed-VALHALLA.jpg
 wwwroot\images\Employee\nophoto.png
 wwwroot\images\Employee\z6389780119770_7a8dda9983bde416bfa1c0ddc34f4514.jpg
 wwwroot\images\Room\assassins-creed-VALHALLA.jpg
+wwwroot\images\Room\content.png
 wwwroot\images\Room\download.jpg
+wwwroot\images\Room\ExtraImages\content.png
+wwwroot\images\Room\ExtraImages\download.jpg
 wwwroot\images\Room\ExtraImages\Screenshot 2025-05-06 154954.png
 wwwroot\images\Room\ExtraImages\Screenshot 2025-05-07 112640.png
 wwwroot\images\Room\ExtraImages\Screenshot 2025-05-07 141426.png
@@ -32,6 +35,7 @@ wwwroot\images\Room\Screenshot 2025-05-07 152830.png
 wwwroot\images\Room\Screenshot 2025-05-08 131306.png
 wwwroot\images\Room\Screenshot 2025-05-08 131316.png
 wwwroot\images\Room\Untitled.png
+wwwroot\images\Room\z6642125407800_eed47b5efdc9e8883c8cf90b9d5f92b7.jpg
 wwwroot\js\login.js
 wwwroot\js\logintab.js
 wwwroot\js\PageJS\_MainHeader2.js

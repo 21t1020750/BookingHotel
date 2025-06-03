@@ -130,6 +130,7 @@
                             <th>Mô Tả</th>
                             <th style="width:80px"></th>
                             <th style="width:80px"></th>
+                            <th style="width:80px"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -155,6 +156,28 @@
                                     <a href="~/Admin/Rooms/Delete/@room.RoomID" class="btn btn-xs btn-danger" onclick="return confirmDelete()">
                                         <i class="fa fa-remove"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    @if (room.IsDisplay)
+                                    {
+                                        <form asp-action="IsDisplay" asp-controller="Rooms" method="post">
+                                            <input type="hidden" name="id" value="@room.RoomID" />
+                                            <button type="submit" class="btn btn-sm btn-warning"
+                                                    onclick="return confirm('Bạn có chắc muốn ẩn mục này không?');">
+                                                Ẩn
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <form asp-action="IsDisplay" asp-controller="Rooms" method="post">
+                                            <input type="hidden" name="id" value="@room.RoomID" />
+                                            <button type="submit" class="btn btn-sm btn-success"
+                                                    onclick="return confirm('Bạn có chắc muốn phục hồi mục này không?');">
+                                                Phục hồi
+                                            </button>
+                                        </form>
+                                    }
                                 </td>
                             </tr>
                         }

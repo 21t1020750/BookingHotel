@@ -1151,10 +1151,10 @@ D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets\ms
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookingHotel.props
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookingHotel.props
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets.pack.json
+D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingH.DFADDD51.Up2Date
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.dll
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\refint\BookingHotel.dll
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.pdb
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\BookingHotel.genruntimeconfig.cache
 D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\ref\BookingHotel.dll
-D:\CNTT\Full-stack\BookingHotel\BookingHotel\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

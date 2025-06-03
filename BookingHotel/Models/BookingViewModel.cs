@@ -10,7 +10,7 @@ namespace BookingHotel.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Photo { get; set; }
-        public List<string> Services { get; set; } // Danh sách tiện nghi
+        public List<string> Services { get; set; }
         public DateTime Checkin { get; set; }
         public DateTime Checkout { get; set; }
         public int Adults { get; set; }
@@ -27,12 +27,9 @@ namespace BookingHotel.Models
         public List<RoomInfo> RoomInfo { get; set; }
         public List<Service> AllServices { get; set; }
         public List<ServiceInfo> SelectedServices { get; set; } = new List<ServiceInfo>();
-
-        // Tổng tiền phòng, dịch vụ, tổng thanh toán
         public decimal RoomTotal { get; set; }
         public decimal TotalRoomPrice { get; set; }
         public decimal TotalServicePrice { get; set; }
-
     }
 
     public class RoomInfo
@@ -41,6 +38,10 @@ namespace BookingHotel.Models
         public string RoomNumber { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public decimal DiscountedPrice { get; set; } // Giá sau giảm
+        public int? AppliedOfferId { get; set; } // ID ưu đãi
+        public string AppliedOfferName { get; set; } // Tên ưu đãi
+        public decimal DiscountPercentage { get; set; } // % giảm
     }
 
     public class ServiceInfo
@@ -48,6 +49,6 @@ namespace BookingHotel.Models
         public int ServiceId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Quantity { get; set; }  // Nếu bạn cần số lượng dịch vụ
+        public int Quantity { get; set; }
     }
 }

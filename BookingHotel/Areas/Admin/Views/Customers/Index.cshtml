@@ -129,6 +129,7 @@
                             <th>Ngày sinh</th>
                             <th>Ngày Tạo TK</th>
                             <th style="width:80px"></th>
+                            <th style="width:80px"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -149,6 +150,24 @@
                                     <a href="~/Admin/Customers/Delete/@customer.CustomerID" class="btn btn-xs btn-danger" onclick="return confirmDelete()">
                                         <i class="fa fa-remove"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    @if (customer.IsBlock)
+                                    {
+                                        <a href="~/Admin/Customers/Block?id=@customer.CustomerID"
+                                           class="btn btn-sm btn-warning"
+                                           onclick="return confirm('Bạn có chắc muốn mở khóa tài khoản này không?');">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Admin/Customers/Block?id=@customer.CustomerID"
+                                           class="btn btn-sm btn-success"
+                                           onclick="return confirm('Bạn có chắc muốn khóa tài khoản này không?');">
+                                            <i class="fa-solid fa-lock-open"></i>
+                                        </a>
+                                    }
                                 </td>
                             </tr>
                         }

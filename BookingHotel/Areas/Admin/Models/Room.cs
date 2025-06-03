@@ -5,6 +5,11 @@ namespace BookingHotel.Areas.Admin.Models
 {
     public class Room
     {
+        // Thuộc tính cho ưu đãi
+        [NotMapped]
+        public decimal DiscountedPrice { get; set; }
+        [NotMapped]
+        public int? AppliedOfferId { get; set; }
         public int RoomID { get; set; }
         public string RoomNumber { get; set; } = "";
         public decimal Price { get; set; }
@@ -19,5 +24,8 @@ namespace BookingHotel.Areas.Admin.Models
         [NotMapped]
         public List<IFormFile> NewImages { get; set; }
         public List<RoomService> RoomServices { get; set; } = new List<RoomService>();
+        // Add this property to fix the error
+        public List<RoomAmenitie> RoomAmenities { get; set; }
+        public bool IsDisplay { get; set; }
     }
 }

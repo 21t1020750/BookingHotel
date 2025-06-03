@@ -10,7 +10,10 @@ namespace BookingHotel.Areas.Admin.Data
             : base(options)
         {
         }
-
+        // Add Offers
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<OfferHighlight> OfferHighlights { get; set; }
         // Existing DbSet properties for the booking system
         public DbSet<Room> Rooms { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
@@ -40,6 +43,9 @@ namespace BookingHotel.Areas.Admin.Data
         public DbSet<RestaurantTag> Restaurant_Tags { get; set; }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<HeroImage> HeroImages { get; set; }
+
+        // Add DbSet RoomAmenities
+        public DbSet<RoomAmenitie> RoomAmenities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -146,6 +152,55 @@ namespace BookingHotel.Areas.Admin.Data
                 .WithMany()
                 .HasForeignKey(rt => rt.TagID)
                 .OnDelete(DeleteBehavior.Cascade);
+            //Offers
+
+            // Configure Category entity
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Offers)
+                .WithOne(o => o.Category)
+                .HasForeignKey(o => o.CategoryId);
+            modelBuilder.Entity<Category>()
+                .Property(c => c.CreatedAt)
+                .HasColumnType("DATETIME");
+            modelBuilder.Entity<Category>()
+                .Property(c => c.UpdatedAt)
+                .HasColumnType("DATETIME");
+
+            // Configure Offer entity
+            modelBuilder.Entity<Offer>()
+                .HasMany(o => o.Highlights)
+                .WithOne(h => h.Offer)
+                .HasForeignKey(h => h.OfferId);
+            modelBuilder.Entity<Offer>()
+                .Property(o => o.CreatedAt)
+                .HasColumnType("DATETIME");
+            modelBuilder.Entity<Offer>()
+                .Property(o => o.UpdatedAt)
+                .HasColumnType("DATETIME");
+
+            // Configure OfferHighlight entity
+            modelBuilder.Entity<OfferHighlight>()
+                .HasKey(h => h.HighlightId);
+            modelBuilder.Entity<OfferHighlight>()
+                .Property(h => h.CreatedAt)
+                .HasColumnType("DATETIME");
+            modelBuilder.Entity<OfferHighlight>()
+                .Property(h => h.UpdatedAt)
+                .HasColumnType("DATETIME");
+
+            // Configure RoomAmenities entity
+            modelBuilder.Entity<RoomAmenitie>()
+                .HasKey(rs => new { rs.RoomID, rs.AmenitieID });
+
+            modelBuilder.Entity<RoomAmenitie>()
+                .HasOne(rs => rs.Room)
+                .WithMany(r => r.RoomAmenities)
+                .HasForeignKey(rs => rs.RoomID);
+
+            modelBuilder.Entity<RoomAmenitie>()
+                .HasOne(rs => rs.Amenities)
+                .WithMany()
+                .HasForeignKey(rs => rs.AmenitieID);
 
             // No additional relationships needed for other content entities
         }

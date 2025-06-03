@@ -41,11 +41,7 @@
                         <i class="fas fa-utensils mr-1 text-sm"></i> Ẩm thực
                     </a>
                 </div>
-                <div class="nav-link-wrapper @(currentPath.StartsWith("/facilities") ? "active" : "")">
-                    <a href="~/Facilities" class="nav-link">
-                        <i class="fas fa-swimming-pool mr-1 text-sm"></i> Tiện ích
-                    </a>
-                </div>
+              
                 <div class="nav-link-wrapper @(currentPath.StartsWith("/offers") ? "active" : "")">
                     <a href="~/Offers" class="nav-link">
                         <i class="fas fa-tags mr-1 text-sm"></i> Ưu đãi
@@ -136,9 +132,7 @@
             <a href="~/Dining" class="mobile-nav-link @(currentPath.StartsWith("/dining") ? "active" : "")">
                 <span><i class="fas fa-utensils mr-2"></i> Ẩm thực</span>
             </a>
-            <a href="~/Facilities" class="mobile-nav-link @(currentPath.StartsWith("/facilities") ? "active" : "")">
-                <span><i class="fas fa-swimming-pool mr-2"></i> Tiện ích</span>
-            </a>
+         
             <a href="~/Offers" class="mobile-nav-link @(currentPath.StartsWith("/offers") ? "active" : "")">
                 <span><i class="fas fa-tags mr-2"></i> Ưu đãi</span>
                 @if (new Random().Next(0, 2) == 1)

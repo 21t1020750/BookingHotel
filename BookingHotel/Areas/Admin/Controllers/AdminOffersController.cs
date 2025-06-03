@@ -108,9 +108,8 @@ namespace BookingHotel.Areas.Admin.Controllers
                     existingOffer.Description = offer.Description;
                     existingOffer.CategoryId = offer.CategoryId;
                     existingOffer.DiscountPercentage = offer.DiscountPercentage;
-                    existingOffer.OriginalPrice = offer.OriginalPrice;
-                    existingOffer.DiscountedPrice = offer.DiscountedPrice;
-                    existingOffer.PriceUnit = offer.PriceUnit;
+               
+                  
                     existingOffer.ValidUntil = offer.ValidUntil;
                     existingOffer.IconClass = offer.IconClass;
                     existingOffer.AltText = offer.AltText;

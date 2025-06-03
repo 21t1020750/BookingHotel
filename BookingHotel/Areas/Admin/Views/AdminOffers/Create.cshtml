@@ -25,21 +25,7 @@
         <input asp-for="DiscountPercentage" class="form-control" type="number" />
         <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="OriginalPrice">Giá gốc</label>
-        <input asp-for="OriginalPrice" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="OriginalPrice" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DiscountedPrice">Giá sau giảm</label>
-        <input asp-for="DiscountedPrice" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="DiscountedPrice" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="PriceUnit">Đơn vị giá</label>
-        <input asp-for="PriceUnit" class="form-control" />
-        <span asp-validation-for="PriceUnit" class="text-danger"></span>
-    </div>
+
     <div class="form-group">
         <label asp-for="ValidUntil">Hiệu lực đến</label>
         <input asp-for="ValidUntil" class="form-control" type="date" />

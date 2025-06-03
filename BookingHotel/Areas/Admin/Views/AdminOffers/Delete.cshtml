@@ -14,10 +14,7 @@
         <dd class="col-sm-10">@Model.Description</dd>
         <dt class="col-sm-2">Giảm giá</dt>
         <dd class="col-sm-10">@Model.DiscountPercentage%</dd>
-        <dt class="col-sm-2">Giá gốc</dt>
-        <dd class="col-sm-10">@Model.OriginalPrice.ToString("C0")</dd>
-        <dt class="col-sm-2">Giá sau giảm</dt>
-        <dd class="col-sm-10">@Model.DiscountedPrice.ToString("C0")</dd>
+    
     </dl>
     <form asp-action="Delete">
         <input type="hidden" asp-for="OfferId" />

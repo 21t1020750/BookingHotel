@@ -60,12 +60,11 @@
                 ? "https://via.placeholder.com/1587x800?text=No+Image"
                 : $"/images/room/{Uri.EscapeDataString(room.Photo)}";
 
-                // Tính giá thấp nhất và cao nhất trong cùng RoomType
                 var minPrice = roomType.Rooms.Any() ? roomType.Rooms.Min(r => r.Price) : 0;
                 var maxPrice = roomType.Rooms.Any() ? roomType.Rooms.Max(r => r.Price) : 0;
 
                 <section class="section-bg section-@roomType.RoomTypeID">
-                    <div class="collage-section">
+                    <div class="collage-section" onclick="navigateToFindRoom(@roomType.RoomTypeID)" style="cursor: pointer;">
                         <div class="collage-image main-image">
                             <img src="@Url.Content(mainImage)" alt="@roomType.TypeName main" />
                         </div>
@@ -77,7 +76,7 @@
                             <div class="price-text">
                                 @(roomType.Rooms.Any() ? $"Từ ${minPrice} - ${maxPrice}/đêm" : "Giá không khả dụng")
                             </div>
-                            <button class="btn-custom">Xem thêm chi tiết</button>
+                            <button class="btn-custom" onclick="event.stopPropagation(); navigateToFindRoom(@roomType.RoomTypeID);">Đặt phòng ngay</button>
                         </div>
                         <div class="sub-images-container">
                             @{
@@ -98,22 +97,20 @@
                 </section>
             }
         </div>
-    </section>
 
-    <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+        <!-- JavaScript để xử lý chuyển hướng -->
+        <script>
+            function navigateToFindRoom(roomTypeId) {
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(today.getDate() + 1);
+
+                const checkin = today.toISOString().split('T')[0];
+                const checkout = tomorrow.toISOString().split('T')[0];
+
+                const url = `/Find_Room?roomTypeIds=${roomTypeId}&checkin=${checkin}&checkout=${checkout}&adults=1&children=0&rooms=1`;
+                window.location.href = url;
+            }
+        </script>
+    </section>
 </body>

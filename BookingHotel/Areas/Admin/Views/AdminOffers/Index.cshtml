@@ -9,9 +9,7 @@
     <thead>
         <tr>
             <th>Tiêu đề</th>
-            <th>Danh mục</th>
-            <th>Giá gốc</th>
-            <th>Giá sau giảm</th>
+            <th>Danh mục</th>       
             <th>Hiệu lực đến</th>
             <th>Kích hoạt</th>
             <th>Hành động</th>
@@ -23,8 +21,7 @@
             <tr>
                 <td>@offer.Title</td>
                 <td>@offer.Category.CategoryName</td>
-                <td>@offer.OriginalPrice.ToString("C0")</td>
-                <td>@offer.DiscountedPrice.ToString("C0")</td>
+           
                 <td>@offer.ValidUntil.ToString("dd/MM/yyyy")</td>
                 <td>@(offer.IsActive ? "Có" : "Không")</td>
                 <td>

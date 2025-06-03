@@ -128,7 +128,7 @@
                     {
                         <tr>
                             <td>@item.Name</td>
-                            <td>@item.Description</td>
+                            <td>@Html.Raw(@item.Description)</td>                         
                             <td>@item.Icon</td>
                             <td>
                                 <a href="~/Admin/ContentAmenities/Edit/@item.Id" class="btn btn-xs btn-info">

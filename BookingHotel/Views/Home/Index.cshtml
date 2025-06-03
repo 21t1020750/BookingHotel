@@ -175,7 +175,7 @@
                                         <img src="@image.ImageUrl" alt="@image.Title" class="w-full h-full object-cover" loading="lazy">
                                         <div class="card-overlay">
                                             <h3 class="card-title">@image.Title</h3>
-                                            <p class="card-subtitle">@image.Description</p>
+                                            <p class="card-subtitle">@Html.Raw(@image.Description)</p>
                                         </div>
                                         <a href="@Url.Action("Details", "Location", new { id = index + 1 })" class="view-more">
                                             <i class="fas fa-arrow-right"></i>
@@ -533,7 +533,7 @@
                                 <div class="stats-label">GIẢI THƯỞNG QUỐC TẾ</div>
                             </div>
                             <div class="stats-card text-center lg:text-left">
-                                <div class="stats-number">12</div>
+                                <div class="stats-number">12+</div>
                                 <div class="stats-label">NĂM KINH NGHIỆM</div>
                             </div>
                             <div class="stats-card">
@@ -576,7 +576,10 @@
                         {
                             @foreach (var room in Model.Rooms)
                             {
-                                <div class="room-card bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[392px]" alt="@room.RoomType.TypeName">
+                                <div class="room-card bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[392px]"
+                                     alt="@room.RoomType.TypeName"
+                                     data-roomtypeid="@room.RoomType.RoomTypeID"
+                                     onclick="navigateToFindRoom(@room.RoomType.RoomTypeID)">
                                     <div class="relative w-full h-full">
                                         <img src="@room.ImageUrl" alt="@room.RoomType.TypeName" class="w-full h-full object-cover" loading="lazy">
                                         <div class="absolute top-4 left-4 text-white px-2 py-1">
@@ -685,7 +688,7 @@
                 }
 
                 .room-card h3 {
-                    text-shadow: 0 3px 10px rgba(0,0,0,0.7); /* Tăng shadow để dễ đọc */
+                    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
                     letter-spacing: 0.5px;
                 }
 
@@ -781,7 +784,7 @@
                     }
             </style>
 
-            <!-- JavaScript để xử lý carousel -->
+            <!-- JavaScript để xử lý carousel và chuyển hướng -->
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const roomCarousel = document.getElementById('room-carousel');
@@ -891,11 +894,23 @@
                     // Khởi tạo
                     if (roomTotalItems > 0) {
                         updateRoomCarousel();
-                        startAutoPlay(); // Start auto-play
+                        startAutoPlay();
                     }
                 });
+
+                // Hàm chuyển hướng đến Find_Room với roomTypeId
+                function navigateToFindRoom(roomTypeId) {
+                    const today = new Date();
+                    const tomorrow = new Date(today);
+                    tomorrow.setDate(today.getDate() + 1);
+
+                    const checkin = today.toISOString().split('T')[0];
+                    const checkout = tomorrow.toISOString().split('T')[0];
+
+                    const url = `/Find_Room?roomTypeIds=${roomTypeId}&checkin=${checkin}&checkout=${checkout}&adults=1&children=0&rooms=1`;
+                    window.location.href = url;
+                }
             </script>
-        </section>
 
         <section class="bg-gray-100 py-16" alt="Tiện Ích Phòng">
             <div class="mx-auto max-w-full w-[1200px] px-4 sm:px-6 lg:px-8">
@@ -913,7 +928,7 @@
                                     <div class="amenity-card bg-white p-6 rounded-lg shadow-sm text-center flex-shrink-0 w-[280px]" alt="@amenity.Name">
                                         <i class="@amenity.Icon text-4xl text-blue-500 mb-4"></i>
                                         <h3 class="text-lg font-semibold text-gray-800 mb-2">@amenity.Name</h3>
-                                        <p class="text-gray-600">@amenity.Description</p>
+                                        <p class="text-gray-600">@Html.Raw(@amenity.Description)</p>
                                     </div>
                                 }
                             }
